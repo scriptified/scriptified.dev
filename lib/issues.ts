@@ -23,7 +23,7 @@ export function getSortedIssuesData() {
     // Combine the data with the id
     return {
       id,
-      ...matterResult.data,
+      ...(matterResult.data as { date: string; title: string })
     };
   });
   // Sort issues by date
@@ -61,7 +61,7 @@ export function getAllIssueIds() {
   });
 }
 
-export async function getIssueData(id) {
+export async function getIssueData(id: string) {
   const fullPath = path.join(issuesDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
