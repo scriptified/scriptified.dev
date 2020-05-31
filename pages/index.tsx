@@ -1,19 +1,19 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedIssuesData } from '../lib/issues'
-import Link from 'next/link'
-import Date from '../components/date'
-import { GetStaticProps } from 'next'
+import Head from 'next/head';
+import Link from 'next/link';
+import { GetStaticProps } from 'next';
+import Layout, { siteTitle } from '../components/layout';
+import utilStyles from '../styles/utils.module.css';
+import { getSortedIssuesData } from '../lib/issues';
+import Date from '../components/date';
 
 export default function Home({
-  allIssuesData
+  allIssuesData,
 }: {
   allIssuesData: {
-    date: string
-    title: string
-    id: string
-  }[]
+    date: string;
+    title: string;
+    id: string;
+  }[];
 }) {
   return (
     <Layout home>
@@ -44,14 +44,14 @@ export default function Home({
         </ul>
       </section>
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allIssuesData = getSortedIssuesData()
+  const allIssuesData = getSortedIssuesData();
   return {
     props: {
-      allIssuesData
-    }
-  }
-}
+      allIssuesData,
+    },
+  };
+};
