@@ -3,7 +3,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import Layout from '../../components/layout';
 import { getAllIssueIds, getIssueData } from '../../lib/issues';
 import Date from '../../components/date';
-import utilStyles from '../../styles/utils.module.css';
+// import utilStyles from "../../styles/utils.module.css";
 
 export default function Issue({
   issueData,
@@ -13,15 +13,15 @@ export default function Issue({
     date: string;
     contentHtml: string;
   };
-}): JSX.Element {
+}) {
   return (
     <Layout>
       <Head>
         <title>{issueData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{issueData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <h1 className="text-4xl leading-snug font-extrabold my-4 mx-0">{issueData.title}</h1>
+        <div className="text-gray-600">
           <Date dateString={issueData.date} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: issueData.contentHtml }} />

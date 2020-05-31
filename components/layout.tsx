@@ -1,14 +1,14 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
+// import styles from "./layout.module.css";
+// import utilStyles from "../styles/utils.module.css";
 
-const name = '[Your Name]';
+const name = 'General Aladeen';
 export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
   return (
-    <div className={styles.container}>
+    <div className="max-w-xl py-0 px-4 mt-12 mx-auto mb-24">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Learn how to build a personal website using Next.js" />
@@ -21,30 +21,22 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <header className="flex flex-col items-center">
         {home ? (
           <>
-            <img
-              src="/images/profile.jpg"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-              alt={name}
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <img src="/images/profile.jpg" className="w-32 h-32 block rounded-full max-w-full" alt={name} />
+            <h1 className="text-4xl leading-tight font-extrabold tracking-tighter my-4 mx-0">{name}</h1>
           </>
         ) : (
           <>
             <Link href="/">
               <a>
-                <img
-                  src="/images/profile.jpg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                  alt={name}
-                />
+                <img src="/images/profile.jpg" className="w-24 h-24 block rounded-full max-w-full" alt={name} />
               </a>
             </Link>
-            <h2 className={utilStyles.headingLg}>
+            <h2 className="text-2xl leading-snug my-4 mx-0">
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <a className="no-underline hover:underline">{name}</a>
               </Link>
             </h2>
           </>
@@ -52,9 +44,9 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div className="my-12 mx-0">
           <Link href="/">
-            <a>← Back to home</a>
+            <a className="no-underline hover:underline">← Back to home</a>
           </Link>
         </div>
       )}
