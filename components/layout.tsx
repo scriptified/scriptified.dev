@@ -1,26 +1,17 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from 'next/head';
+import Link from 'next/link';
 // import styles from "./layout.module.css";
 // import utilStyles from "../styles/utils.module.css";
 
-const name = "General Aladeen";
-export const siteTitle = "Next.js Sample Website";
+const name = 'General Aladeen';
+export const siteTitle = 'Next.js Sample Website';
 
-export default function Layout({
-  children,
-  home,
-}: {
-  children: React.ReactNode;
-  home?: boolean;
-}) {
+export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
   return (
     <div className="max-w-xl py-0 px-4 mt-12 mx-auto mb-24">
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
+        <meta name="description" content="Learn how to build a personal website using Next.js" />
         <meta
           property="og:image"
           content={`https://og-image.now.sh/${encodeURI(
@@ -33,24 +24,14 @@ export default function Layout({
       <header className="flex flex-col items-center">
         {home ? (
           <>
-            <img
-              src="/images/profile.jpg"
-              className="w-32 h-32 block rounded-full max-w-full"
-              alt={name}
-            />
-            <h1 className="text-4xl leading-tight font-extrabold tracking-tighter my-4 mx-0">
-              {name}
-            </h1>
+            <img src="/images/profile.jpg" className="w-32 h-32 block rounded-full max-w-full" alt={name} />
+            <h1 className="text-4xl leading-tight font-extrabold tracking-tighter my-4 mx-0">{name}</h1>
           </>
         ) : (
           <>
             <Link href="/">
               <a>
-                <img
-                  src="/images/profile.jpg"
-                  className="w-24 h-24 block rounded-full max-w-full"
-                  alt={name}
-                />
+                <img src="/images/profile.jpg" className="w-24 h-24 block rounded-full max-w-full" alt={name} />
               </a>
             </Link>
             <h2 className="text-2xl leading-snug my-4 mx-0">
