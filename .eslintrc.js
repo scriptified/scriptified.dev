@@ -5,6 +5,7 @@ module.exports = {
     'eslint:recommended',
     'prettier',
     'prettier/react',
+    'plugin:react/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
   ],
@@ -39,6 +40,7 @@ module.exports = {
         allowTernary: true,
       },
     ],
+    'react/react-in-jsx-scope': 'off',
     'no-restricted-syntax': ['error', "BinaryExpression[operator='of']"],
     'no-prototype-builtins': 0,
     'class-methods-use-this': 0,
@@ -46,6 +48,11 @@ module.exports = {
     'import/no-cycle': 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
   env: {
     browser: true,
