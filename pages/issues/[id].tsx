@@ -1,31 +1,26 @@
 import Head from 'next/head';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Layout from '../../components/layout';
-import { getAllIssueIds, getIssueData } from '../../lib/issues';
-import Date from '../../components/date';
+import issues, { Issue } from '../../issues/issues';
+import { getAllIssueIds } from '../../lib/issues';
 // import utilStyles from "../../styles/utils.module.css";
 
-export default function Issue({
-  issueData,
-}: {
-  issueData: {
-    title: string;
-    date: string;
-    contentHtml: string;
-  };
-}) {
+export default function IssueComponent({ issueData }: { issueData: Issue }) {
   return (
     <Layout>
       <Head>
-        <title>{issueData.title}</title>
+        <title>{issueData.meta.title}</title>
       </Head>
-      <article>
-        <h1 className="text-4xl leading-snug font-extrabold my-4 mx-0">{issueData.title}</h1>
-        <div className="text-gray-600">
-          <Date dateString={issueData.date} />
+      {issueData.articles.map(({ title, url, author, desc }) => (
+        <div className="mt-0 mx-0 mb-5" key={url}>
+          <a href={url}>
+            <a className="text-green-600 font-sans font-semibold text-2xl no-underline hover:underline">{title}</a>
+          </a>
+          <br />
+          <p>{desc}</p>
+          <small className="text-gray-600">{author}</small>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: issueData.contentHtml }} />
-      </article>
+      ))}
     </Layout>
   );
 }
@@ -39,7 +34,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const issueData = await getIssueData(params.id as string);
+  const index: number = ((params.id as unknown) as number) - 1;
+  const issueData: Issue = issues[index];
   return {
     props: {
       issueData,
