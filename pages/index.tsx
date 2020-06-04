@@ -2,15 +2,14 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Layout, { siteTitle } from '../components/layout';
-import Date from '../components/date';
-import { getSortedIssuesData } from '../lib/issues';
+import { getAllIssuesMeta } from '../lib/issues';
 // import utilStyles from "../styles/utils.module.css";
 
 export default function Home({
   allIssuesData,
 }: {
   allIssuesData: {
-    date: string;
+    desc: string;
     title: string;
     id: string;
   }[];
@@ -34,17 +33,15 @@ export default function Home({
         </p>
       </section>
       <section className="text-lg leading-normal pt-px">
-        <h2 className="text-2xl leading-snug my-4 mx-0">Blog</h2>
+        <h2 className="text-2xl leading-snug my-4 mx-0">Issues</h2>
         <ul className="m-0 p-0 list-none">
-          {allIssuesData.map(({ id, date, title }) => (
+          {allIssuesData.map(({ id, desc, title }) => (
             <li className="mt-0 mx-0 mb-5" key={id}>
               <Link href="/issues/[id]" as={`/issues/${id}`}>
                 <a className="text-green-600 font-sans font-semibold text-2xl no-underline hover:underline">{title}</a>
               </Link>
               <br />
-              <small className="text-gray-600">
-                <Date dateString={date} />
-              </small>
+              <p>{desc}</p>
             </li>
           ))}
         </ul>
@@ -54,10 +51,9 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allIssuesData = getSortedIssuesData();
   return {
     props: {
-      allIssuesData,
+      allIssuesData: getAllIssuesMeta(),
     },
   };
 };
