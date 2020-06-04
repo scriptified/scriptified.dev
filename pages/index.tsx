@@ -33,7 +33,7 @@ export default function Home({
         </p>
       </section>
       <section className="text-lg leading-normal pt-px">
-        <h2 className="text-2xl leading-snug my-4 mx-0">Blog</h2>
+        <h2 className="text-2xl leading-snug my-4 mx-0">Issues</h2>
         <ul className="m-0 p-0 list-none">
           {allIssuesData.map(({ id, desc, title }) => (
             <li className="mt-0 mx-0 mb-5" key={id}>

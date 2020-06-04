@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Layout from '../../components/layout';
-import issues, { Issue } from '../../issues/issues';
+import { Issue } from '../../interfaces/issue';
+import issues from '../../issues/issues';
 import { getAllIssueIds } from '../../lib/issues';
 // import utilStyles from "../../styles/utils.module.css";
 
