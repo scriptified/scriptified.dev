@@ -1,13 +1,19 @@
 import Article from '../interfaces/article';
+import Text from './Text';
 
 const ArticleItem = ({ article: { title, desc, url, author } }: { article: Article }) => (
   <div className="mt-0 mx-0" key={url}>
     <a href={url}>
-      <a className="text-green-600 font-nunito font-semibold text-xl no-underline hover:underline">{title}</a>
+      <Text type="h3" color="green-5" additionalStyles="hover:underline">
+        {title}
+      </Text>
     </a>
-    <br />
-    <p className="font-nunito text-base my-2">{desc}</p>
-    <small className="font-nunito text-gray-600 text-sm">{author}</small>
+    <Text type="base" additionalStyles="my-2">
+      {desc}
+    </Text>
+    <Text type="small" color="gray-5">
+      {author}
+    </Text>
   </div>
 );
 

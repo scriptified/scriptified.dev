@@ -1,6 +1,10 @@
+import Text from './Text';
+
 const IssueItem = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="my-3">
-    <h1 className="font-nunito text-4xl font-bold text-black">{title}</h1>
+    <Text type="h1" color="black-0">
+      {title}
+    </Text>
     <div className="mt-1">{children}</div>
   </div>
 );
