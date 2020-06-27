@@ -33,6 +33,14 @@ export default [
         author: 'Microsoft',
         tags: ['JavaScript'],
       },
+      {
+        title: 'The Most Complete Spreadsheet for JavaScript Apps – SpreadJS :',
+        url: 'https://www.grapecity.com/spreadjs',
+        desc:
+          'Deliver true Excel-like experiences with this fast JavaScript enterprise spreadsheet solution. Build FinTech, analysis, budgeting, and forecasting apps. Featuring an Excel I/O, 450+ functions, tables, charts, sparklines, and more.',
+        author: 'Microsoft',
+        tags: ['JavaScript'],
+      },
     ],
 
     tools: [
