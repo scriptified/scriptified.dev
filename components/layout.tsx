@@ -4,7 +4,7 @@ import Link from 'next/link';
 // import utilStyles from "../styles/utils.module.css";
 
 const name = 'General Aladeen';
-export const siteTitle = 'Next.js Sample Website';
+export const siteTitle = 'Scriptified';
 
 export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
   return (
