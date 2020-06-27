@@ -11,6 +11,7 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
     <div className="max-w-xl py-0 px-4 mt-12 mx-auto mb-24">
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet" />
         <meta name="description" content="Learn how to build a personal website using Next.js" />
         <meta
           property="og:image"
