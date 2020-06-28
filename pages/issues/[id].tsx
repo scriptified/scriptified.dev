@@ -6,6 +6,8 @@ import issues from '../../issues/issues';
 import { getAllIssueIds } from '../../lib/issues';
 import IssueItem from '../../components/IssueItem';
 import ArticleItem from '../../components/ArticleItem';
+import Button from '../../components/Button';
+import SubscribeCard from '../../components/SubscribeCard';
 // import utilStyles from "../../styles/utils.module.css";
 
 export default function IssueComponent({ issueData }: { issueData: Issue }) {
@@ -19,6 +21,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }) {
           <ArticleItem article={article} key={article.url} />
         ))}
       </IssueItem>
+      <SubscribeCard />
     </Layout>
   );
 }
