@@ -1,7 +1,7 @@
 import Text from './Text';
 
 const IssueItem = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <div className="my-3">
+  <div className="my-20">
     <Text type="h1" color="black-0">
       {title}
     </Text>

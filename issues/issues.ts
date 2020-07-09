@@ -3,20 +3,20 @@ export default [
   {
     tipOfTheWeek: {
       snippet: `const Header = ({ children }) => (
-                <div>
-                 {children}
-                </div>
-             );
-             
-             const UselessMemoizedHeader = React.memo(Header);
-             
-             const SomeComponent = () => (
-                <div>
-                  <UselessMemoizedHeader>
-                     <SomeOtherComponent/>
-                  </UselessMemoizedHeader>
-                <div>
-             `,
+  <div>
+    {children}
+  </div>
+);
+
+const UselessMemoizedHeader = React.memo(Header);
+
+const SomeComponent = () => (
+  <div>
+    <UselessMemoizedHeader>
+        <SomeOtherComponent/>
+    </UselessMemoizedHeader>
+  <div>
+);`,
       desc:
         "There's no point in wrapping your component with React.memo if it accepts a children prop. Why? Because the children prop changes on every render.",
       sourceName: 'Google',
