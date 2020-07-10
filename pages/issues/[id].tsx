@@ -24,7 +24,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }) {
         <Text type="base" additionalStyles="my-2">
           {issueData.tipOfTheWeek.desc}
         </Text>
-        <CodeSnippet language="jsx" code={issueData.tipOfTheWeek.snippet} />
+        <CodeSnippet language="jsx" code={issueData.tipOfTheWeek.snippet.trim()} />
       </IssueItem>
       <IssueItem title="Articles">
         {issueData.articles.map(article => (
