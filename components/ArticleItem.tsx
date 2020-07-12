@@ -1,5 +1,5 @@
 import Article from '../interfaces/article';
-import Text from './Text';
+import Text from './common/Text';
 
 const ArticleItem = ({ article: { title, desc, url, author } }: { article: Article }) => (
   <div className="mt-0 mx-0 py-4" key={url}>

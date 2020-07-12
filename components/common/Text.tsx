@@ -1,4 +1,4 @@
-import { TextColor, TextType } from '../theme';
+import { TextColor, TextType } from '../../theme';
 
 // Example usage - <Text type="base" color="green-5"> Hello World </Text>
 const Text = ({

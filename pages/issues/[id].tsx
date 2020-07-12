@@ -1,15 +1,15 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import ArticleItem from '../../components/ArticleItem';
-import Button from '../../components/Button';
-import CodeSnippet from '../../components/CodeSnippet';
+import Button from '../../components/common/Button';
+import CodeSnippet from '../../components/common/CodeSnippet';
 import DevOfTheWeekItem from '../../components/DevOfTheWeekItem';
 import Head from 'next/head';
 import { Issue } from '../../interfaces/issue';
 import IssueItem from '../../components/IssueItem';
 import Layout from '../../components/layout';
-import SubscribeCard from '../../components/SubscribeCard';
-import Text from '../../components/Text';
+import SubscribeCard from '../../components/common/SubscribeCard';
+import Text from '../../components/common/Text';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
 

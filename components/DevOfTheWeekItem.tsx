@@ -1,5 +1,5 @@
 import DevOfTheWeek from '../interfaces/devOfTheWeek';
-import Text from './Text';
+import Text from './common/Text';
 
 const DevOfTheWeekItem = ({ devOfTheWeek: { name, profileImg, profileLink, bio } }: { devOfTheWeek: DevOfTheWeek }) => (
   <div className="mt-0 mx-0 py-4">
