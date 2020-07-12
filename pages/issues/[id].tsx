@@ -1,15 +1,18 @@
-import Head from 'next/head';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import Layout from '../../components/layout';
-import { Issue } from '../../interfaces/issue';
-import issues from '../../issues/issues';
-import { getAllIssueIds } from '../../lib/issues';
-import IssueItem from '../../components/IssueItem';
+import { GetStaticPaths, GetStaticProps } from 'next';
+
 import ArticleItem from '../../components/ArticleItem';
 import Button from '../../components/Button';
-import Text from '../../components/Text';
-import SubscribeCard from '../../components/SubscribeCard';
 import CodeSnippet from '../../components/CodeSnippet';
+import DevOfTheWeekItem from '../../components/DevOfTheWeekItem';
+import Head from 'next/head';
+import { Issue } from '../../interfaces/issue';
+import IssueItem from '../../components/IssueItem';
+import Layout from '../../components/layout';
+import SubscribeCard from '../../components/SubscribeCard';
+import Text from '../../components/Text';
+import { getAllIssueIds } from '../../lib/issues';
+import issues from '../../issues/issues';
+
 // import utilStyles from "../../styles/utils.module.css";
 
 // SyntaxHighlighter.registerLanguage('jsx', jsx);
@@ -30,6 +33,9 @@ export default function IssueComponent({ issueData }: { issueData: Issue }) {
         {issueData.articles.map(article => (
           <ArticleItem article={article} key={article.url} />
         ))}
+      </IssueItem>
+      <IssueItem title="Dev Of The Week">
+        <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
       </IssueItem>
       <SubscribeCard />
     </Layout>

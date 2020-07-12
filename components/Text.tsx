@@ -12,7 +12,7 @@ const Text = ({
   color?: string;
   children: React.ReactNode;
   additionalStyles?: string;
-  inline: boolean;
+  inline?: boolean;
 }) => {
   const textType = TextType[type];
   const colorType = color.split('-'); // Splits color string into two parts. Example - ['black', '0']
