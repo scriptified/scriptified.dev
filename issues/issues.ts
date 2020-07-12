@@ -60,9 +60,13 @@ const SomeComponent = () => (
     // you can extract any github user's profile image by this link - https://github.com/user-name.png
 
     devOfTheWeek: {
-      name: 'GuptaJI',
+      name: 'Ayush Gupta',
       profileImg: 'https://github.com/gupta-ji6.png',
-      profileLink: 'https://github.com/gupta-ji6',
+      profileLink: {
+        website: 'https://ayushgupta.tech',
+        github: 'https://github.com/gupta-ji6',
+        instagram: 'https:/instagram.com/_.guptaji._',
+      },
       bio: 'React Native Developer at FirstCry. Mobile and Web App Developer, Blogger, Amateur Photographer.',
     },
 
