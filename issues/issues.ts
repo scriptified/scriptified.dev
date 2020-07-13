@@ -35,7 +35,7 @@ const SomeComponent = () => (
       },
       {
         title: 'The Most Complete Spreadsheet for JavaScript Apps – SpreadJS :',
-        url: 'https://www.grapecity.com/spreadjs',
+        url: 'https://www.github.com',
         desc:
           'Deliver true Excel-like experiences with this fast JavaScript enterprise spreadsheet solution. Build FinTech, analysis, budgeting, and forecasting apps. Featuring an Excel I/O, 450+ functions, tables, charts, sparklines, and more.',
         author: 'Microsoft',
@@ -60,9 +60,13 @@ const SomeComponent = () => (
     // you can extract any github user's profile image by this link - https://github.com/user-name.png
 
     devOfTheWeek: {
-      name: 'GuptaJI',
+      name: 'Ayush Gupta',
       profileImg: 'https://github.com/gupta-ji6.png',
-      profileLink: 'https://github.com/gupta-ji6',
+      profileLink: {
+        website: 'https://ayushgupta.tech',
+        github: 'https://github.com/gupta-ji6',
+        instagram: 'https:/instagram.com/_.guptaji._',
+      },
       bio: 'React Native Developer at FirstCry. Mobile and Web App Developer, Blogger, Amateur Photographer.',
     },
 

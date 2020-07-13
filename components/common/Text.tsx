@@ -1,16 +1,18 @@
-import { TextType, TextColor } from '../theme';
+import { TextColor, TextType } from '../../theme';
 
 // Example usage - <Text type="base" color="green-5"> Hello World </Text>
 const Text = ({
   type = 'base',
   color = 'black-0',
   additionalStyles = '',
+  inline = false,
   children,
 }: {
   type?: string;
   color?: string;
   children: React.ReactNode;
   additionalStyles?: string;
+  inline?: boolean;
 }) => {
   const textType = TextType[type];
   const colorType = color.split('-'); // Splits color string into two parts. Example - ['black', '0']
@@ -18,7 +20,7 @@ const Text = ({
 
   const styles = `${textType} ${textColor} ${additionalStyles}`;
 
-  return <p className={styles}>{children}</p>;
+  return inline ? <span className={styles}>{children}</span> : <p className={styles}>{children}</p>;
 };
 
 export default Text;

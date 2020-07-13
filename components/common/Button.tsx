@@ -1,4 +1,4 @@
-import { ButtonType, ButtonSize } from '../theme';
+import { ButtonSize, ButtonType } from '../../theme';
 
 function Button({
   type = 'basic',

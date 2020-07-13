@@ -1,4 +1,4 @@
-import Text from './Text';
+import Text from './common/Text';
 
 const IssueItem = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="my-20">

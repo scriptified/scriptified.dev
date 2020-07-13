@@ -1,37 +1,41 @@
+@import "tailwindcss/utilities";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 
-html,
+/* html,
 body {
-  /* @apply font-sans p-0 m-0 leading-relaxed; */
+  @apply font-sans p-0 m-0 leading-relaxed;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   font-size: 18px;
-}
+} */
 
-* {
-  /* @apply box-border; */
+/* * {
+  @apply box-border;
   box-sizing: border-box;
-}
+} */
 
-a {
-  /* @apply no-underline text-green-700; */
+/* a {
+  @apply no-underline text-green-700;
   color: #0070f3;
   text-decoration: none;
-}
+} */
 
-a:hover {
-  /* @apply underline; */
+/* a:hover {
+  @apply underline;
   text-decoration: underline;
-}
+} */
 
-img {
-  /* @apply max-w-full block; */
+/* img {
+  @apply max-w-full block;
   max-width: 100%;
   display: block;
+} */
+
+svg {
+  display: inline;
 }
 
-@import "tailwindcss/utilities";
