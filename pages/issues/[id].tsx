@@ -12,6 +12,7 @@ import SubscribeCard from '../../components/common/SubscribeCard';
 import Text from '../../components/common/Text';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
+import Quiz from '../../components/Quiz';
 
 // import utilStyles from "../../styles/utils.module.css";
 
@@ -36,6 +37,9 @@ export default function IssueComponent({ issueData }: { issueData: Issue }) {
       </IssueItem>
       <IssueItem title="Dev Of The Week">
         <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
+      </IssueItem>
+      <IssueItem title="Quiz">
+        <Quiz quiz={issueData.quiz} />
       </IssueItem>
       <SubscribeCard />
     </Layout>
