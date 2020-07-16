@@ -54,7 +54,40 @@ const SomeComponent = () => (
       },
     ],
 
-    spotTheBug: '', // Not sure how to proceed with it yet, can think about it later,
+    quiz: {
+      question: 'Which one is true?',
+      codeSnippet: `const bird = {
+        size: 'small',
+      };
+      
+      const mouse = {
+        name: 'Mickey',
+        small: true,
+      };`,
+      options: [
+        {
+          id: 1,
+          option: '`mouse.bird.size` is not valid',
+          description: 'Describe why this option is correct',
+        },
+        {
+          id: 2,
+          option: '`mouse[bird.size]` is not valid',
+          description: 'Describe why this option is incorrect',
+        },
+        {
+          id: 3,
+          option: '`mouse[bird["size"]]` is not valid',
+          description: 'Describe why this option is incorrect',
+        },
+        {
+          id: 4,
+          option: 'All of them are valid',
+          description: 'Describe why this option is incorrect',
+        },
+      ],
+      answerId: 1,
+    },
 
     // devTip by devOfTheWeek
     // you can extract any github user's profile image by this link - https://github.com/user-name.png
