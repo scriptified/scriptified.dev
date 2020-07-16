@@ -6,7 +6,7 @@ function CodeSnippet({ code, language }) {
     <Highlight {...defaultProps} code={code} language={language} theme={nightOwl}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={`${className} text-left my-4 p-2 overflow-scroll rounded border border-solid border-gray-400`}
+          className={`${className} text-left my-4 p-2 overflow-x-auto rounded border border-solid border-gray-400`}
           style={style}
         >
           {tokens.map((line, i) => (
