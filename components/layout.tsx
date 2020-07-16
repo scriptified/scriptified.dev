@@ -8,7 +8,7 @@ export const siteTitle = 'Scriptified';
 
 export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
   return (
-    <div className="max-w-xl py-0 px-4 mt-12 mx-auto mb-24">
+    <div className="max-w-4xl py-0 px-4 mt-12 mx-auto mb-24">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet" />
