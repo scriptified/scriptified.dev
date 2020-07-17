@@ -1,6 +1,8 @@
+import CodeSnippet from './codeSnippet';
+
 export default interface Quiz {
   question: string;
-  codeSnippet?: string;
+  snippet?: CodeSnippet;
   answerId: number;
 }
 

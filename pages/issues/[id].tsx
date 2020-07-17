@@ -18,7 +18,7 @@ import Quiz from '../../components/Quiz';
 
 // SyntaxHighlighter.registerLanguage('jsx', jsx);
 
-export default function IssueComponent({ issueData }: { issueData: Issue }) {
+export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   return (
     <Layout>
       <Head>
@@ -28,7 +28,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }) {
         <Text type="base" additionalStyles="my-2">
           {issueData.tipOfTheWeek.desc}
         </Text>
-        <CodeSnippet language="jsx" code={issueData.tipOfTheWeek.snippet.trim()} />
+        <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
       </IssueItem>
       <IssueItem title="Articles">
         {issueData.articles.map(article => (

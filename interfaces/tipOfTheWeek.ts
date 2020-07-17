@@ -1,5 +1,7 @@
+import CodeSnippet from './codeSnippet';
+
 export default interface TipOfTheWeek {
-  snippet: string;
+  snippet: CodeSnippet;
   desc: string;
   sourceName: string;
   sourceURL: string;

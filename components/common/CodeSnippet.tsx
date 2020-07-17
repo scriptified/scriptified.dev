@@ -1,7 +1,9 @@
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
-function CodeSnippet({ code, language }) {
+import CodeSnippet from '../../interfaces/codeSnippet';
+
+function CodeSnippetComponent({ snippet: { code, language } }: { snippet: CodeSnippet }): JSX.Element {
   return (
     <Highlight {...defaultProps} code={code} language={language} theme={nightOwl}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
@@ -25,4 +27,4 @@ function CodeSnippet({ code, language }) {
   );
 }
 
-export default CodeSnippet;
+export default CodeSnippetComponent;
