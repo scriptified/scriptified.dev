@@ -1,16 +1,18 @@
 import { ButtonSize, ButtonType } from '../../theme';
+import { MouseEvent } from 'react';
 
 function Button({
   type = 'basic',
   size = 'sm',
   additionalStyles = '',
   children,
-  ...rest
+  onClick,
 }: {
   type?: string;
   size?: string;
   children: React.ReactNode;
   additionalStyles?: string;
+  onClick: (MouseEvent) => void;
 }): JSX.Element {
   // This can be improved. I’m keeping it simple here by joining two strings.
   const buttonType = ButtonType[type];
@@ -19,7 +21,7 @@ function Button({
   const styles = `${buttonType} ${buttonSize} ${additionalStyles} p-2`;
 
   return (
-    <button className={styles} {...rest}>
+    <button className={styles} onClick={onClick}>
       {children}
     </button>
   );

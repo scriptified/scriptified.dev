@@ -5,10 +5,16 @@ import CodeSnippet from './common/CodeSnippet';
 import Button from './common/Button';
 
 const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
-  const onSelect = (id: number) => {
-    console.log(id);
+  const [currentOption, setOption] = React.useState(0);
+  const [selectedOptions, setSelectedOptions] = React.useState([]);
+
+  const hasSelectedCorrectOption = selectedOptions.includes(quiz.answerId);
+
+  const handleSubmit = () => {
+    setSelectedOptions(oldOptions =>
+      currentOption && !oldOptions.includes(currentOption) ? [...oldOptions, currentOption] : oldOptions
+    );
   };
-  const [selectedOption, setOption] = React.useState(0);
 
   return (
     <div>
@@ -18,16 +24,17 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
       {quiz.snippet && <CodeSnippet snippet={quiz.snippet} />}
       {quiz.options.map(option => (
         <Option
-          isSelected={true}
-          isDisabled={false}
-          isShowingDetailView={false}
+          isSelected={currentOption === option.id}
+          isDisabled={hasSelectedCorrectOption}
+          isShowingDetailView={selectedOptions.includes(option.id)}
           option={option}
           key={option.id}
-          onSelect={onSelect}
+          isCorrectAnswer={quiz.answerId === option.id}
+          onSelect={setOption}
         />
       ))}
       <div className="flex justify-center w-full">
-        <Button type="primary" size="lg">
+        <Button type="primary" size="lg" onClick={handleSubmit}>
           Submit
         </Button>
       </div>
@@ -35,24 +42,60 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
   );
 };
 
+// Colors for options for its different states
+
+const DEFAULT_BACKGROUND = 'bg-gray-200';
+const DEFAULT_BORDER = 'border-gray-400';
+
+const CORRECT_ANSWER_BACKGROUND = 'bg-green-200';
+const CORRECT_ANSWER_BORDER = 'border-green-800';
+
+const WRONG_ANSWER_BACKGROUND = 'bg-red-200';
+const WRONG_ANSWER_BORDER = 'border-red-800';
+
+const HIGHLIGHTED_BORDER = 'border-green-500';
+
 const Option = ({
   isSelected,
   isDisabled,
   isShowingDetailView,
   option,
   onSelect,
+  isCorrectAnswer,
 }: {
   isSelected: boolean;
   isDisabled: boolean;
   isShowingDetailView: boolean;
   option: OptionType;
   onSelect: (id: number) => void;
+  isCorrectAnswer: boolean;
 }): JSX.Element => {
+  const answeredBackground = isCorrectAnswer ? CORRECT_ANSWER_BACKGROUND : WRONG_ANSWER_BACKGROUND;
+  const answeredBorder = isCorrectAnswer ? CORRECT_ANSWER_BORDER : WRONG_ANSWER_BORDER;
+
+  const normalBorder = isSelected ? HIGHLIGHTED_BORDER : DEFAULT_BORDER;
+
+  const background = isShowingDetailView ? answeredBackground : DEFAULT_BACKGROUND;
+  const border = isShowingDetailView ? answeredBorder : normalBorder;
+  const additionalStyles = !(isDisabled || isShowingDetailView) ? `cursor-pointer hover:${HIGHLIGHTED_BORDER}` : '';
+
+  const handleSelect = React.useCallback(() => {
+    onSelect(option.id);
+  }, [onSelect, option.id]);
+
   return (
-    <div className="py-8 px-10 rounded bg-gray-200 mb-8 border-2 border-gray-200 cursor-pointer hover:border-green-600">
+    <div
+      className={`py-8 px-10 rounded mb-8 border-2 ${background} ${border} ${additionalStyles}`}
+      onClick={handleSelect}
+    >
       <Text type="base" color="black-0">
         {option.text}
       </Text>
+      {isShowingDetailView && (
+        <Text type="small" color="black-0" additionalStyles="mt-2">
+          {option.description}
+        </Text>
+      )}
     </div>
   );
 };
