@@ -58,37 +58,37 @@ export default [
     ],
 
     quiz: {
-      question: 'Which one is true?',
+      question: 'Which of the following options is valid for the below snippet?',
       snippet: {
         code: `const bird = {
-          size: 'small',
-        };
-        
-        const mouse = {
-          name: 'Mickey',
-          small: true,
-        };`,
+  size: 'small',
+};
+
+const mouse = {
+  name: 'Mickey',
+  small: true,
+};`,
         language: 'jsx',
       },
       options: [
         {
           id: 1,
-          option: '`mouse.bird.size` is not valid',
+          text: '`mouse.bird.size` is not valid',
           description: 'Describe why this option is correct',
         },
         {
           id: 2,
-          option: '`mouse[bird.size]` is not valid',
+          text: '`mouse[bird.size]` is not valid',
           description: 'Describe why this option is incorrect',
         },
         {
           id: 3,
-          option: '`mouse[bird["size"]]` is not valid',
+          text: '`mouse[bird["size"]]` is not valid',
           description: 'Describe why this option is incorrect',
         },
         {
           id: 4,
-          option: 'All of them are valid',
+          text: 'All of them are valid',
           description: 'Describe why this option is incorrect',
         },
       ],
