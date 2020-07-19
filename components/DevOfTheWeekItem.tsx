@@ -10,7 +10,7 @@ const DevOfTheWeekItem = ({
   <div className="mt-0 mx-0 py-4">
     <a href={profileLink.website}>
       <img className="h-40 w-40 rounded-md mb-3" alt={name} src={profileImg} />
-      <Text type="h3" color="green-5" inline>
+      <Text type="h3" color="green-5" inline additionalStyles="hover:underline">
         {name}
       </Text>
     </a>
