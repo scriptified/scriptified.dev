@@ -3,6 +3,8 @@ import Quiz, { Option as OptionType } from '../interfaces/quiz';
 import Text from './common/Text';
 import CodeSnippet from './common/CodeSnippet';
 import Button from './common/Button';
+import CheckMark from './icons/check';
+import XCricle from './icons/x-circle';
 
 const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
   const [currentOption, setOption] = React.useState(0);
@@ -85,9 +87,18 @@ const Option = ({
 
   return (
     <div
-      className={`py-8 px-10 rounded mb-8 border-2 ${background} ${border} ${additionalStyles}`}
+      className={`relative py-8 px-10 rounded mb-8 border-2 ${background} ${border} ${additionalStyles}`}
       onClick={handleSelect}
     >
+      {isShowingDetailView && (
+        <>
+          {isCorrectAnswer ? (
+            <CheckMark color="text-green-500 absolute top-1/2 left-1" />
+          ) : (
+            <XCricle color="text-red-500 absolute top-1/2 left-1" />
+          )}
+        </>
+      )}
       <Text type="base" color="black-0">
         {option.text}
       </Text>

@@ -73,17 +73,17 @@ const mouse = {
       options: [
         {
           id: 1,
-          text: '`mouse.bird.size` is not valid',
+          text: 'mouse.bird.size is not valid',
           description: 'Describe why this option is correct',
         },
         {
           id: 2,
-          text: '`mouse[bird.size]` is not valid',
+          text: 'mouse[bird.size] is not valid',
           description: 'Describe why this option is incorrect',
         },
         {
           id: 3,
-          text: '`mouse[bird["size"]]` is not valid',
+          text: 'mouse[bird["size"]] is not valid',
           description: 'Describe why this option is incorrect',
         },
         {
