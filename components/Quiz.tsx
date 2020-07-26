@@ -1,9 +1,10 @@
-import React from 'react';
 import Quiz, { Option as OptionType } from '../interfaces/quiz';
-import Text from './common/Text';
-import CodeSnippet from './common/CodeSnippet';
+
 import Button from './common/Button';
 import CheckMark from './icons/check';
+import CodeSnippet from './common/CodeSnippet';
+import React from 'react';
+import Text from './common/Text';
 import XCricle from './icons/x-circle';
 
 const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
@@ -50,10 +51,10 @@ const DEFAULT_BACKGROUND = 'bg-gray-200';
 const DEFAULT_BORDER = 'border-gray-400';
 
 const CORRECT_ANSWER_BACKGROUND = 'bg-green-200';
-const CORRECT_ANSWER_BORDER = 'border-green-800';
+const CORRECT_ANSWER_BORDER = 'border-green-700';
 
 const WRONG_ANSWER_BACKGROUND = 'bg-red-200';
-const WRONG_ANSWER_BORDER = 'border-red-800';
+const WRONG_ANSWER_BORDER = 'border-red-700';
 
 const HIGHLIGHTED_BORDER = 'border-green-500';
 
@@ -99,11 +100,11 @@ const Option = ({
           )}
         </>
       )}
-      <Text type="base" color="black-0">
+      <Text type="base" color="black-0" additionalStyles="pl-2">
         {option.text}
       </Text>
       {isShowingDetailView && (
-        <Text type="small" color="black-0" additionalStyles="mt-2">
+        <Text type="small" color="gray-7" additionalStyles="mt-2 pl-2">
           {option.description}
         </Text>
       )}
