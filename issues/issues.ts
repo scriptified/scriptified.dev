@@ -4,20 +4,20 @@ export default [
     tipOfTheWeek: {
       snippet: {
         code: `const Header = ({ children }) => (
-        <div>
-          {children}
-        </div>
-      );
-      
-      const UselessMemoizedHeader = React.memo(Header);
-      
-      const SomeComponent = () => (
-        <div>
-          <UselessMemoizedHeader>
-              <SomeOtherComponent/>
-          </UselessMemoizedHeader>
-        <div>
-      );`,
+  <div>
+    {children}
+  </div>
+);
+
+const UselessMemoizedHeader = React.memo(Header);
+
+const SomeComponent = () => (
+  <div>
+    <UselessMemoizedHeader>
+        <SomeOtherComponent/>
+    </UselessMemoizedHeader>
+  <div>
+);`,
         language: 'jsx',
       },
       desc:
@@ -122,8 +122,16 @@ const mouse = {
     talks: [
       {
         talkURL: 'https://www.youtube.com/watch?v=mHxAvSs914g',
-        title: 'Aweomse workshop',
-        desc: 'Awsome description',
+        title: 'One Time Code Text Field | Swift 5, Xcode 10',
+        desc:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit est, sagittis vitae sapien vel, imperdiet posuere ex. Vestibulum in pulvinar magna, sed sodales tortor. In hac habitasse platea dictumst. Vestibulum risus dolor, rutrum eu hendrerit nec, congue vitae enim. Aliquam mollis mollis luctus. ',
+        tags: ['React', 'Redux'],
+      },
+      {
+        talkURL: 'https://youtu.be/QZ6aC6G0ufg',
+        title: 'Navigating the Hype-Driven Frontend Development World Without Going Insane by Kitze',
+        desc:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit est, sagittis vitae sapien vel, imperdiet posuere ex. Vestibulum in pulvinar magna, sed sodales tortor. In hac habitasse platea dictumst. Vestibulum risus dolor, rutrum eu hendrerit nec, congue vitae enim. Aliquam mollis mollis luctus. ',
         tags: ['React', 'Redux'],
       },
     ],

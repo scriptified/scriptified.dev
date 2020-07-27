@@ -14,6 +14,7 @@ import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
 import Quiz from '../../components/Quiz';
+import TechTalk from '../../components/TechTalk';
 
 // import utilStyles from "../../styles/utils.module.css";
 
@@ -43,6 +44,11 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       </IssueItem>
       <IssueItem title="Dev Of The Week">
         <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
+      </IssueItem>
+      <IssueItem title="Tech talk">
+        {issueData.talks.map(talk => (
+          <TechTalk key={talk.talkURL} techTalk={talk} />
+        ))}
       </IssueItem>
       <IssueItem title="Quiz">
         <Quiz quiz={issueData.quiz} />

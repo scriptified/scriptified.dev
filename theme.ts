@@ -2,6 +2,7 @@ export const FontName = 'font-nunito';
 
 export const TextType = {
   h1: `${FontName} text-4xl font-bold`,
+  h2: `${FontName} text-2xl font-bold`,
   h3: `${FontName} font-semibold text-xl`,
   base: `${FontName} text-base`,
   small: `${FontName} text-sm`,
