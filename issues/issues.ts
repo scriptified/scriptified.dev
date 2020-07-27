@@ -125,8 +125,8 @@ const mouse = {
     },
 
     gif: {
-      gifURL: 'https://media.giphy.com/media/jR4w2XT7CAiVsNVvuD/giphy.gif',
-      caption: 'a caption',
+      gifURL: 'https://media.giphy.com/media/12BYUePgtn7sis/giphy.gif',
+      caption: 'when your code works on every machine, not only yours!',
     },
 
     meta: {
