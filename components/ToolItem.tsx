@@ -3,9 +3,9 @@ import Text from './common/Text';
 import Tool from '../interfaces/tool';
 
 const ToolItem = ({ tool: { title, url, logo, author, desc, tags } }: { tool: Tool }): JSX.Element => (
-  <div className="flex-row justify-start items-start">
-    <a href={url}>
-      <img className="h-32 w-32 rounded-full inline object-contain p-2 shadow-md self-center" alt={title} src={logo} />
+  <div className="flex flex-row items-center">
+    <a href={url} className="w-full mr-8">
+      <img className="h-32 w-32 rounded-full inline object-contain p-2 shadow-lg self-center" alt={title} src={logo} />
     </a>
     <div>
       <a href={url}>
