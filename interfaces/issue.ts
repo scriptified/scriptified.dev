@@ -12,7 +12,6 @@ export interface Issue {
   tipOfTheWeek: TipOfTheWeek;
   articles?: Article[] | null;
   tools?: Tool[] | null;
-  spotTheBug: string;
   devOfTheWeek: DevOfTheWeek;
   talks?: Talk[] | null;
   website: Website;
