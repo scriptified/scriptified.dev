@@ -45,7 +45,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       <IssueItem title="Dev Of The Week">
         <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
       </IssueItem>
-      <IssueItem title="Tech talk">
+      <IssueItem title="Tech talks">
         {issueData.talks.map(talk => (
           <TechTalk key={talk.talkURL} techTalk={talk} />
         ))}
