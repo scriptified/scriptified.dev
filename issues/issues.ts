@@ -2,21 +2,24 @@
 export default [
   {
     tipOfTheWeek: {
-      snippet: `const Header = ({ children }) => (
-  <div>
-    {children}
-  </div>
-);
-
-const UselessMemoizedHeader = React.memo(Header);
-
-const SomeComponent = () => (
-  <div>
-    <UselessMemoizedHeader>
-        <SomeOtherComponent/>
-    </UselessMemoizedHeader>
-  <div>
-);`,
+      snippet: {
+        code: `const Header = ({ children }) => (
+        <div>
+          {children}
+        </div>
+      );
+      
+      const UselessMemoizedHeader = React.memo(Header);
+      
+      const SomeComponent = () => (
+        <div>
+          <UselessMemoizedHeader>
+              <SomeOtherComponent/>
+          </UselessMemoizedHeader>
+        <div>
+      );`,
+        language: 'jsx',
+      },
       desc:
         "There's no point in wrapping your component with React.memo if it accepts a children prop. Why? Because the children prop changes on every render.",
       sourceName: 'Google',
@@ -55,7 +58,43 @@ const SomeComponent = () => (
       },
     ],
 
-    spotTheBug: '', // Not sure how to proceed with it yet, can think about it later,
+    quiz: {
+      question: 'Which of the following options is valid for the below snippet?',
+      snippet: {
+        code: `const bird = {
+  size: 'small',
+};
+
+const mouse = {
+  name: 'Mickey',
+  small: true,
+};`,
+        language: 'jsx',
+      },
+      options: [
+        {
+          id: 1,
+          text: 'mouse.bird.size is not valid',
+          description: 'Describe why this option is correct',
+        },
+        {
+          id: 2,
+          text: 'mouse[bird.size] is not valid',
+          description: 'Describe why this option is incorrect',
+        },
+        {
+          id: 3,
+          text: 'mouse[bird["size"]] is not valid',
+          description: 'Describe why this option is incorrect',
+        },
+        {
+          id: 4,
+          text: 'All of them are valid',
+          description: 'Describe why this option is incorrect',
+        },
+      ],
+      answerId: 1,
+    },
 
     // devTip by devOfTheWeek
     // you can extract any github user's profile image by this link - https://github.com/user-name.png

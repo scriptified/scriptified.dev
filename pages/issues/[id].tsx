@@ -13,12 +13,13 @@ import Text from '../../components/common/Text';
 import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
+import Quiz from '../../components/Quiz';
 
 // import utilStyles from "../../styles/utils.module.css";
 
 // SyntaxHighlighter.registerLanguage('jsx', jsx);
 
-export default function IssueComponent({ issueData }: { issueData: Issue }) {
+export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   return (
     <Layout>
       <Head>
@@ -28,7 +29,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }) {
         <Text type="base" additionalStyles="my-2">
           {issueData.tipOfTheWeek.desc}
         </Text>
-        <CodeSnippet language="jsx" code={issueData.tipOfTheWeek.snippet.trim()} />
+        <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
       </IssueItem>
       <IssueItem title="Articles">
         {issueData.articles.map(article => (
@@ -42,6 +43,9 @@ export default function IssueComponent({ issueData }: { issueData: Issue }) {
       </IssueItem>
       <IssueItem title="Dev Of The Week">
         <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
+      </IssueItem>
+      <IssueItem title="Quiz">
+        <Quiz quiz={issueData.quiz} />
       </IssueItem>
       <SubscribeCard />
     </Layout>
