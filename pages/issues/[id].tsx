@@ -62,7 +62,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const index: number = ((params.id as unknown) as number) - 1;
-  const issueData: Issue = issues[index];
+  const issueData: Issue = issues[index] as Issue;
   return {
     props: {
       issueData,
