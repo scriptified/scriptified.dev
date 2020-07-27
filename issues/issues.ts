@@ -56,6 +56,15 @@ export default [
         author: 'Adam Wathan',
         tags: ['design', 'css'],
       },
+      {
+        title: 'Tailwind CSS',
+        url: 'https://tailwindcss.com/',
+        logo: 'https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png',
+        desc:
+          'A utility-first CSS framework for rapidly building custom designs. Tailwind CSS is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override',
+        author: 'Adam Wathan',
+        tags: ['design', 'css'],
+      },
     ],
 
     quiz: {
