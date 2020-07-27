@@ -10,6 +10,7 @@ import IssueItem from '../../components/IssueItem';
 import Layout from '../../components/layout';
 import SubscribeCard from '../../components/common/SubscribeCard';
 import Text from '../../components/common/Text';
+import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
 import Quiz from '../../components/Quiz';
@@ -33,6 +34,11 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       <IssueItem title="Articles">
         {issueData.articles.map(article => (
           <ArticleItem article={article} key={article.url} />
+        ))}
+      </IssueItem>
+      <IssueItem title="Tools">
+        {issueData.tools.map(tool => (
+          <ToolItem tool={tool} key={tool.url} />
         ))}
       </IssueItem>
       <IssueItem title="Dev Of The Week">
