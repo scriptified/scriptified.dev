@@ -5,6 +5,7 @@ import Talk from './talk';
 import Website from './website';
 import Gif from './gif';
 import Meta from './meta';
+import Quiz from './quiz';
 
 export interface Issue {
   tipOfTheWeek: TipOfTheWeek;
@@ -16,4 +17,5 @@ export interface Issue {
   website: Website;
   gif: Gif;
   meta: Meta;
+  quiz: Quiz;
 }
