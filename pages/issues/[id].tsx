@@ -4,16 +4,17 @@ import ArticleItem from '../../components/ArticleItem';
 import Button from '../../components/common/Button';
 import CodeSnippet from '../../components/common/CodeSnippet';
 import DevOfTheWeekItem from '../../components/DevOfTheWeekItem';
+import GIFItem from '../../components/GIFItem';
 import Head from 'next/head';
 import { Issue } from '../../interfaces/issue';
 import IssueItem from '../../components/IssueItem';
 import Layout from '../../components/layout';
+import Quiz from '../../components/Quiz';
 import SubscribeCard from '../../components/common/SubscribeCard';
 import Text from '../../components/common/Text';
 import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
-import Quiz from '../../components/Quiz';
 import TechTalk from '../../components/TechTalk';
 
 // import utilStyles from "../../styles/utils.module.css";
@@ -52,6 +53,9 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       </IssueItem>
       <IssueItem title="Quiz">
         <Quiz quiz={issueData.quiz} />
+      </IssueItem>
+      <IssueItem title="This Week in GIF">
+        <GIFItem gif={issueData.gif} />
       </IssueItem>
       <SubscribeCard />
     </Layout>
