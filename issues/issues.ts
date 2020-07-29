@@ -4,20 +4,20 @@ export default [
     tipOfTheWeek: {
       snippet: {
         code: `const Header = ({ children }) => (
-        <div>
-          {children}
-        </div>
-      );
-      
-      const UselessMemoizedHeader = React.memo(Header);
-      
-      const SomeComponent = () => (
-        <div>
-          <UselessMemoizedHeader>
-              <SomeOtherComponent/>
-          </UselessMemoizedHeader>
-        <div>
-      );`,
+  <div>
+    {children}
+  </div>
+);
+
+const UselessMemoizedHeader = React.memo(Header);
+
+const SomeComponent = () => (
+  <div>
+    <UselessMemoizedHeader>
+        <SomeOtherComponent/>
+    </UselessMemoizedHeader>
+  <div>
+);`,
         language: 'jsx',
       },
       desc:
@@ -48,12 +48,22 @@ export default [
 
     tools: [
       {
-        title: 'The Most Complete Spreadsheet for JavaScript Apps – SpreadJS :',
-        url: 'https://www.grapecity.com/spreadjs',
+        title: 'Tailwind CSS',
+        url: 'https://tailwindcss.com/',
+        logo: 'https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png',
         desc:
-          'Deliver true Excel-like experiences with this fast JavaScript enterprise spreadsheet solution. Build FinTech, analysis, budgeting, and forecasting apps. Featuring an Excel I/O, 450+ functions, tables, charts, sparklines, and more.',
-        author: 'Microsoft',
-        tags: ['JavaScript'],
+          'A utility-first CSS framework for rapidly building custom designs. Tailwind CSS is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override',
+        author: 'Adam Wathan',
+        tags: ['design', 'css'],
+      },
+      {
+        title: 'Tailwind CSS',
+        url: 'https://tailwindcss.com/',
+        logo: 'https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png',
+        desc:
+          'A utility-first CSS framework for rapidly building custom designs. Tailwind CSS is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override',
+        author: 'Adam Wathan',
+        tags: ['design', 'css'],
       },
     ],
 
@@ -112,8 +122,16 @@ const mouse = {
     talks: [
       {
         talkURL: 'https://www.youtube.com/watch?v=mHxAvSs914g',
-        title: 'Aweomse workshop',
-        desc: 'Awsome description',
+        title: 'One Time Code Text Field | Swift 5, Xcode 10',
+        desc:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit est, sagittis vitae sapien vel, imperdiet posuere ex. Vestibulum in pulvinar magna, sed sodales tortor. In hac habitasse platea dictumst. Vestibulum risus dolor, rutrum eu hendrerit nec, congue vitae enim. Aliquam mollis mollis luctus. ',
+        tags: ['React', 'Redux'],
+      },
+      {
+        talkURL: 'https://youtu.be/QZ6aC6G0ufg',
+        title: 'Navigating the Hype-Driven Frontend Development World Without Going Insane by Kitze',
+        desc:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit est, sagittis vitae sapien vel, imperdiet posuere ex. Vestibulum in pulvinar magna, sed sodales tortor. In hac habitasse platea dictumst. Vestibulum risus dolor, rutrum eu hendrerit nec, congue vitae enim. Aliquam mollis mollis luctus. ',
         tags: ['React', 'Redux'],
       },
     ],

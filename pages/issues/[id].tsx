@@ -12,8 +12,10 @@ import Layout from '../../components/layout';
 import Quiz from '../../components/Quiz';
 import SubscribeCard from '../../components/common/SubscribeCard';
 import Text from '../../components/common/Text';
+import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
+import TechTalk from '../../components/TechTalk';
 
 // import utilStyles from "../../styles/utils.module.css";
 
@@ -36,8 +38,18 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
           <ArticleItem article={article} key={article.url} />
         ))}
       </IssueItem>
+      <IssueItem title="Tools">
+        {issueData.tools.map(tool => (
+          <ToolItem tool={tool} key={tool.url} />
+        ))}
+      </IssueItem>
       <IssueItem title="Dev Of The Week">
         <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
+      </IssueItem>
+      <IssueItem title="Tech talks">
+        {issueData.talks.map(talk => (
+          <TechTalk key={talk.talkURL} techTalk={talk} />
+        ))}
       </IssueItem>
       <IssueItem title="Quiz">
         <Quiz quiz={issueData.quiz} />
@@ -60,7 +72,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const index: number = ((params.id as unknown) as number) - 1;
-  const issueData: Issue = issues[index];
+  const issueData: Issue = issues[index] as Issue;
   return {
     props: {
       issueData,
