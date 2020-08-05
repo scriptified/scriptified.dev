@@ -1,0 +1,12 @@
+name: CI
+on: push
+jobs:
+  trigger-lighthouse-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Trigger Lighthouse Metrics
+        uses: lighthouse-metrics/github-actions@master
+        with:
+          url: 'https://scriptified.dev/'
+          token: {{ secrets.LIGHTHOUSE_METRICS_TOKEN }}
