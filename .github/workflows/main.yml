@@ -1,12 +1,15 @@
-name: CI
-on: push
+name: Audit pull request
+on: pull_request
+
 jobs:
-  trigger-lighthouse-metrics:
+  audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Trigger Lighthouse Metrics
-        uses: lighthouse-metrics/github-actions@master
-        with:
-          url: 'https://scriptified.dev/'
-          token: ${{ secrets.LIGHTHOUSE_METRICS_TOKEN }}
+    - name: Audit Netlify deploy preview
+      uses: jakejarvis/lighthouse-action@master
+      with:
+        netlify_site: 'scriptified-test.netlify.app'
+    - uses: actions/upload-artifact@master
+      with:
+        name: report
+        path: './report'
