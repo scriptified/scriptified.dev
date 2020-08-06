@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "yarn build && next export",
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
