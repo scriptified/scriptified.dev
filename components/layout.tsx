@@ -24,10 +24,7 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
       </Head>
       <header className="flex flex-col items-center">
         {home ? (
-          <>
-            <img src="/images/profile.jpg" className="w-32 h-32 block rounded-full max-w-full" alt={name} />
-            <h1 className="text-4xl leading-tight font-extrabold tracking-tighter my-4 mx-0">{name}</h1>
-          </>
+          <div />
         ) : (
           <>
             <Link href="/">

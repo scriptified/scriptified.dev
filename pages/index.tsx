@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Tilt from 'react-tilt';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Layout, { siteTitle } from '../components/layout';
@@ -20,19 +21,13 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
       <section className="text-lg leading-normal">
-        <p>
-          He is the dictatorial President Prime Minister of the fictional North African country of Wadiya (also known as
-          the Republic of Wadiya) and he will keep his power over his home country and never allow a democracy.
-        </p>
-        <p>
-          (This is a sample website - you’ll be building a site like this in
-          <a className="text-green-700 no-underline hover:underline" href="https://nextjs.org/learn">
-            our Next.js tutorial
-          </a>
-          .)
-        </p>
+        <Tilt>
+          <div className="flex justify-center w-full">
+            <img src="/images/scriptified-logo.gif" />
+          </div>
+        </Tilt>
       </section>
-      <section className="text-lg leading-normal pt-px">
+      <section className="text-lg leading-normal pt-px mt-64">
         <h2 className="text-2xl leading-snug my-4 mx-0">Issues</h2>
         <ul className="m-0 p-0 list-none">
           {allIssuesData.map(({ id, desc, title }) => (
