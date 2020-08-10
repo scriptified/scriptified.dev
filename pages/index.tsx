@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Tilt from 'react-tilt';
+import Tilt from 'react-parallax-tilt';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Layout, { siteTitle } from '../components/layout';

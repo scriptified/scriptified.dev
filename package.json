@@ -19,8 +19,8 @@
     "prism-react-renderer": "^1.1.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-parallax-tilt": "^1.4.61",
     "react-player": "^2.6.0",
-    "react-tilt": "^0.1.4",
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
