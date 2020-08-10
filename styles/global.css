@@ -1,35 +1,10 @@
-@import "tailwindcss/utilities";
 @import "tailwindcss/base";
+
+@import "tailwindcss/utilities";
+
 @import "tailwindcss/components";
 
-html,
 body {
-  background-color: #FDFDFD;
-}
-
-/* * {
-  @apply box-border;
-  box-sizing: border-box;
-} */
-
-/* a {
-  @apply no-underline text-green-700;
-  color: #0070f3;
-  text-decoration: none;
-} */
-
-/* a:hover {
-  @apply underline;
-  text-decoration: underline;
-} */
-
-/* img {
-  @apply max-w-full block;
-  max-width: 100%;
-  display: block;
-} */
-
-svg {
-  display: inline;
+  @apply bg-gray-100;
 }
 

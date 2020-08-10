@@ -17,10 +17,6 @@ import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
 import TechTalk from '../../components/TechTalk';
 
-// import utilStyles from "../../styles/utils.module.css";
-
-// SyntaxHighlighter.registerLanguage('jsx', jsx);
-
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   return (
     <Layout>
