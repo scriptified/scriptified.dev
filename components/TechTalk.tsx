@@ -12,7 +12,16 @@ const TechTalk = ({ techTalk }: { techTalk: Talk }): JSX.Element => {
       <Text type="h2" additionalStyles="mb-4">
         {techTalk.title}
       </Text>
-      <ReactPlayer url={techTalk.talkURL} controls={true} pip={true} />
+      <div className="player-wrapper">
+        <ReactPlayer
+          className="react-player"
+          url={techTalk.talkURL}
+          controls={true}
+          pip={true}
+          width="100%"
+          height="100%"
+        />
+      </div>
       <Text additionalStyles="mt-4">{techTalk.desc}</Text>
       <Tags tags={techTalk.tags} />
     </div>

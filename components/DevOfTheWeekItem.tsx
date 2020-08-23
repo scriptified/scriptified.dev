@@ -17,7 +17,7 @@ const DevOfTheWeekItem = ({
     <Text type="base" additionalStyles="my-2">
       {bio}
     </Text>
-    <div>
+    <div className="flex">
       <SocialLinks links={profileLink} />
     </div>
   </div>

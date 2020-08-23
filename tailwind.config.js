@@ -1,4 +1,13 @@
+const { colors } = require('tailwindcss/defaultTheme');
+
 module.exports = {
+  purge: {
+    enabled: process.env.NODE_ENV !== 'development',
+    content: ['./components/**/*.tsx', './components/*.tsx', './pages/**/*.tsx', './pages/*.tsx', './theme.ts'],
+    options: {
+      whitelist: ['hover:border-green-500'],
+    },
+  },
   theme: {
     extend: {
       fontFamily: {
@@ -10,6 +19,15 @@ module.exports = {
       },
       maxWidth: {
         fc: 'fit-content',
+      },
+      colors: {
+        gray: {
+          ...colors.gray,
+          '100': '#FDFDFD',
+        },
+      },
+      boxShadow: {
+        whiteLg: '0 25px 50px -12px rgba(255, 255, 255, 0.25)',
       },
     },
   },

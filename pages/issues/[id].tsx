@@ -11,19 +11,15 @@ import IssueItem from '../../components/IssueItem';
 import Layout from '../../components/layout';
 import Quiz from '../../components/Quiz';
 import SubscribeCard from '../../components/common/SubscribeCard';
+import TechTalk from '../../components/TechTalk';
 import Text from '../../components/common/Text';
 import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
-import TechTalk from '../../components/TechTalk';
-
-// import utilStyles from "../../styles/utils.module.css";
-
-// SyntaxHighlighter.registerLanguage('jsx', jsx);
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   return (
-    <Layout>
+    <Layout additionalStyles="max-w-4xl px-4 mt-12">
       <Head>
         <title>{issueData.meta.title}</title>
       </Head>
