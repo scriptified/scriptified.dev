@@ -26,6 +26,9 @@ module.exports = {
           '100': '#FDFDFD',
         },
       },
+      boxShadow: {
+        whiteLg: '0 25px 50px -12px rgba(255, 255, 255, 0.25)',
+      },
     },
   },
   variants: {
