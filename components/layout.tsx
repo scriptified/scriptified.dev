@@ -1,14 +1,23 @@
 import Head from 'next/head';
 import Link from 'next/link';
+
 // import styles from "./layout.module.css";
 // import utilStyles from "../styles/utils.module.css";
 
-const name = 'General Aladeen';
+const name = 'Scriptified';
 export const siteTitle = 'Scriptified';
 
-export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
+export default function Layout({
+  children,
+  home,
+  additionalStyles,
+}: {
+  children: React.ReactNode;
+  home?: boolean;
+  additionalStyles?: string;
+}): JSX.Element {
   return (
-    <div className="max-w-4xl py-0 px-4 mt-12 mx-auto mb-24">
+    <div className={`py-0 mx-auto mb-24 ${additionalStyles}`}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet" />
@@ -29,7 +38,11 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
           <>
             <Link href="/">
               <a>
-                <img src="/images/profile.jpg" className="w-24 h-24 block rounded-full max-w-full" alt={name} />
+                <img
+                  src="/images/scriptified-logo.gif"
+                  className="w-24 h-24 block rounded-full max-w-full"
+                  alt={name}
+                />
               </a>
             </Link>
             <h2 className="text-2xl leading-snug my-4 mx-0">
