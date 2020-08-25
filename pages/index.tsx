@@ -1,8 +1,10 @@
 import Layout, { siteTitle } from '../components/layout';
 
+import Button from '../components/common/Button';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import Router from 'next/router';
 import SubscribeCard from '../components/common/SubscribeCard';
 import Text from '../components/common/Text';
 import Tilt from 'react-parallax-tilt';
@@ -26,7 +28,7 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className="text-lg flex flex-col items-center leading-normal bg-green-500 h-screen">
+      <section className="text-lg flex flex-col items-center leading-normal bg-green-500 min-h-screen px-4">
         <Tilt
           tiltReverse
           transitionEasing="cubic-bezier(.03,.98,.52,.99)"
@@ -38,16 +40,18 @@ export default function Home({
           <Text type="h1" color="gray-0" additionalStyles="text-6xl">
             Scriptified
           </Text>
-          <Text type="h1" color="gray-1" additionalStyles="mb-20 lg:mb-24 text-center">
+          <Text type="h1" color="gray-1" additionalStyles="mb-16 sm:mb-12 lg:mb-24 text-center">
             Your Goto JavaScript Newsletter
           </Text>
         </Tilt>
-        <div className="sm:mx-8 lg:w-2/4">
+        <div className="sm:mx-8 lg:w-2/4 mb-2">
           <SubscribeCard homePage />
         </div>
       </section>
-      <section className="sm:px-16 md:px-64 lg:px-64 text-lg leading-normal mt-16">
-        <h2 className="text-2xl leading-snug my-4 mx-0">Latest Issues</h2>
+      <section className="px-8 sm:px-16 md:px-64 lg:px-64 text-lg leading-normal mt-16">
+        <Text type="h1" additionalStyles="text-2xl leading-snug my-8 mx-0">
+          Latest Issues
+        </Text>
         <ul className="m-0 p-0 list-none">
           {reversedIssuesData.map(({ id, desc, title }) => (
             <li className="mt-0 mx-0 mb-5" key={id}>
@@ -59,6 +63,9 @@ export default function Home({
             </li>
           ))}
         </ul>
+        <Button size="md" type="secondary" onClick={() => Router.push('/issues')} additionalStyles="mt-4">
+          View All Issues
+        </Button>
       </section>
     </Layout>
   );
