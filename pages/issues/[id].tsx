@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import ArticleItem from '../../components/ArticleItem';
-import Button from '../../components/common/Button';
 import CodeSnippet from '../../components/common/CodeSnippet';
 import DevOfTheWeekItem from '../../components/DevOfTheWeekItem';
 import GIFItem from '../../components/GIFItem';
