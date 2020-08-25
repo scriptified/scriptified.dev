@@ -36,13 +36,16 @@ export const TextColor = {
 };
 
 export const ButtonType = {
-  primary: 'bg-green-500 hover:bg-green-700 text-white font-bold rounded',
-  secondary: 'bg-green-500 hover:bg-green-700 text-white font-bold rounded',
+  primary:
+    'bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold rounded focus:outline-none focus:shadow-outline',
+  secondary:
+    'bg-white border border-green-500 hover:bg-green-500 text-green-500 hover:text-white focus:outline-none focus:shadow-outline active:bg-green-700 font-bold rounded',
   basic: 'bg-white hover:bg-gray-200 text-gray-700 font-bold rounded',
   delete: 'bg-red-300 hover:bg-red-500 text-white font-bold rounded',
 };
 
 export const ButtonSize = {
   sm: 'py-2 px-4 text-xs',
+  md: 'py-2 px-4 text-base',
   lg: 'py-3 px-6 text-lg',
 };
