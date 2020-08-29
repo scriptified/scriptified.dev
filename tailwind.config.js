@@ -4,9 +4,6 @@ module.exports = {
   purge: {
     enabled: process.env.NODE_ENV !== 'development',
     content: ['./components/**/*.tsx', './components/*.tsx', './pages/**/*.tsx', './pages/*.tsx', './theme.ts'],
-    options: {
-      whitelist: ['hover:border-green-500'],
-    },
   },
   theme: {
     extend: {

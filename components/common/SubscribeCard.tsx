@@ -25,7 +25,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
         </div>
       )}
       <div className="md:flex md:items-center mb-6">
-        <label className={`${labelStyles} block font-semibold w-24 mb-1 md:mb-0 pr-4`}>First Name</label>
+        <label className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>First Name</label>
         <input
           className={`${inputStyles} text-green-700 appearance-none border rounded w-5/6 py-2 px-4 leading-tight focus:outline-none`}
           type="text"
@@ -33,7 +33,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
         />
       </div>
       <div className="md:flex md:items-center mb-6">
-        <label className={`${labelStyles} block font-semibold w-24 mb-1 md:mb-0 pr-4`}>Email</label>
+        <label className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>Email</label>
         <input
           className={`${inputStyles} text-green-700 appearance-none border rounded w-5/6 py-2 px-4 leading-tight focus:outline-none`}
           type="email"

@@ -57,6 +57,7 @@ const WRONG_ANSWER_BACKGROUND = 'bg-red-200';
 const WRONG_ANSWER_BORDER = 'border-red-700';
 
 const HIGHLIGHTED_BORDER = 'border-green-500';
+const HOVER_BORDER = 'hover:border-green-500';
 
 const Option = ({
   isSelected,
@@ -80,7 +81,7 @@ const Option = ({
 
   const background = isShowingDetailView ? answeredBackground : DEFAULT_BACKGROUND;
   const border = isShowingDetailView ? answeredBorder : normalBorder;
-  const additionalStyles = !(isDisabled || isShowingDetailView) ? `cursor-pointer hover:${HIGHLIGHTED_BORDER}` : '';
+  const additionalStyles = !(isDisabled || isShowingDetailView) ? `cursor-pointer ${HOVER_BORDER}` : '';
 
   const handleSelect = React.useCallback(() => {
     onSelect(option.id);
