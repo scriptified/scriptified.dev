@@ -11,7 +11,7 @@ const CheckMark = ({ color = '' }: { color: string }): JSX.Element => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={`feather feather-check ${color}`}
+      className={color}
     >
       <path stroke="none" d="M0 0h24v24H0z" />
       <circle cx="12" cy="12" r="9" />
