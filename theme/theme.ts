@@ -2,7 +2,7 @@ export const FontName = 'font-nunito';
 
 export type Theme = 'blue' | 'teal' | 'green' | 'indigo' | 'pink' | 'purple';
 
-export const Themes: Theme[] = ['blue', 'green', 'teal', 'indigo', 'pink', 'purple'];
+export const THEMES: Theme[] = ['blue', 'green', 'teal', 'indigo', 'pink', 'purple'];
 
 export const TextType = {
   h1: `${FontName} text-4xl font-bold`,

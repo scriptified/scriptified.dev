@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
-
-// import styles from "./layout.module.css";
-// import utilStyles from "../styles/utils.module.css";
+import { useThemeState, useThemeDispatch } from '../theme/ThemeContext';
+import { THEMES, Theme } from '../theme/theme';
 
 const name = 'Scriptified';
 export const siteTitle = 'Scriptified';
@@ -16,6 +15,9 @@ export default function Layout({
   home?: boolean;
   additionalStyles?: string;
 }): JSX.Element {
+  const currentTheme = useThemeState();
+  const updateTheme = useThemeDispatch();
+
   return (
     <div className={`py-0 mx-auto mb-24 ${additionalStyles}`}>
       <Head>
@@ -31,6 +33,13 @@ export default function Layout({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+      <select value={currentTheme} onChange={({ target: { value } }) => updateTheme(value as Theme)}>
+        {THEMES.map(theme => (
+          <option key={theme} value={theme}>
+            {theme}
+          </option>
+        ))}
+      </select>
       <header className="flex flex-col items-center">
         {home ? (
           <div />
