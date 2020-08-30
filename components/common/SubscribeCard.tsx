@@ -18,10 +18,10 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
     <div className={`${cardContainerStyles} rounded border px-16 py-4 flex flex-col justify-between leading-normal`}>
       {!homePage && (
         <div className="mb-8">
-          <Text type="h3" color="white-0" additionalStyles="font-bold mb-2">
+          <Text type="h3" color="text-white" additionalStyles="font-bold mb-2">
             Get Scriptified Issues In Your Inbox
           </Text>
-          <Text color="gray-2">No spam ever, pinky promise!</Text>
+          <Text color="text-gray-400">No spam ever, pinky promise!</Text>
         </div>
       )}
       <div className="md:flex md:items-center mb-6">

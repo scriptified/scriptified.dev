@@ -21,7 +21,7 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
 
   return (
     <div>
-      <Text type="h3" color="black-0" additionalStyles="mt-2">
+      <Text type="h3" color="text-black" additionalStyles="mt-2">
         {quiz.question}
       </Text>
       {quiz.snippet && <CodeSnippet snippet={quiz.snippet} />}
@@ -101,11 +101,11 @@ const Option = ({
           )}
         </>
       )}
-      <Text type="base" color="black-0" additionalStyles="pl-2">
+      <Text type="base" color="text-black" additionalStyles="pl-2">
         {option.text}
       </Text>
       {isShowingDetailView && (
-        <Text type="small" color="gray-7" additionalStyles="mt-2 pl-2">
+        <Text type="small" color="text-gray-800" additionalStyles="mt-2 pl-2">
           {option.description}
         </Text>
       )}

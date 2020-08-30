@@ -8,33 +8,6 @@ export const TextType = {
   small: `${FontName} text-sm`,
 };
 
-export const TextColor = {
-  black: ['text-black'],
-  white: ['text-white'],
-  gray: [
-    'text-gray-100',
-    'text-gray-200',
-    'text-gray-300',
-    'text-gray-400',
-    'text-gray-500',
-    'text-gray-600',
-    'text-gray-700',
-    'text-gray-800',
-    'text-gray-900',
-  ],
-  green: [
-    'text-green-100',
-    'text-green-200',
-    'text-green-300',
-    'text-green-400',
-    'text-green-500',
-    'text-green-600',
-    'text-green-700',
-    'text-green-800',
-    'text-green-900',
-  ],
-};
-
 export const ButtonType = {
   primary: 'bg-green-500 hover:bg-green-700 text-white font-bold rounded',
   secondary: 'bg-green-500 hover:bg-green-700 text-white font-bold rounded',

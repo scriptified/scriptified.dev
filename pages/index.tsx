@@ -35,10 +35,10 @@ export default function Home({
           {/* <div className="w-1/3"> */}
           <img src="/images/scriptified-logo-green.gif" className="w-1/4" />
           {/* </div> */}
-          <Text type="h1" color="gray-0" additionalStyles="text-6xl">
+          <Text type="h1" color="text-gray-100" additionalStyles="text-6xl">
             Scriptified
           </Text>
-          <Text type="h1" color="gray-1" additionalStyles="mb-20 lg:mb-24 text-center">
+          <Text type="h1" color="text-gray-200" additionalStyles="mb-20 lg:mb-24 text-center">
             Your Goto JavaScript Newsletter
           </Text>
         </Tilt>
