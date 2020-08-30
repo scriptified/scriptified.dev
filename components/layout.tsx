@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useThemeState, useThemeDispatch } from '../theme/ThemeContext';
-import { THEMES, Theme } from '../theme/theme';
+import { THEMES, Theme } from '../theme';
 
 const name = 'Scriptified';
 export const siteTitle = 'Scriptified';
