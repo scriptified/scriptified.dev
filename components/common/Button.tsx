@@ -1,4 +1,4 @@
-import { ButtonSize, ButtonType } from '../../theme';
+import { ButtonSize, ButtonType } from '../../theme/theme';
 import { MouseEvent } from 'react';
 
 function Button({
