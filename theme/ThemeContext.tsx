@@ -1,5 +1,5 @@
 // Inspired from https://kentcdodds.com/blog/how-to-use-react-context-effectively
-import { Theme } from './theme';
+import { Theme } from './index';
 import React, { useState } from 'react';
 
 type Action = (theme: Theme) => void;

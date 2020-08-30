@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node purgableCSSGenerator.js && next build",
     "deploy": "yarn build && next export",
     "start": "next start",
     "lint": "eslint .",
@@ -14,6 +14,7 @@
     "@svgr/webpack": "^5.4.0",
     "autoprefixer": "^9.8.0",
     "date-fns": "^2.14.0",
+    "glob": "^7.1.6",
     "next": "9.3.5",
     "postcss-import": "^12.0.1",
     "prism-react-renderer": "^1.1.1",

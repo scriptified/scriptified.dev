@@ -3,7 +3,7 @@ const { colors } = require('tailwindcss/defaultTheme');
 module.exports = {
   purge: {
     enabled: process.env.NODE_ENV !== 'development',
-    content: ['./components/**/*.tsx', './pages/**/*.tsx', './theme/index.ts'],
+    content: ['./components/**/*.tsx', './pages/**/*.tsx', './theme/*.ts'],
   },
   theme: {
     extend: {
