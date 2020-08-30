@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 
 type Action = (theme: Theme) => void;
 
-const ThemeStateContext = React.createContext<Theme>('green');
+const ThemeStateContext = React.createContext<Theme | undefined>(undefined);
 const ThemeDispatchContext = React.createContext<Action | undefined>(undefined);
 
 function ThemeProvider({ children }: { children: React.ReactNode }): JSX.Element {
-  const [theme, setTheme] = useState<Theme>('green');
+  const [theme, setTheme] = useState<Theme>('purple');
 
   return (
     <ThemeStateContext.Provider value={theme}>

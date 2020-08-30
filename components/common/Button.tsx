@@ -1,4 +1,5 @@
 import { ButtonSize, ButtonType } from '../../theme/theme';
+import { useThemeState } from '../../theme/ThemeContext';
 import { MouseEvent } from 'react';
 
 function Button({
@@ -15,7 +16,8 @@ function Button({
   onClick: (MouseEvent) => void;
 }): JSX.Element {
   // This can be improved. I’m keeping it simple here by joining two strings.
-  const buttonType = ButtonType[type];
+  const theme = useThemeState();
+  const buttonType = ButtonType(theme)[type];
   const buttonSize = ButtonSize[size];
 
   const styles = `${buttonType} ${buttonSize} ${additionalStyles} p-2`;

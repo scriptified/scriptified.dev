@@ -6,6 +6,7 @@ import CodeSnippet from './common/CodeSnippet';
 import React from 'react';
 import Text from './common/Text';
 import XCricle from './icons/x-circle';
+import { useThemeState } from '../theme/ThemeContext';
 
 const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
   const [currentOption, setOption] = React.useState(0);
@@ -45,20 +46,6 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
   );
 };
 
-// Colors for options for its different states
-
-const DEFAULT_BACKGROUND = 'bg-gray-200';
-const DEFAULT_BORDER = 'border-gray-400';
-
-const CORRECT_ANSWER_BACKGROUND = 'bg-green-200';
-const CORRECT_ANSWER_BORDER = 'border-green-700';
-
-const WRONG_ANSWER_BACKGROUND = 'bg-red-200';
-const WRONG_ANSWER_BORDER = 'border-red-700';
-
-const HIGHLIGHTED_BORDER = 'border-green-500';
-const HOVER_BORDER = 'hover:border-green-500';
-
 const Option = ({
   isSelected,
   isDisabled,
@@ -74,6 +61,22 @@ const Option = ({
   onSelect: (id: number) => void;
   isCorrectAnswer: boolean;
 }): JSX.Element => {
+  const theme = useThemeState();
+
+  // Colors for options for its different states
+
+  const DEFAULT_BACKGROUND = 'bg-gray-200';
+  const DEFAULT_BORDER = 'border-gray-400';
+
+  const CORRECT_ANSWER_BACKGROUND = `bg-green-200`;
+  const CORRECT_ANSWER_BORDER = `border-green-700`;
+
+  const WRONG_ANSWER_BACKGROUND = 'bg-red-200';
+  const WRONG_ANSWER_BORDER = 'border-red-700';
+
+  const HIGHLIGHTED_BORDER = `border-${theme}-500`;
+  const HOVER_BORDER = `hover:border-${theme}-500`;
+
   const answeredBackground = isCorrectAnswer ? CORRECT_ANSWER_BACKGROUND : WRONG_ANSWER_BACKGROUND;
   const answeredBorder = isCorrectAnswer ? CORRECT_ANSWER_BORDER : WRONG_ANSWER_BORDER;
 
