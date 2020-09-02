@@ -12,29 +12,29 @@
   },
   "dependencies": {
     "@svgr/webpack": "^5.4.0",
-    "autoprefixer": "^9.8.0",
-    "date-fns": "^2.14.0",
+    "autoprefixer": "^9.8.6",
+    "date-fns": "^2.16.1",
     "glob": "^7.1.6",
     "next": "9.3.5",
     "postcss-import": "^12.0.1",
     "prism-react-renderer": "^1.1.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-parallax-tilt": "^1.4.61",
-    "react-player": "^2.6.0",
-    "tailwindcss": "^1.4.6"
+    "react-parallax-tilt": "^1.4.63",
+    "react-player": "^2.6.1",
+    "tailwindcss": "^1.7.6"
   },
   "devDependencies": {
-    "@types/node": "^14.0.5",
-    "@types/react": "^16.9.35",
-    "@typescript-eslint/eslint-plugin": "^3.0.2",
-    "@typescript-eslint/parser": "^3.0.2",
-    "eslint": "^7.1.0",
+    "@types/node": "^14.6.3",
+    "@types/react": "^16.9.49",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.4",
-    "prettier": "^2.0.5",
-    "typescript": "^3.9.3"
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "prettier": "^2.1.1",
+    "typescript": "^3.9.7"
   }
 }
