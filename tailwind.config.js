@@ -26,10 +26,27 @@ module.exports = {
       boxShadow: {
         whiteLg: '0 25px 50px -12px rgba(255, 255, 255, 0.25)',
       },
+      // inspired from https://9elements.com/blog/css-border-radius/
+      keyframes: {
+        morph: {
+          '0%': { 'border-radius': '10% 70% 70% 10% / 60% 30% 70% 40%' },
+          '100%': { 'border-radius': ' 10% 70%' },
+        },
+      },
+      animation: {
+        morph: 'morph 8s ease-in-out infinite both alternate',
+        'spin-slow': 'spin 4s linear infinite reverse',
+      },
     },
   },
   variants: {
     margin: ['responsive', 'first', 'hover', 'focus'],
     backgroundColor: ['responsive', 'first', 'hover', 'focus'],
+    fill: ['responsive', 'hover', 'focus'],
+    display: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus'],
+    animation: ['responsive', 'motion-safe', 'motion-reduce'],
+  },
+  future: {
+    removeDeprecatedGapUtilities: true,
   },
 };
