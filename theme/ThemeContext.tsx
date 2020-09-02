@@ -1,6 +1,7 @@
 // Inspired from https://kentcdodds.com/blog/how-to-use-react-context-effectively
-import { Theme } from './index';
+
 import React, { useState } from 'react';
+import { THEMES, Theme } from './index';
 
 type Action = (theme: Theme) => void;
 
@@ -8,6 +9,8 @@ const ThemeStateContext = React.createContext<Theme | undefined>(undefined);
 const ThemeDispatchContext = React.createContext<Action | undefined>(undefined);
 
 function ThemeProvider({ children }: { children: React.ReactNode }): JSX.Element {
+  // const randomTheme = THEMES[Math.floor(Math.random() * THEMES.length)];
+  // const [theme, setTheme] = useState<Theme>(randomTheme);
   const [theme, setTheme] = useState<Theme>('purple');
 
   return (
