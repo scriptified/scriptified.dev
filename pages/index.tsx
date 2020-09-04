@@ -38,7 +38,7 @@ export default function Home({
           <Text type="h1" color="text-gray-100" additionalStyles="text-6xl">
             Scriptified
           </Text>
-          <Text type="h1" color="text-gray-200" additionalStyles="mb-20 lg:mb-24 text-center">
+          <Text type="h1" color="text-gray-200" additionalStyles="mb-12 lg:mb-16 text-center">
             Your Goto JavaScript Newsletter
           </Text>
         </Tilt>
