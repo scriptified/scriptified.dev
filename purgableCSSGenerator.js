@@ -27,7 +27,7 @@ files.forEach(file => {
 });
 
 const purgableClasses = THEMES.reduce((allClasses, theme) => {
-  const currentClasses = matches.map(match => match.replace('${theme}', theme));
+  const currentClasses = matches.map(match => match.replace(/\$\{\w*\}/, theme));
   return [...allClasses, ...currentClasses];
 }, []);
 
