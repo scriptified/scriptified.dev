@@ -8,6 +8,11 @@ import Link from 'next/link';
 const name = 'Scriptified';
 export const siteTitle = 'Scriptified';
 
+const ENTER_KEY_CODE = 13;
+const DOWN_ARROW_KEY_CODE = 40;
+const UP_ARROW_KEY_CODE = 38;
+const ESCAPE_KEY_CODE = 27;
+
 export default function Layout({
   children,
   home,
@@ -21,25 +26,12 @@ export default function Layout({
   const updateTheme = useThemeDispatch();
   const [isThemeSelectorOpen, setIsThemeSelectorOpen] = useState(false);
 
-  const ENTER_KEY_CODE = 13;
-  const DOWN_ARROW_KEY_CODE = 40;
-  const UP_ARROW_KEY_CODE = 38;
-  const ESCAPE_KEY_CODE = 27;
-
   useEffect(() => {
     const SPACEBAR_KEY_CODE = [0, 32];
-    // const list = document.querySelector('.dropdown__list');
     const listContainer = document.querySelector('.dropdown__list-container');
-    // const dropdownArrow = document.querySelector('.dropdown__arrow');
-    const [...listItems] = document.querySelectorAll('.dropdown__list-item');
+    const listItems = Array.from(document.querySelectorAll('.dropdown__list-item'));
     const dropdownSelectedNode = document.querySelector('#dropdown__selected');
-    // eslint-disable-next-line prefer-const
-    const listItemIds = [];
-    listItems.map((item, index) => {
-      listItemIds[index] = item.id;
-      return [...listItemIds];
-    });
-    // console.log(listItemIds);
+    const listItemIds = listItems.map(item => item.id);
 
     const handleEscape = event => {
       if (event.key === 'Esc' || event.key === 'Escape') {
@@ -81,34 +73,28 @@ export default function Layout({
         direction !== UP_ARROW_KEY_CODE
       ) {
         setIsThemeSelectorOpen(true);
-        // console.log(document.querySelector(`#${listItemIds[0]}`));
-        document.querySelector(`#${listItemIds[0]}`).focus();
+        document.querySelector<HTMLElement>(`#${listItemIds[0]}`).focus();
       } else {
         const currentActiveElementIndex = listItemIds.indexOf(activeElementId);
         if (direction === DOWN_ARROW_KEY_CODE) {
           const currentActiveElementIsNotLastItem = currentActiveElementIndex < listItemIds.length - 1;
           if (currentActiveElementIsNotLastItem) {
             const nextListItemId = listItemIds[currentActiveElementIndex + 1];
-            document.querySelector(`#${nextListItemId}`).focus();
+            document.querySelector<HTMLElement>(`#${nextListItemId}`).focus();
           }
         } else if (direction === UP_ARROW_KEY_CODE) {
           const currentActiveElementIsNotFirstItem = currentActiveElementIndex > 0;
           if (currentActiveElementIsNotFirstItem) {
             const nextListItemId = listItemIds[currentActiveElementIndex - 1];
-            document.querySelector(`#${nextListItemId}`).focus();
+            document.querySelector<HTMLElement>(`#${nextListItemId}`).focus();
           }
         }
       }
     };
 
     const closeThemeSelector = () => {
-      // list.classList.remove('open');
-      // dropdownArrow.classList.remove("expanded");
       listContainer.setAttribute('aria-expanded', 'false');
     };
-
-    // listItems.forEach(item => listItemIds.push[item.id]);
-    // console.log(listItemIds);
 
     const handleThemeMenuItemPress = e => {
       switch ((e as KeyboardEvent).keyCode) {
@@ -223,6 +209,7 @@ export default function Layout({
                         event.persist();
                         const target = event.nativeEvent.srcElement as HTMLElement;
                         updateTheme(target.innerText as Theme);
+                        setIsThemeSelectorOpen(false);
                       }}
                     >
                       <div className="animate-morph flex items-center space-x-3">
