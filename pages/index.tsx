@@ -30,7 +30,7 @@ export default function Home({
         <Tilt
           tiltReverse
           transitionEasing="cubic-bezier(.03,.98,.52,.99)"
-          className="flex flex-col items-center justify-center mt-6"
+          className="flex flex-col items-center justify-center mt-20 sm:mt-6"
         >
           {/* <div className="w-1/3"> */}
           <img src="/images/scriptified-logo-green.gif" className="w-1/4" />

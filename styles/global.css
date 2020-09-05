@@ -1,16 +1,22 @@
-@import "tailwindcss/base";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import "tailwindcss/utilities";
+.theme-picker-position {
+  top: 0px;
+  right: 0px;
+}
 
-@import "tailwindcss/components";
-
-body {
-  @apply bg-gray-100;
+@screen sm {
+  .theme-picker-position {
+    top: 24px;
+    right: 24px;
+  }
 }
 
 .player-wrapper {
   position: relative;
-  padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
 }
 
 .react-player {
@@ -18,9 +24,3 @@ body {
   top: 0;
   left: 0;
 }
-
-.theme-picker-position {
-  top: 24px;
-  right: 24px;
-}
-
