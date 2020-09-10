@@ -26,7 +26,7 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 h-screen`}>
+      <section className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 h-screen pb-4`}>
         <Tilt
           tiltReverse
           transitionEasing="cubic-bezier(.03,.98,.52,.99)"
