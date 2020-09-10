@@ -8,6 +8,8 @@ import Layout, { siteTitle } from '../components/layout';
 import Text from '../components/common/Text';
 import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
+import Button from '../components/common/Button';
+import { useRouter } from 'next/router';
 
 export default function Home({
   allIssuesData,
@@ -20,6 +22,7 @@ export default function Home({
 }): JSX.Element {
   const reversedIssuesData = allIssuesData.slice(0, 3).reverse();
   const theme = useThemeState();
+  const router = useRouter();
 
   return (
     <Layout home>
@@ -63,7 +66,7 @@ export default function Home({
             </li>
           ))}
         </ul>
-        <Button size="md" type="secondary" onClick={() => Router.push('/issues')} additionalStyles="mt-4">
+        <Button size="md" type="secondary" onClick={() => router.push('/issues')} additionalStyles="mt-4">
           View All Issues
         </Button>
       </section>

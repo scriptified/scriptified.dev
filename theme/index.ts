@@ -13,12 +13,14 @@ export const TextType = {
 };
 
 export const ButtonType = (theme: Theme): Record<string, string> => ({
-  primary: `bg-${theme}-500 hover:bg-${theme}-700 text-white font-bold rounded`,
+  primary: `bg-${theme}-500 hover:bg-${theme}-600 active:bg-${theme}-700 text-white font-bold rounded focus:outline-none focus:shadow-outline`,
+  secondary: `bg-white border border-${theme}-500 hover:bg-${theme}-500 text-${theme}-500 hover:text-white focus:outline-none focus:shadow-outline active:bg-${theme}-700 font-bold rounded`,
   basic: 'bg-white hover:bg-gray-200 text-gray-700 font-bold rounded',
   delete: 'bg-red-300 hover:bg-red-500 text-white font-bold rounded',
 });
 
 export const ButtonSize = {
   sm: 'py-2 px-4 text-xs',
+  md: 'py-2 px-4 text-base',
   lg: 'py-3 px-6 text-lg',
 };
