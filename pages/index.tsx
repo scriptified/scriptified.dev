@@ -1,16 +1,13 @@
-import Layout, { siteTitle } from '../components/layout';
-
-import Button from '../components/common/Button';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import Router from 'next/router';
-import SubscribeCard from '../components/common/SubscribeCard';
-import Text from '../components/common/Text';
 import Tilt from 'react-parallax-tilt';
-import { getAllIssuesMeta } from '../lib/issues';
 
-// import utilStyles from "../styles/utils.module.css";
+import SubscribeCard from '../components/common/SubscribeCard';
+import Layout, { siteTitle } from '../components/layout';
+import Text from '../components/common/Text';
+import { getAllIssuesMeta } from '../lib/issues';
+import { useThemeState } from '../theme/ThemeContext';
 
 export default function Home({
   allIssuesData,
@@ -22,25 +19,26 @@ export default function Home({
   }[];
 }): JSX.Element {
   const reversedIssuesData = allIssuesData.slice(0, 3).reverse();
+  const theme = useThemeState();
 
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className="text-lg flex flex-col items-center leading-normal bg-green-500 min-h-screen px-4">
+      <section className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 h-screen pb-4`}>
         <Tilt
           tiltReverse
           transitionEasing="cubic-bezier(.03,.98,.52,.99)"
-          className="flex flex-col items-center justify-center mt-6"
+          className="flex flex-col items-center justify-center mt-20 sm:mt-6"
         >
           {/* <div className="w-1/3"> */}
           <img src="/images/scriptified-logo-green.gif" className="w-1/4" />
           {/* </div> */}
-          <Text type="h1" color="gray-0" additionalStyles="text-6xl">
+          <Text type="h1" color="text-gray-100" additionalStyles="text-6xl">
             Scriptified
           </Text>
-          <Text type="h1" color="gray-1" additionalStyles="mb-16 sm:mb-12 lg:mb-24 text-center">
+          <Text type="h1" color="text-gray-200" additionalStyles="mb-12 lg:mb-16 text-center">
             Your Goto JavaScript Newsletter
           </Text>
         </Tilt>
@@ -56,7 +54,9 @@ export default function Home({
           {reversedIssuesData.map(({ id, desc, title }) => (
             <li className="mt-0 mx-0 mb-5" key={id}>
               <Link href="/issues/[id]" as={`/issues/${id}`}>
-                <a className="text-green-600 font-sans font-semibold text-2xl no-underline hover:underline">{title}</a>
+                <a className={`text-${theme}-600 font-sans font-semibold text-2xl no-underline hover:underline`}>
+                  {title}
+                </a>
               </Link>
               <br />
               <p>{desc}</p>
