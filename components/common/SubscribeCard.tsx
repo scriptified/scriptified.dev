@@ -17,7 +17,9 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
     : `bg-${theme}-100 border-${theme}-200 focus:bg-white focus:border-${theme}-800`;
 
   return (
-    <div className={`${cardContainerStyles} rounded border px-16 py-4 flex flex-col justify-between leading-normal`}>
+    <div
+      className={`${cardContainerStyles} rounded border px-16 sm:px-6 py-4 flex flex-col justify-between leading-normal`}
+    >
       {!homePage && (
         <div className="mb-8">
           <Text type="h3" color="text-white" additionalStyles="font-bold mb-2">

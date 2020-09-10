@@ -41,7 +41,8 @@ module.exports = {
   },
   variants: {
     margin: ['responsive', 'first', 'hover', 'focus'],
-    backgroundColor: ['responsive', 'first', 'hover', 'focus'],
+    padding: ['responsive', 'first', 'hover', 'focus'],
+    backgroundColor: ['responsive', 'first', 'hover', 'focus', 'active'],
     fill: ['responsive', 'hover', 'focus'],
     display: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus'],
     animation: ['responsive', 'motion-safe', 'motion-reduce'],

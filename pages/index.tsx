@@ -29,7 +29,7 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 h-screen pb-4`}>
+      <section className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 min-h-screen pb-4 px-4`}>
         <Tilt
           tiltReverse
           transitionEasing="cubic-bezier(.03,.98,.52,.99)"
@@ -41,7 +41,7 @@ export default function Home({
           <Text type="h1" color="text-gray-100" additionalStyles="text-6xl">
             Scriptified
           </Text>
-          <Text type="h1" color="text-gray-200" additionalStyles="mb-12 lg:mb-16 text-center">
+          <Text type="h1" color="text-gray-200" additionalStyles="mb-16 sm:mb-12 lg:mb-16 text-center">
             Your Goto JavaScript Newsletter
           </Text>
         </Tilt>
