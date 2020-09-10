@@ -6,6 +6,7 @@ import CodeSnippet from './common/CodeSnippet';
 import React from 'react';
 import Text from './common/Text';
 import XCricle from './icons/x-circle';
+import { useThemeState } from '../theme/ThemeContext';
 
 const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
   const [currentOption, setOption] = React.useState(0);
@@ -21,7 +22,7 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
 
   return (
     <div>
-      <Text type="h3" color="black-0" additionalStyles="mt-2">
+      <Text type="h3" color="text-black" additionalStyles="mt-2">
         {quiz.question}
       </Text>
       {quiz.snippet && <CodeSnippet snippet={quiz.snippet} />}
@@ -45,19 +46,6 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
   );
 };
 
-// Colors for options for its different states
-
-const DEFAULT_BACKGROUND = 'bg-gray-200';
-const DEFAULT_BORDER = 'border-gray-400';
-
-const CORRECT_ANSWER_BACKGROUND = 'bg-green-200';
-const CORRECT_ANSWER_BORDER = 'border-green-700';
-
-const WRONG_ANSWER_BACKGROUND = 'bg-red-200';
-const WRONG_ANSWER_BORDER = 'border-red-700';
-
-const HIGHLIGHTED_BORDER = 'border-green-500';
-
 const Option = ({
   isSelected,
   isDisabled,
@@ -73,6 +61,22 @@ const Option = ({
   onSelect: (id: number) => void;
   isCorrectAnswer: boolean;
 }): JSX.Element => {
+  const theme = useThemeState();
+
+  // Colors for options for its different states
+
+  const DEFAULT_BACKGROUND = 'bg-gray-200';
+  const DEFAULT_BORDER = 'border-gray-400';
+
+  const CORRECT_ANSWER_BACKGROUND = `bg-green-200`;
+  const CORRECT_ANSWER_BORDER = `border-green-700`;
+
+  const WRONG_ANSWER_BACKGROUND = 'bg-red-200';
+  const WRONG_ANSWER_BORDER = 'border-red-700';
+
+  const HIGHLIGHTED_BORDER = `border-${theme}-500`;
+  const HOVER_BORDER = `hover:border-${theme}-500`;
+
   const answeredBackground = isCorrectAnswer ? CORRECT_ANSWER_BACKGROUND : WRONG_ANSWER_BACKGROUND;
   const answeredBorder = isCorrectAnswer ? CORRECT_ANSWER_BORDER : WRONG_ANSWER_BORDER;
 
@@ -80,7 +84,7 @@ const Option = ({
 
   const background = isShowingDetailView ? answeredBackground : DEFAULT_BACKGROUND;
   const border = isShowingDetailView ? answeredBorder : normalBorder;
-  const additionalStyles = !(isDisabled || isShowingDetailView) ? `cursor-pointer hover:${HIGHLIGHTED_BORDER}` : '';
+  const additionalStyles = !(isDisabled || isShowingDetailView) ? `cursor-pointer ${HOVER_BORDER}` : '';
 
   const handleSelect = React.useCallback(() => {
     onSelect(option.id);
@@ -100,11 +104,11 @@ const Option = ({
           )}
         </>
       )}
-      <Text type="base" color="black-0" additionalStyles="pl-2">
+      <Text type="base" color="text-black" additionalStyles="pl-2">
         {option.text}
       </Text>
       {isShowingDetailView && (
-        <Text type="small" color="gray-7" additionalStyles="mt-2 pl-2">
+        <Text type="small" color="text-gray-800" additionalStyles="mt-2 pl-2">
           {option.description}
         </Text>
       )}
