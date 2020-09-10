@@ -1,4 +1,4 @@
-import { THEMES, Theme } from '../../theme';
+import { THEMES, Theme } from '../../theme/index';
 import { useEffect, useState } from 'react';
 import { useThemeDispatch, useThemeState } from '../../theme/ThemeContext';
 
