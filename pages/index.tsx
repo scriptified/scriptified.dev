@@ -45,7 +45,7 @@ export default function Home({
             Your Goto JavaScript Newsletter
           </Text>
         </Tilt>
-        <div className="sm:mx-8 lg:w-2/4 mb-2">
+        <div className="w-5/6 sm:mx-8 lg:w-2/4 mb-2">
           <SubscribeCard homePage />
         </div>
       </section>

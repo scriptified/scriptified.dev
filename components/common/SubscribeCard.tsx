@@ -9,7 +9,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
   const theme = useThemeState();
 
   const cardContainerStyles = homePage
-    ? `border-gray-400 bg-${theme}-100 shadow-whiteLg`
+    ? `border-gray-400 bg-${theme}-200 shadow-xl`
     : `border-${theme}-700 bg-${theme}-500 shadow-2xl`;
   const labelStyles = homePage ? 'text-gray-700' : 'text-gray-100';
   const inputStyles = homePage
@@ -18,7 +18,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
 
   return (
     <div
-      className={`${cardContainerStyles} rounded border px-16 sm:px-6 py-4 flex flex-col justify-between leading-normal`}
+      className={`${cardContainerStyles} rounded-lg border px-10 sm:px-16 py-12 sm:py-14 flex flex-col justify-between leading-normal`}
     >
       {!homePage && (
         <div className="mb-8">
@@ -31,7 +31,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       <div className="md:flex md:items-center mb-6">
         <label className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>First Name</label>
         <input
-          className={`${inputStyles} text-${theme}-700 appearance-none border rounded w-5/6 py-2 px-4 leading-tight focus:outline-none`}
+          className={`${inputStyles} text-${theme}-700 appearance-none border rounded w-full md:w-5/6 py-2 px-4 leading-tight focus:outline-none`}
           type="text"
           placeholder="Binod"
         />
@@ -39,7 +39,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       <div className="md:flex md:items-center mb-6">
         <label className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>Email</label>
         <input
-          className={`${inputStyles} text-${theme}-700 appearance-none border rounded w-5/6 py-2 px-4 leading-tight focus:outline-none`}
+          className={`${inputStyles} text-${theme}-700 appearance-none border rounded w-full md:w-5/6 py-2 px-4 leading-tight focus:outline-none`}
           type="email"
           placeholder="hello@scriptfied.com"
         />

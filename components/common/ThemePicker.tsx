@@ -117,7 +117,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
   }, [isThemeSelectorOpen, updateTheme]);
 
   return (
-    <div className="absolute space-y-1 w-20 sm:w-1/3 md:w-1/6 bg-transparent z-10 theme-picker-position">
+    <div className="absolute space-y-1 w-20 sm:w-1/5 md:w-1/6 bg-transparent z-10 theme-picker-position">
       <label id="listbox-label" className={`block text-sm leading-5 font-medium ${textColor}`}>
         Theme
       </label>
