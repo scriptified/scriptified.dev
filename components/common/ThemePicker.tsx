@@ -117,8 +117,8 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
   }, [isThemeSelectorOpen, updateTheme]);
 
   return (
-    <div className="absolute space-y-1 w-5/12 sm:w-1/3 md:w-1/5 lg:w-1/6 bg-transparent z-10 theme-picker-position">
-      <label id="listbox-label" className={`block text-sm leading-5 font-medium ${textColor} hidden sm:block`}>
+    <div className="absolute space-y-1 w-20 sm:w-1/3 md:w-1/6 bg-transparent z-10 theme-picker-position">
+      <label id="listbox-label" className={`block text-sm leading-5 font-medium ${textColor}`}>
         Theme
       </label>
       <div className={`relative group z-10`}>
@@ -165,11 +165,10 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                   id={theme}
                   role="option"
                   tabIndex={0}
+                  value={theme}
                   className={`dropdown__list-item text-gray-900 font-normal hover:text-white focus:text-white hover:font-semibold focus:font-semibold bg-white hover:bg-${currentTheme}-500 focus:bg-${currentTheme}-500 focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 cursor-pointer select-none relative py-2 pl-3 pr-9`}
-                  onClick={event => {
-                    event.persist();
-                    const target = event.nativeEvent.srcElement as HTMLElement;
-                    updateTheme(target.innerText as Theme);
+                  onClick={() => {
+                    updateTheme(theme);
                     setIsThemeSelectorOpen(false);
                   }}
                 >
@@ -177,7 +176,9 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                     <span
                       className={`animate-spin-slow flex-shrink-0 h-6 w-6 rounded-full bg-${theme}-500 border-2 border-white`}
                     />
-                    <span className={`${currentTheme === theme ? 'font-semibold' : 'font-normal'} block truncate`}>
+                    <span
+                      className={`${currentTheme === theme ? 'font-semibold' : 'font-normal'} hidden sm:block truncate`}
+                    >
                       {theme}
                     </span>
                   </div>
