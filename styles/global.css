@@ -3,15 +3,8 @@
 @tailwind utilities;
 
 .theme-picker-position {
-  top: 0px;
-  right: 0px;
-}
-
-@screen sm {
-  .theme-picker-position {
-    top: 24px;
-    right: 24px;
-  }
+  top: 24px;
+  right: 24px;
 }
 
 .player-wrapper {

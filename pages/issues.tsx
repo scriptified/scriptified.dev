@@ -18,7 +18,7 @@ export default function Issues({
     id: string;
   }[];
 }): JSX.Element {
-  const reversedIssuesData = allIssuesData.reverse();
+  const reversedIssuesData = allIssuesData.slice().reverse();
   const theme = useThemeState();
 
   return (

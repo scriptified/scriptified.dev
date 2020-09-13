@@ -1,6 +1,5 @@
 import { ButtonSize, ButtonType } from '../../theme/index';
 import { useThemeState } from '../../theme/ThemeContext';
-import { MouseEvent } from 'react';
 
 function Button({
   type = 'basic',

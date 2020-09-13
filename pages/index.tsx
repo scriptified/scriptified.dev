@@ -33,7 +33,7 @@ export default function Home({
         <Tilt
           tiltReverse
           transitionEasing="cubic-bezier(.03,.98,.52,.99)"
-          className="flex flex-col items-center justify-center mt-20 sm:mt-6"
+          className="flex flex-col items-center justify-center mt-6"
         >
           {/* <div className="w-1/3"> */}
           <img src="/images/scriptified-logo-green.gif" className="w-1/4" />
@@ -45,7 +45,7 @@ export default function Home({
             Your Goto JavaScript Newsletter
           </Text>
         </Tilt>
-        <div className="sm:mx-8 lg:w-2/4 mb-2">
+        <div className="w-5/6 sm:mx-8 lg:w-2/4 mb-2">
           <SubscribeCard homePage />
         </div>
       </section>
