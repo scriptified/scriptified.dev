@@ -10,6 +10,7 @@ import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
 import Button from '../components/common/Button';
 import { useRouter } from 'next/router';
+import FeatureSection from '../components/FeatureSection';
 
 export default function Home({
   allIssuesData,
@@ -49,7 +50,7 @@ export default function Home({
           <SubscribeCard homePage />
         </div>
       </section>
-      <section className="px-8 sm:px-16 md:px-64 lg:px-64 text-lg leading-normal mt-16">
+      <section className="px-8 sm:px-16 md:px-64 lg:px-64 text-lg leading-normal my-16">
         <Text type="h1" additionalStyles="text-2xl leading-snug my-8 mx-0">
           Latest Issues
         </Text>
@@ -69,6 +70,9 @@ export default function Home({
         <Button size="md" type="secondary" onClick={() => router.push('/issues')} additionalStyles="mt-4">
           View All Issues
         </Button>
+      </section>
+      <section className={`bg-${theme}-500`}>
+        <FeatureSection />
       </section>
     </Layout>
   );
