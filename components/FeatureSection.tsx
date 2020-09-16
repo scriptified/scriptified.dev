@@ -1,41 +1,48 @@
 import React from 'react';
 import { useThemeState } from '../theme/ThemeContext';
 import Text from '../components/common/Text';
+import Tip from './icons/tip';
+import ToolsAndResources from './icons/toolsAndResources';
+import DevOfTheWeek from './icons/devOfTheWeek';
+import TechTalks from './icons/techTalks';
+import Quiz from './icons/quiz';
+import Articles from './icons/articles';
+import Gif from './icons/gif';
 
 const featureData = [
   {
     name: 'Tip of the Day',
-    icon: '',
+    icon: <Tip color="#fff" />,
     desc: 'Useful programming hot tips and tricks to make your dreadful lives easier',
   },
   {
     name: 'Articles',
-    icon: '',
+    icon: <Articles color="#fff" />,
     desc: 'Insightful articles and tutorials around JavaScript and React world',
   },
   {
     name: 'Tools',
-    icon: '',
+    icon: <ToolsAndResources color="#fff" />,
     desc: 'Helpful tools, resources and websites we can use to design and develop better user experiences',
   },
   {
     name: 'Dev of the Week',
-    icon: '',
+    icon: <DevOfTheWeek color="#fff" />,
     desc: 'Featured developer of the week whose work is inspirational',
   },
   {
     name: 'Tech Talks',
-    icon: '',
+    icon: <TechTalks color="#fff" />,
     desc: 'Interesting tech talks from conferences revolving around developement',
   },
   {
     name: 'Quiz',
-    icon: '',
+    icon: <Quiz color="#fff" />,
     desc: 'Challenging programming quizzes to test your sharp programming minds',
   },
   {
     name: 'This Week in GIF',
-    icon: '',
+    icon: <Gif color="#fff" />,
     desc: 'Moody GIFs to share with your co-workers on watercooler slack channels',
   },
 ];
@@ -67,16 +74,9 @@ const FeatureSection = () => {
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <div
-                        className={`flex items-center justify-center h-12 w-12 rounded-md bg-${theme}-700 text-white`}
+                        className={`flex items-center justify-center h-16 w-16 rounded-md bg-${theme}-700 text-${theme}-100`}
                       >
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                          />
-                        </svg>
+                        {feature.icon}
                       </div>
                     </div>
                     <div className="ml-4">
