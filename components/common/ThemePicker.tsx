@@ -117,11 +117,11 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
   }, [isThemeSelectorOpen, updateTheme]);
 
   return (
-    <div className="absolute space-y-1 w-20 sm:w-1/5 md:w-1/6 bg-transparent z-10 theme-picker-position">
+    <div className="absolute space-y-1 w-20 sm:w-1/5 md:w-1/6 bg-transparent z-20 theme-picker-position">
       <label id="listbox-label" className={`block text-sm leading-5 font-medium ${textColor}`}>
         Theme
       </label>
-      <div className={`relative group z-10`}>
+      <div className={`relative group z-20`}>
         <span className="inline-block w-full rounded-md shadow-sm">
           <button
             type="button"
@@ -129,7 +129,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
             aria-expanded="true"
             aria-labelledby="listbox-label"
             id="dropdown__selected"
-            className={`cursor-pointer z-10 w-full relative rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 transition ease-in-out duration-150 sm:text-sm sm:leading-5`}
+            className={`cursor-pointer z-20 w-full relative rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 transition ease-in-out duration-150 sm:text-sm sm:leading-5`}
             onClick={() => setIsThemeSelectorOpen(!isThemeSelectorOpen)}
           >
             <div className="animate-morph flex items-center space-x-3">
