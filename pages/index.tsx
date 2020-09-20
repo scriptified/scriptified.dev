@@ -1,7 +1,10 @@
+import { useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Tilt from 'react-parallax-tilt';
+import Trianglify from 'trianglify';
+import { colors } from 'tailwindcss/defaultTheme';
 
 import SubscribeCard from '../components/common/SubscribeCard';
 import Layout, { siteTitle } from '../components/layout';
@@ -25,16 +28,44 @@ export default function Home({
   const theme = useThemeState();
   const router = useRouter();
 
+  useEffect(() => {
+    const section = document.getElementById('section');
+    const dimensions = section.getClientRects()[0];
+    const pattern = Trianglify({
+      width: dimensions.width,
+      height: dimensions.height,
+      cellSize: 55,
+      xColors: Object.values(colors[theme]),
+      variance: 0.6,
+      colorFunction: Trianglify.colorFunctions.interpolateLinear(0.75),
+    });
+    const canvas = pattern.toCanvas();
+    section.appendChild(canvas);
+    canvas.style.position = 'absolute';
+    return () => {
+      // Remove canvas if already present
+      const section = document.getElementById('section');
+      Array.from(section.children).forEach(element => {
+        if (element.nodeName === 'CANVAS') {
+          element.parentNode.removeChild(element);
+        }
+      });
+    };
+  }, [theme]);
+
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 min-h-screen pb-4 px-4`}>
+      <section
+        id="section"
+        className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 min-h-screen pb-4 px-4 relative`}
+      >
         <Tilt
           tiltReverse
           transitionEasing="cubic-bezier(.03,.98,.52,.99)"
-          className="flex flex-col items-center justify-center mt-6"
+          className="flex flex-col items-center justify-center mt-6 relative z-10"
         >
           {/* <div className="w-1/3"> */}
           <img src="/images/scriptified-logo-green.gif" className="w-1/4" />
@@ -46,7 +77,7 @@ export default function Home({
             Your Goto JavaScript Newsletter
           </Text>
         </Tilt>
-        <div className="w-5/6 sm:mx-8 lg:w-2/4 mb-2">
+        <div className="w-5/6 sm:mx-8 lg:w-2/4 mb-2 relative z-10">
           <SubscribeCard homePage />
         </div>
       </section>
