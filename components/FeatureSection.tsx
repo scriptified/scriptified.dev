@@ -70,7 +70,7 @@ const FeatureSection = () => {
           <ul className="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
             {featureData.map(feature => {
               return (
-                <li key={feature.name} className="p-2">
+                <li key={feature.name} className="p-4 mb-4">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <div
@@ -83,7 +83,7 @@ const FeatureSection = () => {
                       <Text color="text-white" additionalStyles="text-lg leading-6 font-semibold">
                         {feature.name}
                       </Text>
-                      <Text color={`text-${theme}-100`} additionalStyles="mt-2 text-base leading-6">
+                      <Text color={`text-${theme}-100`} additionalStyles="mt-1 text-base leading-6 max-w-sm">
                         {feature.desc}
                       </Text>
                     </div>
