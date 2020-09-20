@@ -74,7 +74,7 @@ const FeatureSection = () => {
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <div
-                        className={`flex items-center justify-center h-16 w-16 rounded-md bg-${theme}-700 text-${theme}-100`}
+                        className={`flex items-center justify-center h-16 w-16 rounded-md bg-${theme}-600 text-${theme}-100`}
                       >
                         {feature.icon}
                       </div>

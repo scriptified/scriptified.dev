@@ -102,7 +102,7 @@ export default function Home({
           View All Issues
         </Button>
       </section>
-      <section className={`bg-${theme}-500`}>
+      <section className={`bg-${theme}-400`}>
         <FeatureSection />
       </section>
     </Layout>
