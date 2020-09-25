@@ -7,8 +7,6 @@ const DOWN_ARROW_KEY_CODE = 40;
 const UP_ARROW_KEY_CODE = 38;
 const ESCAPE_KEY_CODE = 27;
 
-const capitalize = (str: string) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
-
 const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
   const currentTheme = useThemeState();
   const updateTheme = useThemeDispatch();
@@ -136,7 +134,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
           >
             <div className="animate-morph flex items-center space-x-3">
               <span className={`animate-spin-slow flex-shrink-0 h-6 w-6 rounded-full bg-${currentTheme}-500`} />
-              <span className="block truncate">{capitalize(currentTheme)}</span>
+              <span className="block truncate capitalize">{currentTheme}</span>
             </div>
             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="none" stroke="currentColor">
@@ -179,9 +177,11 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                       className={`animate-spin-slow flex-shrink-0 h-6 w-6 rounded-full bg-${theme}-500 border-2 border-white`}
                     />
                     <span
-                      className={`${currentTheme === theme ? 'font-semibold' : 'font-normal'} hidden sm:block truncate`}
+                      className={`${
+                        currentTheme === theme ? 'font-semibold' : 'font-normal'
+                      } hidden sm:block truncate capitalize`}
                     >
-                      {capitalize(theme)}
+                      {theme}
                     </span>
                   </div>
                   {currentTheme === theme && (
