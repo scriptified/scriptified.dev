@@ -117,11 +117,11 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
   }, [isThemeSelectorOpen, updateTheme]);
 
   return (
-    <div className="absolute space-y-1 w-20 sm:w-1/5 md:w-1/6 bg-transparent z-10 theme-picker-position">
+    <div className="absolute space-y-1 w-20 sm:w-1/5 md:w-1/6 bg-transparent z-20 theme-picker-position">
       <label id="listbox-label" className={`block text-sm leading-5 font-medium ${textColor}`}>
         Theme
       </label>
-      <div className={`relative group z-10`}>
+      <div className={`relative group z-20`}>
         <span className="inline-block w-full rounded-md shadow-sm">
           <button
             type="button"
@@ -129,12 +129,12 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
             aria-expanded="true"
             aria-labelledby="listbox-label"
             id="dropdown__selected"
-            className={`cursor-pointer z-10 w-full relative rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 transition ease-in-out duration-150 sm:text-sm sm:leading-5`}
+            className={`cursor-pointer z-20 w-full relative rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 transition ease-in-out duration-150 sm:text-sm sm:leading-5`}
             onClick={() => setIsThemeSelectorOpen(!isThemeSelectorOpen)}
           >
             <div className="animate-morph flex items-center space-x-3">
               <span className={`animate-spin-slow flex-shrink-0 h-6 w-6 rounded-full bg-${currentTheme}-500`} />
-              <span className="block truncate">{currentTheme}</span>
+              <span className="block truncate capitalize">{currentTheme}</span>
             </div>
             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="none" stroke="currentColor">
@@ -177,7 +177,9 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                       className={`animate-spin-slow flex-shrink-0 h-6 w-6 rounded-full bg-${theme}-500 border-2 border-white`}
                     />
                     <span
-                      className={`${currentTheme === theme ? 'font-semibold' : 'font-normal'} hidden sm:block truncate`}
+                      className={`${
+                        currentTheme === theme ? 'font-semibold' : 'font-normal'
+                      } hidden sm:block truncate capitalize`}
                     >
                       {theme}
                     </span>
