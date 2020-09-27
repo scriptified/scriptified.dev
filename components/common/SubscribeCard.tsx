@@ -14,7 +14,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
 
   const subscribeUser = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/subscribe', {
+      const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
