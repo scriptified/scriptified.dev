@@ -22,7 +22,7 @@ module.exports = {
       },
     ],
     'max-len': [
-      2,
+      1,
       120,
       4,
       {
