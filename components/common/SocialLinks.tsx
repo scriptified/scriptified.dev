@@ -17,15 +17,24 @@ const LINK_LOGO = {
   youtube: YouTubeLogo,
 };
 
-function SocialLinks({ links = {} }: { links?: Social }): JSX.Element {
+function SocialLinks({
+  links = {},
+  logoColor = '',
+  spaceBetween = 3,
+}: {
+  links?: Social;
+  logoColor?: string;
+  spaceBetween?: number;
+}): JSX.Element {
   const theme = useThemeState();
+  const getLogoColor = logoColor ? logoColor : `text-${theme}-500`;
   return (
     <>
       {Object.keys(links).map(link => {
         const Logo = LINK_LOGO[link];
         return (
-          <a href={links[link]} key={link} className="mr-3">
-            {<Logo color={`text-${theme}-500`} />}
+          <a href={links[link]} key={link} className={`mr-${spaceBetween}`}>
+            {<Logo color={getLogoColor} />}
           </a>
         );
       })}
