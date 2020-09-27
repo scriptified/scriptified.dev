@@ -22,12 +22,12 @@ export default function Issues({
   const theme = useThemeState();
 
   return (
-    <Layout additionalStyles="max-w-4xl px-4 mt-12">
+    <Layout additionalStyles="mt-12">
       <Head>
         <title>{siteTitle} - All Issues</title>
       </Head>
-      <section className="text-lg leading-normal mt-16">
-        <Text type="h1" color={`text-${theme}-5`} additionalStyles="mb-8">
+      <section className="max-w-4xl px-4 mx-auto text-lg leading-normal mt-16">
+        <Text type="h1" color={`text-${theme}-900`} additionalStyles="mb-8">
           Issues
         </Text>
         {/* <h2 className="text-2xl leading-snug my-4 mx-0">Issues</h2> */}
