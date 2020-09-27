@@ -1,3 +1,4 @@
+import { ButtonHTMLAttributes } from 'react';
 import { ButtonSize, ButtonType } from '../../theme/index';
 import { useThemeState } from '../../theme/ThemeContext';
 
@@ -7,12 +8,14 @@ function Button({
   additionalStyles = '',
   children,
   onClick,
+  buttonAttributes = {},
 }: {
   type?: string;
   size?: string;
   children: React.ReactNode;
   additionalStyles?: string;
-  onClick: (MouseEvent) => void;
+  onClick?: (MouseEvent) => void;
+  buttonAttributes?: ButtonHTMLAttributes<HTMLButtonElement>;
 }): JSX.Element {
   // This can be improved. I’m keeping it simple here by joining two strings.
   const theme = useThemeState();
@@ -22,7 +25,7 @@ function Button({
   const styles = `${buttonType} ${buttonSize} ${additionalStyles} p-2`;
 
   return (
-    <button className={styles} onClick={onClick}>
+    <button className={styles} onClick={onClick} {...buttonAttributes}>
       {children}
     </button>
   );
