@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "3.0.19",
     "@svgr/webpack": "5.4.0",
     "autoprefixer": "9.8.6",
     "date-fns": "2.16.1",
