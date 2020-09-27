@@ -1,22 +1,39 @@
+import { useRouter } from 'next/router';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import Button from './Button';
 import Text from './Text';
 import { useThemeState } from '../../theme/ThemeContext';
-import { ChangeEvent, FormEvent, useState } from 'react';
 
 const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Element => {
-  const subscribeUser = (firstName: string, email: string) => {
-    fetch('http://localhost:3000/api/subscribe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ firstName, email }),
-    });
-  };
+  const router = useRouter();
   const theme = useThemeState();
 
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const subscribeUser = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ firstName, email }),
+      });
+      if (!response.ok) {
+        const res = await response.json();
+        throw new Error(res.msg);
+      }
+      router.replace('/check-email');
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setLoading(false);
+      setFirstName('');
+      setEmail('');
+    }
+  };
 
   const cardContainerStyles = homePage
     ? `border-gray-400 bg-${theme}-200 shadow-xl`
@@ -28,7 +45,8 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    subscribeUser(firstName, email);
+    subscribeUser();
+    setLoading(true);
   };
 
   const handleChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>) => {
@@ -84,6 +102,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
           type={homePage ? 'primary' : 'basic'}
           additionalStyles={`rounded shadow w-3/6 self-center mt-4`}
           buttonAttributes={{ type: 'submit' }}
+          loading={loading}
         >
           Subscribe
         </Button>

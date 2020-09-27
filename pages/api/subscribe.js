@@ -21,8 +21,12 @@ export default async (req, res) => {
       console.log(response);
       return res.status(200).send({ msg: 'Success' });
     } catch (error) {
-      console.log(error);
-      return res.status(422).send({ msg: 'Failure' });
+      const errorMsg = JSON.parse(error?.response?.text)?.title;
+      let msg = 'Unknown error occurred please refresh the page and try again.';
+      if (errorMsg === 'Member Exists') {
+        msg = 'Looks like you are already registered.';
+      }
+      return res.status(422).send({ msg });
     }
   }
 };
