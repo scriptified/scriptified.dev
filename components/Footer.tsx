@@ -32,7 +32,7 @@ const Footer = (): JSX.Element => {
         </div>
 
         <div className="flex items-center flex-col lg:flex-row">
-          <ul className="flex px-8 items-center m-0 flex-wrap ">
+          <ul className="flex px-8 items-center justify-center m-0 flex-wrap ">
             <li className="p-0">
               <Link href="/issues">
                 <a className="hover:underline text-pom p-2 inline-flex items-center">
