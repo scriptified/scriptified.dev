@@ -11,7 +11,6 @@ export default async (req, res) => {
 
   if (method === 'POST') {
     try {
-      console.log(email, firstName);
       const response = await mailchimp.lists.addListMember(process.env.MAILCHIMP_LIST_ID, {
         email_address: email,
         status: 'pending',
