@@ -18,41 +18,43 @@ import issues from '../../issues/issues';
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   return (
-    <Layout additionalStyles="max-w-4xl px-4 mt-12">
+    <Layout additionalStyles="mt-12">
       <Head>
         <title>{issueData.meta.title}</title>
       </Head>
-      <IssueItem title="Tip of the day">
-        <Text type="base" additionalStyles="my-2">
-          {issueData.tipOfTheWeek.desc}
-        </Text>
-        <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
-      </IssueItem>
-      <IssueItem title="Articles">
-        {issueData.articles.map(article => (
-          <ArticleItem article={article} key={article.url} />
-        ))}
-      </IssueItem>
-      <IssueItem title="Tools">
-        {issueData.tools.map(tool => (
-          <ToolItem tool={tool} key={tool.url} />
-        ))}
-      </IssueItem>
-      <IssueItem title="Dev Of The Week">
-        <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
-      </IssueItem>
-      <IssueItem title="Tech talks">
-        {issueData.talks.map(talk => (
-          <TechTalk key={talk.talkURL} techTalk={talk} />
-        ))}
-      </IssueItem>
-      <IssueItem title="Quiz">
-        <Quiz quiz={issueData.quiz} />
-      </IssueItem>
-      <IssueItem title="This Week in GIF">
-        <GIFItem gif={issueData.gif} />
-      </IssueItem>
-      <SubscribeCard />
+      <section className="max-w-4xl px-4 mx-auto">
+        <IssueItem title="Tip of the day">
+          <Text type="base" additionalStyles="my-2">
+            {issueData.tipOfTheWeek.desc}
+          </Text>
+          <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
+        </IssueItem>
+        <IssueItem title="Articles">
+          {issueData.articles.map(article => (
+            <ArticleItem article={article} key={article.url} />
+          ))}
+        </IssueItem>
+        <IssueItem title="Tools">
+          {issueData.tools.map(tool => (
+            <ToolItem tool={tool} key={tool.url} />
+          ))}
+        </IssueItem>
+        <IssueItem title="Dev Of The Week">
+          <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
+        </IssueItem>
+        <IssueItem title="Tech talks">
+          {issueData.talks.map(talk => (
+            <TechTalk key={talk.talkURL} techTalk={talk} />
+          ))}
+        </IssueItem>
+        <IssueItem title="Quiz">
+          <Quiz quiz={issueData.quiz} />
+        </IssueItem>
+        <IssueItem title="This Week in GIF">
+          <GIFItem gif={issueData.gif} />
+        </IssueItem>
+        <SubscribeCard />
+      </section>
     </Layout>
   );
 }

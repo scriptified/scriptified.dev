@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useThemeState } from '../theme/ThemeContext';
 import ThemePicker from './common/ThemePicker';
+import Footer from './Footer';
 
 const name = 'Scriptified';
 export const siteTitle = 'Scriptified';
@@ -14,10 +16,12 @@ export default function Layout({
   home?: boolean;
   additionalStyles?: string;
 }): JSX.Element {
+  const theme = useThemeState();
+
   return (
     <>
-      <ThemePicker textColor={home ? 'text-gray-100' : 'text-black'} />
-      <div className={`py-0 mx-auto mb-24 ${additionalStyles ? additionalStyles : ''}`}>
+      <ThemePicker textColor={home ? 'text-gray-100' : `text-${theme}-900`} />
+      <div className={`py-0 mx-auto ${additionalStyles ? additionalStyles : ''}`}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet" />
@@ -55,12 +59,13 @@ export default function Layout({
         </header>
         <main className="relative">{children}</main>
         {!home && (
-          <div className="my-12 mx-0">
+          <div className="my-12 max-w-4xl mx-auto px-4">
             <Link href="/">
               <a className="no-underline hover:underline">← Back to home</a>
             </Link>
           </div>
         )}
+        <Footer />
       </div>
     </>
   );

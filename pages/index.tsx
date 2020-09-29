@@ -81,8 +81,8 @@ export default function Home({
           <SubscribeCard homePage />
         </div>
       </section>
-      <section className="px-8 sm:px-16 md:px-64 lg:px-64 text-lg leading-normal my-16">
-        <Text type="h1" additionalStyles="text-2xl leading-snug my-8 mx-0">
+      <section className={`px-8 sm:px-16 md:px-64 lg:px-64 text-lg leading-normal py-16 bg-${theme}-100`}>
+        <Text type="h1" color={`text-${theme}-900`} additionalStyles="text-2xl leading-snug my-8 mx-0">
           Latest Issues
         </Text>
         <ul className="m-0 p-0 list-none">

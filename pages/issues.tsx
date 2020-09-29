@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Text from '../components/common/Text';
 import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
+import SubscribeCard from '../components/common/SubscribeCard';
 
 // import utilStyles from "../styles/utils.module.css";
 
@@ -22,15 +23,14 @@ export default function Issues({
   const theme = useThemeState();
 
   return (
-    <Layout additionalStyles="max-w-4xl px-4 mt-12">
+    <Layout additionalStyles="mt-12 min-h-screen">
       <Head>
         <title>{siteTitle} - All Issues</title>
       </Head>
-      <section className="text-lg leading-normal mt-16">
-        <Text type="h1" color={`text-${theme}-5`} additionalStyles="mb-8">
+      <section className="max-w-4xl px-4 mx-auto text-lg leading-normal mt-16">
+        <Text type="h1" color={`text-${theme}-900`} additionalStyles="mb-8">
           Issues
         </Text>
-        {/* <h2 className="text-2xl leading-snug my-4 mx-0">Issues</h2> */}
         <ul className="m-0 p-0 list-none">
           {reversedIssuesData.map(({ id, desc, title }) => (
             <li className="mt-0 mx-0 mb-5" key={id}>
@@ -45,6 +45,9 @@ export default function Issues({
           ))}
         </ul>
       </section>
+      <div className="max-w-4xl px-4 mx-auto mt-16">
+        <SubscribeCard />
+      </div>
     </Layout>
   );
 }
