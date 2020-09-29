@@ -4,6 +4,7 @@ import Text from './common/Text';
 import Tags from './common/Tags';
 
 // TODO: Create a loading indicator for this
+// eslint-disable-next-line react/display-name
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { loading: (): JSX.Element => <p>Loading...</p> });
 
 const TechTalk = ({ techTalk }: { techTalk: Talk }): JSX.Element => {
