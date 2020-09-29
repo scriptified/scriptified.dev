@@ -20,16 +20,16 @@ const LINK_LOGO = {
 function SocialLinks({
   links = {},
   logoColor = '',
-  spaceBetween = 3,
+  additionalStyles = '',
 }: {
   links?: Social;
   logoColor?: string;
-  spaceBetween?: number;
+  additionalStyles?: string;
 }): JSX.Element {
   const theme = useThemeState();
   const getLogoColor = logoColor ? logoColor : `text-${theme}-500`;
   return (
-    <div className={`flex space-x-${spaceBetween}`}>
+    <div className={`flex ${additionalStyles}`}>
       {Object.keys(links).map(link => {
         const Logo = LINK_LOGO[link];
         return (

@@ -53,7 +53,7 @@ const Footer = (): JSX.Element => {
             </li>
           </ul>
           <div className="flex justify-center items-center mt-2 lg:mt-0">
-            <SocialLinks links={scriptifiedSocialLinks} logoColor={`text-${theme}-800`} spaceBetween={4} />
+            <SocialLinks links={scriptifiedSocialLinks} logoColor={`text-${theme}-800`} additionalStyles="space-x-4" />
           </div>
         </div>
       </footer>
