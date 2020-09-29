@@ -59,7 +59,7 @@ export default function Layout({
         </header>
         <main className="relative">{children}</main>
         {!home && (
-          <div className="my-12 max-w-4xl mx-auto">
+          <div className="my-12 max-w-4xl mx-auto px-4">
             <Link href="/">
               <a className="no-underline hover:underline">← Back to home</a>
             </Link>

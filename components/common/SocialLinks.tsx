@@ -29,16 +29,16 @@ function SocialLinks({
   const theme = useThemeState();
   const getLogoColor = logoColor ? logoColor : `text-${theme}-500`;
   return (
-    <>
+    <div className={`flex space-x-${spaceBetween}`}>
       {Object.keys(links).map(link => {
         const Logo = LINK_LOGO[link];
         return (
-          <a href={links[link]} key={link} className={`mr-${spaceBetween}`}>
+          <a href={links[link]} key={link}>
             {<Logo color={getLogoColor} />}
           </a>
         );
       })}
-    </>
+    </div>
   );
 }
 export default SocialLinks;
