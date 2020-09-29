@@ -1,16 +1,15 @@
-import { useRouter } from 'next/router';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import Button from './Button';
 import Text from './Text';
 import { useThemeState } from '../../theme/ThemeContext';
 
 const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Element => {
-  const router = useRouter();
   const theme = useThemeState();
 
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const subscribeUser = async () => {
     try {
@@ -25,7 +24,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
         const res = await response.json();
         throw new Error(res.msg);
       }
-      router.replace('/check-email');
+      setShowThankYou(true);
     } catch (error) {
       alert(error.message);
     } finally {
@@ -62,51 +61,63 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       // eslint-disable-next-line max-len
       className={`${cardContainerStyles} rounded-lg border px-10 sm:px-16 py-12 sm:py-14 flex flex-col justify-between leading-normal`}
     >
-      {!homePage && (
+      {!homePage && !showThankYou ? (
         <div className="mb-8">
           <Text type="h3" color="text-white" additionalStyles="font-bold mb-2">
             Get Scriptified Issues In Your Inbox
           </Text>
           <Text color="text-gray-400">No spam ever, pinky promise!</Text>
         </div>
+      ) : null}
+
+      {!showThankYou ? (
+        <form onSubmit={handleSubmit} className="flex flex-col">
+          <div className="md:flex md:items-center mb-6">
+            <label className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>First Name</label>
+            <input
+              // eslint-disable-next-line max-len
+              className={`${inputStyles} text-${theme}-700 appearance-none border rounded w-full md:w-5/6 py-2 px-4 leading-tight focus:outline-none`}
+              type="text"
+              required
+              name="fname"
+              value={firstName}
+              onChange={handleChange}
+              placeholder="Binod"
+            />
+          </div>
+          <div className="md:flex md:items-center mb-6">
+            <label className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>Email</label>
+            <input
+              // eslint-disable-next-line max-len
+              className={`${inputStyles} text-${theme}-700 appearance-none border rounded w-full md:w-5/6 py-2 px-4 leading-tight focus:outline-none`}
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              required
+              placeholder="hello@scriptfied.com"
+            />
+          </div>
+          <Button
+            size="xs"
+            type={homePage ? 'primary' : 'basic'}
+            additionalStyles={`rounded shadow w-3/6 self-center mt-4`}
+            buttonAttributes={{ type: 'submit' }}
+            loading={loading}
+          >
+            Subscribe
+          </Button>
+        </form>
+      ) : (
+        <div className="flex justify-center items-center flex-col text-center space-y-4">
+          <Text type="h2" color={homePage ? `text-${theme}-800` : `text-${theme}-100`}>
+            Thank you for subscribing to Scriptified!
+          </Text>
+          <Text color={homePage ? `text-${theme}-600` : `text-${theme}-300`}>
+            A perfect time to check your email inbox
+          </Text>
+        </div>
       )}
-      <form onSubmit={handleSubmit} className="flex flex-col">
-        <div className="md:flex md:items-center mb-6">
-          <label className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>First Name</label>
-          <input
-            // eslint-disable-next-line max-len
-            className={`${inputStyles} text-${theme}-700 appearance-none border rounded w-full md:w-5/6 py-2 px-4 leading-tight focus:outline-none`}
-            type="text"
-            required
-            name="fname"
-            value={firstName}
-            onChange={handleChange}
-            placeholder="Binod"
-          />
-        </div>
-        <div className="md:flex md:items-center mb-6">
-          <label className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>Email</label>
-          <input
-            // eslint-disable-next-line max-len
-            className={`${inputStyles} text-${theme}-700 appearance-none border rounded w-full md:w-5/6 py-2 px-4 leading-tight focus:outline-none`}
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            required
-            placeholder="hello@scriptfied.com"
-          />
-        </div>
-        <Button
-          size="xs"
-          type={homePage ? 'primary' : 'basic'}
-          additionalStyles={`rounded shadow w-3/6 self-center mt-4`}
-          buttonAttributes={{ type: 'submit' }}
-          loading={loading}
-        >
-          Subscribe
-        </Button>
-      </form>
     </div>
   );
 };
