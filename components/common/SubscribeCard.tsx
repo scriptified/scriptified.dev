@@ -3,6 +3,14 @@ import Button from './Button';
 import Text from './Text';
 import { useThemeState } from '../../theme/ThemeContext';
 
+const getThankYouMessage = (): string => {
+  const thankYouCopies = [
+    "Now's a perfect time to check your email inbox",
+    "Now check your inbox as you're in for a sweet treat!",
+  ];
+  return thankYouCopies[Math.floor(Math.random() * thankYouCopies.length)];
+};
+
 const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Element => {
   const theme = useThemeState();
 
@@ -113,9 +121,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
           <Text type="h2" color={homePage ? `text-${theme}-800` : `text-${theme}-100`}>
             Thank you for subscribing to Scriptified!
           </Text>
-          <Text color={homePage ? `text-${theme}-600` : `text-${theme}-300`}>
-            A perfect time to check your email inbox
-          </Text>
+          <Text color={homePage ? `text-${theme}-600` : `text-${theme}-300`}>{getThankYouMessage()}</Text>
         </div>
       )}
     </div>
