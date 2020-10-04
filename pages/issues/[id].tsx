@@ -1,10 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useEffect } from 'react';
+import Head from 'next/head';
 
 import ArticleItem from '../../components/ArticleItem';
 import CodeSnippet from '../../components/common/CodeSnippet';
 import DevOfTheWeekItem from '../../components/DevOfTheWeekItem';
 import GIFItem from '../../components/GIFItem';
-import Head from 'next/head';
 import { Issue } from '../../interfaces/issue';
 import IssueItem from '../../components/IssueItem';
 import Layout from '../../components/layout';
@@ -15,8 +16,24 @@ import Text from '../../components/common/Text';
 import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
+import { useThemeState } from '../../theme/ThemeContext';
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
+  const theme = useThemeState();
+
+  useEffect(() => {
+    const rotateShape = () => {
+      const shapes = Array.from(document.getElementsByClassName('shape-container') as HTMLCollectionOf<HTMLElement>);
+      shapes.forEach(shape => {
+        shape.style.transform = `rotate(${window.pageYOffset / 3}deg)`;
+      });
+    };
+    window.addEventListener('scroll', rotateShape);
+    return () => {
+      window.removeEventListener('scroll', rotateShape);
+    };
+  }, []);
+
   return (
     <Layout additionalStyles="mt-12">
       <Head>
@@ -24,7 +41,10 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       </Head>
       <section className="max-w-4xl px-4 mx-auto">
         <IssueItem title="Tip of the day">
-          <Text type="base" additionalStyles="my-2">
+          <div className="shape-container">
+            <div className={`burst-12 bg-${theme}-300`} />
+          </div>
+          <Text type="base" additionalStyles="my-2 relative z-10">
             {issueData.tipOfTheWeek.desc}
           </Text>
           <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />

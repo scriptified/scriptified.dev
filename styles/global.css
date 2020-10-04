@@ -25,3 +25,34 @@
   top: 0;
   clip-path: circle(96% at 50% -164%);
 }
+
+.shape-container {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  top: 16px;
+  left: -120px;
+}
+
+.burst-12 {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  text-align: center;
+}
+.burst-12:before,
+.burst-12:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 80px;
+  background: inherit;
+}
+.burst-12:before {
+  transform: rotate(30deg);
+}
+.burst-12:after {
+  transform: rotate(60deg);
+}
