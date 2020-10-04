@@ -17,3 +17,11 @@
   top: 0;
   left: 0;
 }
+
+.clipper-circle {
+  position: absolute;
+  height: 600px;
+  width: 99vw;
+  top: 0;
+  clip-path: circle(96% at 50% -164%);
+}
