@@ -2,23 +2,17 @@ import Layout, { siteTitle } from '../components/layout';
 
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import Text from '../components/common/Text';
 import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
 import SubscribeCard from '../components/common/SubscribeCard';
+import IssueListItem from '../components/common/IssueListItem';
+import Meta from '../interfaces/meta';
+import BackToHome from '../components/common/BackToHome';
 
 // import utilStyles from "../styles/utils.module.css";
 
-export default function Issues({
-  allIssuesData,
-}: {
-  allIssuesData: {
-    desc: string;
-    title: string;
-    id: string;
-  }[];
-}): JSX.Element {
+export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
   const reversedIssuesData = allIssuesData.slice().reverse();
   const theme = useThemeState();
 
@@ -27,27 +21,20 @@ export default function Issues({
       <Head>
         <title>{siteTitle} - All Issues</title>
       </Head>
-      <section className="max-w-4xl px-4 mx-auto text-lg leading-normal mt-16">
+      <section className="max-w-4xl px-8 sm:px-8 md:px-16 lg:px-32 mx-auto text-lg leading-normal mt-16">
         <Text type="h1" color={`text-${theme}-900`} additionalStyles="mb-8">
           Issues
         </Text>
         <ul className="m-0 p-0 list-none">
-          {reversedIssuesData.map(({ id, desc, title }) => (
-            <li className="mt-0 mx-0 mb-5" key={id}>
-              <Link href="/issues/[id]" as={`/issues/${id}`}>
-                <a className={`text-${theme}-600 font-sans font-semibold text-2xl no-underline hover:underline`}>
-                  {title}
-                </a>
-              </Link>
-              <br />
-              <p>{desc}</p>
-            </li>
+          {reversedIssuesData.map(data => (
+            <IssueListItem issueData={data} key={data.number} />
           ))}
         </ul>
       </section>
-      <div className="max-w-4xl px-4 mx-auto mt-16">
+      <div className="max-w-4xl px-8 sm:px-8 md:px-16 lg:px-32 mx-auto mt-16">
         <SubscribeCard />
       </div>
+      <BackToHome className="my-12 max-w-4xl px-8 sm:px-8 md:px-16 lg:px-32 mx-auto" />
     </Layout>
   );
 }

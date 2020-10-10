@@ -25,6 +25,8 @@ export function getAllIssuesMeta() {
   return issues.map(issue => ({
     title: issue.meta.title,
     desc: issue.meta.desc,
-    id: issue.meta.number,
+    number: issue.meta.number,
+    dateOfPublishing: issue.meta.dateOfPublishing,
+    imgURL: issue.meta.imgURL,
   }));
 }

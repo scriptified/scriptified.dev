@@ -7,7 +7,7 @@ import GIFItem from '../../components/GIFItem';
 import Head from 'next/head';
 import { Issue } from '../../interfaces/issue';
 import IssueItem from '../../components/IssueItem';
-import Layout from '../../components/layout';
+import Layout, { siteTitle } from '../../components/layout';
 import Quiz from '../../components/Quiz';
 import SubscribeCard from '../../components/common/SubscribeCard';
 import TechTalk from '../../components/TechTalk';
@@ -15,14 +15,15 @@ import Text from '../../components/common/Text';
 import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
+import BackToHome from '../../components/common/BackToHome';
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   return (
     <Layout additionalStyles="mt-12">
       <Head>
-        <title>{issueData.meta.title}</title>
+        <title>{`#${issueData.meta.number} - ${issueData.meta.title} - ${siteTitle}`}</title>
       </Head>
-      <section className="max-w-4xl px-4 mx-auto">
+      <section className="max-w-4xl px-4 sm:px-8 md:px-16 lg:px-32 mx-auto">
         <IssueItem title="Tip of the day">
           <Text type="base" additionalStyles="my-2">
             {issueData.tipOfTheWeek.desc}
@@ -54,6 +55,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
           <GIFItem gif={issueData.gif} />
         </IssueItem>
         <SubscribeCard />
+        <BackToHome className="my-12 max-w-4xl mx-auto" />
       </section>
     </Layout>
   );
