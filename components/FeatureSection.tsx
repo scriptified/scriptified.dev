@@ -51,12 +51,12 @@ const FeatureSection = () => {
   const theme = useThemeState();
   return (
     <div className="py-12">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-40 lg:px-64">
         <div className="lg:text-center">
           <Text
             additionalStyles="mt-2 text-3xl leading-8 font-extrabold tracking-tight tracking-wide sm:text-4xl sm:leading-10"
             color="text-white"
-            type="h3"
+            type="h1"
           >
             Sections
           </Text>
@@ -70,7 +70,7 @@ const FeatureSection = () => {
           <ul className="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
             {featureData.map(feature => {
               return (
-                <li key={feature.name} className="p-4 mb-4">
+                <li key={feature.name} className="py-4 mr-4 lg:mr-8 mb-4 flex justify-center">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <div
@@ -80,7 +80,7 @@ const FeatureSection = () => {
                       </div>
                     </div>
                     <div className="ml-4">
-                      <Text color="text-white" additionalStyles="text-lg leading-6 font-semibold">
+                      <Text type="h2" color="text-white" additionalStyles="text-lg leading-6 font-semibold">
                         {feature.name}
                       </Text>
                       <Text color={`text-${theme}-100`} additionalStyles="mt-1 text-base leading-6 max-w-sm">
