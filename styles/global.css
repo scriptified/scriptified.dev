@@ -26,7 +26,7 @@
   clip-path: circle(96% at 50% -164%);
 }
 
-.shape-container {
+.burst-12-container {
   position: absolute;
   height: 80px;
   width: 80px;
@@ -56,3 +56,44 @@
 .burst-12:after {
   transform: rotate(60deg);
 }
+
+.hollow-square-container {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  top: 100px;
+  right: -110px;
+  transform: rotate(45deg);
+}
+
+.hollow-square {
+  height: 80px;
+  width: 80px;
+  position: relative;
+}
+
+.hollow-square:after {
+  content:'';
+  position:absolute;
+  top:10px;
+  left:10px;
+  width:60px;
+  height:60px;
+  background-color: white;
+  z-index:2;
+}
+
+.circle-container {
+  position: absolute;
+  height: 0px;
+  width: 0px;
+  top: 50px;
+  left: -140px;
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%
+}
+
