@@ -23,7 +23,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       <Head>
         <title>{`#${issueData.meta.number} - ${issueData.meta.title} - ${siteTitle}`}</title>
       </Head>
-      <section className="max-w-4xl px-4 sm:px-8 md:px-16 lg:px-32 mx-auto">
+      <section className="max-w-4xl px-6 sm:px-8 md:px-16 mx-auto">
         <IssueItem title="Tip of the day">
           <Text type="base" additionalStyles="my-2">
             {issueData.tipOfTheWeek.desc}
