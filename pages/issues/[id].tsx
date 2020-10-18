@@ -17,24 +17,10 @@ import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
 import { useThemeState } from '../../theme/ThemeContext';
+import Tip from '../../components/icons/tip';
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   const theme = useThemeState();
-
-  // useEffect(() => {
-  //   const rotateShape = () => {
-  //     const shapes = Array.from(
-  //       document.querySelectorAll('.burst-12-container,.hollow-square-container,.pentagon') as NodeListOf<HTMLElement>
-  //     );
-  //     shapes.forEach(shape => {
-  //       shape.style.transform = `rotate(${window.pageYOffset / 3}deg)`;
-  //     });
-  //   };
-  //   window.addEventListener('scroll', rotateShape);
-  //   return () => {
-  //     window.removeEventListener('scroll', rotateShape);
-  //   };
-  // }, []);
 
   return (
     <Layout additionalStyles="mt-12">
@@ -43,8 +29,8 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       </Head>
       <section className="max-w-4xl px-4 mx-auto">
         <IssueItem title="Tip of the day">
-          <div className="burst-12-container">
-            <div className={`burst-12 bg-${theme}-300`} />
+          <div className="absolute h-24 w-24 tip-image-position">
+            <Tip color={`text-${theme}-300`} additionalStyles="h-24 w-24" />
           </div>
           <Text type="base" additionalStyles="my-2 relative z-10">
             {issueData.tipOfTheWeek.desc}
@@ -52,17 +38,17 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
           <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
         </IssueItem>
         <IssueItem title="Articles">
-          <div className="hollow-square-container">
-            <div className={`hollow-square bg-${theme}-300`} />
-          </div>
+          {/* <div className="hollow-square-container">
+        
+          </div> */}
           {issueData.articles.map(article => (
             <ArticleItem article={article} key={article.url} />
           ))}
         </IssueItem>
         <IssueItem title="Tools">
-          <div className="circle-container">
-            <div className={`circle bg-${theme}-300`} />
-          </div>
+          {/* <div className="circle-container">
+          
+          </div> */}
           {issueData.tools.map(tool => (
             <ToolItem tool={tool} key={tool.url} />
           ))}

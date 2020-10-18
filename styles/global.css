@@ -26,35 +26,9 @@
   clip-path: circle(96% at 50% -164%);
 }
 
-.burst-12-container {
-  position: absolute;
-  height: 80px;
-  width: 80px;
+.tip-image-position {
   top: 16px;
   left: -120px;
-}
-
-.burst-12 {
-  width: 80px;
-  height: 80px;
-  position: relative;
-  text-align: center;
-}
-.burst-12:before,
-.burst-12:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 80px;
-  width: 80px;
-  background: inherit;
-}
-.burst-12:before {
-  transform: rotate(30deg);
-}
-.burst-12:after {
-  transform: rotate(60deg);
 }
 
 .hollow-square-container {
@@ -66,34 +40,30 @@
   transform: rotate(45deg);
 }
 
-.hollow-square {
-  height: 80px;
-  width: 80px;
-  position: relative;
+/* Fire SVG animation*/
+
+ @keyframes animate-svg-stroke-1 {
+  0% {
+    stroke-dashoffset: 101.60997772216797px;
+    stroke-dasharray: 101.60997772216797px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
-.hollow-square:after {
-  content:'';
-  position:absolute;
-  top:10px;
-  left:10px;
-  width:60px;
-  height:60px;
-  background-color: white;
-  z-index:2;
+@keyframes animate-svg-fill-1 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: currentColor;
+  }
 }
 
-.circle-container {
-  position: absolute;
-  height: 0px;
-  width: 0px;
-  top: 50px;
-  left: -140px;
+.svg-elem-1 {
+  animation: animate-svg-stroke-1 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0s both,
+               animate-svg-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s both;
 }
-
-.circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%
-}
-
