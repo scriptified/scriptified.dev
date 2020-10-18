@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { useEffect } from 'react';
 import Head from 'next/head';
 
 import ArticleItem from '../../components/ArticleItem';
@@ -17,7 +16,13 @@ import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
 import { useThemeState } from '../../theme/ThemeContext';
-import Tip from '../../components/icons/tip';
+import TipIcon from '../../components/icons/tip';
+import ArticlesIcon from '../../components/icons/articles';
+import ToolsAndResourcesIcon from '../../components/icons/toolsAndResources';
+import DevOfTheWeekIcon from '../../components/icons/devOfTheWeek';
+import TechTalksIcon from '../../components/icons/techTalks';
+import QuizIcon from '../../components/icons/quiz';
+import GifIcon from '../../components/icons/gif';
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   const theme = useThemeState();
@@ -30,7 +35,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       <section className="max-w-4xl px-4 mx-auto">
         <IssueItem title="Tip of the day">
           <div className="absolute h-24 w-24 tip-image-position">
-            <Tip color={`text-${theme}-300`} additionalStyles="h-24 w-24" />
+            <TipIcon color={`text-${theme}-300`} additionalStyles="h-24 w-24" />
           </div>
           <Text type="base" additionalStyles="my-2 relative z-10">
             {issueData.tipOfTheWeek.desc}
@@ -38,33 +43,45 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
           <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
         </IssueItem>
         <IssueItem title="Articles">
-          {/* <div className="hollow-square-container">
-        
-          </div> */}
+          <div className="absolute h-24 w-24 tip-image-position">
+            <ArticlesIcon color={`text-${theme}-300`} additionalStyles="h-24 w-24" />
+          </div>
           {issueData.articles.map(article => (
             <ArticleItem article={article} key={article.url} />
           ))}
         </IssueItem>
         <IssueItem title="Tools">
-          {/* <div className="circle-container">
-          
-          </div> */}
+          <div className="absolute h-24 w-24 tip-image-position">
+            <ToolsAndResourcesIcon color={`text-${theme}-300`} additionalStyles="h-24 w-24" />
+          </div>
           {issueData.tools.map(tool => (
             <ToolItem tool={tool} key={tool.url} />
           ))}
         </IssueItem>
         <IssueItem title="Dev Of The Week">
+          <div className="absolute h-24 w-24 tip-image-position">
+            <DevOfTheWeekIcon color={`text-${theme}-300`} additionalStyles="h-24 w-24" />
+          </div>
           <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
         </IssueItem>
         <IssueItem title="Tech talks">
+          <div className="absolute h-24 w-24 tip-image-position">
+            <TechTalksIcon color={`text-${theme}-300`} additionalStyles="h-24 w-24" />
+          </div>
           {issueData.talks.map(talk => (
             <TechTalk key={talk.talkURL} techTalk={talk} />
           ))}
         </IssueItem>
         <IssueItem title="Quiz">
+          <div className="absolute h-24 w-24 tip-image-position">
+            <QuizIcon color={`text-${theme}-300`} additionalStyles="h-24 w-24" />
+          </div>
           <Quiz quiz={issueData.quiz} />
         </IssueItem>
         <IssueItem title="This Week in GIF">
+          <div className="absolute h-24 w-24 tip-image-position">
+            <GifIcon color={`text-${theme}-300`} additionalStyles="h-24 w-24" />
+          </div>
           <GIFItem gif={issueData.gif} />
         </IssueItem>
         <SubscribeCard />
