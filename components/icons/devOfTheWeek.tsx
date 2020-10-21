@@ -5,7 +5,7 @@ const DevOfTheWeek = ({
   color = '',
   additionalStyles = 'h-6 w-6',
 }: {
-  color: string;
+  color?: string;
   additionalStyles?: string;
 }): JSX.Element => {
   return (
