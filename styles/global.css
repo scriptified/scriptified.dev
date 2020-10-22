@@ -19,11 +19,22 @@
 }
 
 .clipper-circle {
-  position: absolute;
-  height: 600px;
-  width: 99vw;
-  top: 0;
-  clip-path: circle(96% at 50% -164%);
+  visibility: hidden;
+}
+
+@screen xl {
+  .clipper-circle {
+    visibility: visible;
+    position: absolute;
+    height: 1200px;
+    width: 1200px;
+    top: -920px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 600px;
+  }
 }
 
 .issue-item-icon {

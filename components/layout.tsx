@@ -50,9 +50,9 @@ export default function Layout({
                   />
                 </a>
               </Link>
-              <h2 className="text-2xl leading-snug my-4 mx-0">
+              <h2 className="text-3xl leading-snug my-4 mx-0">
                 <Link href="/">
-                  <a className="no-underline hover:underline">{name}</a>
+                  <a className="no-underline hover:underline text-white font-bold">{name}</a>
                 </Link>
               </h2>
             </>
