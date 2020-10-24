@@ -21,7 +21,7 @@ export default function Layout({
   return (
     <>
       <ThemePicker textColor={home ? 'text-gray-100' : `text-${theme}-900`} />
-      {!home && <div className={`clipper-circle bg-${theme}-300`} />}
+      {/* {!home && <div className={`clipper-circle bg-${theme}-300`} />} */}
       <div className={`py-0 mx-auto ${additionalStyles ? additionalStyles : ''} relative z-10`}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
