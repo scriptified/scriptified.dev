@@ -22,14 +22,31 @@ import DevOfTheWeekIcon from '../../components/icons/devOfTheWeek';
 import TechTalksIcon from '../../components/icons/techTalks';
 import QuizIcon from '../../components/icons/quiz';
 import GifIcon from '../../components/icons/gif';
+import { useThemeState } from '../../theme/ThemeContext';
+
+const convertDate = (date: string) => {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(date).toLocaleDateString('en-US', options);
+};
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
+  const theme = useThemeState();
   return (
-    <Layout additionalStyles="mt-12">
+    <Layout additionalStyles={`pt-12 bg-${theme}-300`}>
       <Head>
         <title>{issueData.meta.title}</title>
       </Head>
-      <section className="max-w-4xl px-4 mx-auto">
+      <section
+        className={`max-w-5xl px-4 sm:px-4 lg:px-16 py-8 mx-auto bg-white sm:rounded-none md:rounded-lg shadow-sm`}
+      >
+        <div className="flex flex-col justify-center items-center">
+          <div
+            className={`text-${theme}-900 sm:text-4xl text-5xl text-center font-semibold`}
+          >{`#${issueData.meta.number} - ${issueData.meta.title}`}</div>
+          <Text color={`text-${theme}-500`} additionalStyles="pt-4">
+            {convertDate(issueData.meta.dateOfPublishing)}
+          </Text>
+        </div>
         <IssueItem title="Tip of the day" icon={<TipIcon />}>
           <Text type="base" additionalStyles="my-2 relative z-10">
             {issueData.tipOfTheWeek.desc}
