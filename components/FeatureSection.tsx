@@ -1,48 +1,48 @@
 import React from 'react';
 import { useThemeState } from '../theme/ThemeContext';
 import Text from '../components/common/Text';
-import Tip from './icons/tip';
-import ToolsAndResources from './icons/toolsAndResources';
-import DevOfTheWeek from './icons/devOfTheWeek';
-import TechTalks from './icons/techTalks';
-import Quiz from './icons/quiz';
-import Articles from './icons/articles';
-import Gif from './icons/gif';
+import Tip from '../public/images/tip.svg';
+import ToolsAndResources from '../public/images/toolsAndResources.svg';
+import DevOfTheWeek from '../public/images/devOfTheWeek.svg';
+import TechTalks from '../public/images/techTalks.svg';
+import Quiz from '../public/images/quiz.svg';
+import Gif from '../public/images/gif.svg';
+import Articles from '../public/images/articles.svg';
 
 const featureData = [
   {
     name: 'Tip of the Day',
-    icon: <Tip color="#fff" />,
+    icon: <Tip />,
     desc: 'Useful programming hot tips and tricks to make your dreadful lives easier',
   },
   {
     name: 'Articles',
-    icon: <Articles color="#fff" />,
+    icon: <Articles />,
     desc: 'Insightful articles and tutorials around JavaScript and React world',
   },
   {
     name: 'Tools',
-    icon: <ToolsAndResources color="#fff" />,
+    icon: <ToolsAndResources />,
     desc: 'Helpful tools, resources and websites we can use to design and develop better user experiences',
   },
   {
     name: 'Dev of the Week',
-    icon: <DevOfTheWeek color="#fff" />,
+    icon: <DevOfTheWeek />,
     desc: 'Featured developer of the week whose work is inspirational',
   },
   {
     name: 'Tech Talks',
-    icon: <TechTalks color="#fff" />,
+    icon: <TechTalks />,
     desc: 'Interesting tech talks from conferences revolving around developement',
   },
   {
     name: 'Quiz',
-    icon: <Quiz color="#fff" />,
+    icon: <Quiz />,
     desc: 'Challenging programming quizzes to test your sharp programming minds',
   },
   {
     name: 'This Week in GIF',
-    icon: <Gif color="#fff" />,
+    icon: <Gif />,
     desc: 'Moody GIFs to share with your co-workers on watercooler slack channels',
   },
 ];

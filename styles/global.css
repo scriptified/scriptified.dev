@@ -17,3 +17,64 @@
   top: 0;
   left: 0;
 }
+
+.clipper-circle {
+  visibility: hidden;
+}
+
+@screen xl {
+  .clipper-circle {
+    visibility: visible;
+    position: absolute;
+    height: 1200px;
+    width: 1200px;
+    top: -920px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 600px;
+  }
+}
+
+.issue-item-icon {
+  top: 16px;
+  left: -125px;
+}
+
+.hollow-square-container {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  top: 100px;
+  right: -110px;
+  transform: rotate(45deg);
+}
+
+/* Fire SVG animation*/
+
+ @keyframes animate-svg-stroke-1 {
+  0% {
+    stroke-dashoffset: 101.60997772216797px;
+    stroke-dasharray: 101.60997772216797px;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes animate-svg-fill-1 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: currentColor;
+  }
+}
+
+.svg-elem-1 {
+  animation: animate-svg-stroke-1 1s cubic-bezier(0.47, 0, 0.745, 0.715) 0s both,
+               animate-svg-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s both;
+}
