@@ -65,8 +65,8 @@ const Option = ({
 
   // Colors for options for its different states
 
-  const DEFAULT_BACKGROUND = 'bg-gray-200';
-  const DEFAULT_BORDER = 'border-gray-400';
+  const DEFAULT_BACKGROUND = `bg-${theme}-100`;
+  const DEFAULT_BORDER = `border-${theme}-300`;
 
   const CORRECT_ANSWER_BACKGROUND = `bg-green-200`;
   const CORRECT_ANSWER_BORDER = `border-green-700`;
@@ -74,13 +74,15 @@ const Option = ({
   const WRONG_ANSWER_BACKGROUND = 'bg-red-200';
   const WRONG_ANSWER_BORDER = 'border-red-700';
 
-  const HIGHLIGHTED_BORDER = `border-${theme}-500`;
-  const HOVER_BORDER = `hover:border-${theme}-500`;
+  const HIGHLIGHTED_BORDER = `border-${theme}-600`;
+  // const HIGHLIGHTED_BACKGROUND = `bg-${theme}-300`;
+  const HOVER_BORDER = `hover:border-${theme}-600`;
 
   const answeredBackground = isCorrectAnswer ? CORRECT_ANSWER_BACKGROUND : WRONG_ANSWER_BACKGROUND;
   const answeredBorder = isCorrectAnswer ? CORRECT_ANSWER_BORDER : WRONG_ANSWER_BORDER;
 
   const normalBorder = isSelected ? HIGHLIGHTED_BORDER : DEFAULT_BORDER;
+  // const normalBackground = isSelected ? HIGHLIGHTED_BACKGROUND : DEFAULT_BACKGROUND;
 
   const background = isShowingDetailView ? answeredBackground : DEFAULT_BACKGROUND;
   const border = isShowingDetailView ? answeredBorder : normalBorder;
@@ -104,11 +106,11 @@ const Option = ({
           )}
         </>
       )}
-      <Text type="base" color="text-black" additionalStyles="pl-2">
+      <Text type="base" color={`text-${theme}-900`} additionalStyles="pl-2">
         {option.text}
       </Text>
       {isShowingDetailView && (
-        <Text type="small" color="text-gray-800" additionalStyles="mt-2 pl-2">
+        <Text type="small" color={`text-${theme}-800`} additionalStyles="mt-2 pl-2">
           {option.description}
         </Text>
       )}

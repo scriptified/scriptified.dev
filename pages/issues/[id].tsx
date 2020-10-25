@@ -7,7 +7,7 @@ import DevOfTheWeekItem from '../../components/DevOfTheWeekItem';
 import GIFItem from '../../components/GIFItem';
 import { Issue } from '../../interfaces/issue';
 import IssueItem from '../../components/IssueItem';
-import Layout from '../../components/layout';
+import Layout, { siteTitle } from '../../components/layout';
 import Quiz from '../../components/Quiz';
 import SubscribeCard from '../../components/common/SubscribeCard';
 import TechTalk from '../../components/TechTalk';
@@ -15,6 +15,7 @@ import Text from '../../components/common/Text';
 import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
+import BackToHome from '../../components/common/BackToHome';
 import TipIcon from '../../components/icons/tip';
 import ArticlesIcon from '../../components/icons/articles';
 import ToolsAndResourcesIcon from '../../components/icons/toolsAndResources';
@@ -34,10 +35,10 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
   return (
     <Layout additionalStyles={`pt-12 bg-${theme}-300`}>
       <Head>
-        <title>{issueData.meta.title}</title>
+        <title>{`#${issueData.meta.number} - ${issueData.meta.title} - ${siteTitle}`}</title>
       </Head>
       <section
-        className={`max-w-5xl px-4 sm:px-4 lg:px-16 py-8 mx-auto bg-white sm:rounded-none md:rounded-lg shadow-sm`}
+        className={`max-w-5xl px-4 sm:px-4 lg:px-16 py-8 mx-auto mb-8 bg-white sm:rounded-none md:rounded-lg shadow-sm`}
       >
         <div className="flex flex-col justify-center items-center">
           <div
@@ -78,6 +79,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
           <GIFItem gif={issueData.gif} />
         </IssueItem>
         <SubscribeCard />
+        <BackToHome className="my-12 max-w-4xl mx-auto" />
       </section>
     </Layout>
   );

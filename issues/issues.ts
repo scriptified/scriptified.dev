@@ -150,7 +150,7 @@ const mouse = {
     meta: {
       number: 1,
       dateOfPublishing: '2019-07-15',
-      title: '#1',
+      title: 'Spirals, Toggles, Loaders, and 3D Transforms',
       desc: 'some random description',
       imgURL: 'https://avatars3.githubusercontent.com/u/21218732?s=460&u=bd9c8289d8c528e6b7358d5404a7028c849aa700&v=4',
     },
@@ -305,7 +305,7 @@ const mouse = {
     meta: {
       number: 2,
       dateOfPublishing: '2019-07-15',
-      title: '#2',
+      title: 'Illustrated Webcam Effects',
       desc: 'some random description',
       imgURL: 'https://avatars3.githubusercontent.com/u/21218732?s=460&u=bd9c8289d8c528e6b7358d5404a7028c849aa700&v=4',
     },
@@ -460,7 +460,7 @@ const mouse = {
     meta: {
       number: 3,
       dateOfPublishing: '2019-07-15',
-      title: '#3',
+      title: 'Spirals, Toggles, Loaders, and 3D Transforms',
       desc: 'some random description',
       imgURL: 'https://avatars3.githubusercontent.com/u/21218732?s=460&u=bd9c8289d8c528e6b7358d5404a7028c849aa700&v=4',
     },
