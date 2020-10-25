@@ -38,7 +38,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
         <title>{`#${issueData.meta.number} - ${issueData.meta.title} - ${siteTitle}`}</title>
       </Head>
       <section
-        className={`max-w-5xl px-4 sm:px-4 lg:px-16 py-8 mx-auto mb-8 bg-white sm:rounded-none md:rounded-lg shadow-sm`}
+        className={`max-w-5xl px-4 sm:px-4 lg:px-16 py-8 mx-auto mb-0 lg:mb-8 bg-white sm:rounded-none md:rounded-lg shadow-sm`}
       >
         <div className="flex flex-col justify-center items-center">
           <div
