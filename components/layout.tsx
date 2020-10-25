@@ -21,7 +21,8 @@ export default function Layout({
   return (
     <>
       <ThemePicker textColor={home ? 'text-gray-100' : `text-${theme}-900`} />
-      <div className={`py-0 mx-auto ${additionalStyles ? additionalStyles : ''}`}>
+      {/* {!home && <div className={`clipper-circle bg-${theme}-300`} />} */}
+      <div className={`py-0 mx-auto ${additionalStyles ? additionalStyles : ''} relative z-10`}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet" />
@@ -49,9 +50,9 @@ export default function Layout({
                   />
                 </a>
               </Link>
-              <h2 className="text-2xl leading-snug my-4 mx-0">
+              <h2 className="text-3xl leading-snug my-4 mx-0">
                 <Link href="/">
-                  <a className="no-underline hover:underline">{name}</a>
+                  <a className="no-underline hover:underline text-white font-bold">{name}</a>
                 </Link>
               </h2>
             </>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const YouTubeLogo = ({ color = '' }: { color: string }): JSX.Element => {
+const YouTubeLogo = ({ color = '' }: { color?: string }): JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
