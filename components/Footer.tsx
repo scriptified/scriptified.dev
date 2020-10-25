@@ -14,7 +14,6 @@ const Footer = (): JSX.Element => {
   return (
     <>
       <div className={`bg-${theme}-800 h-4`} />
-      <div className={`bg-${theme}-600 h-4`} />
 
       <footer className={`flex mt-auto justify-between px-16 lg:px-32 py-5 bg-${theme}-200 flex-col lg:flex-row`}>
         <div className="flex items-center flex-shrink-0 lg:mr-6 flex-col lg:flex-row">

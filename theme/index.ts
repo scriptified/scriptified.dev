@@ -1,16 +1,15 @@
 /* eslint-disable max-len */
-export const FontName = 'font-nunito';
 
 export type Theme = 'blue' | 'teal' | 'green' | 'indigo' | 'pink' | 'purple';
 
 export const THEMES: Theme[] = ['blue', 'green', 'teal', 'indigo', 'pink', 'purple'];
 
 export const TextType = {
-  h1: `${FontName} text-4xl font-bold`,
-  h2: `${FontName} text-2xl font-bold`,
-  h3: `${FontName} font-semibold text-xl`,
-  base: `${FontName} text-base`,
-  small: `${FontName} text-sm`,
+  h1: `font-nunito text-4xl font-bold`,
+  h2: `font-nunito text-2xl font-bold`,
+  h3: `font-nunito font-semibold text-xl`,
+  base: `font-lato text-base`,
+  small: `font-lato text-sm`,
 };
 
 export const ButtonType = (theme: Theme, disabled: boolean): Record<string, string> => ({

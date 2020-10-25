@@ -41,9 +41,11 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
         className={`max-w-5xl px-4 sm:px-4 lg:px-16 py-8 mx-auto mb-0 lg:mb-8 bg-white sm:rounded-none md:rounded-lg shadow-sm`}
       >
         <div className="flex flex-col justify-center items-center">
-          <div
-            className={`text-${theme}-900 sm:text-4xl text-5xl text-center font-semibold`}
-          >{`#${issueData.meta.number} - ${issueData.meta.title}`}</div>
+          <Text
+            color={`text-${theme}-900`}
+            type="h1"
+            additionalStyles="sm:text-4xl text-5xl text-center font-semibold"
+          >{`#${issueData.meta.number} - ${issueData.meta.title}`}</Text>
           <Text color={`text-${theme}-500`} additionalStyles="pt-4">
             {convertDate(issueData.meta.dateOfPublishing)}
           </Text>
