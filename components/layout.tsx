@@ -26,9 +26,10 @@ export default function Layout({
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <link
-            href="https://fonts.googleapis.com/css?family=Nunito:400,700|Inter:regular,medium&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Sniglet:wght@400&display=swap"
             rel="stylesheet"
           />
+
           <meta name="description" content="Learn how to build a personal website using Next.js" />
           <meta
             property="og:image"
