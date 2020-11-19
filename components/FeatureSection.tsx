@@ -47,14 +47,14 @@ const featureData = [
   },
 ];
 
-const FeatureSection = () => {
+const FeatureSection = (): JSX.Element => {
   const theme = useThemeState();
   return (
     <div className="py-12">
       <div className="max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-40 lg:px-64">
         <div className="lg:text-center">
           <Text
-            additionalStyles="mt-2 text-3xl leading-8 font-extrabold tracking-tight tracking-wide sm:text-4xl sm:leading-10"
+            additionalStyles="mt-2 text-3xl leading-8 font-extrabold tracking-tight tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
             color="text-white"
             type="h1"
           >
@@ -74,7 +74,7 @@ const FeatureSection = () => {
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <div
-                        className={`flex items-center justify-center h-16 w-16 rounded-md bg-${theme}-600 text-${theme}-100`}
+                        className={`flex items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-500 to-${theme}-700`}
                       >
                         {feature.icon}
                       </div>

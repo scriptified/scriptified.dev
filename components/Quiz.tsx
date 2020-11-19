@@ -65,13 +65,13 @@ const Option = ({
 
   // Colors for options for its different states
 
-  const DEFAULT_BACKGROUND = `bg-${theme}-100`;
+  const DEFAULT_BACKGROUND = `bg-gradient-to-br from-${theme}-100 to-${theme}-200`;
   const DEFAULT_BORDER = `border-${theme}-300`;
 
-  const CORRECT_ANSWER_BACKGROUND = `bg-green-200`;
+  const CORRECT_ANSWER_BACKGROUND = `bg-gradient-to-br from-green-100 to-green-300`;
   const CORRECT_ANSWER_BORDER = `border-green-700`;
 
-  const WRONG_ANSWER_BACKGROUND = 'bg-red-200';
+  const WRONG_ANSWER_BACKGROUND = 'bg-gradient-to-br from-red-100 to-red-300';
   const WRONG_ANSWER_BORDER = 'border-red-700';
 
   const HIGHLIGHTED_BORDER = `border-${theme}-600`;
@@ -94,7 +94,7 @@ const Option = ({
 
   return (
     <div
-      className={`relative py-8 px-10 rounded mb-8 border-2 ${background} ${border} ${additionalStyles}`}
+      className={`relative py-8 px-10 rounded mb-8 border-2 ${background} ${border} ${additionalStyles} transition ease-in-out duration-300`}
       onClick={handleSelect}
     >
       {isShowingDetailView && (

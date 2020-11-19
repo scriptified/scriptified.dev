@@ -15,11 +15,10 @@ import { useRouter } from 'next/router';
 import FeatureSection from '../components/FeatureSection';
 import IssueListItem from '../components/common/IssueListItem';
 import Meta from '../interfaces/meta';
+import LatestIssues from '../components/LatestIssues';
 
 export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
-  const reversedIssuesData = allIssuesData.slice(0, 3).reverse();
   const theme = useThemeState();
-  const router = useRouter();
 
   useEffect(() => {
     const section = document.getElementById('section');
@@ -75,17 +74,7 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
         </div>
       </section>
       <section className={`mx-auto px-8 sm:px-16 md:px-40 lg:px-64 text-lg leading-normal py-16 bg-${theme}-100`}>
-        <Text type="h1" color={`text-${theme}-900`} additionalStyles="text-2xl leading-snug my-8 mx-0">
-          Latest Issues
-        </Text>
-        <ul className="m-0 p-0 list-none">
-          {reversedIssuesData.map((data, index) => (
-            <IssueListItem issueData={data} key={index} />
-          ))}
-        </ul>
-        <Button size="md" type="secondary" onClick={() => router.push('/issues')} additionalStyles="mt-4">
-          View All Issues
-        </Button>
+        <LatestIssues allIssuesData={allIssuesData} />
       </section>
       <section className={`bg-${theme}-400`}>
         <FeatureSection />

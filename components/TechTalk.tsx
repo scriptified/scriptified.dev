@@ -21,6 +21,7 @@ const TechTalk = ({ techTalk }: { techTalk: Talk }): JSX.Element => {
           pip={true}
           width="100%"
           height="100%"
+          light
         />
       </div>
       <Text additionalStyles="mt-4">{techTalk.desc}</Text>

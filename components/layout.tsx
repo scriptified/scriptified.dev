@@ -25,7 +25,11 @@ export default function Layout({
       <div className={`py-0 mx-auto ${additionalStyles ? additionalStyles : ''} relative z-10`}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Roboto+Slab:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+          />
+
           <meta name="description" content="Learn how to build a personal website using Next.js" />
           <meta
             property="og:image"
