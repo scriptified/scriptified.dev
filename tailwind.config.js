@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sniglet: ['Sniglet', 'cursive'],
-        cabin: ['Cabin', 'sans-serif'],
+        sniglet: ['Amaranth', 'serif'],
+        roboto: ['Roboto Slab', 'sans-serif'],
       },
       inset: {
         '1/2': '0.5rem',
