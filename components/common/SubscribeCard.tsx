@@ -44,7 +44,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
 
   const cardContainerStyles = homePage
     ? `border-gray-400 bg-${theme}-200 shadow-xl`
-    : `border-${theme}-700 bg-${theme}-500 shadow-2xl`;
+    : `border-${theme}-700 bg-gradient-to-b from-${theme}-400 to-${theme}-600 shadow-2xl`;
   const labelStyles = homePage ? `text-${theme}-900` : `text-${theme}-100`;
   const inputStyles = homePage
     ? `bg-${theme}-100 border-${theme}-400 focus:bg-white focus:border-${theme}-700`
@@ -107,7 +107,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
             />
           </div>
           <Button
-            size="xs"
+            size="md"
             type={homePage ? 'primary' : 'basic'}
             additionalStyles={`rounded shadow w-3/6 self-center mt-4`}
             buttonAttributes={{ type: 'submit' }}

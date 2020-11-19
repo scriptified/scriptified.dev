@@ -14,11 +14,15 @@ const IssueItem = ({
   const theme = useThemeState();
   return (
     <div className="my-20 relative z-10">
-      <Text type="h1" color="text-black" additionalStyles="relative z-10 flex flex-row">
-        {React.cloneElement(icon, {
-          color: `text-${theme}-300`,
-          additionalStyles: 'h-12 w-12 -ml-2 mr-4',
-        })}
+      <Text type="h1" color={`text-${theme}-800`} additionalStyles="relative z-10 flex flex-row items-center">
+        <div
+          className={`bg-gradient-to-br from-${theme}-300 to-${theme}-500 h-16 w-16 rounded-full flex justify-center items-center mr-4`}
+        >
+          {React.cloneElement(icon, {
+            color: `text-white`,
+            additionalStyles: 'h-10 w-10 p-1',
+          })}
+        </div>
         {title}
       </Text>
       <div className="mt-1">

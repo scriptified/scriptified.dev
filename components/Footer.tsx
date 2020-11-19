@@ -15,7 +15,9 @@ const Footer = (): JSX.Element => {
     <>
       <div className={`bg-${theme}-800 h-2`} />
 
-      <footer className={`flex mt-auto justify-between px-16 lg:px-32 py-5 bg-${theme}-200 flex-col lg:flex-row`}>
+      <footer
+        className={`flex mt-auto justify-between px-16 lg:px-32 py-5 bg-gradient-to-b from-${theme}-100 to-${theme}-300 flex-col lg:flex-row`}
+      >
         <div className="flex items-center flex-shrink-0 lg:mr-6 flex-col lg:flex-row">
           <a aria-current="page" className="hover:no-underline flex items-center mb-3 lg:mb-0" href="/">
             <img src="/images/scriptified-logo-green.gif" className="w-20 mr-3" />

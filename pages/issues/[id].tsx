@@ -33,7 +33,7 @@ const convertDate = (date: string) => {
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   const theme = useThemeState();
   return (
-    <Layout additionalStyles={`pt-12 bg-${theme}-300`}>
+    <Layout additionalStyles={`pt-12 bg-gradient-to-b from-${theme}-300 to-${theme}-500`}>
       <Head>
         <title>{`#${issueData.meta.number} - ${issueData.meta.title} - ${siteTitle}`}</title>
       </Head>
@@ -44,7 +44,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
           <Text
             color={`text-${theme}-900`}
             type="h1"
-            additionalStyles="sm:text-4xl text-5xl text-center font-semibold"
+            additionalStyles="sm:text-4xl md:text-5xl text-center font-bold"
           >{`#${issueData.meta.number} - ${issueData.meta.title}`}</Text>
           <Text color={`text-${theme}-500`} additionalStyles="pt-4">
             {convertDate(issueData.meta.dateOfPublishing)}

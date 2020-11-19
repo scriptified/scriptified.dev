@@ -24,7 +24,7 @@ function Button({
   const buttonType = ButtonType(theme, loading)[type];
   const buttonSize = ButtonSize[size];
 
-  const styles = `${buttonType} ${buttonSize} ${additionalStyles} p-2 inline-flex justify-center align-center`;
+  const styles = `${buttonType} ${buttonSize} ${additionalStyles} p-2 inline-flex justify-center align-center transition ease-in-out duration-300`;
 
   return (
     <button className={styles} onClick={onClick} {...buttonAttributes}>

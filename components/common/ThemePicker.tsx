@@ -166,7 +166,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                   role="option"
                   tabIndex={0}
                   value={theme}
-                  className={`dropdown__list-item text-gray-900 font-normal hover:text-white focus:text-white hover:font-semibold focus:font-semibold bg-white hover:bg-${currentTheme}-500 focus:bg-${currentTheme}-500 focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 cursor-pointer select-none relative py-2 pl-3 pr-9`}
+                  className={`dropdown__list-item text-gray-900 font-normal hover:text-white focus:text-white hover:font-semibold focus:font-semibold bg-gradient-to-br from-white to-white hover:from-${currentTheme}-400 hover:to-${currentTheme}-600 focus:from-${currentTheme}-400 focus:to-${currentTheme}-600 focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 cursor-pointer select-none relative py-2 pl-3 pr-9`}
                   onClick={() => {
                     updateTheme(theme);
                     setIsThemeSelectorOpen(false);
@@ -185,7 +185,9 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                     </span>
                   </div>
                   {currentTheme === theme && (
-                    <span className={`absolute inset-y-0 right-0 flex items-center pr-4`}>
+                    <span
+                      className={`absolute inset-y-0 right-0 flex items-center pr-4 text-${theme}-800 hover:text-${theme}-100`}
+                    >
                       <svg className={`h-5 w-5 fill-current`} viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
