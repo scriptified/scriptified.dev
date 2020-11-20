@@ -1,6 +1,6 @@
 const fs = require('fs');
 const glob = require('glob');
-const THEMES = ['blue', 'green', 'teal', 'indigo', 'pink', 'purple'];
+const THEMES = ['blue', 'green', 'teal', 'indigo', 'orange', 'purple', 'gray'];
 
 console.log('Extracting and replacing dynamic css classes for purging...');
 

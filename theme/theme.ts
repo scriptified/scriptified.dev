@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 
+// 🚨 Please update theme in purgableCSSGenerator as well when updating theme here, cannot import it
+// there because of node only supporting cjs modules issue.
 export type Theme = 'blue' | 'teal' | 'green' | 'indigo' | 'orange' | 'purple' | 'gray';
 
 export const THEMES: Theme[] = ['blue', 'green', 'teal', 'indigo', 'orange', 'purple', 'gray'];
