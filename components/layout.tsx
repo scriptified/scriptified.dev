@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+
 import { useThemeState } from '../theme/ThemeContext';
 import ThemePicker from './common/ThemePicker';
 import Footer from './Footer';

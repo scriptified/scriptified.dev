@@ -24,7 +24,7 @@ const TechTalk = ({ techTalk }: { techTalk: Talk }): JSX.Element => {
           light
         />
       </div>
-      <Text additionalStyles="mt-4">{techTalk.desc}</Text>
+      <Text additionalStyles="my-4">{techTalk.desc}</Text>
       <Tags tags={techTalk.tags} />
     </div>
   );

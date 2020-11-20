@@ -15,8 +15,8 @@ const ArticleItem = ({ article: { title, desc, url, author, tags } }: { article:
       <Text type="base" additionalStyles="my-2">
         {desc}
       </Text>
-      <Text type="small" color="text-gray-700">
-        by {author}
+      <Text type="small" color="text-gray-600" additionalStyles="mb-2">
+        by <span className="uppercase">{author}</span>
       </Text>
       <span>
         <Tags tags={tags} />

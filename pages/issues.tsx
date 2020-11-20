@@ -1,7 +1,6 @@
-import Layout, { siteTitle } from '../components/layout';
-
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+
 import Text from '../components/common/Text';
 import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
@@ -9,6 +8,7 @@ import SubscribeCard from '../components/common/SubscribeCard';
 import IssueListItem from '../components/common/IssueListItem';
 import Meta from '../interfaces/meta';
 import BackToHome from '../components/common/BackToHome';
+import Layout, { siteTitle } from '../components/Layout';
 
 // import utilStyles from "../styles/utils.module.css";
 

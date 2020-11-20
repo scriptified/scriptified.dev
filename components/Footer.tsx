@@ -1,8 +1,9 @@
 import React from 'react';
+import Link from 'next/link';
+
 import { useThemeState } from '../theme/ThemeContext';
 import Text from '../components/common/Text';
 import SocialLinks from './common/SocialLinks';
-import Link from 'next/link';
 
 const scriptifiedSocialLinks = {
   github: 'https://github.com/scriptified/scriptified',

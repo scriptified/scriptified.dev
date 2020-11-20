@@ -1,5 +1,6 @@
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { Fragment } from 'react';
+
 import Meta from '../interfaces/meta';
 import { useThemeState } from '../theme/ThemeContext';
 import Button from './common/Button';
@@ -8,7 +9,6 @@ import Text from './common/Text';
 
 const LatestIssues = ({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element => {
   const theme = useThemeState();
-  const router = useRouter();
   const reversedIssuesData = allIssuesData.slice(0, 3).reverse();
 
   return (
@@ -21,9 +21,13 @@ const LatestIssues = ({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element
           <IssueListItem issueData={data} key={index} />
         ))}
       </ul>
-      <Button size="md" type="secondary" onClick={() => router.push('/issues')} additionalStyles="mt-4">
-        View All Issues
-      </Button>
+      <Link href="/issues">
+        <a>
+          <Button size="md" type="secondary" additionalStyles="mt-4">
+            View All Issues
+          </Button>
+        </a>
+      </Link>
     </Fragment>
   );
 };
