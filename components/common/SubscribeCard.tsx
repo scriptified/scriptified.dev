@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import Button from './Button';
 import Text from './Text';
 import { useThemeState } from '../../theme/ThemeContext';
+import { XCircleIcon } from '../icons/icons';
 
 const getThankYouMessage = (): string => {
   const thankYouCopies = [
@@ -18,6 +19,8 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
+  const [showErrorMsg, setShowErrorMsg] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const subscribeUser = async () => {
     try {
@@ -34,7 +37,8 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       }
       setShowThankYou(true);
     } catch (error) {
-      alert(error.message);
+      setShowErrorMsg(true);
+      setErrorMsg(error.message);
     } finally {
       setLoading(false);
       setFirstName('');
@@ -71,10 +75,10 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
     >
       {!homePage && !showThankYou ? (
         <div className="mb-8">
-          <Text type="h3" color="text-white" additionalStyles="font-bold mb-2">
+          <Text type="h2" color="text-white" additionalStyles="mb-2">
             Get Scriptified Issues In Your Inbox
           </Text>
-          <Text color="text-gray-400">No spam ever, pinky promise!</Text>
+          <Text color={`text-${theme}-200`}>No spam ever, pinky promise!</Text>
         </div>
       ) : null}
 
@@ -106,6 +110,14 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
               placeholder="hello@scriptfied.com"
             />
           </div>
+          {showErrorMsg && (
+            <div className="flex items-center justify-start border bg-red-200 border-red-700 text-red-800 px-4 py-1 min-w-1/2 self-center rounded-md">
+              <XCircleIcon />
+              <Text type="small" color={`text-${theme}-900`} additionalStyles="pl-4">
+                {errorMsg}
+              </Text>
+            </div>
+          )}
           <Button
             size="md"
             type={homePage ? 'primary' : 'basic'}
