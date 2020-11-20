@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 
-export type Theme = 'blue' | 'teal' | 'green' | 'indigo' | 'pink' | 'purple';
+export type Theme = 'blue' | 'teal' | 'green' | 'indigo' | 'orange' | 'purple' | 'gray';
 
-export const THEMES: Theme[] = ['blue', 'green', 'teal', 'indigo', 'pink', 'purple'];
+export const THEMES: Theme[] = ['blue', 'green', 'teal', 'indigo', 'orange', 'purple', 'gray'];
 
 export const TextType = {
   h1: `font-sniglet text-4xl font-extrabold`,
