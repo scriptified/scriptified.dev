@@ -8,7 +8,7 @@ body {
 }
 
 #section {
-  height: min(100vh, 950px);
+  height: min(100vh, 1280px);
 }
 
 .theme-picker-position {
