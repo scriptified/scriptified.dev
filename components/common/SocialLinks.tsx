@@ -1,20 +1,15 @@
-import GitHubLogo from '../icons/github';
-import InstagramLogo from '../icons/instagram';
-import WebsiteLogo from '../icons/link';
-import LinkedInLogo from '../icons/linkedin';
 import React from 'react';
-import TwitterLogo from '../icons/twitter';
-import YouTubeLogo from '../icons/youtube';
+import { GithubIcon, InstagramIcon, LinkIcon, LinkedInIcon, TwitterIcon, YoutubeIcon } from '../icons/icons';
 import Social from '../../interfaces/social';
 import { useThemeState } from '../../theme/ThemeContext';
 
 const LINK_LOGO = {
-  website: WebsiteLogo,
-  github: GitHubLogo,
-  twitter: TwitterLogo,
-  linkedin: LinkedInLogo,
-  instagram: InstagramLogo,
-  youtube: YouTubeLogo,
+  website: LinkIcon,
+  github: GithubIcon,
+  twitter: TwitterIcon,
+  linkedin: LinkedInIcon,
+  instagram: InstagramIcon,
+  youtube: YoutubeIcon,
 };
 
 function SocialLinks({
@@ -33,7 +28,7 @@ function SocialLinks({
       {Object.keys(links).map(link => {
         const Logo = LINK_LOGO[link];
         return (
-          <a href={links[link]} key={link}>
+          <a href={links[link]} key={link} className="transition duration-500 ease-in-out transform hover:scale-125">
             {<Logo color={getLogoColor} />}
           </a>
         );
