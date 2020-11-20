@@ -14,7 +14,7 @@ function Tags({ tags = [] }: { tags?: Array<string> }): JSX.Element {
           key={index}
           additionalStyles={`py-1/2 px-1 border-${theme}-200 border rounded`}
         >
-          {`#{tag} `}
+          {`#${tag} `}
         </Text>
       ))}
     </div>
