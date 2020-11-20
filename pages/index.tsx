@@ -1,21 +1,19 @@
-import { useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
 import Trianglify from 'trianglify';
 import { colors } from 'tailwindcss/defaultTheme';
 
 import SubscribeCard from '../components/common/SubscribeCard';
-import Layout, { siteTitle } from '../components/layout';
+import Layout, { siteTitle } from '../components/Layout';
 import Text from '../components/common/Text';
 import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
-import Button from '../components/common/Button';
-import { useRouter } from 'next/router';
 import FeatureSection from '../components/FeatureSection';
-import IssueListItem from '../components/common/IssueListItem';
 import Meta from '../interfaces/meta';
 import LatestIssues from '../components/LatestIssues';
+import Curators from '../components/Curators';
 
 export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
   const theme = useThemeState();
@@ -52,7 +50,7 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
       </Head>
       <section
         id="section"
-        className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 min-h-screen pb-4 px-4 relative`}
+        className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 pb-4 px-4 relative`}
       >
         <Tilt
           tiltReverse
@@ -78,6 +76,9 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
       </section>
       <section className={`bg-${theme}-400`}>
         <FeatureSection />
+      </section>
+      <section className={`bg-${theme}-100`}>
+        <Curators />
       </section>
     </Layout>
   );

@@ -7,7 +7,7 @@ import DevOfTheWeekItem from '../../components/DevOfTheWeekItem';
 import GIFItem from '../../components/GIFItem';
 import { Issue } from '../../interfaces/issue';
 import IssueItem from '../../components/IssueItem';
-import Layout, { siteTitle } from '../../components/layout';
+import Layout, { siteTitle } from '../../components/Layout';
 import Quiz from '../../components/Quiz';
 import SubscribeCard from '../../components/common/SubscribeCard';
 import TechTalk from '../../components/TechTalk';
