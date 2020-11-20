@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useThemeState } from '../theme/ThemeContext';
 import Text from '../components/common/Text';
 import Tip from '../public/images/tip.svg';
@@ -61,7 +62,7 @@ const FeatureSection = (): JSX.Element => {
             Sections
           </Text>
 
-          <Text additionalStyles="mt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color="text-gray-200" type="base">
+          <Text additionalStyles="mt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color={`text-${theme}-100`} type="base">
             A look at what&apos;s inside our newsletter
           </Text>
         </div>
@@ -74,7 +75,7 @@ const FeatureSection = (): JSX.Element => {
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <div
-                        className={`flex items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-500 to-${theme}-700`}
+                        className={`flex items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-500 to-${theme}-700 transition hover:animate-ping motion-reduce:transition-none motion-reduce:transform-none`}
                       >
                         {feature.icon}
                       </div>

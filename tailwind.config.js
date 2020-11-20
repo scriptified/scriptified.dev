@@ -46,7 +46,9 @@ module.exports = {
     backgroundColor: ['responsive', 'first', 'hover', 'focus', 'active'],
     fill: ['responsive', 'hover', 'focus'],
     display: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus'],
-    animation: ['responsive', 'motion-safe', 'motion-reduce'],
+    animation: ['responsive', 'motion-safe', 'motion-reduce', 'hover'],
+    transitionProperty: ['responsive', 'motion-safe', 'motion-reduce'],
+    transformOrigin: ['hover', 'focus'],
   },
   future: {
     removeDeprecatedGapUtilities: true,

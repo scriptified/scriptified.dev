@@ -20,10 +20,15 @@ const IssueItem = ({
         >
           {React.cloneElement(icon, {
             color: 'text-white',
-            additionalStyles: 'h-10 w-10 p-1',
+            additionalStyles:
+              'h-10 w-10 p-1 transition hover:animate-ping motion-reduce:transition-none motion-reduce:transform-none',
           })}
         </span>
-        <Text type="h1" color={`text-${theme}-800`} additionalStyles="">
+        <Text
+          type="h1"
+          color="text-transparent"
+          additionalStyles={`bg-gradient-to-b from-${theme}-600 to-${theme}-900 bg-clip-text`}
+        >
           {title}
         </Text>
       </div>
