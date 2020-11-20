@@ -1,4 +1,4 @@
-import { THEMES, Theme } from '../../theme/index';
+import { THEMES, Theme } from '../../theme/theme';
 import { useEffect, useState } from 'react';
 import { useThemeDispatch, useThemeState } from '../../theme/ThemeContext';
 
@@ -129,7 +129,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
             aria-expanded="true"
             aria-labelledby="listbox-label"
             id="dropdown__selected"
-            className={`cursor-pointer z-20 w-full relative rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 transition ease-in-out duration-150 sm:text-sm sm:leading-5`}
+            className={`cursor-pointer z-20 w-full relative rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 transition ease-in-out duration-300 sm:text-sm sm:leading-5 motion-reduce:transition-none motion-reduce:transform-none`}
             onClick={() => setIsThemeSelectorOpen(!isThemeSelectorOpen)}
           >
             <div className="animate-morph flex items-center space-x-3">

@@ -1,7 +1,7 @@
 // Inspired from https://kentcdodds.com/blog/how-to-use-react-context-effectively
 
 import React, { useState } from 'react';
-import { THEMES, Theme } from './index';
+import { THEMES, Theme } from './theme';
 import Head from 'next/head';
 
 type Action = (theme: Theme) => void;
