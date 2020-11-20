@@ -22,7 +22,7 @@ export default async (req, res) => {
       return res.status(200).send({ msg: 'Success' });
     } catch (error) {
       const errorMsg = JSON.parse(error?.response?.text)?.title;
-      let msg = 'Unknown error occurred please refresh the page and try again.';
+      let msg = 'Unknown error occurred. Please refresh the page and try again.';
       if (errorMsg === 'Member Exists') {
         msg = 'Looks like you are already registered.';
       }

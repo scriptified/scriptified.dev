@@ -16,13 +16,15 @@ import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
 import BackToHome from '../../components/common/BackToHome';
-import TipIcon from '../../components/icons/tip';
-import ArticlesIcon from '../../components/icons/articles';
-import ToolsAndResourcesIcon from '../../components/icons/toolsAndResources';
-import DevOfTheWeekIcon from '../../components/icons/devOfTheWeek';
-import TechTalksIcon from '../../components/icons/techTalks';
-import QuizIcon from '../../components/icons/quiz';
-import GifIcon from '../../components/icons/gif';
+import {
+  TipIcon,
+  ArticlesIcon,
+  ToolsAndResourcesIcon,
+  DevOfTheWeekIcon,
+  TechTalksIcon,
+  QuizIcon,
+  GifIcon,
+} from '../../components/icons/icons';
 import { useThemeState } from '../../theme/ThemeContext';
 
 const convertDate = (date: string) => {
@@ -42,16 +44,17 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       >
         <div className="flex flex-col justify-center items-center">
           <Text
-            color={`text-${theme}-900`}
             type="h1"
-            additionalStyles="sm:text-4xl md:text-5xl text-center font-bold"
+            additionalStyles={`sm:text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-${theme}-700 to-${theme}-900 bg-clip-text`}
+            // color={`text-${theme}-900`}
+            color="text-transparent"
           >{`#${issueData.meta.number} - ${issueData.meta.title}`}</Text>
           <Text color={`text-${theme}-500`} additionalStyles="pt-4">
             {convertDate(issueData.meta.dateOfPublishing)}
           </Text>
         </div>
         <IssueItem title="Tip of the day" icon={<TipIcon />}>
-          <Text type="base" additionalStyles="my-2 relative z-10">
+          <Text type="base" additionalStyles="my-4 relative z-10">
             {issueData.tipOfTheWeek.desc}
           </Text>
           <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />

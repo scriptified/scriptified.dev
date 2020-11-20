@@ -1,16 +1,15 @@
-import Quiz, { Option as OptionType } from '../interfaces/quiz';
+import React, { useState } from 'react';
 
+import Quiz, { Option as OptionType } from '../interfaces/quiz';
+import { CheckIcon, XCircleIcon } from './icons/icons';
 import Button from './common/Button';
-import CheckMark from './icons/check';
 import CodeSnippet from './common/CodeSnippet';
-import React from 'react';
 import Text from './common/Text';
-import XCricle from './icons/x-circle';
 import { useThemeState } from '../theme/ThemeContext';
 
 const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
-  const [currentOption, setOption] = React.useState(0);
-  const [selectedOptions, setSelectedOptions] = React.useState([]);
+  const [currentOption, setOption] = useState(0);
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
   const hasSelectedCorrectOption = selectedOptions.includes(quiz.answerId);
 
@@ -94,15 +93,15 @@ const Option = ({
 
   return (
     <div
-      className={`relative py-8 px-10 rounded mb-8 border-2 ${background} ${border} ${additionalStyles} transition ease-in-out duration-300`}
+      className={`relative py-8 px-10 rounded mb-8 border-2 ${background} ${border} ${additionalStyles} transition ease-in-out duration-500 motion-reduce:transition-none motion-reduce:transform-none`}
       onClick={handleSelect}
     >
       {isShowingDetailView && (
         <>
           {isCorrectAnswer ? (
-            <CheckMark color="text-green-500 absolute top-1/2 left-1" />
+            <CheckIcon color="text-green-500 absolute top-1/2 left-1" />
           ) : (
-            <XCricle color="text-red-500 absolute top-1/2 left-1" />
+            <XCircleIcon color="text-red-500 absolute top-1/2 left-1" />
           )}
         </>
       )}
