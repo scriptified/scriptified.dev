@@ -43,7 +43,7 @@ const Curators = (): JSX.Element => {
     <div className="p-12">
       <div className="lg:text-center pb-12">
         <Text
-          additionalStyles="mt-2 text-3xl leading-8 font-extrabold tracking-tight tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
+          additionalStyles="mt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
           color={`text-${theme}-900`}
           type="h1"
         >
