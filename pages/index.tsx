@@ -58,7 +58,14 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
           className="flex flex-col items-center justify-center mt-6 relative z-10"
         >
           {/* <div className="w-1/3"> */}
-          <img src="/images/scriptified-logo-green.gif" className="w-1/4" alt="logo" loading="lazy" />
+          <img
+            src="/images/scriptified-logo-green.gif"
+            width="w-1/4"
+            height="h-1/4"
+            className="w-1/4"
+            alt="logo"
+            loading="lazy"
+          />
           {/* </div> */}
           <Text type="h1" color="text-gray-100" additionalStyles="text-6xl">
             Scriptified
