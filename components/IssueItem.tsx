@@ -20,8 +20,7 @@ const IssueItem = ({
         >
           {React.cloneElement(icon, {
             color: 'text-white',
-            additionalStyles:
-              'h-10 w-10 p-1 transition hover:animate-ping motion-reduce:transition-none motion-reduce:transform-none',
+            additionalStyles: 'h-10 w-10 p-1 transition hover:animate-bounce-in',
           })}
         </span>
         <Text

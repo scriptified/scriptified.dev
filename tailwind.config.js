@@ -1,4 +1,4 @@
-const { colors } = require('tailwindcss/defaultTheme');
+// const { colors } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   purge: {
@@ -20,23 +20,46 @@ module.exports = {
       },
       colors: {
         gray: {
-          ...colors.gray,
-          100: '#FDFDFD',
+          100: '#F1F5F9',
+          200: '#E2E8F0',
+          300: '#CBD5E1',
+          400: '#94A3B8',
+          500: '#64748B',
+          600: '#475569',
+          700: '#334155',
+          800: '#1E293B',
+          900: '#0F172A',
         },
       },
       boxShadow: {
         whiteLg: '0 25px 50px -12px rgba(255, 255, 255, 0.25)',
       },
-      // inspired from https://9elements.com/blog/css-border-radius/
+      /* 
+      inspired from 
+      1. https://9elements.com/blog/css-border-radius/
+      2. https://coveloping.com/tools/css-animation-generator
+      */
       keyframes: {
         morph: {
           '0%': { 'border-radius': '10% 70% 70% 10% / 60% 30% 70% 40%' },
           '100%': { 'border-radius': ' 10% 70%' },
         },
+        'bounce-in': {
+          '0%': { transform: 'scale(0.3)', opacity: 0 },
+          '50%': { transform: 'scale(1.05)', opacity: 1 },
+          '70%': { transform: 'scale(0.9)', opacity: 1 },
+          '10%': { transform: 'scale(1)', opacity: 1 },
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
       },
       animation: {
         morph: 'morph 8s ease-in-out infinite both alternate',
         'spin-slow': 'spin 4s linear infinite reverse',
+        'bounce-in': 'bounce-in 1s ease-out infinite both',
+        wiggle: 'wiggle 1s ease-in-out infinite',
       },
     },
   },
