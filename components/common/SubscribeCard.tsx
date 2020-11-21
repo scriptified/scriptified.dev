@@ -85,24 +85,30 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       {!showThankYou ? (
         <form onSubmit={handleSubmit} className="flex flex-col">
           <div className="md:flex md:items-center mb-6">
-            <label className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>First Name</label>
+            <label htmlFor="fname" className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>
+              First Name
+            </label>
             <input
               // eslint-disable-next-line max-len
               className={`${inputStyles} text-${theme}-700 appearance-none border rounded w-full md:w-5/6 py-2 px-4 leading-tight focus:outline-none`}
               type="text"
               required
               name="fname"
+              id="fname"
               value={firstName}
               onChange={handleChange}
               placeholder="Binod"
             />
           </div>
           <div className="md:flex md:items-center mb-6">
-            <label className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>Email</label>
+            <label htmlFor="email" className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>
+              Email
+            </label>
             <input
               // eslint-disable-next-line max-len
               className={`${inputStyles} text-${theme}-700 appearance-none border rounded w-full md:w-5/6 py-2 px-4 leading-tight focus:outline-none`}
               type="email"
+              id="email"
               name="email"
               value={email}
               onChange={handleChange}

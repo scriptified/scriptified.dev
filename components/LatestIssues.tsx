@@ -18,7 +18,9 @@ const LatestIssues = ({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element
       </Text>
       <ul className="m-0 p-0 list-none">
         {reversedIssuesData.map((data, index) => (
-          <IssueListItem issueData={data} key={index} />
+          <li key={index}>
+            <IssueListItem issueData={data} key={index} />
+          </li>
         ))}
       </ul>
       <Link href="/issues">

@@ -27,7 +27,9 @@ export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JS
         </Text>
         <ul className="m-0 p-0 list-none">
           {reversedIssuesData.map(data => (
-            <IssueListItem issueData={data} key={data.number} />
+            <li key={data.number}>
+              <IssueListItem issueData={data} key={data.number} />
+            </li>
           ))}
         </ul>
       </section>

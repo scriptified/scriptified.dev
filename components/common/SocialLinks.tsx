@@ -28,7 +28,12 @@ function SocialLinks({
       {Object.keys(links).map(link => {
         const Logo = LINK_LOGO[link];
         return (
-          <a href={links[link]} key={link} className="transition duration-500 ease-in-out transform hover:scale-125">
+          <a
+            aria-label={`Go to Scriptified's ${link} profile`}
+            href={links[link]}
+            key={link}
+            className="transition duration-500 ease-in-out transform hover:scale-125"
+          >
             {<Logo color={getLogoColor} />}
           </a>
         );
