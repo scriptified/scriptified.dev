@@ -18,10 +18,10 @@ export const ButtonType = (theme: Theme, disabled: boolean): Record<string, stri
   primary: ` ${
     disabled
       ? `bg-${theme}-400 cursor-not-allowed`
-      : `bg-gradient-to-br from-${theme}-400 to-${theme}-600 hover:from-${theme}-600 hover:to-${theme}-800 active:bg-${theme}-700 focus:outline-none focus:shadow-outline transform hover:scale-105 focus:scale-105`
+      : `bg-gradient-to-br from-${theme}-400 to-${theme}-600 hover:from-${theme}-600 hover:to-${theme}-800 active:bg-${theme}-700 focus:outline-none focus:shadow-outline transition-all transform hover:scale-110 focus:scale-110`
   }  text-white font-bold rounded`,
-  secondary: `bg-gradient-to-br from-white to-white border border-${theme}-500 hover:from-${theme}-400 hover:to-${theme}-600 text-${theme}-500 hover:text-white focus:outline-none focus:shadow-outline active:bg-${theme}-700 font-bold rounded`,
-  basic: `bg-gradient-to-br from-white to-white hover:from-white hover:to-${theme}-300 text-gray-700 font-bold rounded transform hover:scale-105 focus:scale-105`,
+  secondary: `bg-gradient-to-br from-white to-white border border-${theme}-500 hover:from-${theme}-400 hover:to-${theme}-600 text-${theme}-500 hover:text-white focus:outline-none focus:shadow-outline active:bg-${theme}-700 font-bold rounded transition-all transform hover:scale-105 focus:scale-105`,
+  basic: `bg-gradient-to-br from-white to-white hover:from-white hover:to-${theme}-300 text-gray-700 font-bold rounded transition-all transform hover:scale-110 focus:scale-110`,
   delete: 'bg-red-300 hover:bg-red-500 text-white font-bold rounded',
 });
 
