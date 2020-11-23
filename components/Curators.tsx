@@ -1,43 +1,10 @@
 import React from 'react';
+import { TCurators } from '../pages';
 import { useThemeState } from '../theme/ThemeContext';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
 
-const CURATORS = [
-  {
-    name: 'Ayush Gupta',
-    desc: 'React Native Developer at FirstCry. Mobile and Web App Developer, Amateur Photographer and Blogger.',
-    imgURL: 'https://github.com/gupta-ji6.png',
-    links: {
-      website: 'https://ayushgupta.tech',
-      twitter: 'https://twitter.com/_guptaji_',
-      github: 'https://github.com/gupta-ji6',
-      linkedin: 'https://www.linkedin.com/in/guptaji6/',
-    },
-  },
-  {
-    name: 'Prateek Surana',
-    desc: `Building Devfolioco && Fold Bank | Frontend engineer | Technical Writer | Loves JS`,
-    imgURL: 'https://github.com/prateek3255.png',
-    links: {
-      website: 'https://prateeksurana.me/',
-      twitter: 'https://twitter.com/psuranas',
-      github: 'https://github.com/prateek3255',
-      linkedin: 'https://www.linkedin.com/in/psuranas/',
-    },
-  },
-];
-
-// reference - https://javascript.info/task/shuffle
-// function shuffle(array) {
-//   for (let i = array.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [array[i], array[j]] = [array[j], array[i]];
-//   }
-// }
-// shuffle(CURATORS);
-
-const Curators = (): JSX.Element => {
+function Curators({ curators }: { curators: TCurators[] }): JSX.Element {
   const theme = useThemeState();
   return (
     <div className="p-12">
@@ -55,7 +22,7 @@ const Curators = (): JSX.Element => {
       </div>
       <div className="flex justify-evenly items-center flex-col flex-wrap">
         <div className="grid px-0 lg:px-12">
-          {CURATORS.map((curator, index) => {
+          {curators.map((curator, index) => {
             return (
               <div className="flex sm:flex-col md:flex-row flex-wrap mb-8" key={index}>
                 <div
@@ -102,6 +69,6 @@ const Curators = (): JSX.Element => {
       </div>
     </div>
   );
-};
+}
 
 export default Curators;
