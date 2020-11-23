@@ -67,15 +67,15 @@ const Option = ({
   const DEFAULT_BACKGROUND = `bg-gradient-to-br from-${theme}-100 to-${theme}-200`;
   const DEFAULT_BORDER = `border-${theme}-300`;
 
-  const CORRECT_ANSWER_BACKGROUND = `bg-gradient-to-br from-green-100 to-green-300`;
+  const CORRECT_ANSWER_BACKGROUND = `bg-gradient-to-br from-green-100 to-green-300 transition-none transform-none`;
   const CORRECT_ANSWER_BORDER = `border-green-700`;
 
-  const WRONG_ANSWER_BACKGROUND = 'bg-gradient-to-br from-red-100 to-red-300';
+  const WRONG_ANSWER_BACKGROUND = 'bg-gradient-to-br from-red-100 to-red-300 transition-none transform-none';
   const WRONG_ANSWER_BORDER = 'border-red-700';
 
-  const HIGHLIGHTED_BORDER = `border-${theme}-600`;
+  const HIGHLIGHTED_BORDER = `border-${theme}-600 bg-gradient-to-br from-${theme}-200 to-${theme}-400`;
   // const HIGHLIGHTED_BACKGROUND = `bg-${theme}-300`;
-  const HOVER_BORDER = `hover:border-${theme}-600`;
+  const HOVER_BORDER = `hover:border-${theme}-600 hover:bg-gradient-to-br hover:from-${theme}-100 hover:to-${theme}-300`;
 
   const answeredBackground = isCorrectAnswer ? CORRECT_ANSWER_BACKGROUND : WRONG_ANSWER_BACKGROUND;
   const answeredBorder = isCorrectAnswer ? CORRECT_ANSWER_BORDER : WRONG_ANSWER_BORDER;
@@ -93,8 +93,9 @@ const Option = ({
 
   return (
     <div
-      className={`relative py-8 px-10 rounded mb-8 border-2 ${background} ${border} ${additionalStyles} transition ease-in-out duration-500 motion-reduce:transition-none motion-reduce:transform-none`}
+      className={`relative py-8 px-10 rounded mb-8 border-2 ${background} ${border} ${additionalStyles} transition-all transform ease-in-out duration-500 hover:scale-105 focus:scale-105`}
       onClick={handleSelect}
+      tabIndex={0}
     >
       {isShowingDetailView && (
         <>
