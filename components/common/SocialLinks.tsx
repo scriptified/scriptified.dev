@@ -33,6 +33,8 @@ function SocialLinks({
             href={links[link]}
             key={link}
             className="transition duration-500 ease-in-out transform hover:scale-125"
+            target="_blank"
+            rel="noreferrer"
           >
             {<Logo color={getLogoColor} />}
           </a>

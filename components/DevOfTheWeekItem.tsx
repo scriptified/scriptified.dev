@@ -11,15 +11,23 @@ const DevOfTheWeekItem = ({
   const theme = useThemeState();
   return (
     <div className="mt-0 mx-0 py-4">
+      <div
+        className={`mb-3 w-40 h-40 p-1 bg-gradient-to-br from-${theme}-300 to-${theme}-700 rounded transition duration-300 shadow-xl hover:shadow-lg`}
+      >
+        <div className={`bg-${theme}-100 p-1 rounded`}>
+          <a href={profileLink.website} target="_blank" rel="noreferrer">
+            <img
+              className={`h-auto w-auto rounded-md bg-gradient-to-br from-${theme}-300 to-${theme}-500 rounded transform transition duration-700 hover:scale-105 hover:shadow-lg`}
+              width="w-auto"
+              height="h-auto"
+              loading="lazy"
+              alt={name}
+              src={profileImg}
+            />
+          </a>
+        </div>
+      </div>
       <a href={profileLink.website} target="_blank" rel="noreferrer">
-        <img
-          className="h-40 w-40 rounded-md mb-3"
-          width="w-40"
-          height="h-40"
-          loading="lazy"
-          alt={name}
-          src={profileImg}
-        />
         <Text type="h3" color={`text-${theme}-600`} inline additionalStyles="hover:underline">
           {name}
         </Text>
