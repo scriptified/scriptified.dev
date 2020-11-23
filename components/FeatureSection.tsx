@@ -74,7 +74,7 @@ const FeatureSection = (): JSX.Element => {
                 <li key={feature.name} className="py-4 mr-4 lg:mr-8 mb-4 flex justify-center">
                   <div className="flex">
                     <div
-                      className={`flex flex-shrink-0 items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-500 to-${theme}-700 transition bouncing-icon`}
+                      className={`flex flex-shrink-0 items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-500 to-${theme}-700 transition-all hover:animate-spring-bounce`}
                     >
                       {feature.icon}
                     </div>

@@ -59,28 +59,3 @@ body {
   right: -110px;
   transform: rotate(45deg);
 }
-
-
-.bouncing-icon {
-  animation: moveitback 400ms ease forwards; 
-  will-change: transform;
-}
-
-.bouncing-icon:hover {
-  animation: moveit 900ms ease forwards;
-  will-change: transform;
-}
-
-@keyframes moveit {
-  0% { transform: scale3d(0.96,0.96,1); }
-  20% { transform:  scale3d(1.1,1.1,1); }
-  40% { transform:  scale3d(0.98,0.98,1); }
-  60% { transform:  scale3d(1.05,1.05,1); }
-  80% { transform: scale3d(1.01,1.01,1); }
-  100% { transform: scale3d(1,1,1); }
-}
-
-@keyframes moveitback {
-  0% { transform: scale3d(1,1,1); }
-  100% { transform: scale3d(0.96,0.96,1); }
-}
