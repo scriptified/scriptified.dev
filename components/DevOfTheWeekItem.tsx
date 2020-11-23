@@ -11,8 +11,15 @@ const DevOfTheWeekItem = ({
   const theme = useThemeState();
   return (
     <div className="mt-0 mx-0 py-4">
-      <a href={profileLink.website}>
-        <img className="h-40 w-40 rounded-md mb-3" alt={name} src={profileImg} />
+      <a href={profileLink.website} target="_blank" rel="noreferrer">
+        <img
+          className="h-40 w-40 rounded-md mb-3"
+          width="w-40"
+          height="h-40"
+          loading="lazy"
+          alt={name}
+          src={profileImg}
+        />
         <Text type="h3" color={`text-${theme}-600`} inline additionalStyles="hover:underline">
           {name}
         </Text>

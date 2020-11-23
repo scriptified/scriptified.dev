@@ -67,6 +67,8 @@ const Curators = (): JSX.Element => {
                         src={curator.imgURL}
                         loading="lazy"
                         className={`w-48 h-48 bg-gradient-to-br from-${theme}-300 to-${theme}-500 rounded shadow-2xl transform transition duration-700 hover:scale-105 hover:shadow-lg`}
+                        width="w-48"
+                        height="h-48"
                         alt={curator.name}
                       />
                     </a>

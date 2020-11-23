@@ -7,7 +7,7 @@ const ArticleItem = ({ article: { title, desc, url, author, tags } }: { article:
   const theme = useThemeState();
   return (
     <div className="mt-0 mx-0 py-4" key={url}>
-      <a href={url}>
+      <a href={url} target="_blank" rel="noreferrer">
         <Text type="h3" color={`text-${theme}-600`} inline additionalStyles="hover:underline">
           {title}
         </Text>
