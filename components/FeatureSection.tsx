@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useThemeState } from '../theme/ThemeContext';
 import Text from '../components/common/Text';
 import Tip from '../public/images/tip.svg';
@@ -54,14 +55,14 @@ const FeatureSection = (): JSX.Element => {
       <div className="max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-40 lg:px-64">
         <div className="lg:text-center">
           <Text
-            additionalStyles="mt-2 text-3xl leading-8 font-extrabold tracking-tight tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
+            additionalStyles="mt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
             color="text-white"
             type="h1"
           >
             Sections
           </Text>
 
-          <Text additionalStyles="mt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color="text-gray-200" type="base">
+          <Text additionalStyles="mt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color={`text-${theme}-100`} type="base">
             A look at what&apos;s inside our newsletter
           </Text>
         </div>
@@ -72,12 +73,10 @@ const FeatureSection = (): JSX.Element => {
               return (
                 <li key={feature.name} className="py-4 mr-4 lg:mr-8 mb-4 flex justify-center">
                   <div className="flex">
-                    <div className="flex-shrink-0">
-                      <div
-                        className={`flex items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-500 to-${theme}-700`}
-                      >
-                        {feature.icon}
-                      </div>
+                    <div
+                      className={`flex flex-shrink-0 items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-500 to-${theme}-700 transition-all hover:animate-spring-bounce`}
+                    >
+                      {feature.icon}
                     </div>
                     <div className="ml-4">
                       <Text type="h2" color="text-white" additionalStyles="text-lg leading-6 font-semibold">

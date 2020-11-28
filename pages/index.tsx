@@ -1,21 +1,21 @@
-import { useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
 import Trianglify from 'trianglify';
 import { colors } from 'tailwindcss/defaultTheme';
 
 import SubscribeCard from '../components/common/SubscribeCard';
-import Layout, { siteTitle } from '../components/layout';
+import Layout, { siteTitle } from '../components/Layout';
 import Text from '../components/common/Text';
 import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
-import Button from '../components/common/Button';
-import { useRouter } from 'next/router';
 import FeatureSection from '../components/FeatureSection';
-import IssueListItem from '../components/common/IssueListItem';
 import Meta from '../interfaces/meta';
 import LatestIssues from '../components/LatestIssues';
+import Curators from '../components/Curators';
+
+// ============= Component ================
 
 export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
   const theme = useThemeState();
@@ -52,7 +52,7 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
       </Head>
       <section
         id="section"
-        className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 min-h-screen pb-4 px-4 relative`}
+        className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 pb-4 px-4 relative`}
       >
         <Tilt
           tiltReverse
@@ -60,7 +60,14 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
           className="flex flex-col items-center justify-center mt-6 relative z-10"
         >
           {/* <div className="w-1/3"> */}
-          <img src="/images/scriptified-logo-green.gif" className="w-1/4" />
+          <img
+            src="/images/scriptified-logo-green.gif"
+            width="w-1/4"
+            height="h-1/4"
+            className="w-1/4"
+            alt="logo"
+            loading="lazy"
+          />
           {/* </div> */}
           <Text type="h1" color="text-gray-100" additionalStyles="text-6xl">
             Scriptified
@@ -78,6 +85,9 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
       </section>
       <section className={`bg-${theme}-400`}>
         <FeatureSection />
+      </section>
+      <section className={`bg-${theme}-100`}>
+        <Curators />
       </section>
     </Layout>
   );
