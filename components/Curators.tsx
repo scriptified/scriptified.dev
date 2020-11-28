@@ -1,11 +1,10 @@
 import React from 'react';
-import Head from 'next/head';
 import { useThemeState } from '../theme/ThemeContext';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
 
 function shuffle(array: any[]): any[] {
-  const shuffledArray = array;
+  const shuffledArray = JSON.parse(JSON.stringify(array));
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
@@ -13,7 +12,7 @@ function shuffle(array: any[]): any[] {
   return shuffledArray;
 }
 
-const CURATORS = [
+const CURATORS: TCurator[] = [
   {
     name: 'Ayush Gupta',
     desc: 'React Native Developer at FirstCry. Mobile and Web App Developer, Amateur Photographer and Blogger.',
@@ -47,22 +46,16 @@ type TCurator = {
 
 function Curators(): JSX.Element {
   const theme = useThemeState();
-  const curators: TCurator[] = React.useMemo(() => {
-    console.log(typeof window === 'undefined' ? 'server aya' : 'client aya');
-    if (typeof window === 'undefined') {
-      return shuffle(CURATORS);
-    }
-    return (window as any).__curators;
+  const [curators, setCurators] = React.useState(CURATORS);
+
+  React.useEffect(() => {
+    console.log('Confirming this only runs on client');
+    const shuffledCurators = shuffle(curators);
+    setCurators(shuffledCurators);
   }, []);
-  const stringifiedCurators = React.useMemo(() => {
-    return JSON.stringify(curators);
-  }, [curators]);
 
   return (
     <div className="p-12">
-      <Head>
-        <script dangerouslySetInnerHTML={{ __html: `window.__curators=${stringifiedCurators}` }}></script>
-      </Head>
       <div className="lg:text-center pb-12">
         <Text
           additionalStyles="mt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
