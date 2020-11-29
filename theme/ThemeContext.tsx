@@ -1,8 +1,7 @@
 // Inspired from https://kentcdodds.com/blog/how-to-use-react-context-effectively
 
 import React, { useState } from 'react';
-import { THEMES, Theme } from './theme';
-import Head from 'next/head';
+import { Theme } from './theme';
 
 type Action = (theme: Theme) => void;
 
@@ -10,22 +9,17 @@ const ThemeStateContext = React.createContext<Theme | undefined>(undefined);
 const ThemeDispatchContext = React.createContext<Action | undefined>(undefined);
 
 function ThemeProvider({ children }: { children: React.ReactNode }): JSX.Element {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === 'undefined') {
-      return THEMES[Math.floor(Math.random() * THEMES.length)];
-    }
-    return (window as any).__theme;
-  });
+  const [theme, setTheme] = useState<Theme>('blue');
+
+  const updateTheme = (theme: Theme) => {
+    setTheme(theme);
+    sessionStorage.setItem('theme', theme);
+  };
 
   return (
-    <>
-      <Head>
-        <script dangerouslySetInnerHTML={{ __html: `window.__theme='${theme}'` }}></script>
-      </Head>
-      <ThemeStateContext.Provider value={theme}>
-        <ThemeDispatchContext.Provider value={setTheme}>{children}</ThemeDispatchContext.Provider>
-      </ThemeStateContext.Provider>
-    </>
+    <ThemeStateContext.Provider value={theme}>
+      <ThemeDispatchContext.Provider value={updateTheme}>{children}</ThemeDispatchContext.Provider>
+    </ThemeStateContext.Provider>
   );
 }
 

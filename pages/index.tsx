@@ -12,9 +12,13 @@ import Meta from '../interfaces/meta';
 import LatestIssues from '../components/LatestIssues';
 import Curators from '../components/Curators';
 import HeroSection from '../components/HeroSection';
+import { useLoadingState } from '../components/LoadingContext';
+
+// ============= Component ================
 
 export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
   const theme = useThemeState();
+  const loading = useLoadingState();
 
   useEffect(() => {
     const section = document.getElementById('section');
@@ -43,7 +47,7 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
         });
       }
     };
-  }, [theme]);
+  }, [theme, loading]);
 
   return (
     <Layout home>
