@@ -25,7 +25,7 @@ export default function Layout({
       {/* {!home && <div className={`clipper-circle bg-${theme}-300`} />} */}
       <div className={`py-0 mx-auto ${additionalStyles ? additionalStyles : ''} relative z-10`}>
         <Head>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="icons/favicon.ico" />
           <link
             href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Roboto+Slab:wght@400;500;600;700&display=swap"
             rel="stylesheet"
