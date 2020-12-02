@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useThemeState } from '../theme/ThemeContext';
 import ThemePicker from './common/ThemePicker';
@@ -48,12 +49,11 @@ export default function Layout({
             <>
               <Link href="/">
                 <a>
-                  <img
+                  <Image
                     src="/images/scriptified-logo.gif"
                     className="w-24 h-24 block rounded-full max-w-full"
-                    loading="lazy"
-                    width="w-24"
-                    height="h-24"
+                    width={120}
+                    height={120}
                     alt={name}
                   />
                 </a>

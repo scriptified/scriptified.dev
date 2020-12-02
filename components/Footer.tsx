@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useThemeState } from '../theme/ThemeContext';
 import Text from '../components/common/Text';
@@ -21,16 +22,9 @@ const Footer = (): JSX.Element => {
       >
         <div className="flex items-center flex-shrink-0 lg:mr-6 flex-col lg:flex-row">
           <a aria-current="page" className="hover:no-underline flex items-center mb-3 lg:mb-0" href="/">
-            <img
-              src="/images/scriptified-logo-green.gif"
-              width="w-20"
-              height="h-20"
-              className="w-20 mr-3"
-              alt="logo"
-              loading="lazy"
-            />
+            <Image src="/images/scriptified-logo-green.gif" width={60} height={60} className="w-20" alt="logo" />
             <span
-              className={`font-bold text-2xl tracking-tight text-eggplant lg:pr-3 lg:border-r lg:border-${theme}-900 lg:mr-3`}
+              className={`font-bold text-2xl tracking-tight text-eggplant ml-3 lg:pr-3 lg:border-r lg:border-${theme}-900 lg:mr-3`}
             >
               Scriptified
             </span>

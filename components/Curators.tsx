@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { useThemeState } from '../theme/ThemeContext';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
@@ -77,13 +78,17 @@ function Curators(): JSX.Element {
                   className={`flex-shrink-1 mr-4 mb-4 p-1 bg-gradient-to-br from-${theme}-300 to-${theme}-700 rounded transition duration-300`}
                 >
                   <div className={`bg-${theme}-100 p-1 rounded`}>
-                    <a href={curator.links.website} target="_blank" rel="noreferrer">
-                      <img
+                    <a
+                      href={curator.links.website}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex transform transition duration-700 hover:scale-105"
+                    >
+                      <Image
                         src={curator.imgURL}
-                        loading="lazy"
-                        className={`w-48 h-48 bg-gradient-to-br from-${theme}-300 to-${theme}-500 rounded shadow-2xl transform transition duration-700 hover:scale-105 hover:shadow-lg`}
-                        width="w-48"
-                        height="h-48"
+                        className={`w-48 h-48 bg-gradient-to-br from-${theme}-300 to-${theme}-500 rounded shadow-2xl hover:shadow-lg`}
+                        width={150}
+                        height={150}
                         alt={curator.name}
                       />
                     </a>
