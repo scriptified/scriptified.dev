@@ -23,26 +23,30 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
 
   useEffect(() => {
     const section = document.getElementById('section');
-    const dimensions = section.getClientRects()[0];
-    const pattern = Trianglify({
-      width: dimensions.width,
-      height: dimensions.height,
-      cellSize: 55,
-      xColors: Object.values(colors[theme]),
-      variance: 0.6,
-      colorFunction: Trianglify.colorFunctions.interpolateLinear(0.75),
-    });
-    const canvas = pattern.toCanvas();
-    section.appendChild(canvas);
-    canvas.style.position = 'absolute';
+    if (section) {
+      const dimensions = section.getClientRects()[0];
+      const pattern = Trianglify({
+        width: dimensions.width,
+        height: dimensions.height,
+        cellSize: 55,
+        xColors: Object.values(colors[theme]),
+        variance: 0.6,
+        colorFunction: Trianglify.colorFunctions.interpolateLinear(0.75),
+      });
+      const canvas = pattern.toCanvas();
+      section.appendChild(canvas);
+      canvas.style.position = 'absolute';
+    }
     return () => {
       // Remove canvas if already present
       const section = document.getElementById('section');
-      Array.from(section.children).forEach(element => {
-        if (element.nodeName === 'CANVAS') {
-          element.parentNode.removeChild(element);
-        }
-      });
+      if (section) {
+        Array.from(section.children).forEach(element => {
+          if (element.nodeName === 'CANVAS') {
+            element.parentNode.removeChild(element);
+          }
+        });
+      }
     };
   }, [theme]);
 

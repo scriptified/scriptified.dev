@@ -47,11 +47,11 @@ type TCurator = {
 
 function Curators(): JSX.Element {
   const theme = useThemeState();
-  const [curators, setCurators] = React.useState(CURATORS);
+  const [curators, setCurators] = React.useState([]);
 
   React.useEffect(() => {
     console.log('Confirming this only runs on client');
-    const shuffledCurators = shuffle(curators);
+    const shuffledCurators = shuffle(CURATORS);
     setCurators(shuffledCurators);
   }, []);
 
