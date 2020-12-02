@@ -21,4 +21,7 @@ module.exports = withPWA({
 
     return config;
   },
+  images: {
+    domains: ['github.com', 'seeklogo.com', 'media.giphy.com'],
+  },
 });
