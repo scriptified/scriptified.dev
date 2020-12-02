@@ -22,7 +22,7 @@ const Footer = (): JSX.Element => {
       >
         <div className="flex items-center flex-shrink-0 lg:mr-6 flex-col lg:flex-row">
           <a aria-current="page" className="hover:no-underline flex items-center mb-3 lg:mb-0" href="/">
-            <Image src="/images/scriptified-logo-green.gif" width={60} height={60} className="w-20" alt="logo" />
+            <Image src="/images/scriptified-logo.png" width={60} height={60} className="w-20" alt="logo" />
             <span
               className={`font-bold text-2xl tracking-tight text-eggplant ml-3 lg:pr-3 lg:border-r lg:border-${theme}-900 lg:mr-3`}
             >

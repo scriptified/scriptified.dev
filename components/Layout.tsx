@@ -50,7 +50,7 @@ export default function Layout({
               <Link href="/">
                 <a>
                   <Image
-                    src="/images/scriptified-logo.gif"
+                    src="/images/scriptified-logo.png"
                     className="w-24 h-24 block rounded-full max-w-full"
                     width={120}
                     height={120}

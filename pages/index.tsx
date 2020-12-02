@@ -66,7 +66,7 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
         >
           <div className="w-1/3">
             <Image
-              src="/images/scriptified-logo-green.gif"
+              src="/images/scriptified-logo.png"
               width={150}
               height={150}
               className="w-1/4"
