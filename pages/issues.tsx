@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
 
 import Text from '../components/common/Text';
 import { getAllIssuesMeta } from '../lib/issues';
@@ -17,10 +16,10 @@ export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JS
   const theme = useThemeState();
 
   return (
-    <Layout additionalStyles={`pt-12 min-h-screen bg-gradient-to-b from-${theme}-100 to-${theme}-300`}>
-      <Head>
-        <title>{siteTitle} - All Issues</title>
-      </Head>
+    <Layout
+      title={`${siteTitle} | All Issues`}
+      additionalStyles={`pt-12 min-h-screen bg-gradient-to-b from-${theme}-100 to-${theme}-300`}
+    >
       <section className="max-w-4xl px-8 sm:px-8 md:px-16 lg:px-32 mx-auto text-lg leading-normal mt-16">
         <Text type="h1" color={`text-${theme}-900`} additionalStyles="text-5xl mb-8">
           Issues
