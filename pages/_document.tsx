@@ -45,23 +45,6 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="shortcut icon" href="/icons/favicon.ico" />
-
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:url" content={CONFIG.domain} />
-          <meta name="twitter:title" content={CONFIG.name} />
-          <meta name="twitter:description" content={CONFIG.description} />
-          <meta name="twitter:creator" content={CONFIG.twitterProfile} />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content={CONFIG.name} />
-          <meta property="og:description" content={CONFIG.description} />
-          <meta property="og:site_name" content={CONFIG.name} />
-          <meta property="og:url" content={CONFIG.domain} />
-          <meta
-            property="og:image"
-            content={`https://og-image.now.sh/${encodeURI(
-              siteTitle
-            )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-          />
         </Head>
         <body>
           <Main />
