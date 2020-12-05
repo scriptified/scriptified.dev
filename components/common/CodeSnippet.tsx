@@ -5,7 +5,7 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 interface CodeSnippetProps {
   snippet: CodeSnippet;
-  showLineNumbers: boolean;
+  showLineNumbers?: boolean;
 }
 
 function CodeSnippetComponent(props: CodeSnippetProps): JSX.Element {
