@@ -53,12 +53,6 @@ const Head = ({
     <meta name="description" content={description} />
     <meta property="apple-mobile-web-app-title" content={title} />
 
-    {/* Fonts */}
-    <link
-      href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Roboto+Slab:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
     {/* Open Graph */}
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
