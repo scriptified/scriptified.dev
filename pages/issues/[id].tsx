@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
 
 import ArticleItem from '../../components/ArticleItem';
 import CodeSnippet from '../../components/common/CodeSnippet';
@@ -35,10 +34,11 @@ const convertDate = (date: string) => {
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   const theme = useThemeState();
   return (
-    <Layout additionalStyles={`pt-12 bg-gradient-to-b from-${theme}-300 to-${theme}-500`}>
-      <Head>
-        <title>{`#${issueData.meta.number} - ${issueData.meta.title} - ${siteTitle}`}</title>
-      </Head>
+    <Layout
+      title={`#${issueData.meta.number} | ${issueData.meta.title} | ${siteTitle}`}
+      description={issueData.meta.desc}
+      additionalStyles={`pt-12 bg-gradient-to-b from-${theme}-300 to-${theme}-500`}
+    >
       <section
         className={`max-w-5xl px-4 sm:px-4 lg:px-16 py-8 mx-auto mb-0 lg:mb-8 bg-white sm:rounded-none md:rounded-lg shadow-md`}
       >

@@ -1,10 +1,8 @@
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
 import { useEffect } from 'react';
 import Trianglify from 'trianglify';
 import { colors } from 'tailwindcss/defaultTheme';
-
-import Layout, { siteTitle } from '../components/Layout';
+import Layout from '../components/Layout';
 import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
 import FeatureSection from '../components/FeatureSection';
@@ -12,9 +10,13 @@ import Meta from '../interfaces/meta';
 import LatestIssues from '../components/LatestIssues';
 import Curators from '../components/Curators';
 import HeroSection from '../components/HeroSection';
+import { useLoadingState } from '../components/LoadingContext';
+
+// ============= Component ================
 
 export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
   const theme = useThemeState();
+  const loading = useLoadingState();
 
   useEffect(() => {
     const section = document.getElementById('section');
@@ -43,13 +45,10 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
         });
       }
     };
-  }, [theme]);
+  }, [theme, loading]);
 
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
       <section
         id="section"
         className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 pb-4 px-4 relative`}
