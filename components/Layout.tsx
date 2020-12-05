@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useThemeState } from '../theme/ThemeContext';
 import ThemePicker from './common/ThemePicker';
@@ -25,7 +26,7 @@ export default function Layout({
       {/* {!home && <div className={`clipper-circle bg-${theme}-300`} />} */}
       <div className={`py-0 mx-auto ${additionalStyles ? additionalStyles : ''} relative z-10`}>
         <Head>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="icons/favicon.ico" />
           <link
             href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Roboto+Slab:wght@400;500;600;700&display=swap"
             rel="stylesheet"
@@ -48,12 +49,11 @@ export default function Layout({
             <>
               <Link href="/">
                 <a>
-                  <img
-                    src="/images/scriptified-logo.gif"
+                  <Image
+                    src="/images/scriptified-logo.png"
                     className="w-24 h-24 block rounded-full max-w-full"
-                    loading="lazy"
-                    width="w-24"
-                    height="h-24"
+                    width={120}
+                    height={120}
                     alt={name}
                   />
                 </a>

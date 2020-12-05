@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import DevOfTheWeek from '../interfaces/devOfTheWeek';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
@@ -15,12 +16,16 @@ const DevOfTheWeekItem = ({
         className={`mb-3 w-40 h-40 p-1 bg-gradient-to-br from-${theme}-300 to-${theme}-700 rounded transition duration-300 shadow-xl hover:shadow-lg`}
       >
         <div className={`bg-${theme}-100 p-1 rounded`}>
-          <a href={profileLink.website} target="_blank" rel="noreferrer">
-            <img
-              className={`h-auto w-auto rounded-md bg-gradient-to-br from-${theme}-300 to-${theme}-500 rounded transform transition duration-700 hover:scale-105 hover:shadow-lg`}
-              width="w-auto"
-              height="h-auto"
-              loading="lazy"
+          <a
+            href={profileLink.website}
+            target="_blank"
+            rel="noreferrer"
+            className="flex transform transition duration-700 hover:scale-105"
+          >
+            <Image
+              className={`h-auto w-auto rounded-md bg-gradient-to-br from-${theme}-300 to-${theme}-500 rounded hover:shadow-lg`}
+              width={150}
+              height={150}
               alt={name}
               src={profileImg}
             />

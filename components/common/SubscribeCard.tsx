@@ -47,7 +47,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
   };
 
   const cardContainerStyles = homePage
-    ? `border-gray-400 bg-${theme}-200 shadow-xl`
+    ? `border-${theme}-400 bg-${theme}-200 shadow-xl`
     : `border-${theme}-700 bg-gradient-to-b from-${theme}-400 to-${theme}-600 shadow-2xl`;
   const labelStyles = homePage ? `text-${theme}-900` : `text-${theme}-100`;
   const inputStyles = homePage
