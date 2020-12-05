@@ -6,9 +6,7 @@ import { siteTitle } from '../components/Layout';
 
 const CONFIG = {
   name: siteTitle,
-  description: '',
   domain: 'https://scriptified.dev',
-  twitterProfile: '@scriptified_dev',
 };
 
 class MyDocument extends Document {
@@ -16,11 +14,11 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <meta charSet="utf-8" />
           <meta name="application-name" content={CONFIG.name} />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
           <meta name="apple-mobile-web-app-title" content={CONFIG.name} />
-          <meta name="description" content={CONFIG.description} />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="msapplication-config" content="/browserconfig.xml" />
