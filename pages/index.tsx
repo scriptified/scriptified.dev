@@ -1,7 +1,4 @@
 import { GetStaticProps } from 'next';
-import { useEffect } from 'react';
-import Trianglify from 'trianglify';
-import { colors } from 'tailwindcss/defaultTheme';
 import Layout from '../components/Layout';
 import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
@@ -10,55 +7,24 @@ import Meta from '../interfaces/meta';
 import LatestIssues from '../components/LatestIssues';
 import Curators from '../components/Curators';
 import HeroSection from '../components/HeroSection';
-import { useLoadingState } from '../components/LoadingContext';
 
 // ============= Component ================
 
 export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
   const theme = useThemeState();
-  const loading = useLoadingState();
-
-  useEffect(() => {
-    const section = document.getElementById('section');
-    if (section) {
-      const dimensions = section.getClientRects()[0];
-      const pattern = Trianglify({
-        width: dimensions.width,
-        height: dimensions.height,
-        cellSize: 55,
-        xColors: Object.values(colors[theme]),
-        variance: 0.6,
-        colorFunction: Trianglify.colorFunctions.interpolateLinear(0.75),
-      });
-      const canvas = pattern.toCanvas();
-      section.appendChild(canvas);
-      canvas.style.position = 'absolute';
-    }
-    return () => {
-      // Remove canvas if already present
-      const section = document.getElementById('section');
-      if (section) {
-        Array.from(section.children).forEach(element => {
-          if (element.nodeName === 'CANVAS') {
-            element.parentNode.removeChild(element);
-          }
-        });
-      }
-    };
-  }, [theme, loading]);
 
   return (
     <Layout home>
       <section
         id="section"
-        className={`text-lg flex flex-col items-center leading-normal bg-${theme}-500 pb-4 px-4 relative`}
+        className={`text-lg flex flex-col bg-${theme}-500 bg-hero items-center leading-normal pb-4 px-4 relative`}
       >
         <HeroSection />
       </section>
       <section className={`mx-auto px-8 sm:px-16 md:px-40 lg:px-64 text-lg leading-normal py-16 bg-${theme}-100`}>
         <LatestIssues allIssuesData={allIssuesData} />
       </section>
-      <section className={`bg-${theme}-400`}>
+      <section className={`bg-${theme}-500 bg-texture`}>
         <FeatureSection />
       </section>
       <section className={`bg-${theme}-100`}>

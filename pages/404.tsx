@@ -13,10 +13,7 @@ import { useThemeState } from '../theme/ThemeContext';
 export default function Custom404({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
   const theme = useThemeState();
   return (
-    <Layout
-      additionalStyles={`pt-4 bg-gradient-to-b from-${theme}-400 to-${theme}-600`}
-      title={`${siteTitle} | Page Not Found`}
-    >
+    <Layout additionalStyles={`pt-4 bg-hero bg-${theme}-500`} title={`${siteTitle} | Page Not Found`}>
       <Head>
         <title>{`${siteTitle} - Page Not Found`}</title>
       </Head>

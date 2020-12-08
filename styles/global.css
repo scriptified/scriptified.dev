@@ -128,25 +128,6 @@ body {
   left: 0;
 }
 
-.clipper-circle {
-  visibility: hidden;
-}
-
-@screen xl {
-  .clipper-circle {
-    visibility: visible;
-    position: absolute;
-    height: 1200px;
-    width: 1200px;
-    top: -920px;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 600px;
-  }
-}
-
 .issue-item-icon {
   top: 16px;
   left: -125px;
