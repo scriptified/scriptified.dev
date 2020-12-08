@@ -71,7 +71,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
   return (
     <div
       // eslint-disable-next-line max-len
-      className={`foo rounded-lg px-10 border-2 sm:px-16 py-12 sm:py-14 flex flex-col justify-between leading-normal ${cardContainerStyles}`}
+      className={`foo rounded-lg px-8 border-2 sm:px-16 py-6 sm:py-10 flex flex-col justify-between leading-normal ${cardContainerStyles}`}
     >
       {!homePage && !showThankYou ? (
         <div className="mb-8">

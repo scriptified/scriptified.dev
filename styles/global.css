@@ -97,20 +97,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* @media only screen and (min-width: 768px) and (max-width: 1440px) {
-  #section {
-    height: min(100vh, 1280px);
-  }
-} */
 @media only screen and (min-width: 992px) {
   #section {
     height: min(100vh, 1280px);
   }
 }
 
-/* #section {
-  height: min(100vh, 1280px);
-} */
+@media only screen and (max-width: 768px) {
+  #section {
+    min-height: min(100vh, 1280px);
+  }
+}
 
 .theme-picker-position {
   top: 24px;
