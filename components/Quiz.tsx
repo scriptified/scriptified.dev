@@ -21,7 +21,7 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
 
   return (
     <div>
-      <Text type="h3" color="text-black" additionalStyles="mt-2">
+      <Text type="h3" color="text-black" additionalStyles="mt-4">
         {quiz.question}
       </Text>
       {quiz.snippet && <CodeSnippet snippet={quiz.snippet} />}

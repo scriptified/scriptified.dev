@@ -18,7 +18,7 @@ const IssueListItem = ({ issueData }: { issueData: Meta }): JSX.Element => {
       <div className={`py-8 pr-2 max-w-xl md:border-0 border-b border-${theme}-500`}>
         <div className="h-full flex md:flex-row flex-col items-start">
           <div className="w-16 flex-shrink-0 flex md:flex-col text-center leading-none mb-2">
-            <span className={`text-${theme}-500 -mb-1 text-lg md:mr-0 mr-2 font-bold md:order-2 uppercase`}>Issue</span>
+            <span className={`text-${theme}-700 -mb-1 text-lg md:mr-0 mr-2 font-bold md:order-2 uppercase`}>Issue</span>
             <span
               className={`text-transparent bg-gradient-to-b from-${theme}-400 to-${theme}-600 bg-clip-text font-bold text-lg md:text-6xl leading-none`}
             >
@@ -38,7 +38,7 @@ const IssueListItem = ({ issueData }: { issueData: Meta }): JSX.Element => {
                 </Text>
               </a>
             </Link>
-            <Text color={`text-${theme}-500`} additionalStyles="order-2 tracking-wider mb-3 uppercase">
+            <Text color={`text-${theme}-700`} additionalStyles="order-2 tracking-wider mb-3 uppercase">
               {convertDate(dateOfPublishing)}
             </Text>
             <Text type="h3" color={`text-${theme}-900`} additionalStyles="font-medium leading-relaxed mb-5">

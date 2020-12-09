@@ -47,7 +47,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
   };
 
   const cardContainerStyles = homePage
-    ? `border-${theme}-400 bg-${theme}-200 shadow-xl`
+    ? `border-${theme}-700 bg-gradient-to-b from-${theme}-100 to-${theme}-300 shadow-xl`
     : `border-${theme}-700 bg-gradient-to-b from-${theme}-400 to-${theme}-600 shadow-2xl`;
   const labelStyles = homePage ? `text-${theme}-900` : `text-${theme}-100`;
   const inputStyles = homePage
@@ -71,7 +71,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
   return (
     <div
       // eslint-disable-next-line max-len
-      className={`${cardContainerStyles} rounded-lg border px-10 sm:px-16 py-12 sm:py-14 flex flex-col justify-between leading-normal`}
+      className={`foo rounded-lg px-8 border-2 sm:px-16 py-6 sm:py-10 flex flex-col justify-between leading-normal ${cardContainerStyles}`}
     >
       {!homePage && !showThankYou ? (
         <div className="mb-8">

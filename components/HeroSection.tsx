@@ -27,7 +27,7 @@ const HeroSection = (): JSX.Element => {
         <Text type="h1" color={`text-${theme}-100`} additionalStyles="text-6xl">
           Scriptified
         </Text>
-        <Text type="h1" color={`text-${theme}-200`} additionalStyles="mb-16 sm:mb-12 lg:mb-16 text-center">
+        <Text type="h1" color={`text-${theme}-200`} additionalStyles="mb-10 sm:mb-12 lg:mb-16 text-center">
           Your Goto JavaScript Newsletter
         </Text>
       </Tilt>

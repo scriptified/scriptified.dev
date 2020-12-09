@@ -18,6 +18,10 @@ module.exports = {
       maxWidth: {
         fc: 'fit-content',
       },
+      backgroundImage: {
+        hero: 'url(/hero-pattern.svg)',
+        texture: 'url(/texture.svg)',
+      },
       colors: {
         gray: {
           100: '#F1F5F9',
