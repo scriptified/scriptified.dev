@@ -64,7 +64,7 @@ function Curators(): JSX.Element {
         >
           Curators
         </Text>
-        <Text additionalStyles="mt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color={`text-${theme}-600`} type="base">
+        <Text additionalStyles="mt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color={`text-${theme}-700`} type="base">
           The two nerdy devs who curate this newsletter for you
         </Text>
       </div>
@@ -82,6 +82,7 @@ function Curators(): JSX.Element {
                       target="_blank"
                       rel="noreferrer"
                       className="flex transform transition duration-700 hover:scale-105"
+                      aria-label={`Open ${curator.name} website.`}
                     >
                       <Image
                         src={curator.imgURL}
