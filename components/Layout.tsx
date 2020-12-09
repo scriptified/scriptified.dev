@@ -98,7 +98,7 @@ export default function Layout({
               ) : (
                 <>
                   <Link href="/">
-                    <a>
+                    <a aria-label="Scriptified">
                       <Image
                         src="/images/scriptified-logo.png"
                         className="w-24 h-24 block rounded-full max-w-full"

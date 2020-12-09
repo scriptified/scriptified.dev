@@ -9,6 +9,7 @@ const ToolItem = ({ tool: { title, url, logo, author, desc, tags } }: { tool: To
       className="w-full mr-8 max-w-fc my-4 p-1 shadow-lg rounded-full transform transition duration-700 hover:scale-105 hover:shadow-md"
       target="_blank"
       rel="noreferrer"
+      aria-label={title}
     >
       <Image
         className="h-32 w-32 rounded-full inline object-contain p-2 self-center"

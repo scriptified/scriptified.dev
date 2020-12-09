@@ -21,6 +21,7 @@ const DevOfTheWeekItem = ({
             target="_blank"
             rel="noreferrer"
             className="flex transform transition duration-700 hover:scale-105"
+            aria-label={name}
           >
             <Image
               className={`h-auto w-auto rounded-md bg-gradient-to-br from-${theme}-300 to-${theme}-500 rounded hover:shadow-lg`}

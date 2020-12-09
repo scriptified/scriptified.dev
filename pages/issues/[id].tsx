@@ -49,7 +49,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
             // color={`text-${theme}-900`}
             color="text-transparent"
           >{`#${issueData.meta.number} - ${issueData.meta.title}`}</Text>
-          <Text color={`text-${theme}-500`} additionalStyles="pt-4">
+          <Text color={`text-${theme}-600`} additionalStyles="pt-4">
             {convertDate(issueData.meta.dateOfPublishing)}
           </Text>
         </div>
