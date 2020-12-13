@@ -12,9 +12,9 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@mailchimp/mailchimp_marketing": "3.0.19",
     "@svgr/webpack": "5.4.0",
     "autoprefixer": "9.8.6",
+    "axios": "0.21.0",
     "glob": "7.1.6",
     "next": "10.0.3",
     "next-pwa": "3.1.5",
