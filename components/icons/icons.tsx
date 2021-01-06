@@ -7,6 +7,7 @@ import GlobeIcon from './globe';
 import InstagramIcon from './instagram';
 import LinkIcon from './link';
 import LinkedInIcon from './linkedin';
+import ScriptifiedLogo from './logo';
 import QuizIcon from './quiz';
 import TechTalksIcon from './techTalks';
 import TipIcon from './tip';
@@ -25,6 +26,7 @@ export {
   InstagramIcon,
   LinkIcon,
   LinkedInIcon,
+  ScriptifiedLogo,
   QuizIcon,
   TechTalksIcon,
   TipIcon,
