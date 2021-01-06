@@ -1,13 +1,13 @@
 import React from 'react';
 import NextHead from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import { useThemeState } from '../theme/ThemeContext';
 import ThemePicker from './common/ThemePicker';
 import Footer from './Footer';
 import Loading from '../public/loading.svg';
 import { useLoadingState } from './LoadingContext';
+import { ScriptifiedLogo } from './icons/icons';
 
 export const siteTitle = 'Scriptified';
 
@@ -99,18 +99,14 @@ export default function Layout({
                 <>
                   <Link href="/">
                     <a aria-label="Scriptified">
-                      <Image
-                        src="/images/scriptified-logo.png"
-                        className="w-24 h-24 block rounded-full max-w-full"
-                        width={120}
-                        height={120}
-                        alt={name}
-                      />
+                      <ScriptifiedLogo color={`text-${theme}-900`} additionalStyles="w-24 h-24" />
                     </a>
                   </Link>
-                  <h2 className="text-3xl leading-snug my-4 mx-0">
+                  <h2 className="text-6xl leading-snug my-4 mx-0">
                     <Link href="/">
-                      <a className="no-underline hover:underline text-white font-bold">{name}</a>
+                      <a className={`no-underline hover:underline text-${theme}-900 font-bold font-sniglet`}>
+                        Scriptified
+                      </a>
                     </Link>
                   </h2>
                 </>

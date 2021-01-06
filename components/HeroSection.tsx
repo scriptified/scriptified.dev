@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import { Fragment } from 'react';
 import Tilt from 'react-parallax-tilt';
 import { useThemeState } from '../theme/ThemeContext';
 import SubscribeCard from './common/SubscribeCard';
 import Text from './common/Text';
+import { ScriptifiedLogo } from './icons/icons';
 
 const HeroSection = (): JSX.Element => {
   const theme = useThemeState();
@@ -14,15 +14,8 @@ const HeroSection = (): JSX.Element => {
         transitionEasing="cubic-bezier(.03,.98,.52,.99)"
         className="flex flex-col items-center justify-center mt-6 relative z-10"
       >
-        <div className="w-1/3">
-          <Image
-            src="/images/scriptified-logo.png"
-            width={150}
-            height={150}
-            className="w-1/4"
-            alt="logo"
-            layout="responsive"
-          />
+        <div className="flex justify-center">
+          <ScriptifiedLogo color={`text-${theme}-100`} additionalStyles="w-1/3 h-1/3" />
         </div>
         <Text type="h1" color={`text-${theme}-100`} additionalStyles="text-6xl">
           Scriptified
