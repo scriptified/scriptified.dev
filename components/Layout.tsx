@@ -3,6 +3,7 @@ import NextHead from 'next/head';
 import Link from 'next/link';
 
 import { useThemeState } from '../theme/ThemeContext';
+import { Theme } from '../theme/theme';
 import ThemePicker from './common/ThemePicker';
 import Footer from './Footer';
 import Loading from '../public/loading.svg';
@@ -24,6 +25,7 @@ type SEO = {
   image?: string;
   twitter?: string;
   author?: string;
+  faviconPath?: Theme;
 };
 
 const Head = ({
@@ -35,6 +37,7 @@ const Head = ({
   )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`,
   twitter = '@scriptified_dev',
   author = 'Scriptified',
+  faviconPath,
 }: SEO) => (
   <NextHead>
     {/* Title and Description */}
@@ -45,7 +48,6 @@ const Head = ({
     {/* Essentials */}
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.ico" />
 
     {/* General */}
     <meta httpEquiv="Content-Language" content="en" />
@@ -67,6 +69,14 @@ const Head = ({
     <meta property="twitter:image" content={image} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:url" content={url} />
+
+    {/* Favicons */}
+    <link rel="icon" type="image/png" sizes="16x16" href={`/icons/${faviconPath}/favicon-16x16.png`} />
+    <link rel="icon" type="image/png" sizes="32x32" href={`/icons/${faviconPath}/favicon-32x32.png`} />
+    <link rel="icon" type="image/png" sizes="96x96" href={`/icons/${faviconPath}/favicon-96x96.png`} />
+    <link rel="icon" type="image/png" sizes="128x128" href={`/icons/${faviconPath}/favicon-128.png`} />
+    <link rel="shortcut icon" href={`/icons/${faviconPath}/favicon.ico`} />
+    <link rel="icon" href={`/icons/${faviconPath}/favicon.ico`} />
   </NextHead>
 );
 
@@ -85,7 +95,7 @@ export default function Layout({
 
   return (
     <>
-      <Head {...seoProps} />
+      <Head {...seoProps} faviconPath={theme} />
       {loading ? (
         <Loader />
       ) : (
