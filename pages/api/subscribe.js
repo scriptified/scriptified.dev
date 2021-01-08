@@ -27,12 +27,16 @@ export default async (req, res) => {
       const errorMsg = error?.response?.data?.[0];
       let msg = 'Unknown error occurred. Please refresh the page and try again.';
       if (errorMsg?.includes('is already subscribed')) {
-        msg = 'Looks like you are already registered.';
+        msg = 'Looks like you have already subscribed.';
+      }
+      if (errorMsg?.includes('but has not confirmed their email')) {
+        msg =
+          'Looks like you subscribed but have not confirmed your email. Kindly check your mail or email hello@scriptified.com for queries.';
       }
       if (errorMsg?.includes('already been unsubscribed')) {
         msg =
           // eslint-disable-next-line max-len
-          'Looks like you unsubscribed from the newsletter. If you unsubscribed by mistake and want to resubscribe again please drop us an email at hello@scriptified.dev';
+          'Looks like you unsubscribed from the newsletter. If you unsubscribed by mistake & want to resubscribe again, drop us an email at hello@scriptified.dev';
       }
       return res.status(422).send({ msg });
     }
