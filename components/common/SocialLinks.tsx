@@ -1,5 +1,14 @@
 import React from 'react';
-import { GithubIcon, InstagramIcon, LinkIcon, LinkedInIcon, TwitterIcon, YoutubeIcon, EmailIcon } from '../icons/icons';
+import {
+  GithubIcon,
+  InstagramIcon,
+  LinkIcon,
+  LinkedInIcon,
+  TwitterIcon,
+  YoutubeIcon,
+  EmailIcon,
+  RSSIcon,
+} from '../icons/icons';
 import Social from '../../interfaces/social';
 import { useThemeState } from '../../theme/ThemeContext';
 
@@ -11,6 +20,7 @@ const LINK_LOGO = {
   instagram: InstagramIcon,
   youtube: YoutubeIcon,
   email: EmailIcon,
+  rss: RSSIcon,
 };
 
 function SocialLinks({
