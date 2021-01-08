@@ -10,6 +10,7 @@ import LinkIcon from './link';
 import LinkedInIcon from './linkedin';
 import ScriptifiedLogo from './logo';
 import QuizIcon from './quiz';
+import RSSIcon from './rss';
 import TechTalksIcon from './techTalks';
 import TipIcon from './tip';
 import ToolsAndResourcesIcon from './toolsAndResources';
@@ -29,6 +30,7 @@ export {
   LinkIcon,
   LinkedInIcon,
   ScriptifiedLogo,
+  RSSIcon,
   QuizIcon,
   TechTalksIcon,
   TipIcon,
