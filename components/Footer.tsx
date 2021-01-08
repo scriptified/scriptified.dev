@@ -9,7 +9,10 @@ import SocialLinks from './common/SocialLinks';
 const scriptifiedSocialLinks = {
   github: 'https://github.com/scriptified/scriptified',
   twitter: 'https://twitter.com/scriptified_dev',
+  email: 'mailto:hello@scriptified.dev',
 };
+
+const RSSFeedURL = 'https://buttondown.email/scriptified/rss';
 
 const Footer = (): JSX.Element => {
   const theme = useThemeState();
@@ -37,7 +40,7 @@ const Footer = (): JSX.Element => {
         <div className="flex items-center flex-col lg:flex-row">
           <ul className="flex px-8 items-center justify-center m-0 flex-wrap ">
             <li className="p-0">
-              <Link href="/issues">
+              <Link href="/">
                 <a className="hover:underline text-pom p-2 inline-flex items-center">
                   <Text inline additionalStyles={`text-${theme}-900`}>
                     Subscribe
@@ -53,6 +56,18 @@ const Footer = (): JSX.Element => {
                   </Text>
                 </a>
               </Link>
+            </li>
+            <li className="p-0">
+              <a
+                href={RSSFeedURL}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:underline text-pom p-2 inline-flex items-center"
+              >
+                <Text inline additionalStyles={`text-${theme}-900`}>
+                  RSS Feed
+                </Text>
+              </a>
             </li>
           </ul>
           <div className="flex justify-center items-center mt-2 lg:mt-0">
