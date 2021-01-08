@@ -30,9 +30,9 @@
       },
       {
         "src": "/icons/maskable_icon.png",
-        "sizes": "192x192",
+        "sizes": "345x345",
         "type": "image/png",
-        "purpose": "any maskable"
+        "purpose": "maskable"
       },
       {
         "src": "/icons/android-icon-512x512.png",
