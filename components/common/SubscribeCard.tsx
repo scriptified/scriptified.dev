@@ -23,6 +23,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
   const [errorMsg, setErrorMsg] = useState('');
 
   const subscribeUser = async () => {
+    setShowErrorMsg(false);
     try {
       const response = await fetch('/api/subscribe', {
         method: 'POST',
@@ -37,6 +38,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       }
       setShowThankYou(true);
     } catch (error) {
+      console.error(error);
       setShowErrorMsg(true);
       setErrorMsg(error.message);
     } finally {
@@ -137,7 +139,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       ) : (
         <div className="flex justify-center items-center flex-col text-center space-y-4">
           <Text type="h2" color={homePage ? `text-${theme}-800` : `text-${theme}-100`}>
-            Thank you for subscribing to Scriptified!
+            {`Hey ${firstName}, thank you for subscribing to Scriptified!`}
           </Text>
           <Text color={homePage ? `text-${theme}-600` : `text-${theme}-300`}>{getThankYouMessage()}</Text>
         </div>

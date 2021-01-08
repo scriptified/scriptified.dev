@@ -1,9 +1,4 @@
-import mailchimp from '@mailchimp/mailchimp_marketing';
-
-mailchimp.setConfig({
-  apiKey: process.env.MAILCHIMP_API_KEY,
-  server: process.env.MAILCHIMP_SERVER,
-});
+import axios from 'axios';
 
 export default async (req, res) => {
   const { body, method } = req;
@@ -11,20 +6,37 @@ export default async (req, res) => {
 
   if (method === 'POST') {
     try {
-      const response = await mailchimp.lists.addListMember(process.env.MAILCHIMP_LIST_ID, {
-        email_address: email,
-        status: 'pending',
-        merge_fields: {
-          FNAME: firstName,
+      const response = await axios.post(
+        `${process.env.EMAIL_API_ROOT}subscribers`,
+        {
+          email,
+          metadata: {
+            first_name: firstName,
+          },
         },
-      });
+        {
+          headers: {
+            Authorization: `Token ${process.env.EMAIL_AUTH_TOKEN}`,
+          },
+        }
+      );
       console.log(response);
       return res.status(200).send({ msg: 'Success' });
     } catch (error) {
-      const errorMsg = JSON.parse(error?.response?.text)?.title;
+      console.log(error?.response?.data);
+      const errorMsg = error?.response?.data?.[0];
       let msg = 'Unknown error occurred. Please refresh the page and try again.';
-      if (errorMsg === 'Member Exists') {
-        msg = 'Looks like you are already registered.';
+      if (errorMsg?.includes('is already subscribed')) {
+        msg = 'Looks like you have already subscribed.';
+      }
+      if (errorMsg?.includes('but has not confirmed their email')) {
+        msg =
+          'Looks like you subscribed but have not confirmed your email. Kindly check your mail or email hello@scriptified.dev for queries.';
+      }
+      if (errorMsg?.includes('already been unsubscribed')) {
+        msg =
+          // eslint-disable-next-line max-len
+          'Looks like you unsubscribed from the newsletter. If you unsubscribed by mistake & want to resubscribe again, drop us an email at hello@scriptified.dev';
       }
       return res.status(422).send({ msg });
     }

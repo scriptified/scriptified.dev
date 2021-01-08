@@ -1,6 +1,7 @@
 import ArticlesIcon from './articles';
 import CheckIcon from './check';
 import DevOfTheWeekIcon from './devOfTheWeek';
+import EmailIcon from './email';
 import GifIcon from './gif';
 import GithubIcon from './github';
 import GlobeIcon from './globe';
@@ -9,6 +10,7 @@ import LinkIcon from './link';
 import LinkedInIcon from './linkedin';
 import ScriptifiedLogo from './logo';
 import QuizIcon from './quiz';
+import RSSIcon from './rss';
 import TechTalksIcon from './techTalks';
 import TipIcon from './tip';
 import ToolsAndResourcesIcon from './toolsAndResources';
@@ -20,6 +22,7 @@ export {
   ArticlesIcon,
   CheckIcon,
   DevOfTheWeekIcon,
+  EmailIcon,
   GifIcon,
   GithubIcon,
   GlobeIcon,
@@ -27,6 +30,7 @@ export {
   LinkIcon,
   LinkedInIcon,
   ScriptifiedLogo,
+  RSSIcon,
   QuizIcon,
   TechTalksIcon,
   TipIcon,

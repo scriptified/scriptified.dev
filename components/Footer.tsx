@@ -10,6 +10,8 @@ import { ScriptifiedLogo } from './icons/icons';
 const scriptifiedSocialLinks = {
   github: 'https://github.com/scriptified/scriptified',
   twitter: 'https://twitter.com/scriptified_dev',
+  email: 'mailto:hello@scriptified.dev',
+  rss: 'https://buttondown.email/scriptified/rss',
 };
 
 const Footer = (): JSX.Element => {
@@ -38,7 +40,7 @@ const Footer = (): JSX.Element => {
         <div className="flex items-center flex-col lg:flex-row">
           <ul className="flex px-8 items-center justify-center m-0 flex-wrap ">
             <li className="p-0">
-              <Link href="/issues">
+              <Link href="/">
                 <a className="hover:underline text-pom p-2 inline-flex items-center">
                   <Text inline additionalStyles={`text-${theme}-900`}>
                     Subscribe
