@@ -1,6 +1,7 @@
 import ArticlesIcon from './articles';
 import CheckIcon from './check';
 import DevOfTheWeekIcon from './devOfTheWeek';
+import EmailIcon from './email';
 import GifIcon from './gif';
 import GithubIcon from './github';
 import GlobeIcon from './globe';
@@ -19,6 +20,7 @@ export {
   ArticlesIcon,
   CheckIcon,
   DevOfTheWeekIcon,
+  EmailIcon,
   GifIcon,
   GithubIcon,
   GlobeIcon,

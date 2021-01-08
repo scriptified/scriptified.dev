@@ -31,7 +31,7 @@ export default async (req, res) => {
       }
       if (errorMsg?.includes('but has not confirmed their email')) {
         msg =
-          'Looks like you subscribed but have not confirmed your email. Kindly check your mail or email hello@scriptified.com for queries.';
+          'Looks like you subscribed but have not confirmed your email. Kindly check your mail or email hello@scriptified.dev for queries.';
       }
       if (errorMsg?.includes('already been unsubscribed')) {
         msg =
