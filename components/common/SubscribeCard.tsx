@@ -80,7 +80,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
           <Text type="h2" color="text-white" additionalStyles="mb-2">
             Get Scriptified Issues In Your Inbox
           </Text>
-          <Text color={`text-${theme}-200`}>No spam ever, pinky promise!</Text>
+          <Text color={`text-${theme}-200`}>No spam ever, pinky promise();</Text>
         </div>
       ) : null}
 
@@ -115,7 +115,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
               value={email}
               onChange={handleChange}
               required
-              placeholder="hello@scriptfied.com"
+              placeholder="hello@scriptified.dev"
             />
           </div>
           {showErrorMsg && (
