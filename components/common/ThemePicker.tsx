@@ -176,7 +176,11 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                   role="option"
                   tabIndex={0}
                   value={theme}
-                  className={`dropdown__list-item text-gray-900 font-normal hover:text-white focus:text-white hover:font-semibold focus:font-semibold bg-gradient-to-br from-white to-white hover:from-${currentTheme}-400 hover:to-${currentTheme}-600 focus:from-${currentTheme}-400 focus:to-${currentTheme}-600 focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 cursor-pointer select-none relative py-2 pl-3 pr-9`}
+                  className={`dropdown__list-item ${
+                    currentTheme === theme
+                      ? `bg-gradient-to-br from-${theme}-300 to-${theme}-300 hover:from-${currentTheme}-400 hover:to-${currentTheme}-600 focus:from-${currentTheme}-400 focus:to-${currentTheme}-600`
+                      : `bg-gradient-to-br from-white to-white hover:from-${currentTheme}-400 hover:to-${currentTheme}-600 focus:from-${currentTheme}-400 focus:to-${currentTheme}-600`
+                  } text-gray-900 font-normal hover:text-white focus:text-white hover:font-semibold focus:font-semibold focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 cursor-pointer select-none relative py-2 px-3`}
                   onClick={() => {
                     updateTheme(theme);
                     setIsThemeSelectorOpen(false);
@@ -192,7 +196,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                       {THEME_ALIAS[theme]}
                     </span>
                   </div>
-                  {currentTheme === theme && (
+                  {/* currentTheme === theme && (
                     <span
                       className={`absolute inset-y-0 right-0 flex items-center pr-4 text-${theme}-800 hover:text-${theme}-100`}
                     >
@@ -204,7 +208,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                         />
                       </svg>
                     </span>
-                  )}
+                  ) */}
                 </li>
               ))}
             </ul>
