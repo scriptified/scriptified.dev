@@ -11,6 +11,7 @@ import {
 } from '../icons/icons';
 import Social from '../../interfaces/social';
 import { useThemeState } from '../../theme/ThemeContext';
+import { siteConfig } from '../Layout';
 
 const LINK_LOGO = {
   website: LinkIcon,
@@ -40,7 +41,7 @@ function SocialLinks({
         const Logo = LINK_LOGO[link];
         return (
           <a
-            aria-label={`Go to Scriptified's ${link} profile`}
+            aria-label={`Go to ${siteConfig.name}'s ${link} profile`}
             href={links[link]}
             key={link}
             className="transition duration-500 ease-in-out transform hover:scale-125"

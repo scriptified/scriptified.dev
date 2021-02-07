@@ -4,6 +4,7 @@ import { useThemeState } from '../theme/ThemeContext';
 import SubscribeCard from './common/SubscribeCard';
 import Text from './common/Text';
 import { ScriptifiedLogo } from './icons/icons';
+import { siteConfig } from './Layout';
 
 const HeroSection = (): JSX.Element => {
   const theme = useThemeState();
@@ -18,11 +19,15 @@ const HeroSection = (): JSX.Element => {
           <ScriptifiedLogo color={`text-${theme}-100`} additionalStyles="h-24 w-24 md:h-32 md:w-32" />
         </div>
         <Text type="h1" color={`text-${theme}-100`} additionalStyles="text-6xl">
-          Scriptified
+          <h1>{siteConfig.name}</h1>
         </Text>
       </Tilt>
-      <Text type="h1" color={`text-${theme}-200`} additionalStyles="mb-10 sm:mb-12 lg:mb-16 text-center">
-        Your Goto JavaScript Newsletter
+      <Text
+        // type="h1"
+        color={`text-${theme}-200`}
+        additionalStyles="text-3xl mb-10 sm:mb-12 lg:mb-16 max-w-3xl text-center"
+      >
+        <h2>{siteConfig.description}</h2>
       </Text>
       <div className="w-5/6 sm:mx-8 lg:w-2/4 mb-2 relative z-10">
         <SubscribeCard homePage />

@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import { useThemeState } from '../theme/ThemeContext';
 import Text from '../components/common/Text';
 import SocialLinks from './common/SocialLinks';
 import { ScriptifiedLogo } from './icons/icons';
+import { siteConfig } from './Layout';
 
 const scriptifiedSocialLinks = {
   github: 'https://github.com/scriptified/scriptified',
@@ -29,7 +29,7 @@ const Footer = (): JSX.Element => {
             <span
               className={`font-sniglet font-bold text-2xl tracking-tight text-${theme}-900 ml-2 lg:pr-3 lg:border-r lg:border-${theme}-900 lg:mr-3`}
             >
-              Scriptified
+              {siteConfig.name}
             </span>
           </a>
           <Text inline color={`text-${theme}-900`} additionalStyles="text-sm font-semibold mb-3 lg:mb-0 text-pom">

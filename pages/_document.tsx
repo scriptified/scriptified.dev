@@ -2,24 +2,18 @@
 Adding this file for adding lang attribute in html tag */
 
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { siteTitle } from '../components/Layout';
+import { siteConfig } from '../components/Layout';
 import { GA_TRACKING_ID } from '../lib/gtag';
-
-const CONFIG = {
-  name: siteTitle,
-  domain: 'https://scriptified.dev',
-};
-
 class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <meta name="application-name" content={CONFIG.name} />
+          <meta name="application-name" content={siteConfig.name} />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-          <meta name="apple-mobile-web-app-title" content={CONFIG.name} />
+          <meta name="apple-mobile-web-app-title" content={siteConfig.name} />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="msapplication-config" content="/browserconfig.xml" />
