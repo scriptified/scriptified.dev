@@ -14,7 +14,7 @@
   "dependencies": {
     "@svgr/webpack": "5.4.0",
     "autoprefixer": "9.8.6",
-    "axios": "0.21.0",
+    "axios": "0.21.1",
     "glob": "7.1.6",
     "next": "10.0.3",
     "next-pwa": "3.1.5",
