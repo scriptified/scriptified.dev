@@ -5,7 +5,7 @@ import Button from '../components/common/Button';
 import SubscribeCard from '../components/common/SubscribeCard';
 import Text from '../components/common/Text';
 import LatestIssues from '../components/LatestIssues';
-import Layout, { siteTitle } from '../components/Layout';
+import Layout, { siteConfig } from '../components/Layout';
 import Meta from '../interfaces/meta';
 import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
@@ -13,9 +13,9 @@ import { useThemeState } from '../theme/ThemeContext';
 export default function Custom404({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
   const theme = useThemeState();
   return (
-    <Layout additionalStyles={`pt-4 bg-hero bg-${theme}-500`} title={`${siteTitle} | Page Not Found`}>
+    <Layout additionalStyles={`pt-4 bg-hero bg-${theme}-500`} title={`${siteConfig.name} | Page Not Found`}>
       <Head>
-        <title>{`${siteTitle} - Page Not Found`}</title>
+        <title>{`${siteConfig.name} - Page Not Found`}</title>
       </Head>
       <section className={`h-80 py-12 flex flex-col justify-center items-center text-lg`}>
         <Text color={`text-${theme}-100`} additionalStyles="text-6xl" type="h1">

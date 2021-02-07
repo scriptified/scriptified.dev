@@ -6,7 +6,7 @@ import DevOfTheWeekItem from '../../components/DevOfTheWeekItem';
 import GIFItem from '../../components/GIFItem';
 import { Issue } from '../../interfaces/issue';
 import IssueItem from '../../components/IssueItem';
-import Layout, { siteTitle } from '../../components/Layout';
+import Layout, { siteConfig } from '../../components/Layout';
 import Quiz from '../../components/Quiz';
 import SubscribeCard from '../../components/common/SubscribeCard';
 import TechTalk from '../../components/TechTalk';
@@ -35,7 +35,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
   const theme = useThemeState();
   return (
     <Layout
-      title={`#${issueData.meta.number} | ${issueData.meta.title} | ${siteTitle}`}
+      title={`#${issueData.meta.number} | ${issueData.meta.title} | ${siteConfig.name}`}
       description={issueData.meta.desc}
       additionalStyles={`pt-12 bg-gradient-to-b from-${theme}-300 to-${theme}-500`}
     >

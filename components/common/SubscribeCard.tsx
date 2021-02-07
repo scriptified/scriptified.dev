@@ -3,6 +3,7 @@ import Button from './Button';
 import Text from './Text';
 import { useThemeState } from '../../theme/ThemeContext';
 import { XCircleIcon } from '../icons/icons';
+import { siteConfig } from '../Layout';
 
 const getThankYouMessage = (): string => {
   const thankYouCopies = [
@@ -78,7 +79,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       {!homePage && !showThankYou ? (
         <div className="mb-8">
           <Text type="h2" color="text-white" additionalStyles="mb-2">
-            Get Scriptified Issues In Your Inbox
+            {`Get ${siteConfig.name} Issues In Your Inbox`}
           </Text>
           <Text color={`text-${theme}-200`}>No spam ever, pinky promise();</Text>
         </div>
@@ -139,7 +140,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       ) : (
         <div className="flex justify-center items-center flex-col text-center space-y-4">
           <Text type="h2" color={homePage ? `text-${theme}-800` : `text-${theme}-100`}>
-            {`Hey ${firstName}, thank you for subscribing to Scriptified!`}
+            {`Hey ${firstName}, thank you for subscribing to ${siteConfig.name}!`}
           </Text>
           <Text color={homePage ? `text-${theme}-600` : `text-${theme}-300`}>{getThankYouMessage()}</Text>
         </div>
