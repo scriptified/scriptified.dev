@@ -3,6 +3,7 @@ Adding this file for adding lang attribute in html tag */
 
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { siteTitle } from '../components/Layout';
+import { GA_TRACKING_ID } from '../lib/gtag';
 
 const CONFIG = {
   name: siteTitle,
@@ -39,6 +40,22 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png"></link>
           {/* <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png" /> */}
           <link rel="manifest" href="/manifest.json" />
+
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+            }}
+          />
         </Head>
         <body>
           <Main />
