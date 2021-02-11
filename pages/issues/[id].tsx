@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import ReactMarkdown from 'react-markdown';
 
 import ArticleItem from '../../components/ArticleItem';
 import CodeSnippet from '../../components/common/CodeSnippet';
@@ -55,7 +56,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
         </div>
         <IssueItem title="Tip of the day" icon={<TipIcon />}>
           <Text type="base" additionalStyles="my-4 relative z-10">
-            {issueData.tipOfTheWeek.desc}
+            <ReactMarkdown className="react-markdown">{issueData.tipOfTheWeek.desc}</ReactMarkdown>
           </Text>
           <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
         </IssueItem>
