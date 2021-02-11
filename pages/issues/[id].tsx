@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import ReactMarkdown from 'react-markdown';
 
 import ArticleItem from '../../components/ArticleItem';
 import CodeSnippet from '../../components/common/CodeSnippet';
@@ -16,6 +15,7 @@ import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
 import BackToHome from '../../components/common/BackToHome';
+import Markdown from '../../components/Markdown';
 import {
   TipIcon,
   ArticlesIcon,
@@ -56,7 +56,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
         </div>
         <IssueItem title="Tip of the day" icon={<TipIcon />}>
           <Text type="base" additionalStyles="my-4 relative z-10">
-            <ReactMarkdown className="react-markdown">{issueData.tipOfTheWeek.desc}</ReactMarkdown>
+            <Markdown>{issueData.tipOfTheWeek.desc}</Markdown>
           </Text>
           <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
         </IssueItem>

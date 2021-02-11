@@ -2,6 +2,7 @@ import Article from '../interfaces/article';
 import Text from './common/Text';
 import Tags from './common/Tags';
 import { useThemeState } from '../theme/ThemeContext';
+import Markdown from './Markdown';
 
 const ArticleItem = ({ article: { title, desc, url, author, tags } }: { article: Article }): JSX.Element => {
   const theme = useThemeState();
@@ -13,7 +14,7 @@ const ArticleItem = ({ article: { title, desc, url, author, tags } }: { article:
         </Text>
       </a>
       <Text type="base" additionalStyles="my-2">
-        {desc}
+        <Markdown>{desc}</Markdown>
       </Text>
       <Text type="small" color="text-gray-600" additionalStyles="mb-2">
         by <span className="uppercase">{author}</span>

@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import Talk from '../interfaces/talk';
 import Text from './common/Text';
 import Tags from './common/Tags';
+import Markdown from './Markdown';
 
 // TODO: Create a loading indicator for this
 // eslint-disable-next-line react/display-name
@@ -24,7 +25,9 @@ const TechTalk = ({ techTalk }: { techTalk: Talk }): JSX.Element => {
           light
         />
       </div>
-      <Text additionalStyles="my-4">{techTalk.desc}</Text>
+      <Text additionalStyles="my-4">
+        <Markdown>{techTalk.desc}</Markdown>
+      </Text>
       <Tags tags={techTalk.tags} />
     </div>
   );
