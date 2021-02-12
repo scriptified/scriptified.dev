@@ -15,18 +15,18 @@ const IssueItem = ({
   return (
     <div className="my-20">
       <div className="flex flex-row items-center">
-        <span
+        {/*  <span
           className={`bg-gradient-to-br from-${theme}-300 to-${theme}-500 h-16 w-16 rounded-full flex justify-center items-center mr-4`}
         >
           {React.cloneElement(icon, {
             color: 'text-white',
             additionalStyles: 'h-10 w-10 p-1 transition-all hover:animate-spring-bounce',
           })}
-        </span>
+        </span> */}
         <Text
           type="h1"
           color="text-transparent"
-          additionalStyles={`bg-gradient-to-b from-${theme}-600 to-${theme}-900 bg-clip-text`}
+          additionalStyles={`sm:text-4xl md:text-5xl bg-gradient-to-b from-${theme}-600 to-${theme}-900 bg-clip-text`}
         >
           {title}
         </Text>

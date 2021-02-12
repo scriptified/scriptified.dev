@@ -46,7 +46,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
         <div className="flex flex-col justify-center items-center">
           <Text
             type="h1"
-            additionalStyles={`sm:text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-${theme}-700 to-${theme}-900 bg-clip-text`}
+            additionalStyles={`sm:text-4xl md:text-5.5xl text-center font-bold bg-gradient-to-r from-${theme}-700 to-${theme}-900 bg-clip-text`}
             // color={`text-${theme}-900`}
             color="text-transparent"
           >{`#${issueData.meta.number} - ${issueData.meta.title}`}</Text>
