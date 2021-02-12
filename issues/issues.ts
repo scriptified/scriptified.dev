@@ -21,7 +21,7 @@ const SomeComponent = () => (
         language: 'jsx',
       },
       desc:
-        "There's no point in wrapping your component with React.memo if it accepts a children prop. Why? Because the children prop changes on every render.",
+        "There's no point in [wrapping](https://google.com) your `component` with React.memo if it accepts a children prop. Why? Because the children prop changes on every render.",
       sourceName: 'Google',
       sourceURL: 'https://google.com',
       tags: ['React'],
@@ -83,7 +83,7 @@ const mouse = {
       options: [
         {
           id: 1,
-          text: 'mouse.bird.size is not valid',
+          text: '`mouse.bird.size` is not valid',
           description: 'Describe why this option is correct',
         },
         {

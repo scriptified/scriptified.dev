@@ -3,6 +3,7 @@ import DevOfTheWeek from '../interfaces/devOfTheWeek';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
 import { useThemeState } from '../theme/ThemeContext';
+import Markdown from './Markdown';
 
 const DevOfTheWeekItem = ({
   devOfTheWeek: { name, profileImg, profileLink, bio },
@@ -39,7 +40,7 @@ const DevOfTheWeekItem = ({
         </Text>
       </a>
       <Text type="base" additionalStyles="my-2">
-        {bio}
+        <Markdown>{bio}</Markdown>
       </Text>
       <div className="flex">
         <SocialLinks links={profileLink} additionalStyles="space-x-3" />

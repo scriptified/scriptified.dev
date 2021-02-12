@@ -15,6 +15,7 @@ import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
 import BackToHome from '../../components/common/BackToHome';
+import Markdown from '../../components/Markdown';
 import {
   TipIcon,
   ArticlesIcon,
@@ -55,7 +56,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
         </div>
         <IssueItem title="Tip of the day" icon={<TipIcon />}>
           <Text type="base" additionalStyles="my-4 relative z-10">
-            {issueData.tipOfTheWeek.desc}
+            <Markdown>{issueData.tipOfTheWeek.desc}</Markdown>
           </Text>
           <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
         </IssueItem>

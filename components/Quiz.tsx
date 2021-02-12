@@ -6,6 +6,7 @@ import Button from './common/Button';
 import CodeSnippet from './common/CodeSnippet';
 import Text from './common/Text';
 import { useThemeState } from '../theme/ThemeContext';
+import Markdown from './Markdown';
 
 const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
   const [currentOption, setOption] = useState(0);
@@ -107,11 +108,11 @@ const Option = ({
         </>
       )}
       <Text type="base" color={`text-${theme}-900`} additionalStyles="pl-2">
-        {option.text}
+        <Markdown>{option.text}</Markdown>
       </Text>
       {isShowingDetailView && (
         <Text type="small" color={`text-${theme}-800`} additionalStyles="mt-2 pl-2">
-          {option.description}
+          <Markdown>{option.description}</Markdown>
         </Text>
       )}
     </div>

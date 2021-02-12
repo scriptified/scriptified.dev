@@ -14,7 +14,7 @@
   "dependencies": {
     "@svgr/webpack": "5.4.0",
     "autoprefixer": "9.8.6",
-    "axios": "0.21.0",
+    "axios": "0.21.1",
     "glob": "7.1.6",
     "next": "10.0.3",
     "next-pwa": "3.1.5",
@@ -22,11 +22,13 @@
     "prism-react-renderer": "1.1.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-markdown": "5.0.3",
     "react-parallax-tilt": "1.4.63",
     "react-player": "2.6.1",
     "tailwindcss": "1.9.6"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.4",
     "@types/node": "14.6.3",
     "@types/react": "16.9.49",
     "@typescript-eslint/eslint-plugin": "3.10.1",

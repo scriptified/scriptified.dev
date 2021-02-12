@@ -138,3 +138,22 @@ body {
   right: -110px;
   transform: rotate(45deg);
 }
+
+/*
+* Styles for react markdown
+*/
+.react-markdown a {
+  text-decoration: underline;
+}
+
+.react-markdown code {
+  @apply text-pink-500;
+}
+
+.react-markdown code::before {
+  content: '\`';
+}
+
+.react-markdown code::after {
+  content: '\`';
+}
