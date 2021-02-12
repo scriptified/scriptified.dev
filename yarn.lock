@@ -5787,11 +5787,6 @@ react-markdown@5.0.3:
     unist-util-visit "^2.0.0"
     xtend "^4.0.1"
 
-react-parallax-tilt@1.4.63:
-  version "1.4.63"
-  resolved "https://registry.yarnpkg.com/react-parallax-tilt/-/react-parallax-tilt-1.4.63.tgz#99a6859826baa4e2038170ee4c6c87efce21f060"
-  integrity sha512-PSU+fZImqMkqAvRKZaWSA9evns1xa4ima2lOwSE3hYs2JX9be1D05COTNeFn4Bjyb1QaiQu0tYCROgKjueIXOQ==
-
 react-player@2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/react-player/-/react-player-2.6.1.tgz#3c296039898bfd726b52ba31984cc406af03de2f"
