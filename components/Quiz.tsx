@@ -11,6 +11,7 @@ import Markdown from './Markdown';
 const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
   const [currentOption, setOption] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const theme = useThemeState();
 
   const hasSelectedCorrectOption = selectedOptions.includes(quiz.answerId);
 
@@ -22,7 +23,7 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
 
   return (
     <div>
-      <Text type="h3" color="text-black" additionalStyles="mt-4">
+      <Text type="h3" color={`text-${theme}-600`} additionalStyles="mt-4">
         {quiz.question}
       </Text>
       {quiz.snippet && <CodeSnippet snippet={quiz.snippet} />}
