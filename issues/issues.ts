@@ -3,25 +3,15 @@ export default [
   {
     tipOfTheWeek: {
       snippet: {
-        code: `const Header = ({ children }) => (
-  <div>
-    {children}
-  </div>
-);
-
-const UselessMemoizedHeader = React.memo(Header);
-
-const SomeComponent = () => (
-  <div>
-    <UselessMemoizedHeader>
-        <SomeOtherComponent/>
-    </UselessMemoizedHeader>
-  <div>
-);`,
-        language: 'jsx',
+        code: `let dirtyArray = [1, 1, 3, 4, 5, 3, 4, 2];
+let uniqueArray = Array.from(new Set(dirtyArray));
+        
+console.log(uniqueArray)
+// >> [1, 3, 4, 5, 2]`,
+        language: 'js',
       },
       desc:
-        "There's no point in [wrapping](https://google.com) your `component` with React.memo if it accepts a children prop. Why? Because the children prop changes on every render.",
+        'Getting unique values from an array required the [`filter`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) method with the combination of something like [`includes`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) to find whether the value already exists or not. But with the new Set native object this is super clean and easy:',
       sourceName: 'Google',
       sourceURL: 'https://google.com',
       tags: ['React'],
@@ -29,77 +19,74 @@ const SomeComponent = () => (
 
     articles: [
       {
-        title: 'The Most Complete Spreadsheet for JavaScript Apps – SpreadJS :',
-        url: 'https://www.grapecity.com/spreadjs',
+        title: 'The styled-components happy path',
+        url: 'https://www.joshwcomeau.com/css/styled-components/',
         desc:
-          'Deliver true Excel-like experiences with this fast JavaScript enterprise spreadsheet solution. Build FinTech, analysis, budgeting, and forecasting apps. Featuring an Excel I/O, 450+ functions, tables, charts, sparklines, and more.',
-        author: 'Microsoft',
-        tags: ['JavaScript'],
+          "Most developers don't fully embrace the power of styled-components, and start working on a project without updating their mental models around styling. This aritcle would explain how you could get most out of it.",
+        author: 'Josh W. Comeau',
+        tags: ['React', 'Styled Components'],
       },
       {
-        title: 'The Most Complete Spreadsheet for JavaScript Apps – SpreadJS :',
-        url: 'https://www.github.com',
+        title: 'What is React: A Visual Introduction For Beginners',
+        url: 'https://learnreact.design/posts/what-is-react',
         desc:
-          'Deliver true Excel-like experiences with this fast JavaScript enterprise spreadsheet solution. Build FinTech, analysis, budgeting, and forecasting apps. Featuring an Excel I/O, 450+ functions, tables, charts, sparklines, and more.',
-        author: 'Microsoft',
-        tags: ['JavaScript'],
+          "This article is an introduction to React for beginners, and provides a bird's eye view with an interactive hands-on experience of writing an actual React component. It should probably be the first post that you should go through before getting familiar with its APIs",
+        author: 'Linton Ye',
+        tags: ['React'],
       },
     ],
 
     tools: [
       {
-        title: 'Tailwind CSS',
-        url: 'https://tailwindcss.com/',
-        logo: 'https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png',
+        title: 'react-hot-toast',
+        url: 'https://react-hot-toast.com/',
+        logo: '/images/issue-1/react-hot-toast.jpg',
         desc:
-          'A utility-first CSS framework for rapidly building custom designs. Tailwind CSS is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override',
-        author: 'Adam Wathan',
-        tags: ['design', 'css'],
+          'A sleek library provides a ligthweight, customizable and accessible API for adding beautiful toasts to your app',
+        author: 'Timo Lins',
+        tags: ['React', 'css'],
       },
       {
-        title: 'Tailwind CSS',
-        url: 'https://tailwindcss.com/',
-        logo: 'https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png',
+        title: 'Import Cost',
+        url: 'https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost',
+        logo: '/images/issue-1/import-cost.jpg',
         desc:
-          'A utility-first CSS framework for rapidly building custom designs. Tailwind CSS is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override',
-        author: 'Adam Wathan',
-        tags: ['design', 'css'],
+          'If you care about the bundle size of your libraries, then this VSCode extension can make your life a hell lot easier. This extension will display inline in the editor the size of the imported package. The extension utilizes webpack with babili-webpack-plugin in order to detect the imported size',
+        author: 'Wix.com',
+        tags: ['optimization', 'webpack', 'javascript'],
       },
     ],
 
     quiz: {
-      question: 'Which of the following options is valid for the below snippet?',
+      question: 'What is the output of the below snippet?',
       snippet: {
-        code: `const bird = {
-  size: 'small',
-};
-
-const mouse = {
-  name: 'Mickey',
-  small: true,
-};`,
-        language: 'jsx',
+        code: `const numbers = [22,8,19,32,98];
+numbers.sort();
+        
+console.log(numbers[3])`,
+        language: 'js',
       },
       options: [
         {
           id: 1,
-          text: '`mouse.bird.size` is not valid',
-          description: 'Describe why this option is correct',
+          text: '8',
+          description:
+            'Bingo! By default sort method sorts the array in [ascending order with the items casted to strings](https://www.digitalocean.com/community/tutorials/js-array-sort-numbers)',
         },
         {
           id: 2,
-          text: 'mouse[bird.size] is not valid',
-          description: 'Describe why this option is incorrect',
+          text: '22',
+          description: "Okay maybe you're onto something! Keep trying",
         },
         {
           id: 3,
-          text: 'mouse[bird["size"]] is not valid',
-          description: 'Describe why this option is incorrect',
+          text: '32',
+          description: 'Come on did you really think it would be that obvious :)',
         },
         {
           id: 4,
-          text: 'All of them are valid',
-          description: 'Describe why this option is incorrect',
+          text: '`Reference Error`',
+          description: "Now we both know you're just trying to mess with the options here",
         },
       ],
       answerId: 1,
@@ -109,30 +96,24 @@ const mouse = {
     // you can extract any github user's profile image by this link - https://github.com/user-name.png
 
     devOfTheWeek: {
-      name: 'Ayush Gupta',
-      profileImg: 'https://github.com/gupta-ji6.png',
+      name: 'Vilva Athiban P B',
+      profileImg: 'https://github.com/vilvaathibanpb.png',
       profileLink: {
-        website: 'https://ayushgupta.tech',
-        github: 'https://github.com/gupta-ji6',
-        instagram: 'https:/instagram.com/_.guptaji._',
+        website: 'https://vilvaathiban.com/',
+        github: 'https://github.com/vilvaathibanpb',
+        youtube: 'https://www.youtube.com/channel/UCFSQ3m4-hJ0izfsMUrAk7mw',
+        linkedin: 'https://www.linkedin.com/in/vilvaathiban/',
       },
-      bio: 'React Native Developer at FirstCry. Mobile and Web App Developer, Blogger, Amateur Photographer.',
+      bio: 'TBD',
     },
 
     talks: [
       {
-        talkURL: 'https://www.youtube.com/watch?v=mHxAvSs914g',
-        title: 'One Time Code Text Field | Swift 5, Xcode 10',
+        talkURL: 'https://www.youtube.com/watch?v=yhF7OmuIILc',
+        title: 'The Art of Code Comments - Sarah Drasner | JSConf Hawaii 2020',
         desc:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit est, sagittis vitae sapien vel, imperdiet posuere ex. Vestibulum in pulvinar magna, sed sodales tortor. In hac habitasse platea dictumst. Vestibulum risus dolor, rutrum eu hendrerit nec, congue vitae enim. Aliquam mollis mollis luctus. ',
-        tags: ['React', 'Redux'],
-      },
-      {
-        talkURL: 'https://youtu.be/QZ6aC6G0ufg',
-        title: 'Navigating the Hype-Driven Frontend Development World Without Going Insane by Kitze',
-        desc:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit est, sagittis vitae sapien vel, imperdiet posuere ex. Vestibulum in pulvinar magna, sed sodales tortor. In hac habitasse platea dictumst. Vestibulum risus dolor, rutrum eu hendrerit nec, congue vitae enim. Aliquam mollis mollis luctus. ',
-        tags: ['React', 'Redux'],
+          'Code can describe how, but it cannot explain why. This talk digs into some of the many beneficial types of comments that might all serve a different purpose, followed by patterns you might want to avoid.',
+        tags: ['Best Practices'],
       },
     ],
 
@@ -143,7 +124,7 @@ const mouse = {
     },
 
     gif: {
-      gifURL: 'https://media.giphy.com/media/12BYUePgtn7sis/giphy.gif',
+      gifURL: '/images/issue-1/this-week.gif',
       caption: 'when your code works on every machine, not only yours!',
     },
 

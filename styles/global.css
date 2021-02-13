@@ -147,7 +147,7 @@ body {
 }
 
 .react-markdown code {
-  @apply text-pink-500;
+  @apply font-semibold;
 }
 
 .react-markdown code::before {
