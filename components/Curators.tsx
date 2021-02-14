@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useThemeState } from '../theme/ThemeContext';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
+import Markdown from './Markdown';
 
 function shuffle(array: any[]): any[] {
   const shuffledArray = JSON.parse(JSON.stringify(array));
@@ -27,7 +28,7 @@ const CURATORS: TCurator[] = [
   },
   {
     name: 'Prateek Surana',
-    desc: `Building Devfolioco && Fold Bank | Frontend engineer | Technical Writer | Loves JS`,
+    desc: `Building [Devfolio](https://devfolio.co) | Frontend engineer | Technical Writer | Loves JS`,
     imgURL: 'https://github.com/prateek3255.png',
     links: {
       website: 'https://prateeksurana.me/',
@@ -111,7 +112,7 @@ function Curators(): JSX.Element {
                     </Text>
                   </a>
                   <Text type="base" color={`text-${theme}-700`} inline additionalStyles="py-4">
-                    {curator.desc}
+                    <Markdown>{curator.desc}</Markdown>
                   </Text>
                   <SocialLinks links={curator.links} additionalStyles="space-x-3" />
                 </div>

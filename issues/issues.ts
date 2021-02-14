@@ -11,7 +11,7 @@ console.log(uniqueArray)
         language: 'js',
       },
       desc:
-        'Getting unique values from an array required the [`filter`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) method with the combination of something like [`includes`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) to find whether the value already exists or not. But with the new Set native object this is super clean and easy:',
+        'Getting unique values from an array required the [`filter`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) method with the combination of something like [`includes`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) to find whether the value already exists or not. But with the new [native Set object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) this is super clean and easy:',
       sourceName: 'Google',
       sourceURL: 'https://google.com',
       tags: ['React'],
@@ -104,7 +104,8 @@ console.log(numbers[3])`,
         youtube: 'https://www.youtube.com/channel/UCFSQ3m4-hJ0izfsMUrAk7mw',
         linkedin: 'https://www.linkedin.com/in/vilvaathiban/',
       },
-      bio: 'TBD',
+      bio:
+        'Vilva is a JavaScript developer, International tech Speaker, Open Source Contributor, Seasonal Blogger and YouTuber. He recently started a YouTube video series called PathToExpert, where he posts a daily video which covers advanced content, easy tips and tricks, related to Frontend Development that can help developers to become experts in a year.',
     },
 
     talks: [

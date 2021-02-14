@@ -12,7 +12,7 @@ function Tags({ tags = [] }: { tags?: Array<string> }): JSX.Element {
           color={`text-${theme}-600`}
           inline
           key={index}
-          additionalStyles={`py-1/2 px-1 border-${theme}-200 border rounded`}
+          additionalStyles={`py-1/2 px-1 border-${theme}-200 border rounded uppercase`}
         >
           {`#${tag} `}
         </Text>
