@@ -17,7 +17,7 @@ function shuffle(array: any[]): any[] {
 const CURATORS: TCurator[] = [
   {
     name: 'Ayush Gupta',
-    desc: 'React Native Developer at FirstCry. Mobile and Web App Developer, Amateur Photographer and Blogger.',
+    desc: `Web & Mobile App Developer passionate about [photography](https://ayushgupta.tech/ig). Writing blogs & occasionally designing. Mobile app team at [FirstCry](https://firstcry.com)`,
     imgURL: 'https://github.com/gupta-ji6.png',
     links: {
       website: 'https://ayushgupta.tech',
@@ -111,7 +111,7 @@ function Curators(): JSX.Element {
                       {curator.name}
                     </Text>
                   </a>
-                  <Text type="base" color={`text-${theme}-700`} inline additionalStyles="py-4">
+                  <Text type="base" color={`text-${theme}-700`} inline additionalStyles="py-4 max-w-3xl">
                     <Markdown>{curator.desc}</Markdown>
                   </Text>
                   <SocialLinks links={curator.links} additionalStyles="space-x-3" />
