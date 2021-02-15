@@ -52,7 +52,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
             color="text-transparent"
           >{`#${issueData.meta.number} - ${issueData.meta.title}`}</Text>
           <Text color={`text-${theme}-600`} additionalStyles="pt-4">
-            {convertDate(issueData.meta.dateOfPublishing)}
+            <time>{convertDate(issueData.meta.dateOfPublishing)}</time>
           </Text>
         </div>
         <IssueItem title="Tip of the day" icon={<TipIcon />}>

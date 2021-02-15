@@ -131,8 +131,8 @@ console.log(numbers[3])`,
 
     meta: {
       number: 1,
-      dateOfPublishing: '2019-07-15',
-      title: 'Toasts, Styled Components and writing legible code comments',
+      dateOfPublishing: '2021-02-19',
+      title: 'Toasts, Styled Components and Writing Legible Code Comments',
       desc:
         'Learn the mental model you need for styled-components, how JavaScript sets can help you, display beautiful toasts, improve code comments, and do you really understand the sort method.',
       imgURL: 'http://placekitten.com/g/1200/627',
