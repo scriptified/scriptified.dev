@@ -132,8 +132,9 @@ console.log(numbers[3])`,
     meta: {
       number: 1,
       dateOfPublishing: '2019-07-15',
-      title: 'Spirals, Toggles, Loaders, and 3D Transforms',
-      desc: 'some random description',
+      title: 'Toasts, Styled Components and writing legible code comments',
+      desc:
+        'Learn the mental model you need for styled-components, how JavaScript sets can help you, display beautiful toasts, improve code comments, and do you really understand the sort method.',
       imgURL: 'https://avatars3.githubusercontent.com/u/21218732?s=460&u=bd9c8289d8c528e6b7358d5404a7028c849aa700&v=4',
     },
   },
