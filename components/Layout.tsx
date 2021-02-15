@@ -36,10 +36,7 @@ const Head = ({
   title = siteConfig.name,
   description = siteConfig.description,
   url = siteConfig.url,
-  image = `https://og-image.now.sh/${encodeURI(
-    siteConfig.name
-    // eslint-disable-next-line max-len
-  )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`,
+  image = 'http://placekitten.com/g/1200/627',
   twitter = '@scriptified_dev',
   author = siteConfig.name,
   faviconPath,
