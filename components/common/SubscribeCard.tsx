@@ -78,7 +78,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
     >
       {!homePage && !showThankYou ? (
         <div className="mb-8">
-          <Text type="h2" color="text-white" additionalStyles="mb-2">
+          <Text type="h2" color="text-white" additionalStyles="pb-2">
             {`Get ${siteConfig.name} Issues In Your Inbox`}
           </Text>
           <Text color={`text-${theme}-200`}>No spam ever, pinky promise();</Text>
@@ -87,7 +87,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
 
       {!showThankYou ? (
         <form onSubmit={handleSubmit} className="flex flex-col">
-          <div className="md:flex md:items-center mb-6">
+          <div className="md:flex md:items-center pb-6">
             <label htmlFor="fname" className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>
               First Name
             </label>
@@ -103,7 +103,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
               placeholder="Binod"
             />
           </div>
-          <div className="md:flex md:items-center mb-6">
+          <div className="md:flex md:items-center pb-6">
             <label htmlFor="email" className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>
               Email
             </label>

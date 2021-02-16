@@ -5,7 +5,7 @@ import { useThemeState } from '../../theme/ThemeContext';
 function Tags({ tags = [] }: { tags?: Array<string> }): JSX.Element {
   const theme = useThemeState();
   return (
-    <div className="flex space-x-1">
+    <div className="flex space-x-2 flex-wrap">
       {tags.map((tag, index) => (
         <Text
           type="small"

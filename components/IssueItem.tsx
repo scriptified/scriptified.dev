@@ -4,8 +4,8 @@ import { useThemeState } from '../theme/ThemeContext';
 
 const IssueItem = ({
   title,
+  // icon,
   children,
-  icon,
 }: {
   title: string;
   children: React.ReactNode;
@@ -31,7 +31,7 @@ const IssueItem = ({
           {title}
         </Text>
       </div>
-      <div className="mt-1">
+      <div className="pt-1">
         {children}
         {/* <div className="absolute h-24 w-24 issue-item-icon hidden xl:block">
           {React.cloneElement(icon, {

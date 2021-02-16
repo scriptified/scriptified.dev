@@ -20,8 +20,8 @@ export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JS
       title={`${siteConfig.name} | All Issues`}
       additionalStyles={`pt-12 min-h-screen bg-gradient-to-b from-${theme}-100 to-${theme}-300`}
     >
-      <section className="max-w-4xl px-8 sm:px-8 md:px-16 lg:px-32 mx-auto text-lg leading-normal mt-16">
-        <Text type="h1" color={`text-${theme}-900`} additionalStyles="text-5xl mb-8">
+      <section className="max-w-4xl px-8 sm:px-8 md:px-16 lg:px-24 mx-auto text-lg leading-normal pt-16">
+        <Text type="h1" color={`text-${theme}-900`} additionalStyles="text-5xl pb-8">
           Issues
         </Text>
         <ul className="m-0 p-0 list-none">
@@ -32,7 +32,7 @@ export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JS
           ))}
         </ul>
       </section>
-      <div className="max-w-4xl px-8 sm:px-8 md:px-16 lg:px-32 mx-auto mt-16">
+      <div className="max-w-4xl px-8 sm:px-8 md:px-16 lg:px-32 mx-auto pt-16">
         <SubscribeCard />
       </div>
       <BackToHome className="my-12 max-w-4xl px-8 sm:px-8 md:px-16 lg:px-32 mx-auto" />

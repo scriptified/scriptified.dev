@@ -24,15 +24,15 @@ const Footer = (): JSX.Element => {
         className={`flex mt-auto justify-between px-16 lg:px-32 py-5 bg-gradient-to-b from-${theme}-100 to-${theme}-300 flex-col lg:flex-row`}
       >
         <div className="flex items-center flex-shrink-0 lg:mr-6 flex-col lg:flex-row">
-          <a aria-current="page" className="hover:no-underline flex items-center mb-3 lg:mb-0" href="/">
+          <a aria-current="page" className="hover:no-underline flex items-center pb-3 lg:pb-0" href="/">
             <ScriptifiedLogo color={`text-${theme}-900`} additionalStyles="w-6 h-6" />
             <span
-              className={`font-sniglet font-bold text-2xl tracking-tight text-${theme}-900 ml-2 lg:pr-3 lg:border-r lg:border-${theme}-900 lg:mr-3`}
+              className={`font-sniglet font-bold text-2xl tracking-tight text-${theme}-900 pl-2 lg:pr-3 lg:border-r lg:border-${theme}-900 lg:mr-3`}
             >
               {siteConfig.name}
             </span>
           </a>
-          <Text inline color={`text-${theme}-900`} additionalStyles="text-sm font-semibold mb-3 lg:mb-0 text-pom">
+          <Text inline color={`text-${theme}-900`} additionalStyles="text-sm font-semibold pb-3 lg:pb-0 text-pom">
             &#169; {new Date().getFullYear()}. All rights reserved.
           </Text>
         </div>

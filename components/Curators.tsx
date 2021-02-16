@@ -59,13 +59,13 @@ function Curators(): JSX.Element {
     <div className="p-12">
       <div className="lg:text-center pb-12">
         <Text
-          additionalStyles="mt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
+          additionalStyles="pt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
           color={`text-${theme}-900`}
           type="h1"
         >
           Curators
         </Text>
-        <Text additionalStyles="mt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color={`text-${theme}-700`} type="base">
+        <Text additionalStyles="pt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color={`text-${theme}-700`} type="base">
           The two nerdy devs who curate this newsletter for you
         </Text>
       </div>
@@ -73,7 +73,7 @@ function Curators(): JSX.Element {
         <div className="grid px-0 lg:px-12">
           {curators.map((curator, index) => {
             return (
-              <div className="flex sm:flex-col md:flex-row flex-wrap mb-8" key={index}>
+              <div className="flex sm:flex-col md:flex-row flex-wrap pb-8" key={index}>
                 <div
                   className={`flex-shrink-1 mr-4 mb-4 p-1 bg-gradient-to-br from-${theme}-300 to-${theme}-700 rounded transition duration-300`}
                 >

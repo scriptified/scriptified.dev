@@ -13,8 +13,8 @@ const TechTalk = ({ techTalk }: { techTalk: Talk }): JSX.Element => {
   const theme = useThemeState();
 
   return (
-    <div className="my-8">
-      <Text type="h2" additionalStyles="mb-4" color={`text-${theme}-600`}>
+    <div className="py-8">
+      <Text type="h2" additionalStyles="pb-4" color={`text-${theme}-600`}>
         {techTalk.title}
       </Text>
       <div className="player-wrapper">

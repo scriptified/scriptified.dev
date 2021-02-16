@@ -51,12 +51,12 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
             // color={`text-${theme}-900`}
             color="text-transparent"
           >{`#${issueData.meta.number} - ${issueData.meta.title}`}</Text>
-          <Text color={`text-${theme}-600`} additionalStyles="pt-4">
+          <Text color={`text-${theme}-600`} additionalStyles="pt-4 text-xl">
             <time>{convertDate(issueData.meta.dateOfPublishing)}</time>
           </Text>
         </div>
         <IssueItem title="Tip of the day" icon={<TipIcon />}>
-          <Text type="base" additionalStyles="my-4 relative z-10">
+          <Text type="base" additionalStyles="py-4 relative z-10">
             <Markdown>{issueData.tipOfTheWeek.desc}</Markdown>
           </Text>
           <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
