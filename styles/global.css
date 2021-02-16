@@ -90,7 +90,22 @@
        url('/fonts/amaranth-v11-latin-700.svg#Amaranth') format('svg'); /* Legacy iOS */
 }
 
-
+@layer utilities {
+  @variants responsive {
+      .text-shadow {
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      }
+      .text-shadow-md {
+        text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+      }
+      .text-shadow-lg {
+        text-shadow: 15px 15px 30px rgba(0,0,0,0.5);
+      }
+      .text-shadow-none {
+        text-shadow: none;
+      }
+  } 
+}
 
 body {
   -webkit-font-smoothing: antialiased;

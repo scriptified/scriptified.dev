@@ -23,15 +23,15 @@ const HeroSection = (): JSX.Element => {
           <ScriptifiedLogo color={`text-${theme}-100`} additionalStyles="h-24 w-24 md:h-32 md:w-32" />
         </div>
         <Text type="h1" color={`text-${theme}-100`} additionalStyles="text-6xl">
-          <h1>{siteConfig.name}</h1>
+          <h1 className="text-shadow">{siteConfig.name}</h1>
         </Text>
       </div>
       <Text
         // type="h1"
-        color={`text-${theme}-200`}
+        color={`text-${theme}-100`}
         additionalStyles="text-3xl mb-10 sm:mb-12 lg:mb-16 max-w-3xl text-center px-4"
       >
-        <h2>
+        <h2 className="text-shadow">
           {`${descPart1} `} <span className="whitespace-no-wrap">{descPart2}</span>
         </h2>
       </Text>
