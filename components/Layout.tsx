@@ -6,7 +6,6 @@ import { useThemeState } from '../theme/ThemeContext';
 import { Theme } from '../theme/theme';
 import ThemePicker from './common/ThemePicker';
 import Footer from './Footer';
-import Loading from '../public/loading.svg';
 import { useLoadingState } from './LoadingContext';
 import { ScriptifiedLogo } from './icons/icons';
 
@@ -18,7 +17,7 @@ export const siteConfig = {
 
 const Loader = () => (
   <div className="flex items-center justify-center h-screen w-screen">
-    <Loading className="w-32 h-auto" />
+    <ScriptifiedLogo color={`text-black-900`} additionalStyles="w-24 h-24 animate-pulse" />
   </div>
 );
 
