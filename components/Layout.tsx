@@ -35,7 +35,7 @@ const Head = ({
   title = siteConfig.name,
   description = siteConfig.description,
   url = siteConfig.url,
-  image = 'http://placekitten.com/g/1200/627',
+  image = require('/images/landing-page-og.jpg'),
   twitter = '@scriptified_dev',
   author = siteConfig.name,
   faviconPath,

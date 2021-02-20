@@ -38,7 +38,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
     <Layout
       title={`#${issueData.meta.number} | ${issueData.meta.title} | ${siteConfig.name}`}
       description={issueData.meta.desc}
-      image={issueData.meta.imgURL}
+      image={require('/images/issue-page-og.jpg')}
       additionalStyles={`pt-12 bg-gradient-to-b from-${theme}-300 to-${theme}-500`}
     >
       <section
