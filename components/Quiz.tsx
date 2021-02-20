@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { useRouter } from 'next/router';
 import Quiz, { Option as OptionType } from '../interfaces/quiz';
 import { CheckIcon, XCircleIcon } from './icons/icons';
 import Button from './common/Button';
@@ -12,6 +12,16 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
   const [currentOption, setOption] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const theme = useThemeState();
+  const router = useRouter();
+
+  React.useEffect(() => {
+    if (router.isReady && router.query.section === 'quiz' && typeof router.query.option === 'string') {
+      const option = parseInt(router.query.option);
+      if (typeof option === 'number' && option > 0 && option < 5) {
+        setOption(option);
+      }
+    }
+  }, [router.isReady]);
 
   const hasSelectedCorrectOption = selectedOptions.includes(quiz.answerId);
 

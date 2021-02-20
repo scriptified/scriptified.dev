@@ -1,4 +1,6 @@
+import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 
 import ArticleItem from '../../components/ArticleItem';
 import CodeSnippet from '../../components/common/CodeSnippet';
@@ -34,6 +36,13 @@ const convertDate = (date: string) => {
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   const theme = useThemeState();
+  const router = useRouter();
+
+  React.useEffect(() => {
+    if (router.isReady && router.query.section && typeof router.query.section === 'string') {
+      document.getElementById(router.query.section)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [router.isReady]);
   return (
     <Layout
       title={`#${issueData.meta.number} | ${issueData.meta.title} | ${siteConfig.name}`}
@@ -79,7 +88,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
             <TechTalk key={talk.talkURL} techTalk={talk} />
           ))}
         </IssueItem>
-        <IssueItem title="Quiz" icon={<QuizIcon />}>
+        <IssueItem id="quiz" title="Quiz" icon={<QuizIcon />}>
           <Quiz quiz={issueData.quiz} />
         </IssueItem>
         <IssueItem title="This Week in GIF" icon={<GifIcon />}>
