@@ -13,6 +13,7 @@ export const siteConfig = {
   name: 'Scriptified',
   description: 'Insightful tips, tools, resources & more on React and JavaScript',
   url: 'https://scriptified.dev',
+  ogImg: '/images/landing-page-og.jpg',
 };
 
 const Loader = () => (
@@ -35,7 +36,7 @@ const Head = ({
   title = siteConfig.name,
   description = siteConfig.description,
   url = siteConfig.url,
-  image = require('/images/landing-page-og.jpg'),
+  image = siteConfig.ogImg,
   twitter = '@scriptified_dev',
   author = siteConfig.name,
   faviconPath,
