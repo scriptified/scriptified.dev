@@ -39,12 +39,11 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       }
       setShowThankYou(true);
     } catch (error) {
-      console.error(error);
+      setFirstName('');
       setShowErrorMsg(true);
       setErrorMsg(error.message);
     } finally {
       setLoading(false);
-      setFirstName('');
       setEmail('');
     }
   };
