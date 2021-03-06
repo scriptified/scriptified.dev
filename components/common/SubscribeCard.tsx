@@ -130,7 +130,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
           <Button
             size="md"
             type={homePage ? 'primary' : 'basic'}
-            additionalStyles={`rounded shadow w-3/6 self-center mt-4`}
+            additionalStyles={`rounded shadow min-w-1/2 w-1/2 self-center mt-4`}
             buttonAttributes={{ type: 'submit' }}
             loading={loading}
           >
