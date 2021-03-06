@@ -13,7 +13,7 @@ export const siteConfig = {
   name: 'Scriptified',
   description: 'Insightful tips, tools, resources & more on React and JavaScript',
   url: 'https://scriptified.dev',
-  ogImg: '/images/landing-page-og.jpg',
+  ogImg: 'https://scriptified.dev/images/landing-page-og.jpg',
 };
 
 const Loader = () => (
