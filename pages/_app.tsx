@@ -11,7 +11,9 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
 
   useEffect(() => {
     const handleRouteChange = url => {
-      gtag.pageview(url);
+      if (process.env.NODE_ENV === 'production') {
+        gtag.pageview(url);
+      }
     };
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {

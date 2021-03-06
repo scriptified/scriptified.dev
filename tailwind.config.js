@@ -11,6 +11,9 @@ module.exports = {
         sniglet: ['Amaranth', 'serif'],
         roboto: ['Roboto Slab', 'sans-serif'],
       },
+      fontSize: {
+        '5.5xl': '3.25rem',
+      },
       inset: {
         '1/2': '0.5rem',
         1: '1rem',

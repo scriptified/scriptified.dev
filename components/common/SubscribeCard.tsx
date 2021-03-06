@@ -3,6 +3,7 @@ import Button from './Button';
 import Text from './Text';
 import { useThemeState } from '../../theme/ThemeContext';
 import { XCircleIcon } from '../icons/icons';
+import { siteConfig } from '../Layout';
 
 const getThankYouMessage = (): string => {
   const thankYouCopies = [
@@ -38,12 +39,11 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       }
       setShowThankYou(true);
     } catch (error) {
-      console.error(error);
+      setFirstName('');
       setShowErrorMsg(true);
       setErrorMsg(error.message);
     } finally {
       setLoading(false);
-      setFirstName('');
       setEmail('');
     }
   };
@@ -77,16 +77,16 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
     >
       {!homePage && !showThankYou ? (
         <div className="mb-8">
-          <Text type="h2" color="text-white" additionalStyles="mb-2">
-            Get Scriptified Issues In Your Inbox
+          <Text type="h2" color="text-white" additionalStyles="pb-2">
+            {`Get ${siteConfig.name} Issues In Your Inbox`}
           </Text>
-          <Text color={`text-${theme}-200`}>No spam ever, pinky promise!</Text>
+          <Text color={`text-${theme}-200`}>No spam ever, pinky promise();</Text>
         </div>
       ) : null}
 
       {!showThankYou ? (
         <form onSubmit={handleSubmit} className="flex flex-col">
-          <div className="md:flex md:items-center mb-6">
+          <div className="md:flex md:items-center pb-6">
             <label htmlFor="fname" className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>
               First Name
             </label>
@@ -102,7 +102,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
               placeholder="Binod"
             />
           </div>
-          <div className="md:flex md:items-center mb-6">
+          <div className="md:flex md:items-center pb-6">
             <label htmlFor="email" className={`${labelStyles} block font-semibold w-32 mb-3 md:mb-0 pr-4`}>
               Email
             </label>
@@ -115,7 +115,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
               value={email}
               onChange={handleChange}
               required
-              placeholder="hello@scriptfied.com"
+              placeholder="hello@scriptified.dev"
             />
           </div>
           {showErrorMsg && (
@@ -129,7 +129,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
           <Button
             size="md"
             type={homePage ? 'primary' : 'basic'}
-            additionalStyles={`rounded shadow w-3/6 self-center mt-4`}
+            additionalStyles={`rounded shadow min-w-1/2 w-2/3 md:w-1/2 self-center mt-4`}
             buttonAttributes={{ type: 'submit' }}
             loading={loading}
           >
@@ -139,7 +139,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
       ) : (
         <div className="flex justify-center items-center flex-col text-center space-y-4">
           <Text type="h2" color={homePage ? `text-${theme}-800` : `text-${theme}-100`}>
-            {`Hey ${firstName}, thank you for subscribing to Scriptified!`}
+            {`Hey ${firstName}, thank you for subscribing to ${siteConfig.name}!`}
           </Text>
           <Text color={homePage ? `text-${theme}-600` : `text-${theme}-300`}>{getThankYouMessage()}</Text>
         </div>

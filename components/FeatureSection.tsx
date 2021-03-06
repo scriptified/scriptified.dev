@@ -14,32 +14,34 @@ const featureData = [
   {
     name: 'Tip of the Day',
     icon: <Tip />,
-    desc: 'Useful programming hot tips and tricks to make your dreadful lives easier',
+    desc: 'Hot programming tips and tricks to make your dreadful lives easier as a developer',
   },
   {
     name: 'Articles',
     icon: <Articles />,
-    desc: 'Insightful articles and tutorials around JavaScript and React world',
+    desc: 'Helpful articles and tutorials around JavaScript and React world',
   },
   {
     name: 'Tools',
     icon: <ToolsAndResources />,
-    desc: 'Helpful tools, resources and websites we can use to design and develop better user experiences',
+    desc: 'Helpful tools, libraries and websites that can save your time and increase productivity while developing',
   },
   {
     name: 'Dev of the Week',
     icon: <DevOfTheWeek />,
-    desc: 'Featured developer of the week whose work is inspirational',
+    desc:
+      'Shoutout to a developer following whom you can become a better developer & learn from their inspirational work',
   },
   {
     name: 'Tech Talks',
     icon: <TechTalks />,
-    desc: 'Interesting tech talks from conferences revolving around developement',
+    desc: 'Interesting tech talks from conferences revolving around JavaScript and React development',
   },
   {
     name: 'Quiz',
     icon: <Quiz />,
-    desc: 'Challenging programming quizzes to test your sharp programming minds',
+    desc:
+      'Challenging quizzes that can help you understand things that you might not have known about JavaScript/React',
   },
   {
     name: 'This Week in GIF',
@@ -55,34 +57,41 @@ const FeatureSection = (): JSX.Element => {
       <div className="max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-40 lg:px-64">
         <div className="lg:text-center">
           <Text
-            additionalStyles="mt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
+            additionalStyles="pt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10 text-shadow"
             color="text-white"
             type="h1"
           >
             Sections
           </Text>
 
-          <Text additionalStyles="mt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color={`text-${theme}-100`} type="base">
+          <Text
+            additionalStyles="pt-4 max-w-2xl text-xl leading-7 lg:mx-auto text-shadow"
+            color={`text-${theme}-100`}
+            type="base"
+          >
             A look at what&apos;s inside our newsletter
           </Text>
         </div>
 
-        <div className="mt-10">
+        <div className="pt-10">
           <ul className="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
             {featureData.map(feature => {
               return (
-                <li key={feature.name} className="py-4 mr-4 lg:mr-8 mb-4 flex justify-center">
+                <li key={feature.name} className="py-4 pr-4 lg:pr-8 mb-4 flex justify-center">
                   <div className="flex">
                     <div
                       className={`flex flex-shrink-0 items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-600 to-${theme}-800 transition-all hover:animate-spring-bounce`}
                     >
                       {feature.icon}
                     </div>
-                    <div className="ml-4">
-                      <Text type="h2" color="text-white" additionalStyles="text-lg leading-6 font-semibold">
+                    <div className="pl-4">
+                      <Text type="h2" color="text-white" additionalStyles="text-lg leading-6 font-semibold text-shadow">
                         {feature.name}
                       </Text>
-                      <Text color={`text-${theme}-100`} additionalStyles="mt-1 text-base leading-6 max-w-sm">
+                      <Text
+                        color={`text-${theme}-100`}
+                        additionalStyles="pt-2 text-base leading-6 max-w-sm text-shadow"
+                      >
                         {feature.desc}
                       </Text>
                     </div>

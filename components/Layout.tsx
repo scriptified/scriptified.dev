@@ -6,15 +6,19 @@ import { useThemeState } from '../theme/ThemeContext';
 import { Theme } from '../theme/theme';
 import ThemePicker from './common/ThemePicker';
 import Footer from './Footer';
-import Loading from '../public/loading.svg';
 import { useLoadingState } from './LoadingContext';
 import { ScriptifiedLogo } from './icons/icons';
 
-export const siteTitle = 'Scriptified';
+export const siteConfig = {
+  name: 'Scriptified',
+  description: 'Insightful tips, tools, resources & more on React and JavaScript',
+  url: 'https://scriptified.dev',
+  ogImg: '/images/landing-page-og.jpg',
+};
 
 const Loader = () => (
   <div className="flex items-center justify-center h-screen w-screen">
-    <Loading className="w-32 h-auto" />
+    <ScriptifiedLogo color={`text-black-900`} additionalStyles="w-24 h-24 animate-pulse" />
   </div>
 );
 
@@ -29,14 +33,12 @@ type SEO = {
 };
 
 const Head = ({
-  title = siteTitle,
-  description = 'Your go to JavaScript newsletter',
-  url = 'https://scriptified.dev',
-  image = `https://og-image.now.sh/${encodeURI(
-    siteTitle
-  )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`,
+  title = siteConfig.name,
+  description = siteConfig.description,
+  url = siteConfig.url,
+  image = siteConfig.ogImg,
   twitter = '@scriptified_dev',
-  author = 'Scriptified',
+  author = siteConfig.name,
   faviconPath,
 }: SEO) => (
   <NextHead>
@@ -108,14 +110,14 @@ export default function Layout({
               ) : (
                 <>
                   <Link href="/">
-                    <a aria-label="Scriptified">
+                    <a aria-label={siteConfig.name}>
                       <ScriptifiedLogo color={`text-${theme}-900`} additionalStyles="w-24 h-24" />
                     </a>
                   </Link>
                   <h2 className="text-6xl leading-snug my-4 mx-0">
                     <Link href="/">
                       <a className={`no-underline hover:underline text-${theme}-900 font-bold font-sniglet`}>
-                        Scriptified
+                        {siteConfig.name}
                       </a>
                     </Link>
                   </h2>

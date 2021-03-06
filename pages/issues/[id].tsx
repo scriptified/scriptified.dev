@@ -1,4 +1,6 @@
+import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 
 import ArticleItem from '../../components/ArticleItem';
 import CodeSnippet from '../../components/common/CodeSnippet';
@@ -6,7 +8,7 @@ import DevOfTheWeekItem from '../../components/DevOfTheWeekItem';
 import GIFItem from '../../components/GIFItem';
 import { Issue } from '../../interfaces/issue';
 import IssueItem from '../../components/IssueItem';
-import Layout, { siteTitle } from '../../components/Layout';
+import Layout, { siteConfig } from '../../components/Layout';
 import Quiz from '../../components/Quiz';
 import SubscribeCard from '../../components/common/SubscribeCard';
 import TechTalk from '../../components/TechTalk';
@@ -15,6 +17,7 @@ import ToolItem from '../../components/ToolItem';
 import { getAllIssueIds } from '../../lib/issues';
 import issues from '../../issues/issues';
 import BackToHome from '../../components/common/BackToHome';
+import Markdown from '../../components/Markdown';
 import {
   TipIcon,
   ArticlesIcon,
@@ -33,10 +36,18 @@ const convertDate = (date: string) => {
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   const theme = useThemeState();
+  const router = useRouter();
+
+  React.useEffect(() => {
+    if (router.isReady && router.query.section && typeof router.query.section === 'string') {
+      document.getElementById(router.query.section)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [router.isReady]);
   return (
     <Layout
-      title={`#${issueData.meta.number} | ${issueData.meta.title} | ${siteTitle}`}
+      title={`#${issueData.meta.number} | ${issueData.meta.title} | ${siteConfig.name}`}
       description={issueData.meta.desc}
+      image={issueData.meta.imgURL}
       additionalStyles={`pt-12 bg-gradient-to-b from-${theme}-300 to-${theme}-500`}
     >
       <section
@@ -45,17 +56,17 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
         <div className="flex flex-col justify-center items-center">
           <Text
             type="h1"
-            additionalStyles={`sm:text-4xl md:text-5xl text-center font-bold bg-gradient-to-r from-${theme}-700 to-${theme}-900 bg-clip-text`}
+            additionalStyles={`sm:text-4xl md:text-5.5xl text-center font-bold bg-gradient-to-r from-${theme}-700 to-${theme}-900 bg-clip-text`}
             // color={`text-${theme}-900`}
             color="text-transparent"
           >{`#${issueData.meta.number} - ${issueData.meta.title}`}</Text>
-          <Text color={`text-${theme}-600`} additionalStyles="pt-4">
-            {convertDate(issueData.meta.dateOfPublishing)}
+          <Text color={`text-${theme}-600`} additionalStyles="pt-4 text-xl">
+            <time>{convertDate(issueData.meta.dateOfPublishing)}</time>
           </Text>
         </div>
         <IssueItem title="Tip of the day" icon={<TipIcon />}>
-          <Text type="base" additionalStyles="my-4 relative z-10">
-            {issueData.tipOfTheWeek.desc}
+          <Text type="base" additionalStyles="py-4 relative z-10">
+            <Markdown>{issueData.tipOfTheWeek.desc}</Markdown>
           </Text>
           <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
         </IssueItem>
@@ -77,7 +88,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
             <TechTalk key={talk.talkURL} techTalk={talk} />
           ))}
         </IssueItem>
-        <IssueItem title="Quiz" icon={<QuizIcon />}>
+        <IssueItem id="quiz" title="Quiz" icon={<QuizIcon />}>
           <Quiz quiz={issueData.quiz} />
         </IssueItem>
         <IssueItem title="This Week in GIF" icon={<GifIcon />}>
