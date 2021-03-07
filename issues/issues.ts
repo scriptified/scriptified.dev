@@ -30,7 +30,7 @@ console.log(uniqueArray)
         title: 'What is React: A Visual Introduction For Beginners',
         url: 'https://learnreact.design/posts/what-is-react',
         desc:
-          "This article is an introduction to React for beginners, and provides a bird's eye view with an interactive hands-on experience of writing an actual React component. It should probably be the first post that you should go through before getting familiar with its APIs",
+          "This article is an introduction to React for beginners, and provides a bird's eye view with an interactive hands-on experience of writing an actual React component. It should probably be the first post that you should go through before getting familiar with its APIs.",
         author: 'Linton Ye',
         tags: ['React'],
       },
@@ -42,7 +42,7 @@ console.log(uniqueArray)
         url: 'https://react-hot-toast.com/',
         logo: '/images/issue-1/react-hot-toast.jpg',
         desc:
-          'A sleek library provides a ligthweight, customizable and accessible API for adding beautiful toasts to your app',
+          'A sleek library provides a ligthweight, customizable and accessible API for adding beautiful toasts to your app.',
         author: 'Timo Lins',
         tags: ['React', 'css'],
       },
@@ -51,7 +51,7 @@ console.log(uniqueArray)
         url: 'https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost',
         logo: '/images/issue-1/import-cost.jpg',
         desc:
-          'If you care about the bundle size of your libraries, then this VSCode extension can make your life a hell lot easier. This extension will display inline in the editor the size of the imported package. The extension utilizes webpack with babili-webpack-plugin in order to detect the imported size',
+          'If you care about the bundle size of your libraries, then this VSCode extension can make your life a hell lot easier. This extension will display inline in the editor the size of the imported package. The extension utilizes webpack with babili-webpack-plugin in order to detect the imported size.',
         author: 'Wix.com',
         tags: ['optimization', 'webpack', 'javascript'],
       },
