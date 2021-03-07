@@ -21,6 +21,10 @@ module.exports = {
       maxWidth: {
         fc: 'fit-content',
       },
+      minHeight: {
+        50: '50vh',
+        70: '70vh',
+      },
       backgroundImage: {
         hero: 'url(/hero-pattern.svg)',
         texture: 'url(/texture.svg)',
