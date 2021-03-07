@@ -23,7 +23,7 @@ module.exports = {
       },
       minHeight: {
         50: '50vh',
-        70: '70vh',
+        80: '80vh',
       },
       backgroundImage: {
         hero: 'url(/hero-pattern.svg)',
