@@ -4,6 +4,7 @@ import Text from './Text';
 import { useThemeState } from '../../theme/ThemeContext';
 import { XCircleIcon } from '../icons/icons';
 import { siteConfig } from '../Layout';
+import { event } from '../../lib/gtag';
 
 const getThankYouMessage = (): string => {
   const thankYouCopies = [
@@ -60,6 +61,12 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
     e.preventDefault();
     subscribeUser();
     setLoading(true);
+    event({
+      action: 'subscribe',
+      category: 'engagement',
+      label: 'Subscribe Card',
+      value: 1,
+    });
   };
 
   const handleChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>) => {
