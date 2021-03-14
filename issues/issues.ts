@@ -281,7 +281,7 @@ console.log(answer);`,
       title: 'Creating videos with React, Fetching with TypeScript and the Hype Driven Frontend Development',
       desc:
         'Explore how to create professional videos with React, optimize your React code without using memo, handle data fetching with TypeScript and open all links in new tabs with bare minimum code.',
-      imgURL: 'https://scriptified.dev/images/issue-2/issue-page-og.jpg',
+      imgURL: 'https://scriptified.dev/images/issue-2/og.png',
     },
   },
 ];
