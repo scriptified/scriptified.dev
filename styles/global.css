@@ -104,6 +104,17 @@
       .text-shadow-none {
         text-shadow: none;
       }
+  }
+  @variants hover {
+    .img-shadow {
+      filter: drop-shadow(0 0 0.3rem rgba(0,0,0,0.3));
+    }
+    .img-shadow-sm {
+      filter: drop-shadow(0 0 0.2rem rgba(0,0,0,0.3));
+    }
+    .img-shadow-none {
+      filter: none;
+    }
   } 
 }
 
