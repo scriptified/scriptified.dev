@@ -44,7 +44,7 @@ const Head = ({
   <NextHead>
     {/* Title and Description */}
     <title>{title}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={`${description}. Curated by Prateek Surana and Ayush Gupta.`} />
     <meta name="title" content={title} />
 
     {/* Essentials */}
