@@ -1,27 +1,46 @@
 import axios from 'axios';
+import fetch from 'node-fetch';
 
 export default async (req, res) => {
   const { body, method } = req;
-  const { email, firstName } = body;
+  const { email, firstName, captchaCode } = body;
+  console.log(body);
 
   if (method === 'POST') {
     try {
-      const response = await axios.post(
-        `${process.env.EMAIL_API_ROOT}subscribers`,
-        {
-          email,
-          metadata: {
-            first_name: firstName,
-          },
+      // Ping the hcaptcha verify API to verify the captcha code you received
+      const response = await fetch(`https://hcaptcha.com/siteverify`, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
         },
-        {
-          headers: {
-            Authorization: `Token ${process.env.EMAIL_AUTH_TOKEN}`,
+        body: `response=${captchaCode}&secret=${process.env.HCAPTCHA_SECRET_KEY}`,
+        method: 'POST',
+      });
+      const captchaValidation = await response.json();
+      console.log(captchaValidation);
+
+      if (captchaValidation.success) {
+        const response = await axios.post(
+          `${process.env.EMAIL_API_ROOT}subscribers`,
+          {
+            email,
+            metadata: {
+              first_name: firstName,
+            },
           },
-        }
-      );
-      console.log(response);
-      return res.status(200).send({ msg: 'Success' });
+          {
+            headers: {
+              Authorization: `Token ${process.env.EMAIL_AUTH_TOKEN}`,
+            },
+          }
+        );
+        console.log(response);
+        return res.status(200).send({ msg: 'Success' });
+      }
+
+      return res.status(422).json({
+        message: 'Invalid captcha code. You sure you human?',
+      });
     } catch (error) {
       console.log(error?.response?.data);
       const errorMsg = error?.response?.data?.[0];
