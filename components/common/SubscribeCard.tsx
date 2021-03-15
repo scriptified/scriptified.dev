@@ -1,4 +1,5 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useRef, useState } from 'react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import Button from './Button';
 import Text from './Text';
 import { useThemeState } from '../../theme/ThemeContext';
@@ -24,7 +25,9 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
   const [showErrorMsg, setShowErrorMsg] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const subscribeUser = async () => {
+  const hCaptchaRef = useRef(null);
+
+  const subscribeUser = async captchaCode => {
     setShowErrorMsg(false);
     try {
       const response = await fetch('/api/subscribe', {
@@ -32,7 +35,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ firstName, email }),
+        body: JSON.stringify({ firstName, email, captchaCode }),
       });
       if (!response.ok) {
         const res = await response.json();
@@ -59,14 +62,16 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    subscribeUser();
+    hCaptchaRef.current.execute();
     setLoading(true);
-    event({
-      action: 'subscribe',
-      category: 'engagement',
-      label: 'Subscribe Card',
-      value: 1,
-    });
+    if (process.env.NODE_ENV === 'production') {
+      event({
+        action: 'subscribe',
+        category: 'engagement',
+        label: 'Subscribe Card',
+        value: 1,
+      });
+    }
   };
 
   const handleChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>) => {
@@ -75,6 +80,13 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
     } else {
       setFirstName(value);
     }
+  };
+
+  const onHCaptchaChange = async captchaCode => {
+    if (!captchaCode) {
+      return;
+    }
+    subscribeUser(captchaCode);
   };
 
   return (
@@ -133,6 +145,12 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
               </Text>
             </div>
           )}
+          <HCaptcha
+            sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}
+            onVerify={onHCaptchaChange}
+            size="invisible"
+            ref={hCaptchaRef}
+          />
           <Button
             size="md"
             type={homePage ? 'primary' : 'basic'}
