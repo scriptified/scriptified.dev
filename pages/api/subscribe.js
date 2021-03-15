@@ -38,7 +38,7 @@ export default async (req, res) => {
         return res.status(200).send({ msg: 'Success' });
       }
 
-      return res.status(422).json({
+      return res.status(422).send({
         msg: 'Invalid captcha code. You sure you human?',
       });
     } catch (error) {
