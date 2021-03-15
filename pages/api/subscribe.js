@@ -39,7 +39,7 @@ export default async (req, res) => {
       }
 
       return res.status(422).json({
-        message: 'Invalid captcha code. You sure you human?',
+        msg: 'Invalid captcha code. You sure you human?',
       });
     } catch (error) {
       console.log(error?.response?.data);
