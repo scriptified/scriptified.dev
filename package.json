@@ -12,12 +12,14 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@hcaptcha/react-hcaptcha": "0.3.5",
     "@svgr/webpack": "5.4.0",
     "autoprefixer": "9.8.6",
     "axios": "0.21.1",
     "glob": "7.1.6",
     "next": "10.0.5",
     "next-pwa": "3.1.5",
+    "node-fetch": "2.6.1",
     "postcss-import": "12.0.1",
     "prism-react-renderer": "1.1.1",
     "react": "17.0.1",
@@ -27,7 +29,8 @@
     "tailwindcss": "1.9.6"
   },
   "devDependencies": {
-    "@types/gtag.js": "^0.0.4",
+    "@types/gtag.js": "0.0.4",
+    "@types/hcaptcha__react-hcaptcha": "0.1.4",
     "@types/node": "14.6.3",
     "@types/react": "16.9.49",
     "@typescript-eslint/eslint-plugin": "3.10.1",
