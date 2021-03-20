@@ -288,10 +288,10 @@ console.log(answer);`,
     tipOfTheWeek: {
       snippet: {
         code: `const superheroes = ['Hawkeye', 'Black widow', 'Thor', 'Wanda', 'Hulk', 'Iron man'];
-        const [, , ...awesomeHeroes] = superheroes;
-        
-        console.log(awesomeHeroes);
-        // > ['Thor', 'Wanda', 'Hulk', 'Iron man'];`,
+const [, , ...awesomeHeroes] = superheroes;
+
+console.log(awesomeHeroes);
+// > ['Thor', 'Wanda', 'Hulk', 'Iron man'];`,
         language: 'javascript',
       },
       desc:
@@ -346,41 +346,44 @@ console.log(answer);`,
       question: 'What is wrong with the below code snippet?',
       snippet: {
         code: `// Assume this is some heavy component with some heavy tree
-        // Hence this component is memoized to avoid unnecessary re-renders
-        const SomeHeavyComponent = React.memo(
-          ({ children }) => <div>{children}</div>
-        );
-        
-        const SomeComponent = () => {
-          const [count, setCount] = React.useState(0);
-          return (
-            <div>
-              <SomeHeavyComponent>
-                <span>Header</span>
-              </SomeHeavyComponent>
-              Count: {count}
-              <button 
-               type="button" 
-               onClick={() => setCount(currentCount => currentCount + 1)}
-              >
-                Increment count
-              </button>
-            </div>
-          );
-        };`,
-        language: 'js',
+// Hence this component is memoized to avoid unnecessary re-renders
+const SomeHeavyComponent = React.memo(
+  ({ children }) => <div>{children}</div>
+);
+
+const SomeComponent = () => {
+  const [count, setCount] = React.useState(0);
+  return (
+    <div>
+      <SomeHeavyComponent>
+        <span>Header</span>
+      </SomeHeavyComponent>
+
+      Count: {count}
+
+      <button 
+        type="button" 
+        onClick={() => setCount(currentCount => currentCount + 1)}
+      >
+        Increment count
+      </button>
+    </div>
+  );
+};`,
+        language: 'jsx',
+        showLineNumbers: true,
       },
       options: [
         {
           id: 1,
           text:
-            '`setCount` can only take number as an argument, causing the app to crash when count is incremented because it has been passed a function on Line 16',
+            '`setCount` can only take number as an argument, causing the app to crash when count is incremented because it has been passed a function on Line 19',
           description:
             'No there is nothing wrong with the syntax here, `useState` also accepts a [function as a parameter](https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/) that gets the previous values as its argument and its job is to return the latest value.',
         },
         {
           id: 2,
-          text: 'The `SomeHeavyComponent` expects a `children={something}` prop which is missing on Line 10',
+          text: 'The `SomeHeavyComponent` expects a `children={something}` prop which is missing on Line 11',
           description:
             'No, the children prop is an in-built prop provided by React it is used to display whatever you include between the [opening and closing tags when invoking a component](https://codeburst.io/a-quick-intro-to-reacts-props-children-cb3d2fce4891).',
         },
@@ -407,10 +410,10 @@ console.log(answer);`,
 
     devOfTheWeek: {
       name: 'Neha Sharma',
-      profileImg: 'https://pbs.twimg.com/profile_images/1279389930620215296/QFbB4JhB_400x400.jpg',
+      profileImg: '/images/issue-3/dev-of-week.jpeg',
       profileLink: {
-        website: 'https://ameerthehacker.me/',
-        github: 'https://github.com/ameerthehacker',
+        website: 'https://a11ytips.dev/about/',
+        github: 'https://github.com/neha',
         twitter: 'https://twitter.com/hellonehha',
       },
       bio:
@@ -434,14 +437,13 @@ console.log(answer);`,
     },
 
     gif: {
-      gifURL: '/images/issue-2/this-week.gif',
-      caption:
-        'When you try to debug your code in production! (via [r/ProgrammerHumor](https://www.reddit.com/r/ProgrammerHumor/comments/m4299h/when_you_debug_in_production/))',
+      gifURL: '/images/issue-3/this-week.gif',
+      caption: 'When you ship to production without testing first',
     },
 
     meta: {
       number: 3,
-      dateOfPublishing: '2021-03-20',
+      dateOfPublishing: '2021-03-21',
       title: 'Creating videos with React, Fetching with TypeScript and the Hype Driven Frontend Development',
       desc:
         'Explore how to create professional videos with React, optimize your React code without using memo, handle data fetching with TypeScript and open all links in new tabs with bare minimum code.',
