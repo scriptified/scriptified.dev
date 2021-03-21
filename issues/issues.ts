@@ -284,4 +284,171 @@ console.log(answer);`,
       imgURL: 'https://scriptified.dev/images/issue-2/og.png',
     },
   },
+  {
+    tipOfTheWeek: {
+      snippet: {
+        code: `const superheroes = ['Hawkeye', 'Black widow', 'Thor', 'Wanda', 'Hulk', 'Iron man'];
+const [, , ...awesomeHeroes] = superheroes;
+
+console.log(awesomeHeroes);
+// > ['Thor', 'Wanda', 'Hulk', 'Iron man'];`,
+        language: 'javascript',
+      },
+      desc:
+        'You can use placeholder commas in the beginning to skip elements while [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) an array. For instance you want to create a new array skipping the first two elements of another array, you can do it like this - ',
+      sourceName: 'Google',
+      sourceURL: 'https://google.com',
+      tags: ['JavaScript'],
+    },
+
+    articles: [
+      {
+        title: "Why I moved from styled-components to Tailwind CSS and what's the future of CSS-in-JS?",
+        url:
+          'https://daily.dev/blog/why-i-moved-from-styled-components-to-tailwind-css-and-whats-the-future-of-css-in-js',
+        desc:
+          'Explore with Ido why he had to migrate from using styled-components to Tailwind CSS for [daily.dev](https://daily.dev) despite him considering the former as having a better DX, and what does the future hold for such CSS-in-JS libraries. Fun fact - Scriptified is also built with Tailwind CSS.',
+        author: 'Ido Shamun',
+        tags: ['React', 'Styled Components', 'Tailwind CSS'],
+      },
+      {
+        title: 'The Complete Guide to useRef() and Refs in React',
+        url: 'https://dmitripavlutin.com/react-useref-guide/',
+        desc:
+          'In this guide, Dmitri explains how `React.useRef` works, how it is different from `React.useState` and the use cases where `useRef` can come in handy with examples.',
+        author: 'Dmitri Pavlutin',
+        tags: ['React', 'Hooks'],
+      },
+    ],
+
+    tools: [
+      {
+        title: 'react-laag',
+        url: 'https://www.react-laag.com/',
+        logo: '/images/issue-3/react-laag.png',
+        desc:
+          'It is a simple and ligthweight library, that provides hooks for tooltip and popovers. It also gives you a really comprehensive API which gives you full control over the look and feel.',
+        author: 'Erik Verweij',
+        tags: ['UI'],
+      },
+      {
+        title: 'Phosphor Icons',
+        url: 'https://phosphoricons.com/',
+        logo: '/images/issue-3/phosphor-icons.png',
+        desc:
+          'A free and open-source icon family for interfaces, diagrams and presentations. Easy to pick up and plug in. Truly consistent in style and scale. Flexible to multiple sizes and weights.',
+        author: 'Helena Zhang, Toby Fried',
+        tags: ['Icons', 'UI'],
+      },
+    ],
+
+    quiz: {
+      question: 'What is wrong with the below code snippet?',
+      snippet: {
+        code: `// Assume this is some heavy component with some heavy tree
+// Hence this component is memoized to avoid unnecessary re-renders
+const SomeHeavyComponent = React.memo(
+  ({ children }) => <div>{children}</div>
+);
+
+const SomeComponent = () => {
+  const [count, setCount] = React.useState(0);
+  return (
+    <div>
+      <SomeHeavyComponent>
+        <span>Header</span>
+      </SomeHeavyComponent>
+
+      Count: {count}
+
+      <button 
+        type="button" 
+        onClick={() => setCount(currentCount => currentCount + 1)}
+      >
+        Increment count
+      </button>
+    </div>
+  );
+};`,
+        language: 'jsx',
+        showLineNumbers: true,
+      },
+      options: [
+        {
+          id: 1,
+          text:
+            '`setCount` can only take number as an argument, causing the app to crash when count is incremented because it has been passed a function on Line 19',
+          description:
+            'No there is nothing wrong with the syntax here, `useState` also accepts a [function as a parameter](https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/) that gets the previous values as its argument and its job is to return the latest value.',
+        },
+        {
+          id: 2,
+          text: 'The `SomeHeavyComponent` expects a `children={something}` prop which is missing on Line 11',
+          description:
+            'No, the children prop is an in-built prop provided by React it is used to display whatever you include between the [opening and closing tags when invoking a component](https://codeburst.io/a-quick-intro-to-reacts-props-children-cb3d2fce4891).',
+        },
+        {
+          id: 3,
+          text:
+            "The `SomeHeavyComponent` won't be memoized because we need to pass `React.memo` a dependency array similar to the memoization hooks like `useMemo` and `useCallback`.",
+          description:
+            '[`React.memo` is a Higher Order Component](https://reactjs.org/docs/react-api.html#reactmemo) and not a hook like `useMemo` and `useCallback`.',
+        },
+        {
+          id: 4,
+          text:
+            "The `SomeHeavyComponent` won't be memoized because `children` prop is new on every render of `SomeComponent`",
+          description:
+            "Gotcha! `React.memo` just does a shallow comparison of the current props and previous props and since `typeof children === 'object'` it would never be referentially equal to the previous props, causing the `SomeHeavyComponent` to re-render every time `SomeComponent` re-renders. Keep in mind this is even worse than not using memo because here with every render you are also doing a comparison of the previous props and the new props.",
+        },
+      ],
+      answerId: 4,
+    },
+
+    // devTip by devOfTheWeek
+    // you can extract any github user's profile image by this link - https://github.com/user-name.png
+
+    devOfTheWeek: {
+      name: 'Neha Sharma',
+      profileImg: '/images/issue-3/dev-of-week.jpeg',
+      profileLink: {
+        website: 'https://a11ytips.dev/about/',
+        github: 'https://github.com/neha',
+        twitter: 'https://twitter.com/hellonehha',
+        linkedin: 'https://www.linkedin.com/in/nehha/',
+      },
+      bio:
+        'Neha has 10+ years of experience in Front-end domain & currently working as Software development Manager at Tesco. She is an active speaker & advocate of web accessibility and have given several [talks](https://a11ytips.dev/talks/) at meetups & conferences on accessibility. She also founded [JSLovers](https://twitter.com/jslovers_del) dev community & writes about accessibility at [a11ytips.dev](https://a11ytips.dev/).',
+    },
+
+    talks: [
+      {
+        talkURL: 'https://youtu.be/8aGhZQkoFbQ',
+        title: 'What the heck is the event loop anyway?',
+        desc:
+          'With some handy visualisations, and fun hacks, let’s get an intuitive understanding of what happens when JavaScript runs in this fantastinc talk by Philip Roberts.',
+        tags: ['JavaScript'],
+      },
+    ],
+
+    website: {
+      name: 'Github',
+      URL: 'https://github.com',
+      desc: 'Home for Devlopers',
+    },
+
+    gif: {
+      gifURL: '/images/issue-3/this-week.gif',
+      caption: 'When you ship to production without testing first',
+    },
+
+    meta: {
+      number: 3,
+      dateOfPublishing: '2021-03-21',
+      title: 'Understanding event loops in JavaScript, future of CSS-in-JS, refs in React and a lighweight Tooltip API',
+      desc:
+        'Find out how event loops in JavaScript work, how React.useRef works and how it is different yet similar to React.useState, are Styled Components actually worth it and grease your React skills with an interesting quiz.',
+      imgURL: 'https://scriptified.dev/images/issue-3/og.png',
+    },
+  },
 ];

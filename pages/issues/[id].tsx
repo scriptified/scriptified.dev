@@ -30,7 +30,7 @@ import {
 import { useThemeState } from '../../theme/ThemeContext';
 
 const convertDate = (date: string) => {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(date).toLocaleDateString('en-US', options);
 };
 
