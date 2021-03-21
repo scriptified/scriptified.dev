@@ -325,7 +325,7 @@ console.log(awesomeHeroes);
       {
         title: 'react-laag',
         url: 'https://www.react-laag.com/',
-        logo: '/images/issue-3/react-laag.jpg',
+        logo: '/images/issue-3/react-laag.png',
         desc:
           'It is a simple and ligthweight library, that provides hooks for tooltip and popovers. It also gives you a really comprehensive API which gives you full control over the look and feel.',
         author: 'Erik Verweij',
