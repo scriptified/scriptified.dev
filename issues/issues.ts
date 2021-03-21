@@ -418,7 +418,7 @@ const SomeComponent = () => {
         linkedin: 'https://www.linkedin.com/in/nehha/',
       },
       bio:
-        'Neha has 10+ years of experience in Front-end domain & currently working as Software development Manager at Tesco. She is an active speaker & advocate of web accessibility and have given several [talks](https://a11ytips.dev/talks/) at meetups & conferences on accessibility. She also co-founded [JSLovers](https://twitter.com/jslovers_del) dev community & writes about accessibility at [a11ytips.dev](https://a11ytips.dev/).',
+        'Neha has 10+ years of experience in Front-end domain & currently working as Software development Manager at Tesco. She is an active speaker & advocate of web accessibility and have given several [talks](https://a11ytips.dev/talks/) at meetups & conferences on accessibility. She also founded [JSLovers](https://twitter.com/jslovers_del) dev community & writes about accessibility at [a11ytips.dev](https://a11ytips.dev/).',
     },
 
     talks: [
@@ -445,7 +445,7 @@ const SomeComponent = () => {
     meta: {
       number: 3,
       dateOfPublishing: '2021-03-21',
-      title: 'Understanding event loops in JavaScript, future of CSS-in-JS, refs in React and lighweight Tooltip API',
+      title: 'Understanding event loops in JavaScript, future of CSS-in-JS, refs in React and a lighweight Tooltip API',
       desc:
         'Find out how event loops in JavaScript work, how React.useRef works and how it is different yet similar to React.useState, are Styled Components actually worth it and grease your React skills with an interesting quiz.',
       imgURL: 'https://scriptified.dev/images/issue-2/og.png',
