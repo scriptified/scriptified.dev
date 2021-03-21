@@ -448,7 +448,7 @@ const SomeComponent = () => {
       title: 'Understanding event loops in JavaScript, future of CSS-in-JS, refs in React and a lighweight Tooltip API',
       desc:
         'Find out how event loops in JavaScript work, how React.useRef works and how it is different yet similar to React.useState, are Styled Components actually worth it and grease your React skills with an interesting quiz.',
-      imgURL: 'https://scriptified.dev/images/issue-2/og.png',
+      imgURL: 'https://scriptified.dev/images/issue-3/og.png',
     },
   },
 ];
