@@ -415,9 +415,10 @@ const SomeComponent = () => {
         website: 'https://a11ytips.dev/about/',
         github: 'https://github.com/neha',
         twitter: 'https://twitter.com/hellonehha',
+        linkedin: 'https://www.linkedin.com/in/nehha/',
       },
       bio:
-        'Ameer is a speaker, writer, AWS Solution Architect who has authored & contributed in several popular open source projects like styled-wind & react-lazyload. He recently launched [Blazepack](https://github.com/ameerthehacker/blazepack) -  a super fast dev server powered by CodeSandbox sandpack bundler, which is catching a lot of eyes.',
+        'Neha has 10+ years of experience in Front-end domain & currently working as Software development Manager at Tesco. She is an active speaker & advocate of web accessibility and have given several [talks](https://a11ytips.dev/talks/) at meetups & conferences on accessibility. She also co-founded [JSLovers](https://twitter.com/jslovers_del) dev community & writes about accessibility at [a11ytips.dev](https://a11ytips.dev/).',
     },
 
     talks: [
@@ -444,7 +445,7 @@ const SomeComponent = () => {
     meta: {
       number: 3,
       dateOfPublishing: '2021-03-21',
-      title: 'Creating videos with React, Fetching with TypeScript and the Hype Driven Frontend Development',
+      title: 'Understanding event loops in JavaScript, future of CSS-in-JS, refs in React and lighweight Tooltip API',
       desc:
         'Explore how to create professional videos with React, optimize your React code without using memo, handle data fetching with TypeScript and open all links in new tabs with bare minimum code.',
       imgURL: 'https://scriptified.dev/images/issue-2/og.png',
