@@ -459,7 +459,6 @@ const SomeComponent = () => {
 $$('a')
 
 //... is equivalent to:
-
 Array.from(document.querySelectorAll('a'))`,
         language: 'javascript',
       },
@@ -475,7 +474,7 @@ Array.from(document.querySelectorAll('a'))`,
         title: 'What the heck, z-index??',
         url: 'https://www.joshwcomeau.com/css/stacking-contexts/',
         desc:
-          "Have you ever been in a situation where you applied a ridiculously high z-index to an element but it still doesn't appear where you want it to be, well you're not alone. In this article Josh explores stacking contexts and explains with examples how it affects the z-index of your elements",
+          "Have you ever been in a situation where you applied a ridiculously high z-index to an element but it still doesn't appear where you want it to be, well you're not alone. In this article Josh explores stacking contexts and explains with examples how it affects the z-index of your elements.",
         author: 'Josh W. Comeau',
         tags: ['CSS'],
       },
@@ -493,7 +492,7 @@ Array.from(document.querySelectorAll('a'))`,
       {
         title: 'Jitter',
         url: 'https://jitter.video',
-        logo: '/images/issue-3/react-laag.png',
+        logo: '/images/issue-4/jitter.svg',
         desc:
           'Create rich animations for your design from your browser, with a UI as simple as creating a presentation in PowerPoint or Keynote',
         author: 'SÉBASTIEN ROBASZKIEWICZ',
@@ -502,7 +501,7 @@ Array.from(document.querySelectorAll('a'))`,
       {
         title: 'SVG Repo',
         url: 'https://svgrepo.com',
-        logo: '/images/issue-3/phosphor-icons.png',
+        logo: '/images/issue-4/svg-repo.svg',
         desc: 'A huge repository of free SVG icons (over 300.000 icons), with a good search and filters.',
         author: 'SVG Repo',
         tags: ['Icons', 'UI'],
@@ -510,66 +509,43 @@ Array.from(document.querySelectorAll('a'))`,
     ],
 
     quiz: {
-      question: 'What is wrong with the below code snippet?',
+      question: 'What will be the output of the below snippet?',
       snippet: {
-        code: `// Assume this is some heavy component with some heavy tree
-// Hence this component is memoized to avoid unnecessary re-renders
-const SomeHeavyComponent = React.memo(
-  ({ children }) => <div>{children}</div>
-);
+        code: `helloScriptified();
 
-const SomeComponent = () => {
-  const [count, setCount] = React.useState(0);
-  return (
-    <div>
-      <SomeHeavyComponent>
-        <span>Header</span>
-      </SomeHeavyComponent>
-
-      Count: {count}
-
-      <button 
-        type="button" 
-        onClick={() => setCount(currentCount => currentCount + 1)}
-      >
-        Increment count
-      </button>
-    </div>
-  );
-};`,
-        language: 'jsx',
-        showLineNumbers: true,
+function helloScriptified() {
+  console.log(message);
+  var message = 'Welcome to issue #4 of Scriptified';
+}`,
+        language: 'js',
       },
       options: [
         {
           id: 1,
-          text:
-            '`setCount` can only take number as an argument, causing the app to crash when count is incremented because it has been passed a function on Line 19',
+          text: '`ReferenceError: helloScriptified is not defined`',
           description:
-            'No there is nothing wrong with the syntax here, `useState` also accepts a [function as a parameter](https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/) that gets the previous values as its argument and its job is to return the latest value.',
+            "JavaScript puts function declared with `function` keyword in memory before executing the code, because of how context execution works in JavaScript via hoisting, so this function won't be not defined. Checkout the MDN docs for [hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) and try again. ",
         },
         {
           id: 2,
-          text: 'The `SomeHeavyComponent` expects a `children={something}` prop which is missing on Line 11',
+          text: '`undefined`',
           description:
-            'No, the children prop is an in-built prop provided by React it is used to display whatever you include between the [opening and closing tags when invoking a component](https://codeburst.io/a-quick-intro-to-reacts-props-children-cb3d2fce4891).',
+            'Bingo! since message is declared with `var` it gets hoisted, and since it gets logged before initialization its value is `undefined`',
         },
         {
           id: 3,
-          text:
-            "The `SomeHeavyComponent` won't be memoized because we need to pass `React.memo` a dependency array similar to the memoization hooks like `useMemo` and `useCallback`.",
+          text: 'Welcome to issue #4 of Scriptified',
           description:
-            '[`React.memo` is a Higher Order Component](https://reactjs.org/docs/react-api.html#reactmemo) and not a hook like `useMemo` and `useCallback`.',
+            'Since the initialization of the `message` variable occurs after logging, this cannot be the output. Try again.',
         },
         {
           id: 4,
-          text:
-            "The `SomeHeavyComponent` won't be memoized because `children` prop is new on every render of `SomeComponent`",
+          text: '`ReferenceError: message is not defined`',
           description:
-            "Gotcha! `React.memo` just does a shallow comparison of the current props and previous props and since `typeof children === 'object'` it would never be referentially equal to the previous props, causing the `SomeHeavyComponent` to re-render every time `SomeComponent` re-renders. Keep in mind this is even worse than not using memo because here with every render you are also doing a comparison of the previous props and the new props.",
+            "JavaScript puts variables declared with `var` keyword in memory before executing the code, because of how context execution works in JavaScript via hoisting, so this variable won't be not defined. Checkout the MDN docs for [hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) and try again.",
         },
       ],
-      answerId: 4,
+      answerId: 2,
     },
 
     // devTip by devOfTheWeek
@@ -577,7 +553,7 @@ const SomeComponent = () => {
 
     devOfTheWeek: {
       name: 'Santosh Yadav',
-      profileImg: '/images/issue-3/dev-of-week.jpeg',
+      profileImg: '/images/issue-4/santosh.jpeg',
       profileLink: {
         website: 'https://www.santoshyadav.dev/home',
         github: 'https://github.com/santoshyadavdev',
@@ -605,7 +581,7 @@ const SomeComponent = () => {
     },
 
     gif: {
-      gifURL: '/images/issue-3/this-week.gif',
+      gifURL: '/images/issue-4/this-week.gif',
       caption: 'When you make a small change in the CSS of your website',
     },
 
@@ -613,10 +589,10 @@ const SomeComponent = () => {
       number: 4,
       dateOfPublishing: '2021-03-28',
       title:
-        'Understanding event loops in JavaScript, future of CSS-in-JS, refs in React and a lightweight Tooltip API',
+        'Learn how z-index works, add rich animations to your design and simplify your global state with React Query',
       desc:
-        'Find out how event loops in JavaScript work, how React.useRef works and how it is different yet similar to React.useState, are Styled Components actually worth it and grease your React skills with an interesting quiz.',
-      imgURL: 'https://scriptified.dev/images/issue-3/og.png',
+        "Understand how z-index works with stacking contexts, when you should choose Svelte over React, how React Query can help you manage asynchronous data and optimize your global state and check if you understand hoisting with this week's quiz.",
+      imgURL: 'https://scriptified.dev/images/issue-4/og.png',
     },
   },
 ];
