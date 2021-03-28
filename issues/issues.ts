@@ -561,7 +561,7 @@ function helloScriptified() {
         youtube: 'https://www.youtube.com/channel/UChvYTafHRgXKb0VbYGeG0nw',
       },
       bio:
-        'Santosh is a GDE for Angular, GitHub Star, and an Auth0 Ambassador, he loves contributing to Angular and NgRx. He works as a software consultant and writes for indepth.dev. He is also the author of the Ngx-Builders package and part of NestJsAddOns core Team. He is also running Tech Talks with Santosh talk show, where he invites the industry experts to discuss different technologies.',
+        'Santosh is a GDE for Angular, [GitHub Star](https://stars.github.com/profiles/santoshyadavdev/), and an Auth0 Ambassador, he loves contributing to Angular and NgRx. He works as a software consultant and writes for [indepth.dev](https://indepth.dev). He is also the author of the Ngx-Builders package and part of NestJsAddOns core Team. He is also running Tech Talks with Santosh talk show, where he invites the industry experts to discuss different technologies.',
     },
 
     talks: [
