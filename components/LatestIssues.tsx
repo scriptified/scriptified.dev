@@ -9,7 +9,7 @@ import Text from './common/Text';
 
 const LatestIssues = ({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element => {
   const theme = useThemeState();
-  const reversedIssuesData = allIssuesData.slice(0, 3).reverse();
+  const reversedIssuesData = allIssuesData.reverse().slice(0, 3);
 
   return (
     <Fragment>

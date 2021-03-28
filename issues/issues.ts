@@ -452,4 +452,147 @@ const SomeComponent = () => {
       imgURL: 'https://scriptified.dev/images/issue-3/og.png',
     },
   },
+  {
+    tipOfTheWeek: {
+      snippet: {
+        code: `// In Dev tools
+$$('a')
+
+//... is equivalent to:
+Array.from(document.querySelectorAll('a'))`,
+        language: 'javascript',
+      },
+      desc:
+        'If you want to test some DOM element from the browser console and you need `document.querySelectorAll` for it, you can use the handy `$$` shorthand specifically available only on DevTools.',
+      sourceName: 'Google',
+      sourceURL: 'https://google.com',
+      tags: ['JavaScript'],
+    },
+
+    articles: [
+      {
+        title: 'What the heck, z-index??',
+        url: 'https://www.joshwcomeau.com/css/stacking-contexts/',
+        desc:
+          "Have you ever been in a situation where you applied a ridiculously high z-index to an element but it still doesn't appear where you want it to be, well you're not alone. In this article Josh explores stacking contexts and explains with examples how it affects the z-index of your elements.",
+        author: 'Josh W. Comeau',
+        tags: ['CSS'],
+      },
+      {
+        title: 'Comparing Svelte and React',
+        url: 'https://www.jackfranklin.co.uk/blog/comparing-svelte-and-react-javascript/',
+        desc:
+          'Explore with Jack how he migrated his [pomodone](https://pomod.one/) app from React to Svelte, and explains the similarities and differences between both libraries with real-world examples from his app.',
+        author: 'Jack Franklin',
+        tags: ['React', 'Svelte'],
+      },
+    ],
+
+    tools: [
+      {
+        title: 'Jitter',
+        url: 'https://jitter.video',
+        logo: '/images/issue-4/jitter.svg',
+        desc:
+          'Create rich animations for your design from your browser, with a UI as simple as creating a presentation in PowerPoint or Keynote',
+        author: 'SÉBASTIEN ROBASZKIEWICZ',
+        tags: ['UI', 'Design'],
+      },
+      {
+        title: 'SVG Repo',
+        url: 'https://svgrepo.com',
+        logo: '/images/issue-4/svg-repo.svg',
+        desc: 'A huge repository of free SVG icons (over 300.000 icons), with a good search and filters.',
+        author: 'SVG Repo',
+        tags: ['Icons', 'UI'],
+      },
+    ],
+
+    quiz: {
+      question: 'What will be the output of the below snippet?',
+      snippet: {
+        code: `helloScriptified();
+
+function helloScriptified() {
+  console.log(message);
+  var message = 'Welcome to issue #4 of Scriptified';
+}`,
+        language: 'js',
+      },
+      options: [
+        {
+          id: 1,
+          text: '`ReferenceError: helloScriptified is not defined`',
+          description:
+            "JavaScript puts function declared with `function` keyword in memory before executing the code, because of how context execution works in JavaScript via hoisting, so this function won't be not defined. Checkout the MDN docs for [hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) and try again. ",
+        },
+        {
+          id: 2,
+          text: '`undefined`',
+          description:
+            'Bingo! since message is declared with `var` it gets hoisted, and since it gets logged before initialization its value is `undefined`',
+        },
+        {
+          id: 3,
+          text: 'Welcome to issue #4 of Scriptified',
+          description:
+            'Since the initialization of the `message` variable occurs after logging, this cannot be the output. Try again.',
+        },
+        {
+          id: 4,
+          text: '`ReferenceError: message is not defined`',
+          description:
+            "JavaScript puts variables declared with `var` keyword in memory before executing the code, because of how context execution works in JavaScript via hoisting, so this variable won't be not defined. Checkout the MDN docs for [hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) and try again.",
+        },
+      ],
+      answerId: 2,
+    },
+
+    // devTip by devOfTheWeek
+    // you can extract any github user's profile image by this link - https://github.com/user-name.png
+
+    devOfTheWeek: {
+      name: 'Santosh Yadav',
+      profileImg: '/images/issue-4/santosh.jpeg',
+      profileLink: {
+        website: 'https://www.santoshyadav.dev/home',
+        github: 'https://github.com/santoshyadavdev',
+        twitter: 'https://twitter.com/SantoshYadavDev',
+        youtube: 'https://www.youtube.com/channel/UChvYTafHRgXKb0VbYGeG0nw',
+      },
+      bio:
+        'Santosh is a GDE for Angular, [GitHub Star](https://stars.github.com/profiles/santoshyadavdev/), and an Auth0 Ambassador, he loves contributing to Angular and NgRx. He works as a software consultant and writes for [indepth.dev](https://indepth.dev). He is also the author of the Ngx-Builders package and part of NestJsAddOns core Team. He is also running Tech Talks with Santosh talk show, where he invites the industry experts to discuss different technologies.',
+    },
+
+    talks: [
+      {
+        talkURL: 'https://www.youtube.com/watch?v=seU46c6Jz7E',
+        title: 'React Query: It’s Time to Break up with your "Global State”! ',
+        desc:
+          'An increasing amount of data in our React applications is coming from remote and asynchronous sources and, even worse, continues to masquerade as “global state”. In this talk, you’ll get the lowdown on why most of your “global state” isn’t really state at all and how React Query can help you fetch, cache and manage your asynchronous data with a fraction of the effort and code that you’re used to',
+        tags: ['React', 'State Management'],
+      },
+    ],
+
+    website: {
+      name: 'Github',
+      URL: 'https://github.com',
+      desc: 'Home for Devlopers',
+    },
+
+    gif: {
+      gifURL: '/images/issue-4/this-week.gif',
+      caption: 'When you make a small change in the CSS of your website',
+    },
+
+    meta: {
+      number: 4,
+      dateOfPublishing: '2021-03-28',
+      title:
+        'Learn how z-index works, add rich animations to your design and simplify your global state with React Query',
+      desc:
+        "Understand how z-index works with stacking contexts, when you should choose Svelte over React, how React Query can help you manage asynchronous data and optimize your global state and check if you understand hoisting with this week's quiz.",
+      imgURL: 'https://scriptified.dev/images/issue-4/og.png',
+    },
+  },
 ];
