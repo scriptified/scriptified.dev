@@ -595,4 +595,157 @@ function helloScriptified() {
       imgURL: 'https://scriptified.dev/images/issue-4/og.png',
     },
   },
+  {
+    tipOfTheWeek: {
+      snippet: {
+        code: `const x = 5;
+const y = 'scriptified';
+
+console.log('x:', x, 'y:', y)
+// -> x: 5 y: scriptified
+
+// A shorter way to write the above log 
+// would be 
+
+console.log({ x, y });
+// > { x: 5, y: 'scriptified' }`,
+        language: 'javascript',
+      },
+      desc:
+        'Wrap your variables in a `{}` when you `console.log` , and it would display the names of your variables automatically, by of ES6\'s "Object literal value property shorthand".',
+      sourceName: 'Google',
+      sourceURL: 'https://google.com',
+      tags: ['JavaScript'],
+    },
+
+    articles: [
+      {
+        title: 'How to Read React Errors',
+        url: 'https://daveceddia.com/fix-react-errors/',
+        desc:
+          'When working with React you must get errors like `Cannot read property map of undefined` . In this article Dave will discuss how to fix the above error specifically and along with how you should approach while fixing errors in general',
+        author: 'Dave Ceddia',
+        tags: ['React', 'Error handling'],
+      },
+      {
+        title: 'JavaScript Closures',
+        url: 'https://kentcdodds.com/blog/javascript-closures',
+        desc:
+          'Much of what we can do with JavaScript is the result of the way closures work and they are very critically important part of React. Understand how they work with examples in this article with Kent.',
+        author: 'Kent C. Dodds',
+        tags: ['JavaScript'],
+      },
+    ],
+
+    tools: [
+      {
+        title: 'Omatsuri',
+        url: 'https://omatsuri.app/',
+        logo: '/images/issue-4/jitter.svg',
+        desc:
+          'A collection of browser tools like SVG to JSX generator, Keyboard events codes, Gradient generator etc. that can ease your life as a web developer.',
+        author: 'Vitaly Rtishchev',
+        tags: ['Productivity tools'],
+      },
+      {
+        title: 'Spectacle',
+        url: 'https://formidable.com/open-source/spectacle/',
+        logo: '/images/issue-4/svg-repo.svg',
+        desc:
+          'A React library that lets you build interactive presentation decks with JSX syntax, and allows you to live preview your code.',
+        author: 'FormidableLabs',
+        tags: ['React', 'UI'],
+      },
+    ],
+
+    quiz: {
+      question:
+        'What will be the value of  `ref.current` on line 12 when the `Cause re-render` button is pressed thrice?',
+      snippet: {
+        code: `helloScriptified();
+
+function helloScriptified() {
+  console.log(message);
+  var message = 'Welcome to issue #4 of Scriptified';
+}`,
+        language: 'js',
+        showLineNumbers: true,
+      },
+      options: [
+        {
+          id: 1,
+          text: '`1`',
+          description:
+            'It would have been `1` if we were using `useRef` instead of `createRef` on line number 5, which persists the value of the ref across re-renders. Keep trying.',
+        },
+        {
+          id: 2,
+          text: '`3`',
+          description:
+            'Bingo! `createRef` will always create a new ref on every re-render causing it to be reinitialized with the latest renderIndex on line 7, it is supposed to be used in class based components where you initialize it in the constructor, for functional component if you want to persist values across re-renders use `useRef` instead.',
+        },
+        {
+          id: 3,
+          text: '`2``',
+          description:
+            'You might want to check out the docs for [`createRef`](https://reactjs.org/docs/refs-and-the-dom.html#creating-refs) and try again.',
+        },
+        {
+          id: 4,
+          text:
+            '`setRenderIndex` can only take number as an argument, causing the app to crash when count is incremented because it has been passed a function on Line 15',
+          description:
+            "No there is nothing wrong with the syntax here, `useState`'s setter function also accepts a [function as a parameter](https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/) that gets the previous values as its argument and its job is to return the latest value.",
+        },
+      ],
+      answerId: 2,
+    },
+
+    // devTip by devOfTheWeek
+    // you can extract any github user's profile image by this link - https://github.com/user-name.png
+
+    devOfTheWeek: {
+      name: 'Santosh Yadav',
+      profileImg: '/images/issue-4/santosh.jpeg',
+      profileLink: {
+        website: 'https://www.santoshyadav.dev/home',
+        github: 'https://github.com/santoshyadavdev',
+        twitter: 'https://twitter.com/SantoshYadavDev',
+        youtube: 'https://www.youtube.com/channel/UChvYTafHRgXKb0VbYGeG0nw',
+      },
+      bio:
+        'Santosh is a GDE for Angular, [GitHub Star](https://stars.github.com/profiles/santoshyadavdev/), and an Auth0 Ambassador, he loves contributing to Angular and NgRx. He works as a software consultant and writes for [indepth.dev](https://indepth.dev). He is also the author of the Ngx-Builders package and part of NestJsAddOns core Team. He is also running Tech Talks with Santosh talk show, where he invites the industry experts to discuss different technologies.',
+    },
+
+    talks: [
+      {
+        talkURL: 'https://youtu.be/f2mMOiCSj5c',
+        title: 'Deconstructing React',
+        desc:
+          'Explore how the Virtual DOM, Hooks and suspense for data fetching work in React as Tejas deconstructs React and recreates them in this talk',
+        tags: ['React'],
+      },
+    ],
+
+    website: {
+      name: 'Github',
+      URL: 'https://github.com',
+      desc: 'Home for Devlopers',
+    },
+
+    gif: {
+      gifURL: '/images/issue-4/this-week.gif',
+      caption: 'When you make a small change in the CSS of your website',
+    },
+
+    meta: {
+      number: 4,
+      dateOfPublishing: '2021-03-28',
+      title:
+        'Learn how z-index works, add rich animations to your design and simplify your global state with React Query',
+      desc:
+        "Understand how z-index works with stacking contexts, when you should choose Svelte over React, how React Query can help you manage asynchronous data and optimize your global state and check if you understand hoisting with this week's quiz.",
+      imgURL: 'https://scriptified.dev/images/issue-4/og.png',
+    },
+  },
 ];
