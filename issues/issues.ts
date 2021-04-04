@@ -623,7 +623,7 @@ console.log({ x, y });
         title: 'How to Read React Errors',
         url: 'https://daveceddia.com/fix-react-errors/',
         desc:
-          'When working with React you must get errors like `Cannot read property map of undefined` . In this article Dave will discuss how to fix the above error specifically and along with how you should approach while fixing errors in general',
+          'When working with React you must have got errors like `Cannot read property map of undefined` . In this article Dave discusses how to fix the above error specifically and how you should approach while fixing errors in general.',
         author: 'Dave Ceddia',
         tags: ['React', 'Error handling'],
       },
@@ -631,7 +631,7 @@ console.log({ x, y });
         title: 'JavaScript Closures',
         url: 'https://kentcdodds.com/blog/javascript-closures',
         desc:
-          'Much of what we can do with JavaScript is the result of the way closures work and they are very critically important part of React. Understand how they work with examples in this article with Kent.',
+          'Much of what we can do with JavaScript is the result of the way closures work and they are very critical part of React. Understand how they work with examples in this article with Kent.',
         author: 'Kent C. Dodds',
         tags: ['JavaScript'],
       },
@@ -641,7 +641,7 @@ console.log({ x, y });
       {
         title: 'Omatsuri',
         url: 'https://omatsuri.app/',
-        logo: '/images/issue-4/jitter.svg',
+        logo: '/images/issue-5/omatsuri.svg',
         desc:
           'A collection of browser tools like SVG to JSX generator, Keyboard events codes, Gradient generator etc. that can ease your life as a web developer.',
         author: 'Vitaly Rtishchev',
@@ -650,7 +650,7 @@ console.log({ x, y });
       {
         title: 'Spectacle',
         url: 'https://formidable.com/open-source/spectacle/',
-        logo: '/images/issue-4/svg-repo.svg',
+        logo: '/images/issue-5/spectacle.png',
         desc:
           'A React library that lets you build interactive presentation decks with JSX syntax, and allows you to live preview your code.',
         author: 'FormidableLabs',
@@ -660,13 +660,27 @@ console.log({ x, y });
 
     quiz: {
       question:
-        'What will be the value of  `ref.current` on line 12 when the `Cause re-render` button is pressed thrice?',
+        'What will be the value of  `ref.current` on line 13 when the `Cause re-render` button is pressed thrice?',
       snippet: {
-        code: `helloScriptified();
+        code: `import React, { createRef, useState } from "react";
 
-function helloScriptified() {
-  console.log(message);
-  var message = 'Welcome to issue #4 of Scriptified';
+function App() {
+  const [renderIndex, setRenderIndex] = useState(1);
+  const ref = createRef();
+  if (!ref.current) {
+    ref.current = renderIndex;
+  }
+  return (
+    <div className="App">
+      Current render index: {renderIndex}
+      <br />
+      Output from ref: {ref.current}
+      <br />
+      <button onClick={() => setRenderIndex((prev) => prev + 1)}>
+        Cause re-render
+      </button>
+    </div>
+  );
 }`,
         language: 'js',
         showLineNumbers: true,
@@ -705,16 +719,14 @@ function helloScriptified() {
     // you can extract any github user's profile image by this link - https://github.com/user-name.png
 
     devOfTheWeek: {
-      name: 'Santosh Yadav',
-      profileImg: '/images/issue-4/santosh.jpeg',
+      name: 'Ahmad Shadeed',
+      profileImg: '/images/issue-5/ahmad-shadeed.jpg',
       profileLink: {
-        website: 'https://www.santoshyadav.dev/home',
-        github: 'https://github.com/santoshyadavdev',
-        twitter: 'https://twitter.com/SantoshYadavDev',
-        youtube: 'https://www.youtube.com/channel/UChvYTafHRgXKb0VbYGeG0nw',
+        website: 'https://www.ishadeed.com/',
+        github: 'https://github.com/shadeed',
+        twitter: 'https://twitter.com/shadeed9',
       },
-      bio:
-        'Santosh is a GDE for Angular, [GitHub Star](https://stars.github.com/profiles/santoshyadavdev/), and an Auth0 Ambassador, he loves contributing to Angular and NgRx. He works as a software consultant and writes for [indepth.dev](https://indepth.dev). He is also the author of the Ngx-Builders package and part of NestJsAddOns core Team. He is also running Tech Talks with Santosh talk show, where he invites the industry experts to discuss different technologies.',
+      bio: `Ahmad is an Independent Product Designer and Front End Developer from Palestine. He writes extensively on CSS, Accessibility, and RTL (right to left) text styling. He also published an e-book '[Debugging CSS](https://debuggingcss.com/)' which will help you improve your debugging CSS skills. His [articles on CSS](https://www.ishadeed.com/articles/) are a must read if you want to understand CSS & sharpen your CSS skills.`,
     },
 
     talks: [
@@ -722,7 +734,7 @@ function helloScriptified() {
         talkURL: 'https://youtu.be/f2mMOiCSj5c',
         title: 'Deconstructing React',
         desc:
-          'Explore how the Virtual DOM, Hooks and suspense for data fetching work in React as Tejas deconstructs React and recreates them in this talk',
+          'Explore how the Virtual DOM, Hooks and suspense for data fetching work in React as Tejas deconstructs React and recreates them in this talk.',
         tags: ['React'],
       },
     ],
@@ -739,13 +751,13 @@ function helloScriptified() {
     },
 
     meta: {
-      number: 4,
-      dateOfPublishing: '2021-03-28',
+      number: 5,
+      dateOfPublishing: '2021-04-04',
       title:
-        'Learn how z-index works, add rich animations to your design and simplify your global state with React Query',
+        'Get better at reading React errors, general browser tools, design presentation with JSX and learn about refs',
       desc:
-        "Understand how z-index works with stacking contexts, when you should choose Svelte over React, how React Query can help you manage asynchronous data and optimize your global state and check if you understand hoisting with this week's quiz.",
-      imgURL: 'https://scriptified.dev/images/issue-4/og.png',
+        'Debug React errors with confidence with right approach to fix them, log multiple variable at once using objects, deep dive into CSS with Ahmad, know the internals of React Virtual DOM, Hooks, etc and design an interactive code presentation with React & JSX.',
+      imgURL: 'https://scriptified.dev/images/issue-5/og.png',
     },
   },
 ];
