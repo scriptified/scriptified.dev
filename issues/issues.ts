@@ -581,8 +581,8 @@ function helloScriptified() {
     },
 
     gif: {
-      gifURL: '/images/issue-5/this-week.gif',
-      caption: 'When I forgot to deactivate the logs',
+      gifURL: '/images/issue-4/this-week.gif',
+      caption: 'When you make a small change in the CSS of your website',
     },
 
     meta: {
@@ -746,8 +746,8 @@ function App() {
     },
 
     gif: {
-      gifURL: '/images/issue-4/this-week.gif',
-      caption: 'When you make a small change in the CSS of your website',
+      gifURL: '/images/issue-5/this-week.gif',
+      caption: 'When I forgot to deactivate the logs',
     },
 
     meta: {

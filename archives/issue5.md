@@ -134,9 +134,9 @@ ___
 
 # This week in GIF
 
-![When you make a small change in the CSS of your website](https://scriptified.dev/images/issue-4/this-week.gif)
+![When I forgot to deactivate the logs](https://scriptified.dev/images/issue-5/this-week.gif)
 
-<center>When you make a small change in the CSS of your website</center>
+<center>When I forgot to deactivate the logs</center>
 
 ---
 
