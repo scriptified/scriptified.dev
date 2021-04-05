@@ -629,10 +629,10 @@ console.log({ x, y });
       },
       {
         title: 'JavaScript Closures',
-        url: 'https://kentcdodds.com/blog/javascript-closures',
+        url: 'https://whatthefuck.is/closure',
         desc:
-          'Much of what we can do with JavaScript is the result of the way closures work and they are very critical part of React. Understand how they work with examples in this article with Kent.',
-        author: 'Kent C. Dodds',
+          'Much of what we can do with JavaScript is the result of the way closures work and they are very critical part of React. Understand how they work with examples in this article with Dan.',
+        author: 'Dan Abramov',
         tags: ['JavaScript'],
       },
     ],
