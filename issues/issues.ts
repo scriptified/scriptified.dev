@@ -752,7 +752,7 @@ function App() {
 
     meta: {
       number: 5,
-      dateOfPublishing: '2021-04-04',
+      dateOfPublishing: '2021-04-06',
       title:
         'Get better at reading React errors, general browser tools, design presentation with JSX and learn about refs',
       desc:
