@@ -595,4 +595,169 @@ function helloScriptified() {
       imgURL: 'https://scriptified.dev/images/issue-4/og.png',
     },
   },
+  {
+    tipOfTheWeek: {
+      snippet: {
+        code: `const x = 5;
+const y = 'scriptified';
+
+console.log('x:', x, 'y:', y)
+// -> x: 5 y: scriptified
+
+// A shorter way to write the above log 
+// would be 
+
+console.log({ x, y });
+// > { x: 5, y: 'scriptified' }`,
+        language: 'javascript',
+      },
+      desc:
+        'Wrap your variables in a `{}` when you `console.log` , and it would display the names of your variables automatically, by of ES6\'s "Object literal value property shorthand".',
+      sourceName: 'Google',
+      sourceURL: 'https://google.com',
+      tags: ['JavaScript'],
+    },
+
+    articles: [
+      {
+        title: 'How to Read React Errors',
+        url: 'https://daveceddia.com/fix-react-errors/',
+        desc:
+          'When working with React you must have got errors like `Cannot read property map of undefined` . In this article Dave discusses how to fix the above error specifically and how you should approach while fixing errors in general.',
+        author: 'Dave Ceddia',
+        tags: ['React', 'Error handling'],
+      },
+      {
+        title: 'JavaScript Closures',
+        url: 'https://whatthefuck.is/closure',
+        desc:
+          'Much of what we can do with JavaScript is the result of the way closures work and they are very critical part of React. Understand how they work with examples in this article with Dan.',
+        author: 'Dan Abramov',
+        tags: ['JavaScript'],
+      },
+    ],
+
+    tools: [
+      {
+        title: 'Omatsuri',
+        url: 'https://omatsuri.app/',
+        logo: '/images/issue-5/omatsuri.svg',
+        desc:
+          'A collection of browser tools like SVG to JSX generator, Keyboard events codes, Gradient generator etc. that can ease your life as a web developer.',
+        author: 'Vitaly Rtishchev',
+        tags: ['Productivity tools'],
+      },
+      {
+        title: 'Spectacle',
+        url: 'https://formidable.com/open-source/spectacle/',
+        logo: '/images/issue-5/spectacle.png',
+        desc:
+          'A React library that lets you build interactive presentation decks with JSX syntax, and allows you to live preview your code.',
+        author: 'FormidableLabs',
+        tags: ['React', 'UI'],
+      },
+    ],
+
+    quiz: {
+      question:
+        'What will be the value of  `ref.current` on line 13 when the `Cause re-render` button is pressed thrice?',
+      snippet: {
+        code: `import React, { createRef, useState } from "react";
+
+function App() {
+  const [renderIndex, setRenderIndex] = useState(1);
+  const ref = createRef();
+  if (!ref.current) {
+    ref.current = renderIndex;
+  }
+  return (
+    <div className="App">
+      Current render index: {renderIndex}
+      <br />
+      Output from ref: {ref.current}
+      <br />
+      <button onClick={() => setRenderIndex((prev) => prev + 1)}>
+        Cause re-render
+      </button>
+    </div>
+  );
+}`,
+        language: 'js',
+        showLineNumbers: true,
+      },
+      options: [
+        {
+          id: 1,
+          text: '`1`',
+          description:
+            'It would have been `1` if we were using `useRef` instead of `createRef` on line number 5, which persists the value of the ref across re-renders. Keep trying.',
+        },
+        {
+          id: 2,
+          text: '`3`',
+          description:
+            'Bingo! `createRef` will always create a new ref on every re-render causing it to be reinitialized with the latest renderIndex on line 7, it is supposed to be used in class based components where you initialize it in the constructor, for functional component if you want to persist values across re-renders use `useRef` instead.',
+        },
+        {
+          id: 3,
+          text: '`2``',
+          description:
+            'You might want to check out the docs for [`createRef`](https://reactjs.org/docs/refs-and-the-dom.html#creating-refs) and try again.',
+        },
+        {
+          id: 4,
+          text:
+            '`setRenderIndex` can only take number as an argument, causing the app to crash when count is incremented because it has been passed a function on Line 15',
+          description:
+            "No there is nothing wrong with the syntax here, `useState`'s setter function also accepts a [function as a parameter](https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/) that gets the previous values as its argument and its job is to return the latest value.",
+        },
+      ],
+      answerId: 2,
+    },
+
+    // devTip by devOfTheWeek
+    // you can extract any github user's profile image by this link - https://github.com/user-name.png
+
+    devOfTheWeek: {
+      name: 'Ahmad Shadeed',
+      profileImg: '/images/issue-5/ahmad-shadeed.jpg',
+      profileLink: {
+        website: 'https://www.ishadeed.com/',
+        github: 'https://github.com/shadeed',
+        twitter: 'https://twitter.com/shadeed9',
+      },
+      bio: `Ahmad is an Independent Product Designer and Front End Developer from Palestine. He writes extensively on CSS, Accessibility, and RTL (right to left) text styling. He also published an e-book '[Debugging CSS](https://debuggingcss.com/)' which will help you improve your debugging CSS skills. His [articles on CSS](https://www.ishadeed.com/articles/) are a must read if you want to understand CSS & sharpen your CSS skills.`,
+    },
+
+    talks: [
+      {
+        talkURL: 'https://youtu.be/f2mMOiCSj5c',
+        title: 'Deconstructing React',
+        desc:
+          'Explore how the Virtual DOM, Hooks and suspense for data fetching work in React as Tejas deconstructs React and recreates them in this talk.',
+        tags: ['React'],
+      },
+    ],
+
+    website: {
+      name: 'Github',
+      URL: 'https://github.com',
+      desc: 'Home for Devlopers',
+    },
+
+    gif: {
+      gifURL: '/images/issue-5/this-week.gif',
+      caption: 'When I forgot to deactivate the logs',
+    },
+
+    meta: {
+      number: 5,
+      dateOfPublishing: '2021-04-04',
+      title:
+        'Get better at reading React errors, general browser tools, design presentation with JSX and learn about refs',
+      desc:
+        'Debug React errors with confidence with right approach to fix them, log multiple variable at once using objects, deep dive into CSS with Ahmad, know the internals of React Virtual DOM, Hooks, etc and design an interactive code presentation with React & JSX.',
+      imgURL: 'https://scriptified.dev/images/issue-5/og.png',
+    },
+  },
 ];

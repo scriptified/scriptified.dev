@@ -64,26 +64,26 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
             <time>{convertDate(issueData.meta.dateOfPublishing)}</time>
           </Text>
         </div>
-        <IssueItem title="Tip of the day" icon={<TipIcon />}>
+        <IssueItem id="tip" title="Tip of the day" icon={<TipIcon />}>
           <Text type="base" additionalStyles="py-4 relative z-10">
             <Markdown>{issueData.tipOfTheWeek.desc}</Markdown>
           </Text>
           <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
         </IssueItem>
-        <IssueItem title="Articles" icon={<ArticlesIcon />}>
+        <IssueItem id="articles" title="Articles" icon={<ArticlesIcon />}>
           {issueData.articles.map(article => (
             <ArticleItem article={article} key={article.url} />
           ))}
         </IssueItem>
-        <IssueItem title="Tools" icon={<ToolsAndResourcesIcon />}>
+        <IssueItem id="tools" title="Tools" icon={<ToolsAndResourcesIcon />}>
           {issueData.tools.map(tool => (
             <ToolItem tool={tool} key={tool.url} />
           ))}
         </IssueItem>
-        <IssueItem title="Dev Of The Week" icon={<DevOfTheWeekIcon />}>
+        <IssueItem id="dev" title="Dev Of The Week" icon={<DevOfTheWeekIcon />}>
           <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
         </IssueItem>
-        <IssueItem title="Tech talks" icon={<TechTalksIcon />}>
+        <IssueItem id="talk" title="Tech talks" icon={<TechTalksIcon />}>
           {issueData.talks.map(talk => (
             <TechTalk key={talk.talkURL} techTalk={talk} />
           ))}
@@ -91,7 +91,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
         <IssueItem id="quiz" title="Quiz" icon={<QuizIcon />}>
           <Quiz quiz={issueData.quiz} />
         </IssueItem>
-        <IssueItem title="This Week in GIF" icon={<GifIcon />}>
+        <IssueItem id="gif" title="This Week in GIF" icon={<GifIcon />}>
           <GIFItem gif={issueData.gif} />
         </IssueItem>
         <SubscribeCard />
