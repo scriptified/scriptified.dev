@@ -612,7 +612,7 @@ console.log({ x, y });
         language: 'javascript',
       },
       desc:
-        'Wrap your variables in a `{}` when you `console.log` , and it would display the names of your variables automatically, by of ES6\'s "Object literal value property shorthand".',
+        'Wrap your variables in `{}` when you `console.log`, and it would display the names of your variables automatically, via the ES6\'s "Object literal value property shorthand".',
       sourceName: 'Google',
       sourceURL: 'https://google.com',
       tags: ['JavaScript'],
@@ -659,8 +659,7 @@ console.log({ x, y });
     ],
 
     quiz: {
-      question:
-        'What will be the value of  `ref.current` on line 13 when the `Cause re-render` button is pressed thrice?',
+      question: 'What will be the value of ref.current on line 13 when the Cause re-render button is pressed thrice?',
       snippet: {
         code: `import React, { createRef, useState } from "react";
 
@@ -700,7 +699,7 @@ function App() {
         },
         {
           id: 3,
-          text: '`2``',
+          text: '`2`',
           description:
             'You might want to check out the docs for [`createRef`](https://reactjs.org/docs/refs-and-the-dom.html#creating-refs) and try again.',
         },
