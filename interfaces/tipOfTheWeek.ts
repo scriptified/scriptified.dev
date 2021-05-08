@@ -5,5 +5,4 @@ export default interface TipOfTheWeek {
   desc: string;
   sourceName: string;
   sourceURL: string;
-  tags: string[];
 }

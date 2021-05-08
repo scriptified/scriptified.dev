@@ -14,7 +14,6 @@ export interface Issue {
   tools?: Tool[] | null;
   devOfTheWeek: DevOfTheWeek;
   talks?: Talk[] | null;
-  website: Website;
   gif: Gif;
   meta: Meta;
   quiz: Quiz;
