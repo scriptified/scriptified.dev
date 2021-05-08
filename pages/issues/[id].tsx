@@ -116,8 +116,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const index: number = ((params.id as unknown) as number) - 1;
-  const { data } = await axios.get<IssueAPIResponse>(`${process.env.CMS_API}issues/${index}`);
+  const id: number = (params.id as unknown) as number;
+  const { data } = await axios.get<IssueAPIResponse>(`${process.env.CMS_API}issues/${id}`);
   const issueData = mapToIssue(data);
   return {
     props: {
