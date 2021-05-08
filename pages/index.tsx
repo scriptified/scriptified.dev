@@ -6,9 +6,7 @@ import Meta from '../interfaces/meta';
 import LatestIssues from '../components/LatestIssues';
 import Curators from '../components/Curators';
 import HeroSection from '../components/HeroSection';
-import axios from 'axios';
-import { getAllIssuesMeta } from '../lib/issues';
-import { IssueAPIResponse } from '../interfaces/api';
+import { getAllIssuesMeta, issueAPI } from '../lib/issues';
 
 // ============= Component ================
 
@@ -37,10 +35,11 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await axios.get<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC&_limit=3`);
+  const { data } = await issueAPI.limitedIssuesReversed();
   return {
     props: {
       allIssuesData: getAllIssuesMeta(data),
     },
+    revalidate: 180,
   };
 };

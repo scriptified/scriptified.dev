@@ -1,7 +1,6 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import axios from 'axios';
 
 import ArticleItem from '../../components/ArticleItem';
 import CodeSnippet from '../../components/common/CodeSnippet';
@@ -15,7 +14,7 @@ import SubscribeCard from '../../components/common/SubscribeCard';
 import TechTalk from '../../components/TechTalk';
 import Text from '../../components/common/Text';
 import ToolItem from '../../components/ToolItem';
-import { getAllIssueIds, mapToIssue } from '../../lib/issues';
+import { getAllIssueIds, issueAPI, mapToIssue } from '../../lib/issues';
 import BackToHome from '../../components/common/BackToHome';
 import Markdown from '../../components/Markdown';
 import {
@@ -28,7 +27,6 @@ import {
   GifIcon,
 } from '../../components/icons/icons';
 import { useThemeState } from '../../theme/ThemeContext';
-import { IssueAPIResponse } from '../../interfaces/api';
 
 const convertDate = (date: string) => {
   const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -105,7 +103,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await axios.get<IssueAPIResponse[]>(`${process.env.CMS_API}issues`);
+  const { data } = await issueAPI.allIssuesReversed();
 
   const paths = getAllIssueIds(data);
 
@@ -117,11 +115,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id: number = (params.id as unknown) as number;
-  const { data } = await axios.get<IssueAPIResponse>(`${process.env.CMS_API}issues/${id}`);
+  const { data } = await issueAPI.getIssue(id);
   const issueData = mapToIssue(data);
   return {
     props: {
       issueData,
     },
+    revalidate: 180,
   };
 };

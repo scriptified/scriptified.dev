@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { IssueAPIResponse } from '../interfaces/api';
 import { Issue } from '../interfaces/issue';
 
@@ -104,3 +105,10 @@ export function getAllIssuesMeta(issues: IssueAPIResponse[]) {
     imgURL: issue.imgURL,
   }));
 }
+
+export const issueAPI = {
+  allIssuesReversed: () => axios.get<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC`),
+  limitedIssuesReversed: (limit = 3) =>
+    axios.get<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC&_limit=${limit}`),
+  getIssue: (id: number) => axios.get<IssueAPIResponse>(`${process.env.CMS_API}issues/${id}`),
+};

@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next';
-import axios from 'axios';
 
 import Text from '../components/common/Text';
 import { useThemeState } from '../theme/ThemeContext';
@@ -8,8 +7,7 @@ import IssueListItem from '../components/common/IssueListItem';
 import Meta from '../interfaces/meta';
 import BackToHome from '../components/common/BackToHome';
 import Layout, { siteConfig } from '../components/Layout';
-import { IssueAPIResponse } from '../interfaces/api';
-import { getAllIssuesMeta } from '../lib/issues';
+import { getAllIssuesMeta, issueAPI } from '../lib/issues';
 
 // import utilStyles from "../styles/utils.module.css";
 
@@ -42,10 +40,11 @@ export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JS
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await axios.get<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC`);
+  const { data } = await issueAPI.allIssuesReversed();
   return {
     props: {
       allIssuesData: getAllIssuesMeta(data),
     },
+    revalidate: 180,
   };
 };
