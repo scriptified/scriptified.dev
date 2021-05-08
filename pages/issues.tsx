@@ -1,18 +1,19 @@
 import { GetStaticProps } from 'next';
+import axios from 'axios';
 
 import Text from '../components/common/Text';
-import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
 import SubscribeCard from '../components/common/SubscribeCard';
 import IssueListItem from '../components/common/IssueListItem';
 import Meta from '../interfaces/meta';
 import BackToHome from '../components/common/BackToHome';
 import Layout, { siteConfig } from '../components/Layout';
+import { IssueAPIResponse } from '../interfaces/api';
+import { getAllIssuesMeta } from '../lib/issues';
 
 // import utilStyles from "../styles/utils.module.css";
 
 export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
-  const reversedIssuesData = allIssuesData.slice().reverse();
   const theme = useThemeState();
 
   return (
@@ -25,7 +26,7 @@ export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JS
           Issues
         </Text>
         <ul className="m-0 p-0 list-none">
-          {reversedIssuesData.map(data => (
+          {allIssuesData.map(data => (
             <li key={data.number}>
               <IssueListItem issueData={data} key={data.number} />
             </li>
@@ -41,9 +42,10 @@ export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JS
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const { data } = await axios.get<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC`);
   return {
     props: {
-      allIssuesData: getAllIssuesMeta(),
+      allIssuesData: getAllIssuesMeta(data),
     },
   };
 };

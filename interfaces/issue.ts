@@ -5,7 +5,6 @@ import Meta from './meta';
 import Talk from './talk';
 import TipOfTheWeek from './tipOfTheWeek';
 import Tool from './tool';
-import Website from './website';
 import Quiz from './quiz';
 
 export interface Issue {

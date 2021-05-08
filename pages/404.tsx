@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import axios from 'axios';
 import Head from 'next/head';
 import Link from 'next/link';
 import Button from '../components/common/Button';
@@ -7,6 +8,7 @@ import Text from '../components/common/Text';
 import LatestIssues from '../components/LatestIssues';
 import Layout, { siteConfig } from '../components/Layout';
 import Meta from '../interfaces/meta';
+import { IssueAPIResponse } from '../interfaces/api';
 import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
 
@@ -49,9 +51,10 @@ export default function Custom404({ allIssuesData }: { allIssuesData: Meta[] }):
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const { data } = await axios.get<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC&_limit=3`);
   return {
     props: {
-      allIssuesData: getAllIssuesMeta(),
+      allIssuesData: getAllIssuesMeta(data),
     },
   };
 };

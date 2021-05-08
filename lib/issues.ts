@@ -51,6 +51,20 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
       tags: article.tags.map(tag => tag.name),
       author: oxfordComma(article.authors.map(author => author.Name)),
     })),
+    talks: issue.talks.map(talk => ({
+      title: talk.title,
+      talkURL: talk.url,
+      desc: talk.description,
+      tags: talk.tags.map(tag => tag.name),
+    })),
+    tools: issue.tools.map(tool => ({
+      title: tool.name,
+      url: tool.url,
+      logo: tool.logo,
+      desc: tool.description,
+      tags: tool.tags.map(tag => tag.name),
+      author: oxfordComma(tool.authors.map(author => author.Name)),
+    })),
     devOfTheWeek: {
       name: issue.devOfTheWeek.name,
       profileImg: issue.devOfTheWeek.profileImg,
@@ -79,4 +93,14 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
       snippet: issue.quiz.CodeSnippet,
     },
   };
+}
+
+export function getAllIssuesMeta(issues: IssueAPIResponse[]) {
+  return issues.map(issue => ({
+    title: issue.title,
+    desc: issue.description,
+    number: issue.id,
+    dateOfPublishing: issue.dateOfPublishing,
+    imgURL: issue.imgURL,
+  }));
 }
