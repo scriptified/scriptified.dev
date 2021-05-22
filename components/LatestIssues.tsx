@@ -9,7 +9,6 @@ import Text from './common/Text';
 
 const LatestIssues = ({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element => {
   const theme = useThemeState();
-  const reversedIssuesData = allIssuesData.slice().reverse().slice(0, 3);
 
   return (
     <Fragment>
@@ -17,7 +16,7 @@ const LatestIssues = ({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element
         Latest Issues
       </Text>
       <ul className="m-0 p-0 list-none">
-        {reversedIssuesData.map((data, index) => (
+        {allIssuesData.map((data, index) => (
           <li key={index}>
             <IssueListItem issueData={data} key={index} />
           </li>

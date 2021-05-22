@@ -1,12 +1,12 @@
 import { GetStaticProps } from 'next';
 import Layout from '../components/Layout';
-import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
 import FeatureSection from '../components/FeatureSection';
 import Meta from '../interfaces/meta';
 import LatestIssues from '../components/LatestIssues';
 import Curators from '../components/Curators';
 import HeroSection from '../components/HeroSection';
+import { getAllIssuesMeta, issueAPI } from '../lib/issues';
 
 // ============= Component ================
 
@@ -35,9 +35,11 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const { data } = await issueAPI.limitedIssuesReversed();
   return {
     props: {
-      allIssuesData: getAllIssuesMeta(),
+      allIssuesData: getAllIssuesMeta(data),
     },
+    revalidate: 180,
   };
 };

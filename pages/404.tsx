@@ -7,7 +7,7 @@ import Text from '../components/common/Text';
 import LatestIssues from '../components/LatestIssues';
 import Layout, { siteConfig } from '../components/Layout';
 import Meta from '../interfaces/meta';
-import { getAllIssuesMeta } from '../lib/issues';
+import { getAllIssuesMeta, issueAPI } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
 
 export default function Custom404({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
@@ -49,9 +49,11 @@ export default function Custom404({ allIssuesData }: { allIssuesData: Meta[] }):
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const { data } = await issueAPI.limitedIssuesReversed();
   return {
     props: {
-      allIssuesData: getAllIssuesMeta(),
+      allIssuesData: getAllIssuesMeta(data),
     },
+    revalidate: 180,
   };
 };

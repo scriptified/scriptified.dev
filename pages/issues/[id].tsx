@@ -14,8 +14,7 @@ import SubscribeCard from '../../components/common/SubscribeCard';
 import TechTalk from '../../components/TechTalk';
 import Text from '../../components/common/Text';
 import ToolItem from '../../components/ToolItem';
-import { getAllIssueIds } from '../../lib/issues';
-import issues from '../../issues/issues';
+import { getAllIssueIds, issueAPI, mapToIssue } from '../../lib/issues';
 import BackToHome from '../../components/common/BackToHome';
 import Markdown from '../../components/Markdown';
 import {
@@ -51,11 +50,13 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       additionalStyles={`pt-12 bg-gradient-to-b from-${theme}-300 to-${theme}-500`}
     >
       <section
+        // eslint-disable-next-line max-len
         className={`max-w-5xl px-4 sm:px-4 lg:px-16 py-8 mx-auto mb-0 lg:mb-8 bg-white sm:rounded-none md:rounded-lg shadow-md`}
       >
         <div className="flex flex-col justify-center items-center">
           <Text
             type="h1"
+            // eslint-disable-next-line max-len
             additionalStyles={`sm:text-4xl md:text-5.5xl text-center font-bold bg-gradient-to-r from-${theme}-700 to-${theme}-900 bg-clip-text`}
             // color={`text-${theme}-900`}
             color="text-transparent"
@@ -102,7 +103,10 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllIssueIds();
+  const { data } = await issueAPI.allIssuesReversed();
+
+  const paths = getAllIssueIds(data);
+
   return {
     paths,
     fallback: false,
@@ -110,11 +114,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const index: number = ((params.id as unknown) as number) - 1;
-  const issueData: Issue = issues[index] as Issue;
+  const id: number = (params.id as unknown) as number;
+  const { data } = await issueAPI.getIssue(id);
+  const issueData = mapToIssue(data);
   return {
     props: {
       issueData,
     },
+    revalidate: 180,
   };
 };
