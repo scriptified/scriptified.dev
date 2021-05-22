@@ -2,6 +2,8 @@ import axios from 'axios';
 import { IssueAPIResponse } from '../interfaces/api';
 import { Issue } from '../interfaces/issue';
 
+const ASSETS_URL = 'https://raw.githubusercontent.com/scriptified/assets/main/';
+
 export function getAllIssueIds(issues: IssueAPIResponse[]): Array<{ params: { id: string } }> {
   // Returns an array that looks like this:
   // [
@@ -61,7 +63,7 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
     tools: issue.tools.map(tool => ({
       title: tool.name,
       url: tool.url,
-      logo: tool.logo,
+      logo: `${ASSETS_URL}issue-${issue.id}/${tool.logo}`,
       desc: tool.description,
       tags: tool.tags.map(tag => tag.name),
       author: oxfordComma(tool.authors.map(author => author.Name)),
@@ -80,7 +82,7 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
       },
     },
     gif: {
-      gifURL: issue.gif.gifURL,
+      gifURL: `${ASSETS_URL}issue-${issue.id}/${issue.gif.gifURL}`,
       caption: issue.gif.caption,
     },
     quiz: {
