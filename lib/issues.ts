@@ -70,7 +70,7 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
     })),
     devOfTheWeek: {
       name: issue.devOfTheWeek.name,
-      profileImg: issue.devOfTheWeek.profileImg,
+      profileImg: `${ASSETS_URL}issue-${issue.id}/${issue.devOfTheWeek.profileImg}`,
       bio: issue.devOfTheWeek.bio,
       profileLink: {
         youtube: issue.devOfTheWeek.youtube,
