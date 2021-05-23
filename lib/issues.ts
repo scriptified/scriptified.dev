@@ -2,7 +2,7 @@ import axios from 'axios';
 import { IssueAPIResponse } from '../interfaces/api';
 import { Issue } from '../interfaces/issue';
 
-const ASSETS_URL = 'https://raw.githubusercontent.com/scriptified/assets/main/';
+const ASSETS_URL = 'https://images.scriptified.dev/';
 
 export function getAllIssueIds(issues: IssueAPIResponse[]): Array<{ params: { id: string } }> {
   // Returns an array that looks like this:

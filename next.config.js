@@ -23,6 +23,6 @@ module.exports = withPWA({
     return config;
   },
   images: {
-    domains: ['github.com', 'seeklogo.com', 'media.giphy.com', 'raw.githubusercontent.com'],
+    domains: ['github.com', 'seeklogo.com', 'media.giphy.com', 'images.scriptified.dev'],
   },
 });
