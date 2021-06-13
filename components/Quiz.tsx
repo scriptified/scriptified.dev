@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Quiz, { Option as OptionType } from '../interfaces/quiz';
-import { CheckIcon, XCircleIcon } from './icons/icons';
+import { CheckCircleIcon, XCircleIcon } from './icons/icons';
 import Button from './common/Button';
 import CodeSnippet from './common/CodeSnippet';
 import Text from './common/Text';
@@ -118,7 +118,7 @@ const Option = ({
       {isShowingDetailView && (
         <>
           {isCorrectAnswer ? (
-            <CheckIcon color="text-green-500 absolute top-1/2 left-1" />
+            <CheckCircleIcon color="text-green-500 absolute top-1/2 left-1" />
           ) : (
             <XCircleIcon color="text-red-500 absolute top-1/2 left-1" />
           )}
