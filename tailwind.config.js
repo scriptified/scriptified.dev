@@ -17,6 +17,7 @@ module.exports = {
       inset: {
         '1/2': '0.5rem',
         1: '1rem',
+        6: '1.5rem',
       },
       maxWidth: {
         fc: 'fit-content',
