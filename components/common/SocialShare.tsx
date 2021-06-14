@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import { CopyIcon, CheckSqaureIcon, TwitterIcon, ShareIcon, WhatsAppIcon, FacebookIcon } from '../icons/icons';
-import Button from '../common/Button';
 import { useThemeState } from '../../theme/ThemeContext';
 
 interface SocialShareProps {
@@ -18,7 +17,6 @@ interface SocialShareProps {
 const SocialShare = ({
   url = '',
   title = '',
-  tags = [],
   showText = false,
   twitter = true,
   copyLink = true,
@@ -30,7 +28,6 @@ const SocialShare = ({
     text: 'Copy Link',
     icon: <CopyIcon color={`text-${theme}-500`} />,
   });
-  const [twitterConfig, setTwitterConfig] = useState({});
   const [showShareBtn, setShowShareBtn] = useState(false);
 
   useEffect(() => {
@@ -40,20 +37,7 @@ const SocialShare = ({
     );
 
     return () => clearTimeout(timer);
-  }, [copyBtn]);
-
-  useEffect(() => {
-    // console.log({ title, tags });
-    if (title !== '' && tags !== []) {
-      setTwitterConfig({
-        twitter: {
-          username: 'scriptifed_dev',
-          text: encodeURIComponent(`I recommend reading '${title}' by ${`@scriptifed_dev`}. \n\nRead at - ${url}\n\n`),
-          tags: tags.toString(),
-        },
-      });
-    }
-  }, [title, tags]);
+  }, [copyBtn, theme]);
 
   useEffect(() => {
     if (navigator.share) {
@@ -90,11 +74,13 @@ const SocialShare = ({
   };
 
   return (
-    <section className="flex flex-row space-x-4 pt-6">
+    <section className="lg:flex flex-row space-x-4 pt-6 hidden">
       {twitter ? (
         <a
           aria-label="Share to Twitter"
-          href={`https://twitter.com/intent/tweet?text=${twitterConfig?.twitter?.text}&hashtags=${twitterConfig?.twitter?.tags}`}
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+            `I recommend reading '${title}' by ${`@scriptifed_dev`}. \n\nRead at - ${url}\n\n`
+          )}`}
           className="transition duration-500 ease-in-out transform hover:scale-125"
           target="_blank"
           rel="noreferrer"
