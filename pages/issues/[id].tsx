@@ -28,15 +28,7 @@ import {
   GifIcon,
 } from '../../components/icons/icons';
 import { useThemeState } from '../../theme/ThemeContext';
-
-const convertDate = (date: string) => {
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  };
-  return new Date(date).toLocaleDateString('en-US', options);
-};
+import { convertDate } from '../../utils/utils';
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   const theme = useThemeState();
@@ -47,6 +39,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       document.getElementById(router.query.section)?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [router.isReady]);
+
   return (
     <Layout
       title={`#${issueData.meta.number} | ${issueData.meta.title} | ${siteConfig.name}`}
