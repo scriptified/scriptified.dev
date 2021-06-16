@@ -62,7 +62,7 @@ const FloatingShareButton = ({ url = '', title = '' }: FloatingShareButtonProps)
 
   return (
     <div
-      className={`lg:hidden z-10 fixed right-6 bottom-6 shadow-lg animate-morph bg-gradient-to-br from-${theme}-300 to-${theme}-700 transition ease-out duration-500`}
+      className={`lg:hidden z-10 fixed right-6 bottom-6 shadow-lg animate-morph-fast bg-gradient-to-br from-${theme}-300 to-${theme}-700 transition ease-out duration-500`}
       style={{ opacity: btnOpacity }}
     >
       <button
