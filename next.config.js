@@ -2,6 +2,9 @@
 const withPWA = require('next-pwa');
 
 module.exports = withPWA({
+  future: {
+    webpack5: true,
+  },
   pwa: {
     dest: 'public',
     register: true, // let this plugin register service worker for you
@@ -13,11 +16,27 @@ module.exports = withPWA({
   },
   webpack(config) {
     config.module.rules.push({
-      test: /\.svg$/,
-      issuer: {
-        test: /\.(js|ts)x?$/,
-      },
-      use: ['@svgr/webpack'],
+      test: /\.svg?$/,
+      oneOf: [
+        {
+          use: [
+            {
+              loader: '@svgr/webpack',
+              options: {
+                prettier: false,
+                svgo: true,
+                svgoConfig: {
+                  plugins: [{ removeViewBox: false }],
+                },
+                titleProp: true,
+              },
+            },
+          ],
+          issuer: {
+            and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
+          },
+        },
+      ],
     });
 
     return config;
