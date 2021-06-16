@@ -25,26 +25,26 @@ const FloatingShareButton = ({ url = '', title = '' }: FloatingShareButtonProps)
     }
   }, []);
 
-  const toggleVisibiltyOnScroll = debounce(() => {
-    const currentScrollPos = window.pageYOffset;
-    if (window.scrollY > prevScrollPos) {
-      const opacity =
-        (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) || currentScrollPos < 10 ? 1 : 0;
-      setBtnOpacity(opacity);
-    } else {
-      setBtnOpacity(1);
-    }
-    setPrevScrollPos(currentScrollPos);
-  }, 100);
-
   useEffect(() => {
+    const toggleVisibiltyOnScroll = debounce(() => {
+      const currentScrollPos = window.pageYOffset;
+      if (window.scrollY > prevScrollPos) {
+        const opacity =
+          (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) || currentScrollPos < 10 ? 1 : 0;
+        setBtnOpacity(opacity);
+      } else {
+        setBtnOpacity(1);
+      }
+      setPrevScrollPos(currentScrollPos);
+    }, 100);
+
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', toggleVisibiltyOnScroll);
     }
     return () => {
       window.removeEventListener('scroll', toggleVisibiltyOnScroll);
     };
-  }, [btnOpacity, prevScrollPos, showShareBtn, toggleVisibiltyOnScroll]);
+  }, [btnOpacity, prevScrollPos, showShareBtn]);
 
   const shareExternal = async () => {
     if (navigator.share) {
