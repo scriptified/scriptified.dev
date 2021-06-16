@@ -1,7 +1,15 @@
-// Reference - https://stackoverflow.com/a/59104590/8334159
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// `wait` milliseconds.
+/*
+ Repository of helper functions for common functionalites used in the app
+*/
+
+/* =================================================================== */
+
+/* Reference - https://stackoverflow.com/a/59104590/8334159
+ Returns a function, that, as long as it continues to be invoked, will not
+ be triggered. The function will be called after it stops being called for
+`wait` milliseconds.
+*/
+
 export function debounce<Params extends any[]>(
   func: (...args: Params) => any,
   timeout: number
@@ -15,6 +23,8 @@ export function debounce<Params extends any[]>(
   };
 }
 
+/* =================================================================== */
+
 export const convertDate = (date: string): string => {
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
@@ -23,3 +33,5 @@ export const convertDate = (date: string): string => {
   };
   return new Date(date).toLocaleDateString('en-US', options);
 };
+
+/* =================================================================== */
