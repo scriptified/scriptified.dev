@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { ShareIcon } from '../icons/icons';
 import { useThemeState } from '../../theme/ThemeContext';
 
-import { debounce } from '../../utils/utils';
+import { debounce } from '../../utils';
 
 interface FloatingShareButtonProps {
   url?: string;

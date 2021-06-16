@@ -28,7 +28,7 @@ import {
   GifIcon,
 } from '../../components/icons/icons';
 import { useThemeState } from '../../theme/ThemeContext';
-import { convertDate } from '../../utils/utils';
+import { convertDate } from '../../utils';
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   const theme = useThemeState();
