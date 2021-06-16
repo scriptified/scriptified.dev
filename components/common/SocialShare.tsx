@@ -24,20 +24,14 @@ const SocialShare = ({
   whatsApp = true,
 }: SocialShareProps): JSX.Element => {
   const theme = useThemeState();
-  const [copyBtn, setCopyBtn] = useState({
-    text: 'Copy Link',
-    icon: <CopyIcon color={`text-${theme}-500`} />,
-  });
   const [showShareBtn, setShowShareBtn] = useState(false);
+  const [copyBtnText, setCopyBtnText] = useState<'Copy Link' | 'Copied!'>('Copy Link');
 
   useEffect(() => {
-    const timer = setTimeout(
-      () => setCopyBtn({ text: 'Copy Link', icon: <CopyIcon color={`text-${theme}-500`} /> }),
-      1500
-    );
+    const timer = setTimeout(() => setCopyBtnText('Copy Link'), 1500);
 
     return () => clearTimeout(timer);
-  }, [copyBtn, theme]);
+  }, [copyBtnText, theme]);
 
   useEffect(() => {
     if (navigator.share) {
@@ -50,7 +44,7 @@ const SocialShare = ({
   const copyLinkToClipBoard = async () => {
     try {
       await navigator.clipboard.writeText(url);
-      setCopyBtn({ text: 'Copy Link', icon: <CheckSqaureIcon color={`text-${theme}-500`} /> });
+      setCopyBtnText('Copied!');
     } catch (error) {
       console.error(error);
     }
@@ -118,8 +112,12 @@ const SocialShare = ({
       ) : null}
       {copyLink ? (
         <button className="transition duration-500 ease-in-out transform hover:scale-125" onClick={copyLinkToClipBoard}>
-          {copyBtn.icon}
-          {showText && <span>{copyBtn.text}</span>}
+          {copyBtnText === 'Copy Link' ? (
+            <CopyIcon color={`text-${theme}-500`} />
+          ) : (
+            <CheckSqaureIcon color={`text-${theme}-500`} />
+          )}
+          {showText && <span>{copyBtnText}</span>}
         </button>
       ) : null}
       {showShareBtn ? (
