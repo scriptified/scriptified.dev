@@ -111,7 +111,11 @@ const SocialShare = ({
         </a>
       ) : null}
       {copyLink ? (
-        <button className="transition duration-500 ease-in-out transform hover:scale-125" onClick={copyLinkToClipBoard}>
+        <button
+          aria-label="Copy link to clipboard"
+          className="transition duration-500 ease-in-out transform hover:scale-125"
+          onClick={copyLinkToClipBoard}
+        >
           {copyBtnText === 'Copy Link' ? (
             <CopyIcon color={`text-${theme}-500`} />
           ) : (

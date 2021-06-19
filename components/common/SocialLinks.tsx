@@ -35,9 +35,11 @@ function SocialLinks({
 }): JSX.Element {
   const theme = useThemeState();
   const getLogoColor = logoColor ? logoColor : `text-${theme}-500`;
+  const validLinks = Object.keys(links).filter(link => typeof links[link] === 'string');
+
   return (
     <div className={`flex ${additionalStyles}`}>
-      {Object.keys(links).map(link => {
+      {validLinks.map(link => {
         const Logo = LINK_LOGO[link];
         return (
           <a
