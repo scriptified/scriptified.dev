@@ -48,7 +48,7 @@ function SocialLinks({
             target="_blank"
             rel="noreferrer"
           >
-            {<Logo color={getLogoColor} />}
+            {<Logo color={getLogoColor} additionalStyles="h-5 w-5" />}
           </a>
         );
       })}
