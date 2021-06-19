@@ -101,7 +101,7 @@ const SocialShare = ({
       {facebook ? (
         <a
           aria-label="Share to Twitter"
-          href={`https://www.facebook.com/dialog/share?app_id=${process.env.FACEBOOK_APP_ID}&display=popup&href=${url}&redirect_uri=${url}`}
+          href={`https://www.facebook.com/dialog/share?app_id=${process.env.NEXT_PUBLIC_FACEBOOK_APP_ID}&display=popup&href=${url}&redirect_uri=${url}`}
           className="transition duration-500 ease-in-out transform hover:scale-125"
           target="_blank"
           rel="noreferrer"
