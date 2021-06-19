@@ -74,6 +74,9 @@ const Head = ({
     <meta property="twitter:description" content={description} />
     <meta property="twitter:url" content={url} />
 
+    {/* Facebook */}
+    <meta property="fb:app_id" content={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID} />
+
     {/* Favicons */}
     <link rel="icon" type="image/png" sizes="16x16" href={`/icons/${faviconPath}/favicon-16x16.png`} />
     <link rel="icon" type="image/png" sizes="32x32" href={`/icons/${faviconPath}/favicon-32x32.png`} />
