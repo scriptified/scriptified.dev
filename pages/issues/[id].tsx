@@ -34,8 +34,10 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
   const theme = useThemeState();
   const router = useRouter();
 
+  const url = `${siteConfig.url}${router.asPath}`;
+
   React.useEffect(() => {
-    if (router.isReady && router.query.section && typeof router.query.section === 'string') {
+    if (router.isReady && typeof router.query?.section === 'string') {
       document.getElementById(router.query.section)?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [router.isReady]);
@@ -45,6 +47,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       title={`#${issueData.meta.number} | ${issueData.meta.title} | ${siteConfig.name}`}
       description={issueData.meta.desc}
       image={issueData.meta.imgURL}
+      url={url}
       additionalStyles={`pt-12 bg-gradient-to-b from-${theme}-300 to-${theme}-500`}
     >
       <section
