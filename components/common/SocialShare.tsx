@@ -68,7 +68,7 @@ const SocialShare = ({
   };
 
   return (
-    <section className="lg:flex flex-row space-x-4 pt-6 hidden">
+    <section className="flex flex-row space-x-4 pt-6">
       {twitter ? (
         <a
           aria-label="Share to Twitter"
@@ -125,7 +125,10 @@ const SocialShare = ({
         </button>
       ) : null}
       {showShareBtn ? (
-        <button className="transition duration-500 ease-in-out transform hover:scale-125" onClick={shareExternal}>
+        <button
+          className="hidden lg:inline-block transition duration-500 ease-in-out transform hover:scale-125"
+          onClick={shareExternal}
+        >
           <ShareIcon color={`text-${theme}-500`} />
           {showText && <span>Share</span>}
         </button>
