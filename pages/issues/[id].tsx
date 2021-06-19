@@ -2,21 +2,22 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 
-import ArticleItem from '../../components/ArticleItem';
 import CodeSnippet from '../../components/common/CodeSnippet';
+import SubscribeCard from '../../components/common/SubscribeCard';
+import BackToHome from '../../components/common/BackToHome';
+import Text from '../../components/common/Text';
+import SocialShare from '../../components/common/SocialShare';
+import ArticleItem from '../../components/ArticleItem';
 import DevOfTheWeekItem from '../../components/DevOfTheWeekItem';
 import GIFItem from '../../components/GIFItem';
-import { Issue } from '../../interfaces/issue';
 import IssueItem from '../../components/IssueItem';
 import Layout, { siteConfig } from '../../components/Layout';
 import Quiz from '../../components/Quiz';
-import SubscribeCard from '../../components/common/SubscribeCard';
 import TechTalk from '../../components/TechTalk';
-import Text from '../../components/common/Text';
 import ToolItem from '../../components/ToolItem';
-import { getAllIssueIds, issueAPI, mapToIssue } from '../../lib/issues';
-import BackToHome from '../../components/common/BackToHome';
 import Markdown from '../../components/Markdown';
+import { getAllIssueIds, issueAPI, mapToIssue } from '../../lib/issues';
+import { Issue } from '../../interfaces/issue';
 import {
   TipIcon,
   ArticlesIcon,
@@ -27,11 +28,7 @@ import {
   GifIcon,
 } from '../../components/icons/icons';
 import { useThemeState } from '../../theme/ThemeContext';
-
-const convertDate = (date: string) => {
-  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(date).toLocaleDateString('en-US', options);
-};
+import { convertDate } from '../../utils';
 
 export default function IssueComponent({ issueData }: { issueData: Issue }): JSX.Element {
   const theme = useThemeState();
@@ -42,6 +39,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
       document.getElementById(router.query.section)?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [router.isReady]);
+
   return (
     <Layout
       title={`#${issueData.meta.number} | ${issueData.meta.title} | ${siteConfig.name}`}
@@ -64,6 +62,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
           <Text color={`text-${theme}-600`} additionalStyles="pt-4 text-xl">
             <time>{convertDate(issueData.meta.dateOfPublishing)}</time>
           </Text>
+          <SocialShare url={`${siteConfig.url}${router.asPath}`} title={issueData.meta.title} />
         </div>
         <IssueItem id="tip" title="Tip of the day" icon={<TipIcon />}>
           <Text type="base" additionalStyles="py-4 relative z-10">

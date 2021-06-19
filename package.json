@@ -5,7 +5,7 @@
   "license": "(MIT OR Apache-2.0)",
   "scripts": {
     "dev": "next dev",
-    "build": "node purgableCSSGenerator.js && next build",
+    "build": "node scripts/purgableCSSGenerator.js && next build",
     "deploy": "yarn build && next export",
     "start": "next start",
     "lint": "eslint .",
@@ -16,7 +16,7 @@
     "autoprefixer": "9.8.6",
     "axios": "0.21.1",
     "glob": "7.1.6",
-    "next": "10.0.5",
+    "next": "10.2.3",
     "next-pwa": "3.1.5",
     "postcss-import": "12.0.1",
     "prism-react-renderer": "1.1.1",

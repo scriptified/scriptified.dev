@@ -8,6 +8,8 @@ import ThemePicker from './common/ThemePicker';
 import Footer from './Footer';
 import { useLoadingState } from './LoadingContext';
 import { ScriptifiedLogo } from './icons/icons';
+import { useRouter } from 'next/router';
+import FloatingShareButton from './common/FloatingShareButton';
 
 export const siteConfig = {
   name: 'Scriptified',
@@ -94,6 +96,15 @@ export default function Layout({
 } & SEO): JSX.Element {
   const theme = useThemeState();
   const loading = useLoadingState();
+  const router = useRouter();
+
+  const renderFloatingShareBtn = () => {
+    if (router.pathname === '/issues/[id]') {
+      return <FloatingShareButton />;
+    } else {
+      return null;
+    }
+  };
 
   return (
     <>
@@ -126,6 +137,7 @@ export default function Layout({
             </header>
             <main className="relative">{children}</main>
             <Footer />
+            {renderFloatingShareBtn()}
           </div>
         </>
       )}

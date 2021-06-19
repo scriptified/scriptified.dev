@@ -17,6 +17,7 @@ module.exports = {
       inset: {
         '1/2': '0.5rem',
         1: '1rem',
+        6: '1.5rem',
       },
       maxWidth: {
         fc: 'fit-content',
@@ -52,8 +53,8 @@ module.exports = {
       */
       keyframes: {
         morph: {
-          '0%': { 'border-radius': '10% 70% 70% 10% / 60% 30% 70% 40%' },
-          '100%': { 'border-radius': ' 10% 70%' },
+          '0%': { 'border-radius': '20% 60% 60% 20% / 60% 30% 70% 40%' },
+          '100%': { 'border-radius': '20% 60%' },
         },
         'bounce-in': {
           '0%': { transform: 'scale(0.3)', opacity: 0 },
@@ -76,6 +77,7 @@ module.exports = {
       },
       animation: {
         morph: 'morph 8s ease-in-out infinite both alternate',
+        'morph-fast': 'morph 4s ease-in-out infinite both alternate',
         'spin-slow': 'spin 4s linear infinite reverse',
         'bounce-in': 'bounce-in 1s ease-out infinite both',
         wiggle: 'wiggle 1s ease-in-out infinite',
