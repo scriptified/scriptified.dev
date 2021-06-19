@@ -86,7 +86,7 @@ const SocialShare = ({
       {whatsApp ? (
         <a
           aria-label="Share to Twitter"
-          href={`whatsapp://send?text=${encodeURIComponent(
+          href={`https://wa.me/?text=${encodeURIComponent(
             `I recommend reading '${title}' by ${`@scriptifed_dev`}. \n\nRead at - ${url}\n\n`
           )}`}
           data-action="share/whatsapp/share"
