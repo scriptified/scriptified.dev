@@ -40,7 +40,7 @@ export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JS
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await issueAPI.allIssuesReversed();
+  const data = await issueAPI.allIssuesReversed();
   return {
     props: {
       allIssuesData: getAllIssuesMeta(data),

@@ -35,7 +35,7 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await issueAPI.limitedIssuesReversed();
+  const data = await issueAPI.limitedIssuesReversed();
   return {
     props: {
       allIssuesData: getAllIssuesMeta(data),

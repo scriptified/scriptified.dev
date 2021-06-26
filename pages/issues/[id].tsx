@@ -105,7 +105,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await issueAPI.allIssuesReversed();
+  const data = await issueAPI.allIssuesReversed();
 
   const paths = getAllIssueIds(data);
 
@@ -117,7 +117,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id: number = (params.id as unknown) as number;
-  const { data } = await issueAPI.getIssue(id);
+  const data = await issueAPI.getIssue(id);
   const issueData = mapToIssue(data);
   return {
     props: {

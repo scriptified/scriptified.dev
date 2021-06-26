@@ -42,6 +42,6 @@ module.exports = withPWA({
     return config;
   },
   images: {
-    domains: ['github.com', 'seeklogo.com', 'media.giphy.com', 'images.scriptified.dev'],
+    domains: ['github.com', 'seeklogo.com', 'media.giphy.com', 'images.scriptified.dev', 'placekitten.com'],
   },
 });

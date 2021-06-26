@@ -49,7 +49,7 @@ export default function Custom404({ allIssuesData }: { allIssuesData: Meta[] }):
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await issueAPI.limitedIssuesReversed();
+  const data = await issueAPI.limitedIssuesReversed();
   return {
     props: {
       allIssuesData: getAllIssuesMeta(data),
