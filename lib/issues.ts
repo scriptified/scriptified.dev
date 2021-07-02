@@ -29,41 +29,22 @@ export function getAllIssueIds(issues: IssueAPIResponse[]): Array<{ params: { id
     },
   }));
 }
-interface IndividualIssueResponse {
-  type: 'individual';
-  id: number;
+
+function getIndividualSampleIssue(id: number): Promise<IssueAPIResponse> {
+  const response = cloneDeep(SAMPLE_ISSUE) as IssueAPIResponse;
+  response.id = id;
+
+  return new Promise(resolve => resolve(response));
 }
 
-interface ArrayIssueResponse {
-  type: 'array';
-  limit: number;
-}
-
-type Response<T> = T extends IndividualIssueResponse
-  ? Promise<IssueAPIResponse>
-  : T extends ArrayIssueResponse
-  ? Promise<IssueAPIResponse[]>
-  : never;
-
-function getSampleData<T extends IndividualIssueResponse | ArrayIssueResponse>(data: T): Response<T> {
-  let response: IssueAPIResponse | IssueAPIResponse[];
-
-  if (data.type === 'individual') {
-    response = cloneDeep(SAMPLE_ISSUE) as IssueAPIResponse;
-    response.id = data.id;
-  }
-
-  if (data.type === 'array') {
-    // Create an array of reversed issue ids
-    const issueIDs = Array.from({ length: data.limit }, (_, i) => data.limit - i);
-    response = issueIDs.map(id => {
-      const currentItem: IssueAPIResponse = cloneDeep(SAMPLE_ISSUE);
-      currentItem.id = id;
-      return currentItem;
-    });
-  }
-
-  return new Promise(resolve => resolve(response)) as Response<T>;
+function getReversedSampleIssues(limit: number): Promise<IssueAPIResponse[]> {
+  const issueIDs = Array.from({ length: limit }, (_, i) => limit - i);
+  const response = issueIDs.map(id => {
+    const currentItem: IssueAPIResponse = cloneDeep(SAMPLE_ISSUE);
+    currentItem.id = id;
+    return currentItem;
+  });
+  return new Promise(resolve => resolve(response));
 }
 
 function oxfordComma(arr: string[]): string {
@@ -181,13 +162,13 @@ export const issueAPI = {
   allIssuesReversed: (): Promise<IssueAPIResponse[]> =>
     process.env.NODE_ENV === 'production'
       ? getAxiosRequest<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC`)
-      : getSampleData({ type: 'array', limit: 5 }),
+      : getReversedSampleIssues(5),
   limitedIssuesReversed: (limit = 3): Promise<IssueAPIResponse[]> =>
     process.env.NODE_ENV === 'production'
       ? getAxiosRequest<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC&_limit=${limit}`)
-      : getSampleData({ type: 'array', limit }),
+      : getReversedSampleIssues(limit),
   getIssue: (id: number): Promise<IssueAPIResponse> =>
     process.env.NODE_ENV === 'production'
       ? getAxiosRequest<IssueAPIResponse>(`${process.env.CMS_API}issues/${id}`)
-      : getSampleData({ type: 'individual', id }),
+      : getIndividualSampleIssue(id),
 };
