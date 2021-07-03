@@ -12,6 +12,10 @@ export default async (req: NextApiRequest, res: NextApiResponse<ResponseData>) =
 
   if (method === 'POST') {
     try {
+      if (process.env.NODE_ENV === 'production' && req.headers.origin !== ' https://scriptified.dev') {
+        throw new Error('Invalid origin');
+      }
+
       const response = await axios.post(
         `${process.env.EMAIL_API_ROOT}subscribers`,
         {
@@ -26,6 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<ResponseData>) =
           },
         }
       );
+
       console.log(response);
       return res.status(200).send({ msg: 'Success' });
     } catch (error) {
