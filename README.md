@@ -54,7 +54,7 @@ A weekly newsletter with insightful tips, tools, resources & more on React and J
     or
 
     ```bash
-        yarn install
+    yarn install
     ```
 
 4. Start the development server
@@ -66,7 +66,7 @@ A weekly newsletter with insightful tips, tools, resources & more on React and J
     or
 
     ```bash
-    yarn run dev
+    yarn dev
     ```
 
 ## Scriptified CMS
