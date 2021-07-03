@@ -5,8 +5,7 @@ const SAMPLE_ISSUE_API_RESPONSE: IssueAPIResponse = {
   id: 1,
   dateOfPublishing: '2021-03-06',
   title: 'The Greatest issue of all time with twelve words and eleven spaces',
-  description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus porttitor laoreet. Sed at enim orci. Duis et ultrices purus, quis fermentum velit. Curabitur in aliquam elit, a dapibus dui.',
+  description: `Something incredible is waiting to be known extraplanetary Jean-François Champollion Apollonius of Perga stirred by starlight rich in mystery. Take root and flourish laws of physics a billion trillion network of wormholes not a sunrise but a galaxyrise dispassionate extraterrestrial observer.`,
   imgURL: 'https://scriptified.dev/images/issue-1/issue-page-og.jpg',
   tipOfTheWeek: {
     id: 1,
