@@ -12,7 +12,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<ResponseData>) =
 
   if (method === 'POST') {
     try {
-      if (process.env.NODE_ENV === 'production' && req.headers.origin !== ' https://scriptified.dev') {
+      if (process.env.NODE_ENV === 'production' && req.headers.origin !== 'https://scriptified.dev') {
         throw new Error('Invalid origin');
       }
 
