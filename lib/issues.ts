@@ -2,6 +2,8 @@ import axios from 'axios';
 import { IssueAPIResponse } from '../interfaces/api';
 import { Issue } from '../interfaces/issue';
 import { convertDate } from '../utils';
+import cloneDeep from 'lodash/cloneDeep';
+import SAMPLE_ISSUE from './sampleIssue';
 
 const ASSETS_URL = 'https://images.scriptified.dev/';
 
@@ -26,6 +28,23 @@ export function getAllIssueIds(issues: IssueAPIResponse[]): Array<{ params: { id
       id: String(issue.id),
     },
   }));
+}
+
+function getIndividualSampleIssue(id: number): Promise<IssueAPIResponse> {
+  const response = cloneDeep(SAMPLE_ISSUE) as IssueAPIResponse;
+  response.id = id;
+
+  return new Promise(resolve => resolve(response));
+}
+
+function getReversedSampleIssues(limit: number): Promise<IssueAPIResponse[]> {
+  const issueIDs = Array.from({ length: limit }, (_, i) => limit - i);
+  const response = issueIDs.map(id => {
+    const currentItem: IssueAPIResponse = cloneDeep(SAMPLE_ISSUE);
+    currentItem.id = id;
+    return currentItem;
+  });
+  return new Promise(resolve => resolve(response));
 }
 
 function oxfordComma(arr: string[]): string {
@@ -137,9 +156,19 @@ export function getAllIssuesMeta(issues: IssueAPIResponse[]) {
   }));
 }
 
+const getAxiosRequest = <T>(url: string): Promise<T> => axios.get<T>(url).then(({ data }) => data);
+
 export const issueAPI = {
-  allIssuesReversed: () => axios.get<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC`),
-  limitedIssuesReversed: (limit = 3) =>
-    axios.get<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC&_limit=${limit}`),
-  getIssue: (id: number) => axios.get<IssueAPIResponse>(`${process.env.CMS_API}issues/${id}`),
+  allIssuesReversed: (): Promise<IssueAPIResponse[]> =>
+    process.env.NODE_ENV === 'production'
+      ? getAxiosRequest<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC`)
+      : getReversedSampleIssues(5),
+  limitedIssuesReversed: (limit = 3): Promise<IssueAPIResponse[]> =>
+    process.env.NODE_ENV === 'production'
+      ? getAxiosRequest<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC&_limit=${limit}`)
+      : getReversedSampleIssues(limit),
+  getIssue: (id: number): Promise<IssueAPIResponse> =>
+    process.env.NODE_ENV === 'production'
+      ? getAxiosRequest<IssueAPIResponse>(`${process.env.CMS_API}issues/${id}`)
+      : getIndividualSampleIssue(id),
 };
