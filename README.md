@@ -11,7 +11,9 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/scriptified/scriptified/issues)
 [![Twitter URL](https://img.shields.io/twitter/url?style=flat-square&url=https%3A%2F%2Ftwitter.com%2Fscriptified_dev)](https://twitter.com/scriptified_dev)
 [![GitHub](https://img.shields.io/github/license/scriptified/scriptified?style=flat-square)](https://github.com/scriptified/scriptified/blob/main/LICENSE)
-![Github All Contributors](https://img.shields.io/github/all-contributors/scriptified/scriptified?style=flat-square)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![GitHub Org's stars](https://img.shields.io/github/stars/scriptified?style=flat-square)
 
 A weekly newsletter with insightful tips, tools, resources & more on React and JavaScript.
@@ -72,6 +74,26 @@ A weekly newsletter with insightful tips, tools, resources & more on React and J
 ## Scriptified CMS
 
 We have used [Strapi](https://strapi.io/) to built our issues CMS. Head over to [`scriptified-cms`](https://github.com/scriptified/scriptified-cms) repo to know more about it.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://ayushgupta.tech"><img src="https://avatars.githubusercontent.com/u/21218732?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ayush Gupta</b></sub></a><br /><a href="https://github.com/scriptified/scriptified/commits?author=gupta-ji6" title="Code">💻</a> <a href="https://github.com/scriptified/scriptified/pulls?q=is%3Apr+reviewed-by%3Agupta-ji6" title="Reviewed Pull Requests">👀</a> <a href="#projectManagement-gupta-ji6" title="Project Management">📆</a> <a href="#maintenance-gupta-ji6" title="Maintenance">🚧</a> <a href="#ideas-gupta-ji6" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-gupta-ji6" title="Design">🎨</a> <a href="https://github.com/scriptified/scriptified/commits?author=gupta-ji6" title="Documentation">📖</a> <a href="#content-gupta-ji6" title="Content">🖋</a> <a href="#a11y-gupta-ji6" title="Accessibility">️️️️♿️</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 ## License
 
