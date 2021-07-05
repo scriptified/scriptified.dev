@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://scriptified.dev">
-        <img src="https://images.scriptified.dev/common/twitter-header-green.png" alt="Scriptified Header" height="150">
+        <img src="https://images.scriptified.dev/common/twitter-header-green.png" alt="Scriptified Header">
     </a>
 </p>
 
@@ -9,12 +9,10 @@
 </div>
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/scriptified/scriptified/issues)
-[![Twitter URL](https://img.shields.io/twitter/url?style=flat-square&url=https%3A%2F%2Ftwitter.com%2Fscriptified_dev)](https://twitter.com/scriptified_dev)
-[![GitHub](https://img.shields.io/github/license/scriptified/scriptified?style=flat-square)](https://github.com/scriptified/scriptified/blob/main/LICENSE)
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 ![GitHub Org's stars](https://img.shields.io/github/stars/scriptified?style=flat-square)
+[![Twitter URL](https://img.shields.io/twitter/url?style=flat-square&url=https%3A%2F%2Ftwitter.com%2Fscriptified_dev&logo=twitter&label=scriptified_dev&color=1DA1F2)](https://twitter.com/scriptified_dev)
+[![GitHub](https://img.shields.io/github/license/scriptified/scriptified?style=flat-square)](https://github.com/scriptified/scriptified/blob/main/LICENSE)
 
 A weekly newsletter with insightful tips, tools, resources & more on React and JavaScript.
 
