@@ -21,7 +21,24 @@
         "content",
         "a11y"
       ]
-    }
+    },
+    {
+      "login": "prateek3255",
+      "name": "Prateek Surana",
+      "avatar_url": "https://avatars.githubusercontent.com/u/21277179?v=4",
+      "profile": "http://prateeksurana.me",
+      "contributions": [
+        "code",
+        "review",
+        "projectManagement",
+        "maintenance",
+        "ideas",
+        "design",
+        "doc",
+        "content",
+        "a11y"
+      ]
+    },
   ],
   "contributorsPerLine": 7,
   "projectName": "scriptified",
