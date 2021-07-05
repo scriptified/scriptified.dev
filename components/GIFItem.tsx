@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Gif from '../interfaces/gif';
 import { useThemeState } from '../theme/ThemeContext';
 import Text from './common/Text';
+import Markdown from './Markdown';
 
 const GIFItem = ({ gif: { caption, gifURL } }: { gif: Gif }): JSX.Element => {
   const theme = useThemeState();
@@ -17,7 +18,7 @@ const GIFItem = ({ gif: { caption, gifURL } }: { gif: Gif }): JSX.Element => {
         />
       </div>
       <Text type="small" color="text-gray-700" additionalStyles="mt-3 text-center">
-        {caption}
+        <Markdown>{caption}</Markdown>
       </Text>
     </div>
   );

@@ -27,10 +27,10 @@ function Button({
   const styles = `${buttonType} ${buttonSize} ${additionalStyles} p-2 inline-flex justify-center align-center transition ease-in-out duration-500`;
 
   return (
-    <button className={styles} onClick={onClick} {...buttonAttributes}>
+    <button className={styles} onClick={onClick} {...buttonAttributes} disabled={loading}>
       {loading && (
         <svg
-          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white mt-1"
+          className="animate-spin -ml-1 mr-3 h-6 w-6 flex-shrink-0 text-white mt-1"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"

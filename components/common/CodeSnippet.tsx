@@ -5,13 +5,11 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 interface CodeSnippetProps {
   snippet: CodeSnippet;
-  showLineNumbers?: boolean;
 }
 
 function CodeSnippetComponent(props: CodeSnippetProps): JSX.Element {
   const {
-    snippet: { code, language },
-    showLineNumbers = false,
+    snippet: { code, language, showLineNumbers },
   } = props;
   return (
     <Highlight {...defaultProps} code={code} language={language} theme={nightOwl}>
@@ -22,7 +20,7 @@ function CodeSnippetComponent(props: CodeSnippetProps): JSX.Element {
         >
           {tokens.map((line, i) => (
             <div {...getLineProps({ line, key: i })} className="table-row" key={i}>
-              {showLineNumbers && <span className="table-cell text-right pr-4 select-none opacity-50">{i + 1}</span>}
+              {showLineNumbers && <span className="table-cell text-right pl-2 select-none opacity-50">{i + 1}</span>}
               <span className="table-cell px-6">
                 {line.map((token, key) => (
                   <span {...getTokenProps({ token, key })} key={key} />
