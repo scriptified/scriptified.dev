@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useThemeState } from '../theme/ThemeContext';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
+import Markdown from './Markdown';
 
 function shuffle(array: any[]): any[] {
   const shuffledArray = JSON.parse(JSON.stringify(array));
@@ -16,7 +17,7 @@ function shuffle(array: any[]): any[] {
 const CURATORS: TCurator[] = [
   {
     name: 'Ayush Gupta',
-    desc: 'React Native Developer at FirstCry. Mobile and Web App Developer, Amateur Photographer and Blogger.',
+    desc: `Web & Mobile App Developer passionate about [photography](https://ayushgupta.tech/ig). Writing blogs & occasionally designing. Mobile app team at [FirstCry](https://firstcry.com)`,
     imgURL: 'https://github.com/gupta-ji6.png',
     links: {
       website: 'https://ayushgupta.tech',
@@ -27,7 +28,7 @@ const CURATORS: TCurator[] = [
   },
   {
     name: 'Prateek Surana',
-    desc: `Building Devfolioco && Fold Bank | Frontend engineer | Technical Writer | Loves JS`,
+    desc: `Building [Devfolio](https://devfolio.co) | Frontend engineer | Technical Writer | Loves JS`,
     imgURL: 'https://github.com/prateek3255.png',
     links: {
       website: 'https://prateeksurana.me/',
@@ -58,13 +59,13 @@ function Curators(): JSX.Element {
     <div className="p-12">
       <div className="lg:text-center pb-12">
         <Text
-          additionalStyles="mt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
+          additionalStyles="pt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
           color={`text-${theme}-900`}
           type="h1"
         >
           Curators
         </Text>
-        <Text additionalStyles="mt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color={`text-${theme}-700`} type="base">
+        <Text additionalStyles="pt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color={`text-${theme}-700`} type="base">
           The two nerdy devs who curate this newsletter for you
         </Text>
       </div>
@@ -72,7 +73,7 @@ function Curators(): JSX.Element {
         <div className="grid px-0 lg:px-12">
           {curators.map((curator, index) => {
             return (
-              <div className="flex sm:flex-col md:flex-row flex-wrap mb-8" key={index}>
+              <div className="flex sm:flex-col md:flex-row flex-wrap pb-8" key={index}>
                 <div
                   className={`flex-shrink-1 mr-4 mb-4 p-1 bg-gradient-to-br from-${theme}-300 to-${theme}-700 rounded transition duration-300`}
                 >
@@ -110,8 +111,8 @@ function Curators(): JSX.Element {
                       {curator.name}
                     </Text>
                   </a>
-                  <Text type="base" color={`text-${theme}-700`} inline additionalStyles="py-4">
-                    {curator.desc}
+                  <Text type="base" color={`text-${theme}-700`} inline additionalStyles="py-4 max-w-3xl">
+                    <Markdown>{curator.desc}</Markdown>
                   </Text>
                   <SocialLinks links={curator.links} additionalStyles="space-x-3" />
                 </div>

@@ -6,15 +6,21 @@ import { useThemeState } from '../theme/ThemeContext';
 import { Theme } from '../theme/theme';
 import ThemePicker from './common/ThemePicker';
 import Footer from './Footer';
-import Loading from '../public/loading.svg';
 import { useLoadingState } from './LoadingContext';
 import { ScriptifiedLogo } from './icons/icons';
+import { useRouter } from 'next/router';
+import FloatingShareButton from './common/FloatingShareButton';
 
-export const siteTitle = 'Scriptified';
+export const siteConfig = {
+  name: 'Scriptified',
+  description: 'Insightful tips, tools, resources & more on React and JavaScript',
+  url: 'https://scriptified.dev',
+  ogImg: 'https://scriptified.dev/images/landing-page-og.jpg',
+};
 
 const Loader = () => (
   <div className="flex items-center justify-center h-screen w-screen">
-    <Loading className="w-32 h-auto" />
+    <ScriptifiedLogo color={`text-black-900`} additionalStyles="w-24 h-24 animate-pulse" />
   </div>
 );
 
@@ -29,20 +35,18 @@ type SEO = {
 };
 
 const Head = ({
-  title = siteTitle,
-  description = 'Your go to JavaScript newsletter',
-  url = 'https://scriptified.dev',
-  image = `https://og-image.now.sh/${encodeURI(
-    siteTitle
-  )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`,
+  title = siteConfig.name,
+  description = siteConfig.description,
+  url = siteConfig.url,
+  image = siteConfig.ogImg,
   twitter = '@scriptified_dev',
-  author = 'Scriptified',
+  author = siteConfig.name,
   faviconPath,
 }: SEO) => (
   <NextHead>
     {/* Title and Description */}
     <title>{title}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={`${description}. Curated by Prateek Surana and Ayush Gupta.`} />
     <meta name="title" content={title} />
 
     {/* Essentials */}
@@ -70,6 +74,9 @@ const Head = ({
     <meta property="twitter:description" content={description} />
     <meta property="twitter:url" content={url} />
 
+    {/* Facebook */}
+    <meta property="fb:app_id" content={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID} />
+
     {/* Favicons */}
     <link rel="icon" type="image/png" sizes="16x16" href={`/icons/${faviconPath}/favicon-16x16.png`} />
     <link rel="icon" type="image/png" sizes="32x32" href={`/icons/${faviconPath}/favicon-32x32.png`} />
@@ -92,6 +99,15 @@ export default function Layout({
 } & SEO): JSX.Element {
   const theme = useThemeState();
   const loading = useLoadingState();
+  const router = useRouter();
+
+  const renderFloatingShareBtn = () => {
+    if (router.pathname === '/issues/[id]') {
+      return <FloatingShareButton />;
+    } else {
+      return null;
+    }
+  };
 
   return (
     <>
@@ -108,14 +124,14 @@ export default function Layout({
               ) : (
                 <>
                   <Link href="/">
-                    <a aria-label="Scriptified">
+                    <a aria-label={siteConfig.name}>
                       <ScriptifiedLogo color={`text-${theme}-900`} additionalStyles="w-24 h-24" />
                     </a>
                   </Link>
                   <h2 className="text-6xl leading-snug my-4 mx-0">
                     <Link href="/">
                       <a className={`no-underline hover:underline text-${theme}-900 font-bold font-sniglet`}>
-                        Scriptified
+                        {siteConfig.name}
                       </a>
                     </Link>
                   </h2>
@@ -124,6 +140,7 @@ export default function Layout({
             </header>
             <main className="relative">{children}</main>
             <Footer />
+            {renderFloatingShareBtn()}
           </div>
         </>
       )}

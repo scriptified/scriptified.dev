@@ -7,6 +7,16 @@ const DOWN_ARROW_KEY_CODE = 40;
 const UP_ARROW_KEY_CODE = 38;
 const ESCAPE_KEY_CODE = 27;
 
+const THEME_ALIAS: Record<Theme, string> = {
+  blue: 'void blue',
+  teal: 'memoized teal',
+  green: 'nullish green',
+  indigo: 'immutable indigo',
+  orange: 'hoisted orange',
+  purple: 'functional purple',
+  gray: 'static gray',
+};
+
 const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
   const currentTheme = useThemeState();
   const updateTheme = useThemeDispatch();
@@ -134,7 +144,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
           >
             <div className="animate-morph flex items-center space-x-3">
               <span className={`animate-spin-slow flex-shrink-0 h-6 w-6 rounded-full bg-${currentTheme}-500`} />
-              <span className="block truncate capitalize">{currentTheme}</span>
+              <span className="block truncate">{THEME_ALIAS[currentTheme]}</span>
             </div>
             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="none" stroke="currentColor">
@@ -166,7 +176,11 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                   role="option"
                   tabIndex={0}
                   value={theme}
-                  className={`dropdown__list-item text-gray-900 font-normal hover:text-white focus:text-white hover:font-semibold focus:font-semibold bg-gradient-to-br from-white to-white hover:from-${currentTheme}-400 hover:to-${currentTheme}-600 focus:from-${currentTheme}-400 focus:to-${currentTheme}-600 focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 cursor-pointer select-none relative py-2 pl-3 pr-9`}
+                  className={`dropdown__list-item ${
+                    currentTheme === theme
+                      ? `bg-gradient-to-br from-${theme}-300 to-${theme}-300 hover:from-${currentTheme}-400 hover:to-${currentTheme}-600 focus:from-${currentTheme}-400 focus:to-${currentTheme}-600`
+                      : `bg-gradient-to-br from-white to-white hover:from-${currentTheme}-400 hover:to-${currentTheme}-600 focus:from-${currentTheme}-400 focus:to-${currentTheme}-600`
+                  } text-gray-900 font-normal hover:text-white focus:text-white hover:font-semibold focus:font-semibold focus:outline-none focus:shadow-outline-${currentTheme} focus:border-${currentTheme}-300 cursor-pointer select-none relative py-2 px-3`}
                   onClick={() => {
                     updateTheme(theme);
                     setIsThemeSelectorOpen(false);
@@ -177,14 +191,12 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                       className={`animate-spin-slow flex-shrink-0 h-6 w-6 rounded-full bg-${theme}-500 border-2 border-white`}
                     />
                     <span
-                      className={`${
-                        currentTheme === theme ? 'font-semibold' : 'font-normal'
-                      } hidden sm:block truncate capitalize`}
+                      className={`${currentTheme === theme ? 'font-semibold' : 'font-normal'} hidden sm:block truncate`}
                     >
-                      {theme}
+                      {THEME_ALIAS[theme]}
                     </span>
                   </div>
-                  {currentTheme === theme && (
+                  {/* currentTheme === theme && (
                     <span
                       className={`absolute inset-y-0 right-0 flex items-center pr-4 text-${theme}-800 hover:text-${theme}-100`}
                     >
@@ -196,7 +208,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                         />
                       </svg>
                     </span>
-                  )}
+                  ) */}
                 </li>
               ))}
             </ul>

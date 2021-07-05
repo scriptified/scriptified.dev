@@ -17,7 +17,7 @@ const Text = ({
   const textType = TextType[type];
   const styles = `${textType} ${color} ${additionalStyles}`;
 
-  return inline ? <span className={styles}>{children}</span> : <p className={styles}>{children}</p>;
+  return inline ? <span className={styles}>{children}</span> : <div className={styles}>{children}</div>;
 };
 
 export default Text;

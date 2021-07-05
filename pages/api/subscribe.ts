@@ -1,11 +1,21 @@
+/* eslint-disable max-len */
 import axios from 'axios';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async (req, res) => {
+type ResponseData = {
+  msg: string;
+};
+
+export default async (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
   const { body, method } = req;
   const { email, firstName } = body;
 
   if (method === 'POST') {
     try {
+      if (process.env.NODE_ENV === 'production' && req.headers.origin !== 'https://scriptified.dev') {
+        throw new Error('Invalid origin');
+      }
+
       const response = await axios.post(
         `${process.env.EMAIL_API_ROOT}subscribers`,
         {
@@ -20,12 +30,16 @@ export default async (req, res) => {
           },
         }
       );
+
       console.log(response);
       return res.status(200).send({ msg: 'Success' });
     } catch (error) {
       console.log(error?.response?.data);
       const errorMsg = error?.response?.data?.[0];
       let msg = 'Unknown error occurred. Please refresh the page and try again.';
+      if (process.env.NODE_ENV === 'development') {
+        msg = 'To test subscribe from local environment, add relevant keys in env.local file.';
+      }
       if (errorMsg?.includes('is already subscribed')) {
         msg = 'Looks like you have already subscribed.';
       }
@@ -35,7 +49,6 @@ export default async (req, res) => {
       }
       if (errorMsg?.includes('already been unsubscribed')) {
         msg =
-          // eslint-disable-next-line max-len
           'Looks like you unsubscribed from the newsletter. If you unsubscribed by mistake & want to resubscribe again, drop us an email at hello@scriptified.dev';
       }
       return res.status(422).send({ msg });

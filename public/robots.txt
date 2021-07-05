@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://scriptified.dev/sitemap.xml

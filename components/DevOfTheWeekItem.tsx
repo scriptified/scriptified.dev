@@ -3,6 +3,7 @@ import DevOfTheWeek from '../interfaces/devOfTheWeek';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
 import { useThemeState } from '../theme/ThemeContext';
+import Markdown from './Markdown';
 
 const DevOfTheWeekItem = ({
   devOfTheWeek: { name, profileImg, profileLink, bio },
@@ -34,12 +35,12 @@ const DevOfTheWeekItem = ({
         </div>
       </div>
       <a href={profileLink.website} target="_blank" rel="noreferrer">
-        <Text type="h3" color={`text-${theme}-600`} inline additionalStyles="hover:underline">
+        <Text type="h2" color={`text-${theme}-600`} inline additionalStyles="hover:underline">
           {name}
         </Text>
       </a>
-      <Text type="base" additionalStyles="my-2">
-        {bio}
+      <Text type="base" additionalStyles="pt-2 pb-4">
+        <Markdown>{bio}</Markdown>
       </Text>
       <div className="flex">
         <SocialLinks links={profileLink} additionalStyles="space-x-3" />
