@@ -158,14 +158,18 @@ export function getAllIssuesMeta(issues: IssueAPIResponse[]) {
 
 const getAxiosRequest = <T>(url: string): Promise<T> => axios.get<T>(url).then(({ data }) => data);
 
+const getAdditionalIssueFilters = () => (process.env.IS_PREVIEW === 'true' ? '' : '&isDraft_eq=false');
+
 export const issueAPI = {
   allIssuesReversed: (): Promise<IssueAPIResponse[]> =>
     process.env.NODE_ENV === 'production'
-      ? getAxiosRequest<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC`)
+      ? getAxiosRequest<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC${getAdditionalIssueFilters()}`)
       : getReversedSampleIssues(5),
   limitedIssuesReversed: (limit = 3): Promise<IssueAPIResponse[]> =>
     process.env.NODE_ENV === 'production'
-      ? getAxiosRequest<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC&_limit=${limit}`)
+      ? getAxiosRequest<IssueAPIResponse[]>(
+          `${process.env.CMS_API}issues?_sort=id:DESC&_limit=${limit}${getAdditionalIssueFilters()}`
+        )
       : getReversedSampleIssues(limit),
   getIssue: (id: number): Promise<IssueAPIResponse> =>
     process.env.NODE_ENV === 'production'
