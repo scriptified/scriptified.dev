@@ -42,6 +42,10 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
     }
   }, [router.isReady]);
 
+  if (router.isFallback) {
+    return <></>;
+  }
+
   return (
     <Layout
       title={`#${issueData.meta.number} | ${issueData.meta.title} | ${siteConfig.name}`}
@@ -117,12 +121,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id: number = (params.id as unknown) as number;
-  const data = await issueAPI.getIssue(id);
-  const issueData = mapToIssue(data);
-  return {
-    props: {
-      issueData,
-    },
-    revalidate: 180,
-  };
+  try {
+    const data = await issueAPI.getIssue(id);
+    const issueData = mapToIssue(data);
+    return {
+      props: {
+        issueData,
+      },
+      revalidate: 180,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      notFound: true,
+    };
+  }
 };
