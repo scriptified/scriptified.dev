@@ -168,6 +168,10 @@ body {
 /*
 * Styles for react markdown
 */
+.react-markdown {
+  white-space: pre-wrap;
+}
+
 .react-markdown a {
   text-decoration: underline;
 }
