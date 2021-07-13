@@ -9,7 +9,8 @@
     "deploy": "yarn build && next export",
     "start": "next start",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "email_issue": "node scripts/issueEmailGenerator.js" 
   },
   "dependencies": {
     "@svgr/webpack": "5.4.0",
