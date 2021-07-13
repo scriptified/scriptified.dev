@@ -158,6 +158,8 @@ ___
 
 [**${currentIssue.talks[0].title}**](${currentIssue.talks[0].url})
 
+${currentIssue.talks[0].url}
+
 ${currentIssue.talks[0].description}
 
 ___
