@@ -1,45 +1,75 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * This script generates the email template
  * for a particular issue.
  *
- * To use this script paste the issue you want to
- * generate the template for in the currentIssue.js file.
+ * Use this script to generate the email template
+ * via the following command:
+ *
+ *  > node scripts/issueEmailGenerator.js --issueNumber <issueNumber>
  */
+
+const optionDefinitions = [
+  { name: 'issueNumber', alias: 'i', type: Number },
+  { name: 'help', alias: 'h', type: Boolean },
+];
+
 const fs = require('fs');
-const currentIssue = require('./currentIssue');
+const axios = require('axios');
+const commandLineArgs = require('command-line-args');
+require('dotenv').config({ path: './.env.local' });
 
-const PROFILE_TYPES = {
-  website: 'Website',
-  twitter: 'Twitter',
-  github: 'GitHub',
-  youtube: 'YouTube',
-  linkedin: 'LinkedIn',
-  instagram: 'Instagram',
-};
+const options = commandLineArgs(optionDefinitions);
 
-const PROFILE_KEYS = ['webiste', 'twitter', 'github', 'youtube', 'linkedin', 'instagram'];
-
-const convertDate = date => {
-  const options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  };
-  return new Date(date).toLocaleDateString('en-US', options);
-};
-
-const OG_IMAGE_BASE = 'https://og.scriptified.dev/';
-
-function getOGImage(title, issueNumber, date) {
-  const parsedDate = convertDate(date);
-  return `${OG_IMAGE_BASE}${encodeURIComponent(title)}.png?issue_number=${issueNumber}&date=${encodeURIComponent(
-    parsedDate
-  )}`;
+if (options.help) {
+  console.log(`
+  Usage: node scripts/issueEmailGenerator.js [--issueNumber=<issueNumber>]
+  `);
+  return;
 }
 
-const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.dateOfPublishing);
+if (typeof options.issueNumber !== 'number') {
+  console.log('Please provide a valid issue number');
+  return;
+}
 
-const emailTemplate = `
+(async () => {
+  const currentIssue = await axios
+    .get(`${process.env.CMS_API}issues/${options.issueNumber}`)
+    .then(response => response.data);
+
+  const PROFILE_TYPES = {
+    website: 'Website',
+    twitter: 'Twitter',
+    github: 'GitHub',
+    youtube: 'YouTube',
+    linkedin: 'LinkedIn',
+    instagram: 'Instagram',
+  };
+
+  const PROFILE_KEYS = ['webiste', 'twitter', 'github', 'youtube', 'linkedin', 'instagram'];
+
+  const convertDate = date => {
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    return new Date(date).toLocaleDateString('en-US', options);
+  };
+
+  const OG_IMAGE_BASE = 'https://og.scriptified.dev/';
+
+  function getOGImage(title, issueNumber, date) {
+    const parsedDate = convertDate(date);
+    return `${OG_IMAGE_BASE}${encodeURIComponent(title)}.png?issue_number=${issueNumber}&date=${encodeURIComponent(
+      parsedDate
+    )}`;
+  }
+
+  const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.dateOfPublishing);
+
+  const emailTemplate = `
 ![Headshot](${ogImgURL})
 
 <center>[Read issue on web](https://scriptified.dev/issues/${currentIssue.id})</center>
@@ -140,20 +170,24 @@ ___
 Liked this issue? [Share on Twitter](https://twitter.com/intent/tweet?text=${encodeURIComponent(`Have a look at issue #${currentIssue.id} of Scriptified.
 
 Subscribe to @scriptified_dev for more.`)}&url=${encodeURIComponent(
-  `https://scriptified.dev/issues/${currentIssue.id}`
-)}) or [read previous issues](https://scriptified.dev/issues).
+    `https://scriptified.dev/issues/${currentIssue.id}`
+  )}) or [read previous issues](https://scriptified.dev/issues).
 `;
 
-const archiveDirectory = '../archives';
-const issueFile = `${archiveDirectory}/issue${currentIssue.id}.md`;
+  const archiveDirectory = './archives';
+  const issueFile = `${archiveDirectory}/issue${currentIssue.id}.md`;
 
-// create archives folder if iot doesn't exist
-if (!fs.existsSync(archiveDirectory)) {
-  fs.mkdirSync(archiveDirectory);
-}
+  // create archives folder if iot doesn't exist
+  if (!fs.existsSync(archiveDirectory)) {
+    fs.mkdirSync(archiveDirectory);
+  }
 
-// create a issue-{id}.md file in archives
-fs.closeSync(fs.openSync(issueFile, 'a'));
+  // const issueFile = `./issue${currentIssue.id}.md`;
 
-// write email template to issue-{id}.md file
-fs.writeFileSync(issueFile, emailTemplate);
+  // create a issue-{id}.md file in archives
+  fs.closeSync(fs.openSync(issueFile, 'a'));
+
+  // write email template to issue-{id}.md file
+  fs.writeFileSync(issueFile, emailTemplate);
+  console.log(`Created the template at - ${issueFile}`);
+})();
