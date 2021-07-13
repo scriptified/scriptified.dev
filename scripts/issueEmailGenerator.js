@@ -17,18 +17,40 @@ const PROFILE_TYPES = {
   instagram: 'Instagram',
 };
 
+const PROFILE_KEYS = ['webiste', 'twitter', 'github', 'youtube', 'linkedin', 'instagram'];
+
+const convertDate = date => {
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+  return new Date(date).toLocaleDateString('en-US', options);
+};
+
+const OG_IMAGE_BASE = 'https://og.scriptified.dev/';
+
+function getOGImage(title, issueNumber, date) {
+  const parsedDate = convertDate(date);
+  return `${OG_IMAGE_BASE}${encodeURIComponent(title)}.png?issue_number=${issueNumber}&date=${encodeURIComponent(
+    parsedDate
+  )}`;
+}
+
+const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.dateOfPublishing);
+
 const emailTemplate = `
-![Headshot](${currentIssue.meta.imgURL})
+![Headshot](${ogImgURL})
 
-<center>[Read issue on web](https://scriptified.dev/issues/${currentIssue.meta.number})</center>
+<center>[Read issue on web](https://scriptified.dev/issues/${currentIssue.id})</center>
 
-${currentIssue.meta.desc}
+${currentIssue.description}
 
 # Tip of the day
-${currentIssue.tipOfTheWeek.desc}
+${currentIssue.tipOfTheWeek.description}
 
-\`\`\`${currentIssue.tipOfTheWeek.snippet.language}
-${currentIssue.tipOfTheWeek.snippet.code}
+\`\`\`${currentIssue.tipOfTheWeek.codeSnippet.language}
+${currentIssue.tipOfTheWeek.codeSnippet.code}
 \`\`\`
 
 ___
@@ -40,9 +62,9 @@ ${currentIssue.articles
     article =>
       `[**${article.title}**](${article.url})
 	
-${article.desc}
+${article.description}
 
-*by ${article.author}*
+*by ${article.authors.map(author => author.Name).join(', ')}*
 `
   )
   .join('\n')}
@@ -54,11 +76,11 @@ ___
 ${currentIssue.tools
   .map(
     tool =>
-      `[**${tool.title}**](${tool.url})
+      `[**${tool.name}**](${tool.url})
     
-${tool.desc}
+${tool.description}
 
-*by ${tool.author}*
+*by ${tool.authors.map(author => author.Name).join(', ')}*
 `
   )
   .join('\n')}
@@ -72,17 +94,18 @@ ___
 ## ${currentIssue.devOfTheWeek.name}
 ${currentIssue.devOfTheWeek.bio}
 
-${Object.entries(currentIssue.devOfTheWeek.profileLink)
-  .map(([profileType, link]) => `[${PROFILE_TYPES[profileType]}](${link})`)
+${Object.keys(currentIssue.devOfTheWeek)
+  .filter(key => PROFILE_KEYS.includes(key) && currentIssue.devOfTheWeek[key] !== null)
+  .map(profile => `[${PROFILE_TYPES[profile]}](${currentIssue.devOfTheWeek[profile]})`)
   .join(' | ')}
 
 ___
 
 # Tech Talks
 
-[**${currentIssue.talks[0].title}**](${currentIssue.talks[0].talkURL})
+[**${currentIssue.talks[0].title}**](${currentIssue.talks[0].url})
 
-${currentIssue.talks[0].desc}
+${currentIssue.talks[0].description}
 
 ___
 
@@ -90,20 +113,18 @@ ___
 
 ### ${currentIssue.quiz.question}
 
-\`\`\`${currentIssue.quiz.snippet.language}
-${currentIssue.quiz.snippet.code}
+\`\`\`${currentIssue.quiz.CodeSnippet.language}
+${currentIssue.quiz.CodeSnippet.code}
 \`\`\`
 
-${currentIssue.quiz.options
-  .map(
-    option => `<a href="https://scriptified.dev/issues/${currentIssue.meta.number}?section=quiz&option=${option.id}" style="text-decoration:none;">
+${currentIssue.quiz.Option.map(
+  option => `<a href="https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.id}" style="text-decoration:none;">
 <div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">
 	${option.text}
 </div>
 </a>
 `
-  )
-  .join('\n')}
+).join('\n')}
 
 
 ___
@@ -116,15 +137,23 @@ ___
 
 ---
 
-Liked this issue? [Share on Twitter](https://twitter.com/intent/tweet?text=${encodeURIComponent(`Have a look at issue #${currentIssue.meta.number} of Scriptified.
+Liked this issue? [Share on Twitter](https://twitter.com/intent/tweet?text=${encodeURIComponent(`Have a look at issue #${currentIssue.id} of Scriptified.
 
 Subscribe to @scriptified_dev for more.`)}&url=${encodeURIComponent(
-  `https://scriptified.dev/issues/${currentIssue.meta.number}`
+  `https://scriptified.dev/issues/${currentIssue.id}`
 )}) or [read previous issues](https://scriptified.dev/issues).
 `;
 
-const issueFile = `archives/issue${currentIssue.meta.number}.md`;
+const archiveDirectory = '../archives';
+const issueFile = `${archiveDirectory}/issue${currentIssue.id}.md`;
 
+// create archives folder if iot doesn't exist
+if (!fs.existsSync(archiveDirectory)) {
+  fs.mkdirSync(archiveDirectory);
+}
+
+// create a issue-{id}.md file in archives
 fs.closeSync(fs.openSync(issueFile, 'a'));
 
+// write email template to issue-{id}.md file
 fs.writeFileSync(issueFile, emailTemplate);
