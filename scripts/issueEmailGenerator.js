@@ -59,12 +59,32 @@ if (typeof options.issueNumber !== 'number') {
   };
 
   const OG_IMAGE_BASE = 'https://og.scriptified.dev/';
+  const ASSETS_URL = 'https://images.scriptified.dev/';
 
   function getOGImage(title, issueNumber, date) {
     const parsedDate = convertDate(date);
     return `${OG_IMAGE_BASE}${encodeURIComponent(title)}.png?issue_number=${issueNumber}&date=${encodeURIComponent(
       parsedDate
     )}`;
+  }
+
+  function isValidHttpUrl(str) {
+    let url;
+
+    try {
+      url = new URL(str);
+    } catch (_) {
+      return false;
+    }
+
+    return url.protocol === 'http:' || url.protocol === 'https:';
+  }
+
+  function getAssetURL(issueNumber, assetURL) {
+    if (isValidHttpUrl(assetURL)) {
+      return assetURL;
+    }
+    return `${ASSETS_URL}issue-${issueNumber}/${assetURL}`;
   }
 
   const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.dateOfPublishing);
@@ -119,7 +139,10 @@ ___
 
 # Dev of the Week
 
-<img alt="${currentIssue.devOfTheWeek.name}" src="${currentIssue.devOfTheWeek.profileImg}" style="width:200px;"/>
+<img alt="${currentIssue.devOfTheWeek.name}" src="${getAssetURL(
+    currentIssue.id,
+    currentIssue.devOfTheWeek.profileImg
+  )}" style="width:200px;"/>
 
 ## ${currentIssue.devOfTheWeek.name}
 ${currentIssue.devOfTheWeek.bio}
@@ -161,7 +184,7 @@ ___
 
 # This week in GIF
 
-![${currentIssue.gif.caption}](https://scriptified.dev${currentIssue.gif.gifURL})
+![${currentIssue.gif.caption}](${getAssetURL(currentIssue.id, currentIssue.gif.gifURL)})
 
 <center>${currentIssue.gif.caption}</center>
 
