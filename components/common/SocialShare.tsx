@@ -15,13 +15,13 @@ interface SocialShareProps {
 }
 
 interface ShareLinkProps {
-  text: string;
+  text?: string;
   label: string;
   url: string;
   showText?: boolean;
   icon: React.ReactNode;
 }
-const ShareLink = ({ text, label, url, icon, showText }: ShareLinkProps) => {
+export const ShareLink = ({ text, label, url, icon, showText }: ShareLinkProps) => {
   return (
     <a
       aria-label={label}
