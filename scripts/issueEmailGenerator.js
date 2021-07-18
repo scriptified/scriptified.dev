@@ -173,7 +173,7 @@ ${currentIssue.quiz.CodeSnippet.code}
 \`\`\`
 
 ${currentIssue.quiz.Option.map(
-  option => `<a href="https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.id}" style="text-decoration:none;">
+  option => `<a href="https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.option_id}" style="text-decoration:none;">
 <div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">
 	${option.text}
 </div>
