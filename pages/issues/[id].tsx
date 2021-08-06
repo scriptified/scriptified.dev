@@ -138,7 +138,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const data = await issueAPI.getIssue(id);
     const issueData = mapToIssue(data);
-    console.log(issueData);
+
     return {
       props: {
         issueData,
