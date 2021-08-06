@@ -81,69 +81,108 @@ function getAssetURL(issueNumber: number, assetURL: string) {
 }
 
 export function mapToIssue(issue: IssueAPIResponse): Issue {
-  return {
-    meta: {
-      number: issue.id,
-      title: issue.title,
-      desc: issue.description,
-      dateOfPublishing: issue.dateOfPublishing,
-      imgURL: getOGImage(issue.title, issue.id, issue.dateOfPublishing),
-    },
-    tipOfTheWeek: {
-      snippet: issue.tipOfTheWeek.codeSnippet,
-      desc: issue.tipOfTheWeek.description,
-      sourceName: issue.tipOfTheWeek.sourceName,
-      sourceURL: issue.tipOfTheWeek.sourceURL,
-    },
-    articles: issue.articles.map(article => ({
-      title: article.title,
-      desc: article.description,
-      url: article.url,
-      tags: article.tags.map(tag => tag.name),
-      author: oxfordComma(article.authors.map(author => author.Name)),
-    })),
-    talks: issue.talks.map(talk => ({
-      title: talk.title,
-      talkURL: talk.url,
-      desc: talk.description,
-      tags: talk.tags.map(tag => tag.name),
-    })),
-    tools: issue.tools.map(tool => ({
-      title: tool.name,
-      url: tool.url,
-      logo: getAssetURL(issue.id, tool.logo),
-      desc: tool.description,
-      tags: tool.tags.map(tag => tag.name),
-      author: oxfordComma(tool.authors.map(author => author.Name)),
-    })),
-    devOfTheWeek: {
-      name: issue.devOfTheWeek.name,
-      profileImg: getAssetURL(issue.id, issue.devOfTheWeek.profileImg),
-      bio: issue.devOfTheWeek.bio,
-      profileLink: {
-        youtube: issue.devOfTheWeek.youtube,
-        github: issue.devOfTheWeek.github,
-        linkedin: issue.devOfTheWeek.linkedin,
-        website: issue.devOfTheWeek.website,
-        twitter: issue.devOfTheWeek.twitter,
-        instagram: issue.devOfTheWeek.instagram,
-      },
-    },
-    gif: {
-      gifURL: getAssetURL(issue.id, issue.gif.gifURL),
-      caption: issue.gif.caption,
-    },
-    quiz: {
-      question: issue.quiz.question,
-      answerId: issue.quiz.answerId,
-      options: issue.quiz.Option.map(option => ({
-        description: option.description,
-        id: option.option_id,
-        text: option.text,
-      })),
-      snippet: issue.quiz.CodeSnippet,
-    },
+  const meta = {
+    number: issue.id,
+    title: issue.title,
+    desc: issue.description,
+    dateOfPublishing: issue.dateOfPublishing,
+    imgURL: getOGImage(issue.title, issue.id, issue.dateOfPublishing),
   };
+
+  const tipOfTheWeek =
+    issue.tipOfTheWeek !== null
+      ? {
+          snippet: issue.tipOfTheWeek.codeSnippet,
+          desc: issue.tipOfTheWeek.description,
+          sourceName: issue.tipOfTheWeek.sourceName,
+          sourceURL: issue.tipOfTheWeek.sourceURL,
+        }
+      : null;
+
+  const articles =
+    issue?.articles !== null
+      ? issue?.articles?.map(article => ({
+          title: article.title,
+          desc: article.description,
+          url: article.url,
+          tags: article.tags.map(tag => tag.name),
+          author: oxfordComma(article.authors.map(author => author.Name)),
+        }))
+      : null;
+
+  const talks =
+    issue.talks !== null
+      ? issue.talks.map(talk => ({
+          title: talk.title,
+          talkURL: talk.url,
+          desc: talk.description,
+          tags: talk.tags.map(tag => tag.name),
+        }))
+      : null;
+
+  const tools =
+    issue.tools !== null
+      ? issue.tools.map(tool => ({
+          title: tool.name,
+          url: tool.url,
+          logo: getAssetURL(issue.id, tool.logo),
+          desc: tool.description,
+          tags: tool.tags.map(tag => tag.name),
+          author: oxfordComma(tool.authors.map(author => author.Name)),
+        }))
+      : null;
+
+  const devOfTheWeek =
+    issue.devOfTheWeek !== null
+      ? {
+          name: issue.devOfTheWeek.name,
+          profileImg: getAssetURL(issue.id, issue.devOfTheWeek.profileImg),
+          bio: issue.devOfTheWeek.bio,
+          profileLink: {
+            youtube: issue.devOfTheWeek.youtube,
+            github: issue.devOfTheWeek.github,
+            linkedin: issue.devOfTheWeek.linkedin,
+            website: issue.devOfTheWeek.website,
+            twitter: issue.devOfTheWeek.twitter,
+            instagram: issue.devOfTheWeek.instagram,
+          },
+        }
+      : null;
+
+  const gif =
+    issue.gif !== null
+      ? {
+          gifURL: getAssetURL(issue.id, issue.gif.gifURL),
+          caption: issue.gif.caption,
+        }
+      : null;
+
+  const quiz =
+    issue.quiz !== null
+      ? {
+          question: issue.quiz.question,
+          answerId: issue.quiz.answerId,
+          options: issue.quiz.Option.map(option => ({
+            description: option.description,
+            id: option.option_id,
+            text: option.text,
+          })),
+          snippet: issue.quiz.CodeSnippet,
+        }
+      : null;
+
+  const issueData = {
+    meta,
+    tipOfTheWeek,
+    articles,
+    talks,
+    tools,
+    devOfTheWeek,
+    gif,
+    quiz,
+  };
+
+  return issueData;
 }
 
 export function getAllIssuesMeta(issues: IssueAPIResponse[]) {
