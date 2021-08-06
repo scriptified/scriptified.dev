@@ -171,17 +171,16 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
         }
       : null;
 
-  const issueData = Object.assign(
-    {},
-    { meta },
-    { tipOfTheWeek },
-    { articles },
-    { talks },
-    { tools },
-    { devOfTheWeek },
-    { gif },
-    { quiz }
-  );
+  const issueData = {
+    meta,
+    tipOfTheWeek,
+    articles,
+    talks,
+    tools,
+    devOfTheWeek,
+    gif,
+    quiz,
+  };
 
   return issueData;
 }
