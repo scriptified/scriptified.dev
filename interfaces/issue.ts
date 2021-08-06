@@ -8,12 +8,12 @@ import Tool from './tool';
 import Quiz from './quiz';
 
 export interface Issue {
-  tipOfTheWeek: TipOfTheWeek;
+  tipOfTheWeek: TipOfTheWeek | null;
   articles?: Article[] | null;
   tools?: Tool[] | null;
-  devOfTheWeek: DevOfTheWeek;
+  devOfTheWeek: DevOfTheWeek | null;
   talks?: Talk[] | null;
-  gif: Gif;
+  gif: Gif | null;
   meta: Meta;
-  quiz: Quiz;
+  quiz: Quiz | null;
 }
