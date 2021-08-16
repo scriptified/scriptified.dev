@@ -76,7 +76,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
             <Text type="base" additionalStyles="py-4 relative z-10">
               <Markdown>{issueData.tipOfTheWeek.desc}</Markdown>
             </Text>
-            <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
+            {issueData.tipOfTheWeek.snippet ? <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} /> : null}
           </IssueItem>
         ) : null}
         {issueData?.articles !== null ? (

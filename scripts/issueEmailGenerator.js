@@ -99,10 +99,14 @@ ${currentIssue.description}
 # Tip of the day
 ${currentIssue.tipOfTheWeek.description}
 
+${
+  currentIssue.tipOfTheWeek.codeSnippet &&
+  ` 
 \`\`\`${currentIssue.tipOfTheWeek.codeSnippet.language}
 ${currentIssue.tipOfTheWeek.codeSnippet.code}
 \`\`\`
-
+`
+}
 ___
 
 # Articles
@@ -134,23 +138,6 @@ ${tool.description}
 `
   )
   .join('\n')}
-
-___
-
-# Dev of the Week
-
-<img alt="${currentIssue.devOfTheWeek.name}" src="${getAssetURL(
-    currentIssue.id,
-    currentIssue.devOfTheWeek.profileImg
-  )}" style="width:200px;"/>
-
-## ${currentIssue.devOfTheWeek.name}
-${currentIssue.devOfTheWeek.bio}
-
-${Object.keys(currentIssue.devOfTheWeek)
-  .filter(key => PROFILE_KEYS.includes(key) && currentIssue.devOfTheWeek[key] !== null)
-  .map(profile => `[${PROFILE_TYPES[profile]}](${currentIssue.devOfTheWeek[profile]})`)
-  .join(' | ')}
 
 ___
 

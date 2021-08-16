@@ -28,7 +28,7 @@ export interface TipOfTheWeek {
   published_at: string;
   created_at: string;
   updated_at: string;
-  codeSnippet: CodeSnippet;
+  codeSnippet?: CodeSnippet;
 }
 export interface CodeSnippet {
   id: number;
