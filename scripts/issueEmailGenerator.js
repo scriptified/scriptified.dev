@@ -125,6 +125,27 @@ ${article.description}
 
 ___
 
+${
+  currentIssue.devOfTheWeek
+    ? `# Dev of the Week 
+    
+<img alt="${currentIssue.devOfTheWeek.name}" src="${getAssetURL(
+        currentIssue.id,
+        currentIssue.devOfTheWeek.profileImg
+      )}" style="width:200px;"/> 
+  
+## ${currentIssue.devOfTheWeek.name} 
+${currentIssue.devOfTheWeek.bio} 
+  
+${Object.keys(currentIssue.devOfTheWeek)
+  .filter(key => PROFILE_KEYS.includes(key) && currentIssue.devOfTheWeek[key] !== null)
+  .map(profile => `[${PROFILE_TYPES[profile]}](${currentIssue.devOfTheWeek[profile]})`)
+  .join(' | ')}
+
+___`
+    : ''
+}
+
 # Tools
 
 ${currentIssue.tools
