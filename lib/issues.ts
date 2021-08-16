@@ -92,7 +92,7 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
   const tipOfTheWeek =
     issue.tipOfTheWeek !== null
       ? {
-          snippet: issue.tipOfTheWeek.codeSnippet,
+          snippet: issue.tipOfTheWeek.codeSnippet ?? null,
           desc: issue.tipOfTheWeek.description,
           sourceName: issue.tipOfTheWeek.sourceName,
           sourceURL: issue.tipOfTheWeek.sourceURL,
