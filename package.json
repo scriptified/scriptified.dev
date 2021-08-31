@@ -1,6 +1,6 @@
 {
   "name": "scriptified",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "private": true,
   "license": "(MIT OR Apache-2.0)",
   "scripts": {
@@ -8,9 +8,8 @@
     "build": "node scripts/purgableCSSGenerator.js && next build",
     "deploy": "yarn build && next export",
     "start": "next start",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "email_issue": "node scripts/issueEmailGenerator.js" 
+    "lint": "next lint",
+    "email_issue": "node scripts/issueEmailGenerator.js"
   },
   "dependencies": {
     "@svgr/webpack": "5.4.0",
@@ -38,6 +37,7 @@
     "command-line-args": "5.1.3",
     "dotenv": "10.0.0",
     "eslint": "7.8.1",
+    "eslint-config-next": "^11.1.2",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.3",
     "eslint-plugin-react": "7.20.6",

@@ -10,9 +10,6 @@ const withPWA = require('next-pwa');
 const runtimeCaching = require('next-pwa/cache');
 
 const nextConfig = withPWA({
-  future: {
-    webpack5: true,
-  },
   pwa: {
     dest: 'public',
     register: true, // let this plugin register service worker for you
