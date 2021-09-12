@@ -115,7 +115,7 @@ export interface ToolsEntity {
   id: number;
   name: string;
   url: string;
-  logo: string;
+  logo?: string | null;
   description: string;
   issue: number;
   published_at: string;

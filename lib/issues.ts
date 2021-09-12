@@ -9,6 +9,8 @@ const ASSETS_URL = 'https://images.scriptified.dev/';
 
 const OG_IMAGE_BASE = 'https://og.scriptified.dev/';
 
+const DEFAULT_TOOL_ASSET = `${ASSETS_URL}common/default-tool.png`;
+
 export function getAllIssueIds(issues: IssueAPIResponse[]): Array<{ params: { id: string } }> {
   // Returns an array that looks like this:
   // [
@@ -73,7 +75,11 @@ function isValidHttpUrl(str: string) {
   return url.protocol === 'http:' || url.protocol === 'https:';
 }
 
-function getAssetURL(issueNumber: number, assetURL: string) {
+function getAssetURL(issueNumber: number, assetURL: string | undefined | null, defaultAssetURL?: string): string {
+  if ((typeof assetURL !== 'string' || assetURL.length === 0) && typeof defaultAssetURL === 'string') {
+    return defaultAssetURL;
+  }
+
   if (isValidHttpUrl(assetURL)) {
     return assetURL;
   }
@@ -125,7 +131,7 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
       ? issue.tools.map(tool => ({
           title: tool.name,
           url: tool.url,
-          logo: getAssetURL(issue.id, tool.logo),
+          logo: getAssetURL(issue.id, tool.logo, DEFAULT_TOOL_ASSET),
           desc: tool.description,
           tags: tool.tags.map(tag => tag.name),
           author: oxfordComma(tool.authors.map(author => author.Name)),
