@@ -23,7 +23,7 @@ function ThemeProvider({ children }: { children: React.ReactNode }): JSX.Element
   );
 }
 
-function useThemeState() {
+function useThemeState(): Theme {
   const context = React.useContext(ThemeStateContext);
   if (context === undefined) {
     throw new Error('useThemeState must be used within a ThemeProvider');
@@ -31,7 +31,7 @@ function useThemeState() {
   return context;
 }
 
-function useThemeDispatch() {
+function useThemeDispatch(): Action {
   const context = React.useContext(ThemeDispatchContext);
   if (context === undefined) {
     throw new Error('useThemeDispatch must be used within a ThemeProvider');

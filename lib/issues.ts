@@ -191,7 +191,15 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
   return issueData;
 }
 
-export function getAllIssuesMeta(issues: IssueAPIResponse[]) {
+type IssuesMeta = {
+  title: string;
+  desc: string;
+  number: number;
+  dateOfPublishing: string;
+  imgURL: string;
+};
+
+export function getAllIssuesMeta(issues: IssueAPIResponse[]): IssuesMeta[] {
   return issues.map(issue => ({
     title: issue.title,
     desc: issue.description,

@@ -5,7 +5,6 @@ import { useThemeState } from '../theme/ThemeContext';
 const IssueItem = ({
   title,
   children,
-  icon,
   id,
 }: {
   title: string;

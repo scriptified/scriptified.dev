@@ -5,7 +5,7 @@ import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
 import Markdown from './Markdown';
 
-function shuffle(array: any[]): any[] {
+function shuffle(array: unknown[]): unknown[] {
   const shuffledArray = JSON.parse(JSON.stringify(array));
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));

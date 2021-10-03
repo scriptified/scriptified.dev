@@ -174,6 +174,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                   key={theme}
                   id={theme}
                   role="option"
+                  aria-selected="true"
                   tabIndex={0}
                   value={theme}
                   className={`dropdown__list-item ${

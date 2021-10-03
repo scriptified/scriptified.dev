@@ -1,6 +1,6 @@
 /*
 Usage - to get scroll position of an element, hide/show element accrodingly
-Example: 
+Example:
 ```
 const [sticky, setSticky] = useState(false)
 
@@ -15,7 +15,7 @@ const [sticky, setSticky] = useState(false)
 Ref - https://gist.github.com/whoisryosuke/72d9979a44e01e95400760d98ca519e8
 */
 
-import { useRef, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect, RefObject } from 'react';
 
 const isBrowser = typeof window !== `undefined`;
 
@@ -24,9 +24,9 @@ interface IPosition {
   y: number;
 }
 
-type TEffect = ({ prevPos, currPos }: { prevPos: IPosition; currPos: IPosition }) => any;
+type TEffect = ({ prevPos, currPos }: { prevPos: IPosition; currPos: IPosition }) => unknown;
 
-function getScrollPosition({ element, useWindow }: { element?: any; useWindow?: boolean }) {
+function getScrollPosition({ element, useWindow }: { element?: RefObject<HTMLElement>; useWindow?: boolean }) {
   if (!isBrowser) return { x: 0, y: 0 };
 
   const target = element ? element.current : document.body;
@@ -37,11 +37,11 @@ function getScrollPosition({ element, useWindow }: { element?: any; useWindow?: 
 
 export function useScrollPosition(
   effect: TEffect,
-  deps: Array<any>,
-  element?: any,
+  deps: Array<unknown>,
+  element?: RefObject<HTMLElement>,
   useWindow?: boolean,
   wait?: number
-) {
+): void {
   const position = useRef(getScrollPosition({ useWindow }));
 
   let throttleTimeout = null;

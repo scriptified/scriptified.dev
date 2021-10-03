@@ -4,5 +4,5 @@
   },
   "editor.formatOnSave": true, // Tell VSCode to format files on save
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "conventionalCommits.scopes": ["prettier"]
+  "conventionalCommits.scopes": ["prettier", "eslint"]
 }
