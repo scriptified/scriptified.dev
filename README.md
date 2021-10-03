@@ -35,39 +35,39 @@ A weekly newsletter with insightful tips, tools, resources & more on React and J
 
 1. Clone the project
 
-    ```bash
-    git clone https://github.com/scriptified/scriptified.git
-    ```
+   ```bash
+   git clone https://github.com/scriptified/scriptified.git
+   ```
 
 2. Go to the project directory
 
-    ```bash
-    cd scriptified
-    ```
+   ```bash
+   cd scriptified
+   ```
 
 3. Install dependencies
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
-    or
+   or
 
-    ```bash
-    yarn install
-    ```
+   ```bash
+   yarn install
+   ```
 
 4. Start the development server
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
-    or
+   or
 
-    ```bash
-    yarn dev
-    ```
+   ```bash
+   yarn dev
+   ```
 
 ## Scriptified CMS
 
