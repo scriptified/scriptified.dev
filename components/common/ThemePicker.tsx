@@ -167,7 +167,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
               role="listbox"
               aria-labelledby="listbox-label"
               aria-activedescendant="listbox-item-3"
-              className="dropdown__list max-h-56 rounded-md py-1 text-base leading-6 shadow-xs overflow-auto focus:outline-none sm:text-sm sm:leading-5"
+              className="dropdown__list max-h-56 rounded-md py-1 text-base leading-6 ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm sm:leading-5"
             >
               {THEMES.map(theme => (
                 <li

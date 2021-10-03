@@ -13,6 +13,7 @@ const numberOfImpWords = 3;
 const desciptionArray = siteConfig.description.split(' ');
 const descPart1 = desciptionArray.slice(0, desciptionArray.length - numberOfImpWords).join(' ');
 const descPart2 = desciptionArray.slice(-1 * numberOfImpWords).join(' ');
+console.log(descPart1, descPart2);
 
 const HeroSection = (): JSX.Element => {
   const theme = useThemeState();
@@ -32,7 +33,8 @@ const HeroSection = (): JSX.Element => {
         additionalStyles="text-3xl mb-10 sm:mb-12 lg:mb-16 max-w-3xl text-center px-4"
       >
         <h2 className="text-shadow">
-          {`${descPart1} `} <span className="whitespace-no-wrap">{descPart2}</span>
+          {`${descPart1} `}
+          <span className="whitespace-nowrap">{descPart2}</span>
         </h2>
       </Text>
       <div className="w-5/6 sm:mx-8 lg:w-2/4 mb-2 relative z-10">

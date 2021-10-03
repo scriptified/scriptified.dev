@@ -74,7 +74,7 @@ const FeatureSection = (): JSX.Element => {
         </div>
 
         <div className="pt-10">
-          <ul className="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
+          <ul className="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
             {featureData.map(feature => {
               return (
                 <li key={feature.name} className="py-4 pr-4 lg:pr-8 mb-4 flex justify-center">
