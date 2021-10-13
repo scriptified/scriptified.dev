@@ -29,6 +29,10 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+/public/service-worker.*
+/public/workbox-*.js
+/public/*.js.map
+
 .vercel
 
 theme/purgeFile.ts
