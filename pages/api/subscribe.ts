@@ -6,7 +6,7 @@ type ResponseData = {
   msg: string;
 };
 
-export default async (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
+const subscribe = async (req: NextApiRequest, res: NextApiResponse<ResponseData>): Promise<void> => {
   const { body, method } = req;
   const { email, firstName } = body;
 
@@ -55,3 +55,5 @@ export default async (req: NextApiRequest, res: NextApiResponse<ResponseData>) =
     }
   }
 };
+
+export default subscribe;
