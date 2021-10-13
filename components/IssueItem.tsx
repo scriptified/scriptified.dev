@@ -5,7 +5,6 @@ import { useThemeState } from '../theme/ThemeContext';
 const IssueItem = ({
   title,
   children,
-  icon,
   id,
 }: {
   title: string;
@@ -14,6 +13,7 @@ const IssueItem = ({
   id?: string;
 }): JSX.Element => {
   const theme = useThemeState();
+
   return (
     <div id={id} className="my-20">
       <div className="flex flex-row items-center">

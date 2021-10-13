@@ -40,7 +40,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
     if (router.isReady && typeof router.query?.section === 'string') {
       document.getElementById(router.query.section)?.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [router.isReady]);
+  }, [router.isReady, router.query.section]);
 
   if (router.isFallback) {
     return <></>;
@@ -71,36 +71,50 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
           </Text>
           <SocialShare url={`${siteConfig.url}${router.asPath}`} title={issueData.meta.title} />
         </div>
-        <IssueItem id="tip" title="Tip of the day" icon={<TipIcon />}>
-          <Text type="base" additionalStyles="py-4 relative z-10">
-            <Markdown>{issueData.tipOfTheWeek.desc}</Markdown>
-          </Text>
-          <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} />
-        </IssueItem>
-        <IssueItem id="articles" title="Articles" icon={<ArticlesIcon />}>
-          {issueData.articles.map(article => (
-            <ArticleItem article={article} key={article.url} />
-          ))}
-        </IssueItem>
-        <IssueItem id="tools" title="Tools" icon={<ToolsAndResourcesIcon />}>
-          {issueData.tools.map(tool => (
-            <ToolItem tool={tool} key={tool.url} />
-          ))}
-        </IssueItem>
-        <IssueItem id="dev" title="Dev Of The Week" icon={<DevOfTheWeekIcon />}>
-          <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
-        </IssueItem>
-        <IssueItem id="talk" title="Tech talks" icon={<TechTalksIcon />}>
-          {issueData.talks.map(talk => (
-            <TechTalk key={talk.talkURL} techTalk={talk} />
-          ))}
-        </IssueItem>
-        <IssueItem id="quiz" title="Quiz" icon={<QuizIcon />}>
-          <Quiz quiz={issueData.quiz} />
-        </IssueItem>
-        <IssueItem id="gif" title="This Week in GIF" icon={<GifIcon />}>
-          <GIFItem gif={issueData.gif} />
-        </IssueItem>
+        {issueData?.tipOfTheWeek !== null ? (
+          <IssueItem id="tip" title="Tip of the day" icon={<TipIcon />}>
+            <Text type="base" additionalStyles="py-4 relative z-10">
+              <Markdown>{issueData.tipOfTheWeek.desc}</Markdown>
+            </Text>
+            {issueData.tipOfTheWeek.snippet ? <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} /> : null}
+          </IssueItem>
+        ) : null}
+        {issueData?.articles !== null ? (
+          <IssueItem id="articles" title="Articles" icon={<ArticlesIcon />}>
+            {issueData.articles.map(article => (
+              <ArticleItem article={article} key={article.url} />
+            ))}
+          </IssueItem>
+        ) : null}
+        {issueData?.tools !== null ? (
+          <IssueItem id="tools" title="Tools" icon={<ToolsAndResourcesIcon />}>
+            {issueData.tools.map(tool => (
+              <ToolItem tool={tool} key={tool.url} />
+            ))}
+          </IssueItem>
+        ) : null}
+        {issueData?.devOfTheWeek !== null ? (
+          <IssueItem id="dev" title="Dev Of The Week" icon={<DevOfTheWeekIcon />}>
+            <DevOfTheWeekItem devOfTheWeek={issueData.devOfTheWeek} />
+          </IssueItem>
+        ) : null}
+        {issueData?.talks !== null ? (
+          <IssueItem id="talk" title="Tech talks" icon={<TechTalksIcon />}>
+            {issueData.talks.map(talk => (
+              <TechTalk key={talk.talkURL} techTalk={talk} />
+            ))}
+          </IssueItem>
+        ) : null}
+        {issueData.quiz !== null ? (
+          <IssueItem id="quiz" title="Quiz" icon={<QuizIcon />}>
+            <Quiz quiz={issueData.quiz} />
+          </IssueItem>
+        ) : null}
+        {issueData.gif !== null ? (
+          <IssueItem id="gif" title="This Week in GIF" icon={<GifIcon />}>
+            <GIFItem gif={issueData.gif} />
+          </IssueItem>
+        ) : null}
         <SubscribeCard />
         <BackToHome className="my-12 max-w-4xl mx-auto" />
       </section>
@@ -124,6 +138,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const data = await issueAPI.getIssue(id);
     const issueData = mapToIssue(data);
+
     return {
       props: {
         issueData,

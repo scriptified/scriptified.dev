@@ -28,7 +28,7 @@ export interface TipOfTheWeek {
   published_at: string;
   created_at: string;
   updated_at: string;
-  codeSnippet: CodeSnippet;
+  codeSnippet?: CodeSnippet;
 }
 export interface CodeSnippet {
   id: number;
@@ -115,7 +115,7 @@ export interface ToolsEntity {
   id: number;
   name: string;
   url: string;
-  logo: string;
+  logo?: string | null;
   description: string;
   issue: number;
   published_at: string;

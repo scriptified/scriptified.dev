@@ -12,7 +12,7 @@ const IssueListItem = ({ issueData }: { issueData: Meta }): JSX.Element => {
   return (
     <div className={`flex py-8 pr-2 max-w-3xl md:border-0 border-b border-${theme}-500`} key={number}>
       <div className="h-full flex md:flex-row flex-col items-start">
-        <div className="w-16 flex-grow flex md:flex-col text-center leading-none mb-2">
+        <div className="w-24 flex-shrink-0 flex-grow flex md:flex-col text-center leading-none mb-2">
           <span className={`text-${theme}-700 text-lg md:mr-0 mr-2 font-bold md:order-2 uppercase`}>Issue</span>
           <span
             // eslint-disable-next-line max-len

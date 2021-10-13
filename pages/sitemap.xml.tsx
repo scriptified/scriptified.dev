@@ -1,3 +1,4 @@
+import { NextApiResponse } from 'next';
 import React from 'react';
 import { siteConfig } from '../components/Layout';
 import { issueAPI } from '../lib/issues';
@@ -32,7 +33,7 @@ const createSitemap = (posts: SitemapData) => `<?xml version="1.0" encoding="UTF
     `;
 
 class Sitemap extends React.Component {
-  static async getInitialProps({ res }) {
+  static async getInitialProps({ res }: { res: NextApiResponse }): Promise<void> {
     const posts = await issueAPI.allIssuesReversed();
     const sitemapData = posts.map(post => ({ id: post.id, date: post.dateOfPublishing }));
 

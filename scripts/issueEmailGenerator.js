@@ -99,10 +99,14 @@ ${currentIssue.description}
 # Tip of the day
 ${currentIssue.tipOfTheWeek.description}
 
+${
+  currentIssue.tipOfTheWeek.codeSnippet &&
+  ` 
 \`\`\`${currentIssue.tipOfTheWeek.codeSnippet.language}
 ${currentIssue.tipOfTheWeek.codeSnippet.code}
 \`\`\`
-
+`
+}
 ___
 
 # Articles
@@ -121,6 +125,27 @@ ${article.description}
 
 ___
 
+${
+  currentIssue.devOfTheWeek
+    ? `# Dev of the Week 
+    
+<img alt="${currentIssue.devOfTheWeek.name}" src="${getAssetURL(
+        currentIssue.id,
+        currentIssue.devOfTheWeek.profileImg
+      )}" style="width:200px;"/> 
+  
+## ${currentIssue.devOfTheWeek.name} 
+${currentIssue.devOfTheWeek.bio} 
+  
+${Object.keys(currentIssue.devOfTheWeek)
+  .filter(key => PROFILE_KEYS.includes(key) && currentIssue.devOfTheWeek[key] !== null)
+  .map(profile => `[${PROFILE_TYPES[profile]}](${currentIssue.devOfTheWeek[profile]})`)
+  .join(' | ')}
+
+___`
+    : ''
+}
+
 # Tools
 
 ${currentIssue.tools
@@ -134,23 +159,6 @@ ${tool.description}
 `
   )
   .join('\n')}
-
-___
-
-# Dev of the Week
-
-<img alt="${currentIssue.devOfTheWeek.name}" src="${getAssetURL(
-    currentIssue.id,
-    currentIssue.devOfTheWeek.profileImg
-  )}" style="width:200px;"/>
-
-## ${currentIssue.devOfTheWeek.name}
-${currentIssue.devOfTheWeek.bio}
-
-${Object.keys(currentIssue.devOfTheWeek)
-  .filter(key => PROFILE_KEYS.includes(key) && currentIssue.devOfTheWeek[key] !== null)
-  .map(profile => `[${PROFILE_TYPES[profile]}](${currentIssue.devOfTheWeek[profile]})`)
-  .join(' | ')}
 
 ___
 
@@ -173,7 +181,7 @@ ${currentIssue.quiz.CodeSnippet.code}
 \`\`\`
 
 ${currentIssue.quiz.Option.map(
-  option => `<a href="https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.id}" style="text-decoration:none;">
+  option => `<a href="https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.option_id}" style="text-decoration:none;">
 <div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">
 	${option.text}
 </div>
