@@ -47,6 +47,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "anuraghazra",
+      "name": "Anurag Hazra",
+      "avatar_url": "https://avatars.githubusercontent.com/u/35374649?v=4",
+      "profile": "https://anuraghazra.dev",
+      "contributions": [
+        "code",
+        "a11y"
+      ]
     }
   ],
   "contributorsPerLine": 7,
