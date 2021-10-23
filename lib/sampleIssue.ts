@@ -43,7 +43,7 @@ const SAMPLE_ISSUE_API_RESPONSE: IssueAPIResponse = {
   },
   gif: {
     id: 1,
-    gifURL: 'https://www.placecage.com/gif/200/300',
+    gifURL: 'https://www.pexels.com/video/5377684/download/?search_query=coding&tracking_id=yablr33baca',
     caption: 'a random description about what makes this GIF so great',
     issue: 1,
     published_at: '2021-05-01T07:14:14.757Z',
