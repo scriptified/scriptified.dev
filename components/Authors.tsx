@@ -11,7 +11,7 @@ function Authors({ authors }: { authors: Author[] }): JSX.Element {
         ? authors?.map((author, index) => {
             const isLastElement = index === authors.length - 1;
             return (
-              <a href={author.website ?? '#'} target="_blank" rel="noreferrer" key={author.id}>
+              <a href={author.website} target="_blank" rel="noreferrer" key={author.id}>
                 <Text inline additionalStyles="uppercase hover:underline" type="small" color="text-gray-600">
                   {isLastElement ? author.name : `${author.name}, `}
                 </Text>

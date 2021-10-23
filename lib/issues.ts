@@ -105,7 +105,7 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
                 {
                   id: 1,
                   name: issue.tipOfTheWeek.sourceName,
-                  website: issue.tipOfTheWeek.sourceURL,
+                  website: issue.tipOfTheWeek.sourceURL ?? '#',
                 },
               ]
             : [],
@@ -118,14 +118,12 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
           title: article.title,
           desc: article.description,
           url: article.url,
-          tags: article.tags.map(tag => tag.name),
-          authors: article.authors.map(author => ({
+          tags: article.tags?.map(tag => tag.name),
+          authors: article.authors?.map(author => ({
             id: author.id,
             name: author.Name,
             website: author.Website,
           })),
-          authorName: oxfordComma(article.authors.map(author => author.Name)),
-          authorWebsite: oxfordComma(article.authors.map(author => author.Website)),
         }))
       : null;
 
@@ -135,12 +133,12 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
           title: talk.title,
           talkURL: talk.url,
           desc: talk.description,
-          authors: talk.authors.map(author => ({
+          authors: talk.authors?.map(author => ({
             id: author.id,
             name: author.Name,
-            website: author.Website,
+            website: author.Website ?? '#',
           })),
-          tags: talk.tags.map(tag => tag.name),
+          tags: talk.tags?.map(tag => tag.name),
         }))
       : null;
 
@@ -151,11 +149,11 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
           url: tool.url,
           logo: getAssetURL(issue.id, tool.logo, DEFAULT_TOOL_ASSET),
           desc: tool.description,
-          tags: tool.tags.map(tag => tag.name),
-          authors: tool.authors.map(author => ({
+          tags: tool.tags?.map(tag => tag.name),
+          authors: tool.authors?.map(author => ({
             id: author.id,
             name: author.Name,
-            website: author.Website,
+            website: author.Website ?? '#',
           })),
         }))
       : null;
