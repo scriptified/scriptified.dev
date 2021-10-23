@@ -1,35 +1,55 @@
-import GitHubLogo from '../icons/github';
-import InstagramLogo from '../icons/instagram';
-import WebsiteLogo from '../icons/link';
-import LinkedInLogo from '../icons/linkedin';
 import React from 'react';
-import TwitterLogo from '../icons/twitter';
-import YouTubeLogo from '../icons/youtube';
+import {
+  GithubIcon,
+  InstagramIcon,
+  LinkIcon,
+  LinkedInIcon,
+  TwitterIcon,
+  YoutubeIcon,
+  EmailIcon,
+  RSSIcon,
+} from '../icons/icons';
 import Social from '../../interfaces/social';
 import { useThemeState } from '../../theme/ThemeContext';
+import { siteConfig } from '../Layout';
+import { ShareLink } from './SocialShare';
 
 const LINK_LOGO = {
-  website: WebsiteLogo,
-  github: GitHubLogo,
-  twitter: TwitterLogo,
-  linkedin: LinkedInLogo,
-  instagram: InstagramLogo,
-  youtube: YouTubeLogo,
+  website: LinkIcon,
+  github: GithubIcon,
+  twitter: TwitterIcon,
+  linkedin: LinkedInIcon,
+  instagram: InstagramIcon,
+  youtube: YoutubeIcon,
+  email: EmailIcon,
+  rss: RSSIcon,
 };
 
-function SocialLinks({ links = {} }: { links?: Social }): JSX.Element {
+interface SocialLinksProps {
+  links?: Social;
+  logoColor?: string;
+  additionalStyles?: string;
+}
+
+function SocialLinks({ links = {}, logoColor = '', additionalStyles = '' }: SocialLinksProps): JSX.Element {
   const theme = useThemeState();
+  const getLogoColor = logoColor ? logoColor : `text-${theme}-500`;
+  const validLinks = Object.keys(links).filter(link => typeof links[link] === 'string');
+
   return (
-    <>
-      {Object.keys(links).map(link => {
+    <div className={`flex ${additionalStyles}`}>
+      {validLinks.map(link => {
         const Logo = LINK_LOGO[link];
         return (
-          <a href={links[link]} key={link} className="mr-3">
-            {<Logo color={`text-${theme}-500`} />}
-          </a>
+          <ShareLink
+            label={`${siteConfig.name}'s ${link} profile`}
+            url={links[link]}
+            key={link}
+            icon={<Logo color={getLogoColor} additionalStyles="h-5 w-5" />}
+          />
         );
       })}
-    </>
+    </div>
   );
 }
 export default SocialLinks;

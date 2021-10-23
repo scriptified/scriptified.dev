@@ -1,0 +1,68 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "gupta-ji6",
+      "name": "Ayush Gupta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/21218732?v=4",
+      "profile": "http://ayushgupta.tech",
+      "contributions": [
+        "code",
+        "review",
+        "projectManagement",
+        "maintenance",
+        "ideas",
+        "design",
+        "doc",
+        "content",
+        "a11y"
+      ]
+    },
+    {
+      "login": "prateek3255",
+      "name": "Prateek Surana",
+      "avatar_url": "https://avatars.githubusercontent.com/u/21277179?v=4",
+      "profile": "http://prateeksurana.me",
+      "contributions": [
+        "code",
+        "review",
+        "projectManagement",
+        "maintenance",
+        "ideas",
+        "design",
+        "doc",
+        "content",
+        "a11y"
+      ]
+    },
+    {
+      "login": "hinogi",
+      "name": "Stefan Schneider",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4602609?v=4",
+      "profile": "https://github.com/hinogi",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "anuraghazra",
+      "name": "Anurag Hazra",
+      "avatar_url": "https://avatars.githubusercontent.com/u/35374649?v=4",
+      "profile": "https://anuraghazra.dev",
+      "contributions": [
+        "code",
+        "a11y"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "scriptified.dev",
+  "projectOwner": "scriptified",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

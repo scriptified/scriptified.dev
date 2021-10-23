@@ -1,58 +1,50 @@
-import Layout, { siteTitle } from '../components/layout';
-
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
-import Link from 'next/link';
+
 import Text from '../components/common/Text';
-import { getAllIssuesMeta } from '../lib/issues';
 import { useThemeState } from '../theme/ThemeContext';
+import SubscribeCard from '../components/common/SubscribeCard';
+import IssueListItem from '../components/common/IssueListItem';
+import Meta from '../interfaces/meta';
+import BackToHome from '../components/common/BackToHome';
+import Layout, { siteConfig } from '../components/Layout';
+import { getAllIssuesMeta, issueAPI } from '../lib/issues';
 
 // import utilStyles from "../styles/utils.module.css";
 
-export default function Issues({
-  allIssuesData,
-}: {
-  allIssuesData: {
-    desc: string;
-    title: string;
-    id: string;
-  }[];
-}): JSX.Element {
-  const reversedIssuesData = allIssuesData.slice().reverse();
+export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
   const theme = useThemeState();
 
   return (
-    <Layout additionalStyles="max-w-4xl px-4 mt-12">
-      <Head>
-        <title>{siteTitle} - All Issues</title>
-      </Head>
-      <section className="text-lg leading-normal mt-16">
-        <Text type="h1" color={`text-${theme}-5`} additionalStyles="mb-8">
+    <Layout
+      title={`${siteConfig.name} | All Issues`}
+      additionalStyles={`pt-12 min-h-screen bg-gradient-to-b from-${theme}-100 to-${theme}-300`}
+    >
+      <section className="max-w-4xl px-8 sm:px-8 md:px-16 lg:px-24 mx-auto text-lg leading-normal pt-16">
+        <Text type="h1" color={`text-${theme}-900`} additionalStyles="text-5xl pb-8">
           Issues
         </Text>
-        {/* <h2 className="text-2xl leading-snug my-4 mx-0">Issues</h2> */}
         <ul className="m-0 p-0 list-none">
-          {reversedIssuesData.map(({ id, desc, title }) => (
-            <li className="mt-0 mx-0 mb-5" key={id}>
-              <Link href="/issues/[id]" as={`/issues/${id}`}>
-                <a className={`text-${theme}-600 font-sans font-semibold text-2xl no-underline hover:underline`}>
-                  {title}
-                </a>
-              </Link>
-              <br />
-              <p>{desc}</p>
+          {allIssuesData.map(data => (
+            <li key={data.number}>
+              <IssueListItem issueData={data} key={data.number} />
             </li>
           ))}
         </ul>
       </section>
+      <div className="max-w-4xl px-8 sm:px-8 md:px-16 lg:px-32 mx-auto pt-16">
+        <SubscribeCard />
+      </div>
+      <BackToHome className="my-12 max-w-4xl px-8 sm:px-8 md:px-16 lg:px-32 mx-auto" />
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const data = await issueAPI.allIssuesReversed();
   return {
     props: {
-      allIssuesData: getAllIssuesMeta(),
+      allIssuesData: getAllIssuesMeta(data),
     },
+    revalidate: 180,
   };
 };

@@ -5,17 +5,15 @@ import Meta from './meta';
 import Talk from './talk';
 import TipOfTheWeek from './tipOfTheWeek';
 import Tool from './tool';
-import Website from './website';
 import Quiz from './quiz';
 
 export interface Issue {
-  tipOfTheWeek: TipOfTheWeek;
+  tipOfTheWeek: TipOfTheWeek | null;
   articles?: Article[] | null;
   tools?: Tool[] | null;
-  devOfTheWeek: DevOfTheWeek;
+  devOfTheWeek: DevOfTheWeek | null;
   talks?: Talk[] | null;
-  website: Website;
-  gif: Gif;
+  gif: Gif | null;
   meta: Meta;
-  quiz: Quiz;
+  quiz: Quiz | null;
 }

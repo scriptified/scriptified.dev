@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GlobeLogo = ({ color = '' }: { color: string }): JSX.Element => {
+const GlobeLogo = ({ color = '' }: { color?: string }): JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

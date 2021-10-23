@@ -1,9 +1,8 @@
 import CodeSnippet from './codeSnippet';
 
 export default interface TipOfTheWeek {
-  snippet: CodeSnippet;
+  snippet?: CodeSnippet;
   desc: string;
   sourceName: string;
   sourceURL: string;
-  tags: string[];
 }
