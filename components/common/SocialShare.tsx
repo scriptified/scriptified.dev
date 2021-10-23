@@ -1,14 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import {
-  CopyIcon,
-  CheckSqaureIcon,
-  TwitterIcon,
-  ShareIcon,
-  WhatsAppIcon,
-  FacebookIcon,
-} from "../icons/icons";
-import { useThemeState } from "../../theme/ThemeContext";
+import { CopyIcon, CheckSqaureIcon, TwitterIcon, ShareIcon, WhatsAppIcon, FacebookIcon } from '../icons/icons';
+import { useThemeState } from '../../theme/ThemeContext';
 
 interface SocialShareProps {
   url?: string;
@@ -29,7 +22,7 @@ interface ShareLinkProps {
   icon: React.ReactNode;
 }
 
-export const ShareLink = ({ text, label, url, icon, showText }: ShareLinkProps) => {
+export const ShareLink = ({ text, label, url, icon, showText }: ShareLinkProps): JSX.Element => {
   return (
     <a
       aria-label={label}
@@ -45,8 +38,8 @@ export const ShareLink = ({ text, label, url, icon, showText }: ShareLinkProps) 
 };
 
 const SocialShare = ({
-  url = "",
-  title = "",
+  url = '',
+  title = '',
   showText = false,
   twitter = true,
   copyLink = true,
@@ -55,12 +48,10 @@ const SocialShare = ({
 }: SocialShareProps): JSX.Element => {
   const theme = useThemeState();
   const [showShareBtn, setShowShareBtn] = useState(false);
-  const [copyBtnText, setCopyBtnText] = useState<"Copy Link" | "Copied!">(
-    "Copy Link"
-  );
+  const [copyBtnText, setCopyBtnText] = useState<'Copy Link' | 'Copied!'>('Copy Link');
 
   useEffect(() => {
-    const timer = setTimeout(() => setCopyBtnText("Copy Link"), 1500);
+    const timer = setTimeout(() => setCopyBtnText('Copy Link'), 1500);
 
     return () => clearTimeout(timer);
   }, [copyBtnText, theme]);
@@ -76,7 +67,7 @@ const SocialShare = ({
   const copyLinkToClipBoard = async () => {
     try {
       await navigator.clipboard.writeText(url);
-      setCopyBtnText("Copied!");
+      setCopyBtnText('Copied!');
     } catch (error) {
       console.error(error);
     }
@@ -141,7 +132,7 @@ const SocialShare = ({
           className="transition duration-500 ease-in-out transform hover:scale-125"
           onClick={copyLinkToClipBoard}
         >
-          {copyBtnText === "Copy Link" ? (
+          {copyBtnText === 'Copy Link' ? (
             <CopyIcon color={`text-${theme}-500`} />
           ) : (
             <CheckSqaureIcon color={`text-${theme}-500`} />
