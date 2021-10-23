@@ -20,7 +20,7 @@ const LoadingProvider = ({ children }: { children: React.ReactNode }): JSX.Eleme
       setTheme(randomTheme);
       sessionStorage.setItem('theme', randomTheme);
     }
-  }, []);
+  }, [setTheme]);
 
   return <LoadingStateContext.Provider value={loading}>{children}</LoadingStateContext.Provider>;
 };

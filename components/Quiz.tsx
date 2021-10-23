@@ -21,7 +21,7 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
         setOption(option);
       }
     }
-  }, [router.isReady]);
+  }, [router.isReady, router.query.option, router.query.section]);
 
   const hasSelectedCorrectOption = selectedOptions.includes(quiz.answerId);
 

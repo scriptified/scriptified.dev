@@ -40,7 +40,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
     if (router.isReady && typeof router.query?.section === 'string') {
       document.getElementById(router.query.section)?.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [router.isReady]);
+  }, [router.isReady, router.query.section]);
 
   if (router.isFallback) {
     return <></>;

@@ -35,39 +35,39 @@ A weekly newsletter with insightful tips, tools, resources & more on React and J
 
 1. Clone the project
 
-    ```bash
-    git clone https://github.com/scriptified/scriptified.git
-    ```
+   ```bash
+   git clone https://github.com/scriptified/scriptified.git
+   ```
 
 2. Go to the project directory
 
-    ```bash
-    cd scriptified
-    ```
+   ```bash
+   cd scriptified
+   ```
 
 3. Install dependencies
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
-    or
+   or
 
-    ```bash
-    yarn install
-    ```
+   ```bash
+   yarn install
+   ```
 
 4. Start the development server
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
-    or
+   or
 
-    ```bash
-    yarn dev
-    ```
+   ```bash
+   yarn dev
+   ```
 
 ## Scriptified CMS
 
@@ -82,8 +82,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="http://ayushgupta.tech"><img src="https://avatars.githubusercontent.com/u/21218732?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ayush Gupta</b></sub></a><br /><a href="https://github.com/scriptified/scriptified/commits?author=gupta-ji6" title="Code">💻</a> <a href="https://github.com/scriptified/scriptified/pulls?q=is%3Apr+reviewed-by%3Agupta-ji6" title="Reviewed Pull Requests">👀</a> <a href="#projectManagement-gupta-ji6" title="Project Management">📆</a> <a href="#maintenance-gupta-ji6" title="Maintenance">🚧</a> <a href="#ideas-gupta-ji6" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-gupta-ji6" title="Design">🎨</a> <a href="https://github.com/scriptified/scriptified/commits?author=gupta-ji6" title="Documentation">📖</a> <a href="#content-gupta-ji6" title="Content">🖋</a> <a href="#a11y-gupta-ji6" title="Accessibility">️️️️♿️</a></td>
-    <td align="center"><a href="http://prateeksurana.me"><img src="https://avatars.githubusercontent.com/u/21277179?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Prateek Surana</b></sub></a><br /><a href="https://github.com/scriptified/scriptified/commits?author=prateek3255" title="Code">💻</a> <a href="https://github.com/scriptified/scriptified/pulls?q=is%3Apr+reviewed-by%3Aprateek3255" title="Reviewed Pull Requests">👀</a> <a href="#projectManagement-prateek3255" title="Project Management">📆</a> <a href="#maintenance-prateek3255" title="Maintenance">🚧</a> <a href="#ideas-prateek3255" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-prateek3255" title="Design">🎨</a> <a href="https://github.com/scriptified/scriptified/commits?author=prateek3255" title="Documentation">📖</a> <a href="#content-prateek3255" title="Content">🖋</a> <a href="#a11y-prateek3255" title="Accessibility">️️️️♿️</a></td>
+    <td align="center"><a href="http://ayushgupta.tech"><img src="https://avatars.githubusercontent.com/u/21218732?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ayush Gupta</b></sub></a><br /><a href="https://github.com/scriptified/scriptified.dev/commits?author=gupta-ji6" title="Code">💻</a> <a href="https://github.com/scriptified/scriptified.dev/pulls?q=is%3Apr+reviewed-by%3Agupta-ji6" title="Reviewed Pull Requests">👀</a> <a href="#projectManagement-gupta-ji6" title="Project Management">📆</a> <a href="#maintenance-gupta-ji6" title="Maintenance">🚧</a> <a href="#ideas-gupta-ji6" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-gupta-ji6" title="Design">🎨</a> <a href="https://github.com/scriptified/scriptified.dev/commits?author=gupta-ji6" title="Documentation">📖</a> <a href="#content-gupta-ji6" title="Content">🖋</a> <a href="#a11y-gupta-ji6" title="Accessibility">️️️️♿️</a></td>
+    <td align="center"><a href="http://prateeksurana.me"><img src="https://avatars.githubusercontent.com/u/21277179?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Prateek Surana</b></sub></a><br /><a href="https://github.com/scriptified/scriptified.dev/commits?author=prateek3255" title="Code">💻</a> <a href="https://github.com/scriptified/scriptified.dev/pulls?q=is%3Apr+reviewed-by%3Aprateek3255" title="Reviewed Pull Requests">👀</a> <a href="#projectManagement-prateek3255" title="Project Management">📆</a> <a href="#maintenance-prateek3255" title="Maintenance">🚧</a> <a href="#ideas-prateek3255" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-prateek3255" title="Design">🎨</a> <a href="https://github.com/scriptified/scriptified.dev/commits?author=prateek3255" title="Documentation">📖</a> <a href="#content-prateek3255" title="Content">🖋</a> <a href="#a11y-prateek3255" title="Accessibility">️️️️♿️</a></td>
+    <td align="center"><a href="https://github.com/hinogi"><img src="https://avatars.githubusercontent.com/u/4602609?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stefan Schneider</b></sub></a><br /><a href="https://github.com/scriptified/scriptified.dev/commits?author=hinogi" title="Code">💻</a></td>
+    <td align="center"><a href="https://anuraghazra.dev"><img src="https://avatars.githubusercontent.com/u/35374649?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Anurag Hazra</b></sub></a><br /><a href="https://github.com/scriptified/scriptified.dev/commits?author=anuraghazra" title="Code">💻</a> <a href="#a11y-anuraghazra" title="Accessibility">️️️️♿️</a></td>
   </tr>
 </table>
 
