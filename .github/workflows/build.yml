@@ -24,7 +24,7 @@ jobs:
 
       - name: Install modules
         run: yarn
-      - name: Run ESLit
+      - name: Run Linter
         run: npm run lint
       - name: Check Build Status
         env:
