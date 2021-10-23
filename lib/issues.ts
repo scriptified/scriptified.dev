@@ -135,6 +135,11 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
           title: talk.title,
           talkURL: talk.url,
           desc: talk.description,
+          authors: talk.authors.map(author => ({
+            id: author.id,
+            name: author.Name,
+            website: author.Website,
+          })),
           tags: talk.tags.map(tag => tag.name),
         }))
       : null;
