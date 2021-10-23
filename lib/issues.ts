@@ -100,8 +100,15 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
       ? {
           snippet: issue.tipOfTheWeek.codeSnippet ?? null,
           desc: issue.tipOfTheWeek.description,
-          sourceName: issue.tipOfTheWeek.sourceName,
-          sourceURL: issue.tipOfTheWeek.sourceURL,
+          authors: issue.tipOfTheWeek.sourceName
+            ? [
+                {
+                  id: 1,
+                  name: issue.tipOfTheWeek.sourceName,
+                  website: issue.tipOfTheWeek.sourceURL,
+                },
+              ]
+            : [],
         }
       : null;
 

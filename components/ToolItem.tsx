@@ -4,7 +4,6 @@ import Tool from '../interfaces/tool';
 
 const ToolItem = ({ tool: { title, url, logo, authors, desc, tags } }: { tool: Tool }): JSX.Element => {
   const article = { title, url, desc, authors, tags };
-  console.log(article);
 
   return (
     <div className="flex flex-wrap sm:flex-no-wrap flex-row items-center">
