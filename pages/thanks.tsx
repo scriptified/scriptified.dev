@@ -21,7 +21,7 @@ export default function ThankYou(): JSX.Element {
           Your subscription is confirmed. You will start receiving our weekly issues now onwards.
         </Text>
         <div className="flex items-center justify-center">
-          <Link href="/issues">
+          <Link href="/issues" passHref>
             <Button size="md" type="secondary" additionalStyles="mt-4">
               Read Previous Issues
             </Button>

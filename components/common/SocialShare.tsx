@@ -22,7 +22,7 @@ interface ShareLinkProps {
   icon: React.ReactNode;
 }
 
-export const ShareLink = ({ text, label, url, icon, showText }: ShareLinkProps) => {
+export const ShareLink = ({ text, label, url, icon, showText }: ShareLinkProps): JSX.Element => {
   return (
     <a
       aria-label={label}

@@ -2,7 +2,6 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 
-import CodeSnippet from '../../components/common/CodeSnippet';
 import SubscribeCard from '../../components/common/SubscribeCard';
 import BackToHome from '../../components/common/BackToHome';
 import Text from '../../components/common/Text';

@@ -49,7 +49,7 @@ function getReversedSampleIssues(limit: number): Promise<IssueAPIResponse[]> {
   return new Promise(resolve => resolve(response));
 }
 
-function oxfordComma(arr: string[]): string {
+export function oxfordComma(arr: string[]): string {
   if (arr.length === 1) return arr[0];
   const firsts = arr.slice(0, arr.length - 1);
   const last = arr[arr.length - 1];
