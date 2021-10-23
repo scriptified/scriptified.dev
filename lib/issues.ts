@@ -112,7 +112,13 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
           desc: article.description,
           url: article.url,
           tags: article.tags.map(tag => tag.name),
-          author: oxfordComma(article.authors.map(author => author.Name)),
+          authors: article.authors.map(author => ({
+            id: author.id,
+            name: author.Name,
+            website: author.Website,
+          })),
+          authorName: oxfordComma(article.authors.map(author => author.Name)),
+          authorWebsite: oxfordComma(article.authors.map(author => author.Website)),
         }))
       : null;
 
@@ -134,7 +140,11 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
           logo: getAssetURL(issue.id, tool.logo, DEFAULT_TOOL_ASSET),
           desc: tool.description,
           tags: tool.tags.map(tag => tag.name),
-          author: oxfordComma(tool.authors.map(author => author.Name)),
+          authors: tool.authors.map(author => ({
+            id: author.id,
+            name: author.Name,
+            website: author.Website,
+          })),
         }))
       : null;
 

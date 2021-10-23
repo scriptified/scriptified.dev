@@ -140,6 +140,16 @@ const SAMPLE_ISSUE_API_RESPONSE: IssueAPIResponse = {
           created_at: '2021-04-24T08:55:15.798Z',
           updated_at: '2021-04-24T08:55:18.238Z',
         },
+        {
+          id: 2,
+          Name: 'John Cena',
+          Website: 'https://www.wwe.com/superstars/john-cena',
+          published_at: '2021-04-24T08:55:18.175Z',
+          created_by: 1,
+          updated_by: 1,
+          created_at: '2021-04-24T08:55:15.798Z',
+          updated_at: '2021-04-24T08:55:18.238Z',
+        },
       ],
     },
     {
