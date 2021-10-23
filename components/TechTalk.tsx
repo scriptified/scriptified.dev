@@ -19,7 +19,6 @@ const TechTalk = ({ techTalk }: { techTalk: Talk }): JSX.Element => {
       <Text type="h2" additionalStyles="pb-4" color={`text-${theme}-600`}>
         {title}
       </Text>
-      <Authors authors={authors} />
       <div className="player-wrapper py-3">
         <ReactPlayer
           className="react-player"
@@ -34,6 +33,7 @@ const TechTalk = ({ techTalk }: { techTalk: Talk }): JSX.Element => {
       <Text additionalStyles="my-4">
         <Markdown>{desc}</Markdown>
       </Text>
+      <Authors authors={authors} />
       <Tags tags={tags} />
     </div>
   );
