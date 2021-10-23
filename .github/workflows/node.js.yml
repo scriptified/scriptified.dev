@@ -5,31 +5,30 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ '**' ]
+    branches: ['**']
   pull_request:
-    branches: [ '**' ]
+    branches: ['**']
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [14.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-        
-    - name: Install modules
-      run: yarn  
-    - name: Run ESLit
-      run: npm run lint
-    - name: Check Build Status
-      run: npm run build --if-present
-    - name: Deploy
-      run: npm run deploy --if-present
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install modules
+        run: yarn
+      - name: Run ESLit
+        run: npm run lint
+      - name: Check Build Status
+        run: npm run build --if-present
+      - name: Deploy
+        run: npm run deploy --if-present
