@@ -1,8 +1,10 @@
+import Author from './author';
+
 export default interface Tool {
   title: string;
   url: string;
   logo: string;
   desc: string;
-  author: string;
+  authors: Author[];
   tags: string[];
 }

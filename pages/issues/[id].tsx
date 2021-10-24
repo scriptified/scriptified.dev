@@ -2,11 +2,11 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 
-import CodeSnippet from '../../components/common/CodeSnippet';
 import SubscribeCard from '../../components/common/SubscribeCard';
 import BackToHome from '../../components/common/BackToHome';
 import Text from '../../components/common/Text';
 import SocialShare from '../../components/common/SocialShare';
+import TipOfTheWeekItem from '../../components/TipOfTheWeekItem';
 import ArticleItem from '../../components/ArticleItem';
 import DevOfTheWeekItem from '../../components/DevOfTheWeekItem';
 import GIFItem from '../../components/GIFItem';
@@ -15,7 +15,6 @@ import Layout, { siteConfig } from '../../components/Layout';
 import Quiz from '../../components/Quiz';
 import TechTalk from '../../components/TechTalk';
 import ToolItem from '../../components/ToolItem';
-import Markdown from '../../components/Markdown';
 import { getAllIssueIds, issueAPI, mapToIssue } from '../../lib/issues';
 import { Issue } from '../../interfaces/issue';
 import {
@@ -73,10 +72,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
         </div>
         {issueData?.tipOfTheWeek !== null ? (
           <IssueItem id="tip" title="Tip of the day" icon={<TipIcon />}>
-            <Text type="base" additionalStyles="py-4 relative z-10">
-              <Markdown>{issueData.tipOfTheWeek.desc}</Markdown>
-            </Text>
-            {issueData.tipOfTheWeek.snippet ? <CodeSnippet snippet={issueData.tipOfTheWeek.snippet} /> : null}
+            <TipOfTheWeekItem tipOfTheWeek={issueData.tipOfTheWeek} />
           </IssueItem>
         ) : null}
         {issueData?.articles !== null ? (
