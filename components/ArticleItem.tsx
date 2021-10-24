@@ -3,9 +3,12 @@ import Text from './common/Text';
 import Tags from './common/Tags';
 import { useThemeState } from '../theme/ThemeContext';
 import Markdown from './Markdown';
+import Authors from './Authors';
 
-const ArticleItem = ({ article: { title, desc, url, author, tags } }: { article: Article }): JSX.Element => {
+const ArticleItem = ({ article }: { article: Article }): JSX.Element => {
   const theme = useThemeState();
+  const { title, desc, url, authors, tags } = article;
+
   return (
     <div className="mt-0 mx-0 py-4" key={url}>
       <a href={url} target="_blank" rel="noreferrer">
@@ -16,12 +19,8 @@ const ArticleItem = ({ article: { title, desc, url, author, tags } }: { article:
       <Text type="base" additionalStyles="py-2">
         <Markdown>{desc}</Markdown>
       </Text>
-      <Text type="small" color="text-gray-600" additionalStyles="py-2">
-        by <span className="uppercase">{author}</span>
-      </Text>
-      <span>
-        <Tags tags={tags} />
-      </span>
+      <Authors authors={authors} />
+      <Tags tags={tags} />
     </div>
   );
 };
