@@ -17,7 +17,7 @@ function shuffle(array: unknown[]): unknown[] {
 const CURATORS: TCurator[] = [
   {
     name: 'Ayush Gupta',
-    desc: `Web & Mobile App Developer passionate about [photography](https://ayushgupta.tech/ig). Writing blogs & occasionally designing. Mobile app team at [FirstCry](https://firstcry.com)`,
+    desc: `Mobile Frontend Engineer at [Razorpay](https://razorpay.com). Passionate about [photography](https://ayushgupta.tech/ig). Writing [blogs](https://ayushgupta.tech/blog) & occasionally designing.`,
     imgURL: 'https://github.com/gupta-ji6.png',
     links: {
       website: 'https://ayushgupta.tech',
