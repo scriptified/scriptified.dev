@@ -1,30 +1,63 @@
+import Image from 'next/image';
 import Gif from '../interfaces/gif';
 import { useThemeState } from '../theme/ThemeContext';
+import { getMediaFormat } from '../utils';
 import Text from './common/Text';
 import Markdown from './Markdown';
 
-const GIFItem = ({ gif: { caption, gifURL } }: { gif: Gif }): JSX.Element => {
+type SupportedMediaFormats = 'gif' | 'mp4';
+interface RenderMediaProps {
+  format: SupportedMediaFormats | string;
+  source: string;
+  caption: string;
+}
+
+const GIFItem = ({ gif }: { gif: Gif }): JSX.Element => {
+  const { caption, gifURL } = gif;
+
   const theme = useThemeState();
+
+  const format = process.env.NODE_ENV === 'production' ? getMediaFormat(gifURL) : 'mp4';
+
+  const renderMedia = ({ format, source, caption }: RenderMediaProps): JSX.Element => {
+    switch (format) {
+      case 'mp4':
+        return (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={`bg-gradient-to-br from-${theme}-300 to-${theme}-600 rounded object-fill`}
+            width={500}
+            height={350}
+            title={caption}
+            preload="metadata"
+          >
+            <source src={source} type="video/mp4" />
+            <p>
+              Your browser doesn&apos;t support HTML5 video. Here is a <a href={source}>link to the video</a> instead.
+            </p>
+          </video>
+        );
+      case 'gif':
+        return (
+          <Image
+            className={`bg-gradient-to-br from-${theme}-300 to-${theme}-600 rounded object-fill`}
+            width={500}
+            height={350}
+            src={source}
+            alt={caption}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="flex flex-col items-center">
-      <div className="mt-4">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className={`bg-gradient-to-br from-${theme}-300 to-${theme}-600 rounded object-fill`}
-          width={500}
-          height={350}
-          title={caption}
-          preload="metadata"
-        >
-          <source src={gifURL} type="video/mp4" />
-          <p>
-            Your browser doesn&apos;t support HTML5 video. Here is a <a href={gifURL}>link to the video</a> instead.
-          </p>
-        </video>
-      </div>
+      <div className="mt-4">{renderMedia({ format, source: gifURL, caption })}</div>
       <Text type="small" color="text-gray-700" additionalStyles="mt-3 text-center">
         <Markdown>{caption}</Markdown>
       </Text>
