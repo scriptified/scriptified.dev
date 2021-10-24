@@ -6,7 +6,7 @@ function Tags({ tags = [] }: { tags?: Array<string> }): JSX.Element {
   const theme = useThemeState();
   return (
     <div className="flex space-x-2 flex-wrap">
-      {tags.map((tag, index) => (
+      {tags?.map((tag, index) => (
         <Text
           type="small"
           color={`text-${theme}-600`}

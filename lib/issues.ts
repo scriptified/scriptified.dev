@@ -49,7 +49,7 @@ function getReversedSampleIssues(limit: number): Promise<IssueAPIResponse[]> {
   return new Promise(resolve => resolve(response));
 }
 
-function oxfordComma(arr: string[]): string {
+export function oxfordComma(arr: string[]): string {
   if (arr.length === 1) return arr[0];
   const firsts = arr.slice(0, arr.length - 1);
   const last = arr[arr.length - 1];
@@ -100,8 +100,15 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
       ? {
           snippet: issue.tipOfTheWeek.codeSnippet ?? null,
           desc: issue.tipOfTheWeek.description,
-          sourceName: issue.tipOfTheWeek.sourceName,
-          sourceURL: issue.tipOfTheWeek.sourceURL,
+          authors: issue.tipOfTheWeek.sourceName
+            ? [
+                {
+                  id: 1,
+                  name: issue.tipOfTheWeek.sourceName,
+                  website: issue.tipOfTheWeek.sourceURL ?? '#',
+                },
+              ]
+            : [],
         }
       : null;
 
@@ -111,8 +118,12 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
           title: article.title,
           desc: article.description,
           url: article.url,
-          tags: article.tags.map(tag => tag.name),
-          author: oxfordComma(article.authors.map(author => author.Name)),
+          tags: article.tags?.map(tag => tag.name),
+          authors: article.authors?.map(author => ({
+            id: author.id,
+            name: author.Name,
+            website: author.Website,
+          })),
         }))
       : null;
 
@@ -122,7 +133,12 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
           title: talk.title,
           talkURL: talk.url,
           desc: talk.description,
-          tags: talk.tags.map(tag => tag.name),
+          authors: talk.authors?.map(author => ({
+            id: author.id,
+            name: author.Name,
+            website: author.Website ?? '#',
+          })),
+          tags: talk.tags?.map(tag => tag.name),
         }))
       : null;
 
@@ -133,8 +149,12 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
           url: tool.url,
           logo: getAssetURL(issue.id, tool.logo, DEFAULT_TOOL_ASSET),
           desc: tool.description,
-          tags: tool.tags.map(tag => tag.name),
-          author: oxfordComma(tool.authors.map(author => author.Name)),
+          tags: tool.tags?.map(tag => tag.name),
+          authors: tool.authors?.map(author => ({
+            id: author.id,
+            name: author.Name,
+            website: author.Website ?? '#',
+          })),
         }))
       : null;
 

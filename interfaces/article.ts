@@ -1,7 +1,8 @@
+import Author from './author';
 export default interface Article {
   title: string;
   url: string;
   desc: string;
-  author: string;
+  authors: Author[];
   tags: string[];
 }

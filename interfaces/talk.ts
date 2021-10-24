@@ -1,6 +1,9 @@
+import Author from './author';
+
 export default interface Talk {
-  talkURL: string;
-  title: string;
+  authors: Author[];
   desc: string;
   tags: string[];
+  talkURL: string;
+  title: string;
 }
