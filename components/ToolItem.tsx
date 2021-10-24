@@ -6,7 +6,7 @@ const ToolItem = ({ tool: { title, url, logo, authors, desc, tags } }: { tool: T
   const article = { title, url, desc, authors, tags };
 
   return (
-    <div className="flex flex-wrap sm:flex-no-wrap flex-row items-center">
+    <div className="flex flex-wrap sm:flex-nowrap flex-row items-center">
       <a
         href={url}
         className="w-full mr-8 max-w-fc my-4 p-1 transform transition duration-700 hover:scale-105 img-shadow-sm hover:img-shadow-none"

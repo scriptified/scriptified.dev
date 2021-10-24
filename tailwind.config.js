@@ -1,7 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const colors = require('tailwindcss/colors');
-
 module.exports = {
+  mode: 'jit',
   purge: {
     enabled: process.env.NODE_ENV !== 'development',
     content: ['./components/**/*.tsx', './pages/**/*.tsx', './theme/*.ts'],
@@ -42,11 +40,7 @@ module.exports = {
         texture: 'url(/texture.svg)',
       },
       colors: {
-        transparent: 'transparent',
         current: 'currentColor',
-        black: '#000',
-        white: '#fff',
-        gray: colors.gray,
         orange: {
           100: '#fffaf0',
           200: '#feebc8',
