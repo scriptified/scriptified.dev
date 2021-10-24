@@ -23,8 +23,8 @@ const HeroSection = (): JSX.Element => {
         <div className="flex justify-center h-24 w-24 md:h-32 md:w-32 mt-4 sm:mt-6 lg:mt-12">
           <ScriptifiedLogo color={`text-${theme}-100`} additionalStyles="h-24 w-24 md:h-32 md:w-32" />
         </div>
-        <Text type="h1" color={`text-${theme}-100`} additionalStyles="text-6xl">
-          <h1 className="text-shadow">{siteConfig.name}</h1>
+        <Text type="h1" color={`text-${theme}-100`}>
+          <h1 className="text-shadow text-6xl">{siteConfig.name}</h1>
         </Text>
       </div>
       <Text
@@ -32,7 +32,7 @@ const HeroSection = (): JSX.Element => {
         color={`text-${theme}-100`}
         additionalStyles="text-3xl mb-10 sm:mb-12 lg:mb-16 max-w-3xl text-center px-4"
       >
-        <h2 className="text-shadow">
+        <h2 className="text-shadow text-3xl">
           {`${descPart1} `}
           <span className="whitespace-nowrap">{descPart2}</span>
         </h2>
