@@ -17,7 +17,7 @@ const GIFItem = ({ gif }: { gif: Gif }): JSX.Element => {
 
   const theme = useThemeState();
 
-  const format = process.env.NODE_ENV === 'production' ? getMediaFormat(gifURL) : 'mp4';
+  const format = getMediaFormat(gifURL);
 
   const renderMedia = ({ format, source, caption }: RenderMediaProps): JSX.Element => {
     switch (format) {
