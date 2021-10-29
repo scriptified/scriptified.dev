@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 import { IssueAPIResponse } from '../interfaces/api';
 
+const SAMPLE_VIDEO_URL = `${process.env.NEXT_PUBLIC_ASSETS_URL}common/sample-video.mp4`;
+
 const SAMPLE_ISSUE_API_RESPONSE: IssueAPIResponse = {
   id: 1,
   dateOfPublishing: '2021-03-06',
@@ -43,7 +45,7 @@ const SAMPLE_ISSUE_API_RESPONSE: IssueAPIResponse = {
   },
   gif: {
     id: 1,
-    gifURL: 'https://www.placecage.com/gif/200/300',
+    gifURL: SAMPLE_VIDEO_URL,
     caption: 'a random description about what makes this GIF so great',
     issue: 1,
     published_at: '2021-05-01T07:14:14.757Z',

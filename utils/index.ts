@@ -35,3 +35,22 @@ export const convertDate = (date: string): string => {
 };
 
 /* =================================================================== */
+
+/**
+ * Get format/extension of media from it's URL
+ * @param mediaUrl URL of media
+ * @returns {string} media format
+ */
+export const getMediaFormat = (mediaUrl: string): string => {
+  const extension = mediaUrl.split('.');
+  const mediaFormat = extension.pop();
+
+  switch (mediaFormat) {
+    case 'gif':
+      return 'gif';
+    case 'mp4':
+      return 'mp4';
+    default:
+      return mediaFormat;
+  }
+};

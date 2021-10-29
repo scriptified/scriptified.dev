@@ -58,14 +58,11 @@ if (typeof options.issueNumber !== 'number') {
     return new Date(date).toLocaleDateString('en-US', options);
   };
 
-  const OG_IMAGE_BASE = 'https://og.scriptified.dev/';
-  const ASSETS_URL = 'https://images.scriptified.dev/';
-
   function getOGImage(title, issueNumber, date) {
     const parsedDate = convertDate(date);
-    return `${OG_IMAGE_BASE}${encodeURIComponent(title)}.png?issue_number=${issueNumber}&date=${encodeURIComponent(
-      parsedDate
-    )}`;
+    return `${process.env.NEXT_PUBLIC_OG_IMAGE_BASE}${encodeURIComponent(
+      title
+    )}.png?issue_number=${issueNumber}&date=${encodeURIComponent(parsedDate)}`;
   }
 
   function isValidHttpUrl(str) {
@@ -84,7 +81,7 @@ if (typeof options.issueNumber !== 'number') {
     if (isValidHttpUrl(assetURL)) {
       return assetURL;
     }
-    return `${ASSETS_URL}issue-${issueNumber}/${assetURL}`;
+    return `${process.env.NEXT_PUBLIC_ASSETS_URL}issue-${issueNumber}/${assetURL}`;
   }
 
   const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.dateOfPublishing);
