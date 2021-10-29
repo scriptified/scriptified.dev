@@ -10,6 +10,7 @@ const withPWA = require('next-pwa');
 const runtimeCaching = require('next-pwa/cache');
 
 const nextConfig = withPWA({
+  swcMinify: true,
   pwa: {
     dest: 'public',
     register: true, // let this plugin register service worker for you
@@ -48,6 +49,7 @@ const nextConfig = withPWA({
   },
   images: {
     domains: ['github.com', 'seeklogo.com', 'media.giphy.com', 'images.scriptified.dev', 'www.placecage.com'],
+    formats: ['image/avif', 'image/webp'],
   },
 });
 
