@@ -13,7 +13,6 @@ const numberOfImpWords = 3;
 const desciptionArray = siteConfig.description.split(' ');
 const descPart1 = desciptionArray.slice(0, desciptionArray.length - numberOfImpWords).join(' ');
 const descPart2 = desciptionArray.slice(-1 * numberOfImpWords).join(' ');
-console.log(descPart1, descPart2);
 
 const HeroSection = (): JSX.Element => {
   const theme = useThemeState();

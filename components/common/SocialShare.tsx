@@ -78,14 +78,14 @@ const SocialShare = ({
       // Web Share API is supported
       setShowShareBtn(true);
       const shareData = { title, url };
-      navigator
-        .share(shareData)
-        .then(() => {
-          // console.log('Thanks for sharing!');
-        })
-        .catch(console.error);
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.error(err);
+      }
     } else {
       // Fallback
+      console.info('navigator.share is not supported');
       setShowShareBtn(false);
     }
   };
