@@ -5,11 +5,7 @@ import { convertDate } from '../utils';
 import cloneDeep from 'lodash/cloneDeep';
 import SAMPLE_ISSUE from './sampleIssue';
 
-const ASSETS_URL = 'https://images.scriptified.dev/';
-
-const OG_IMAGE_BASE = 'https://og.scriptified.dev/';
-
-const DEFAULT_TOOL_ASSET = `${ASSETS_URL}common/default-tool.png`;
+const DEFAULT_TOOL_ASSET = `${process.env.NEXT_PUBLIC_ASSETS_URL}common/default-tool.png`;
 
 export function getAllIssueIds(issues: IssueAPIResponse[]): Array<{ params: { id: string } }> {
   // Returns an array that looks like this:
@@ -58,9 +54,9 @@ export function oxfordComma(arr: string[]): string {
 
 function getOGImage(title: string, issueNumber: number, date: string): string {
   const parsedDate = convertDate(date);
-  return `${OG_IMAGE_BASE}${encodeURIComponent(title)}.png?issue_number=${issueNumber}&date=${encodeURIComponent(
-    parsedDate
-  )}`;
+  return `${process.env.NEXT_PUBLIC_OG_IMAGE_BASE}${encodeURIComponent(
+    title
+  )}.png?issue_number=${issueNumber}&date=${encodeURIComponent(parsedDate)}`;
 }
 
 function isValidHttpUrl(str: string) {
@@ -83,7 +79,7 @@ function getAssetURL(issueNumber: number, assetURL: string | undefined | null, d
   if (isValidHttpUrl(assetURL)) {
     return assetURL;
   }
-  return `${ASSETS_URL}issue-${issueNumber}/${assetURL}`;
+  return `${process.env.NEXT_PUBLIC_ASSETS_URL}issue-${issueNumber}/${assetURL}`;
 }
 
 export function mapToIssue(issue: IssueAPIResponse): Issue {
