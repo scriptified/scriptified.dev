@@ -1,6 +1,5 @@
-// const { colors } = require('tailwindcss/defaultTheme');
-
 module.exports = {
+  mode: 'jit',
   purge: {
     enabled: process.env.NODE_ENV !== 'development',
     content: ['./components/**/*.tsx', './pages/**/*.tsx', './theme/*.ts'],
@@ -12,7 +11,17 @@ module.exports = {
         roboto: ['Roboto Slab', 'sans-serif'],
       },
       fontSize: {
+        xs: '0.75rem',
+        sm: '0.875rem',
+        base: '1rem',
+        lg: '1.125rem',
+        xl: '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '1.875rem',
+        '4xl': '2.25rem',
+        '5xl': '3rem',
         '5.5xl': '3.25rem',
+        '6xl': '4rem',
       },
       inset: {
         '1/2': '0.5rem',
@@ -31,16 +40,28 @@ module.exports = {
         texture: 'url(/texture.svg)',
       },
       colors: {
-        gray: {
-          100: '#F1F5F9',
-          200: '#E2E8F0',
-          300: '#CBD5E1',
-          400: '#94A3B8',
-          500: '#64748B',
-          600: '#475569',
-          700: '#334155',
-          800: '#1E293B',
-          900: '#0F172A',
+        current: 'currentColor',
+        orange: {
+          100: '#fffaf0',
+          200: '#feebc8',
+          300: '#fbd38d',
+          400: '#f6ad55',
+          500: '#ed8936',
+          600: '#dd6b20',
+          700: '#c05621',
+          800: '#9c4221',
+          900: '#7b341e',
+        },
+        teal: {
+          100: '#e6fffa',
+          200: '#b2f5ea',
+          300: '#81e6d9',
+          400: '#4fd1c5',
+          500: '#38b2ac',
+          600: '#319795',
+          700: '#2c7a7b',
+          800: '#285e61',
+          900: '#234e52',
         },
       },
       boxShadow: {
@@ -94,8 +115,5 @@ module.exports = {
     animation: ['responsive', 'motion-safe', 'motion-reduce', 'hover', 'focus'],
     transitionProperty: ['responsive', 'motion-safe', 'motion-reduce'],
     transformOrigin: ['hover', 'focus'],
-  },
-  future: {
-    removeDeprecatedGapUtilities: true,
   },
 };

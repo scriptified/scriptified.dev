@@ -1,6 +1,6 @@
 {
   "name": "scriptified",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "private": true,
   "license": "(MIT OR Apache-2.0)",
   "scripts": {
@@ -9,23 +9,24 @@
     "deploy": "yarn build && next export",
     "start": "next start",
     "lint": "next lint",
-    "email_issue": "node scripts/issueEmailGenerator.js"
+    "email_issue": "node scripts/issueEmailGenerator.js --issueNumber"
   },
   "dependencies": {
     "@svgr/webpack": "5.4.0",
-    "autoprefixer": "9.8.6",
+    "autoprefixer": "10.3.6",
     "axios": "0.21.2",
     "glob": "7.1.6",
     "lodash": "4.17.21",
     "next": "12.0.0",
     "next-pwa": "3.1.5",
+    "postcss": "8.3.8",
     "postcss-import": "12.0.1",
     "prism-react-renderer": "1.1.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-markdown": "5.0.3",
     "react-player": "2.6.1",
-    "tailwindcss": "1.9.6"
+    "tailwindcss": "2.2.16"
   },
   "devDependencies": {
     "@types/gtag.js": "^0.0.4",
