@@ -61,11 +61,12 @@ function Curators(): JSX.Element {
         <Text
           additionalStyles="pt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
           color={`text-${theme}-900`}
-          type="h1"
+          size="2xl"
+          as="h2"
         >
           Curators
         </Text>
-        <Text additionalStyles="pt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color={`text-${theme}-700`} type="base">
+        <Text additionalStyles="pt-4 max-w-2xl text-xl leading-7 lg:mx-auto" color={`text-${theme}-700`} size="md">
           The two nerdy devs who curate this newsletter for you
         </Text>
       </div>
@@ -103,15 +104,15 @@ function Curators(): JSX.Element {
                     className={`text-${theme}-800 hover:underline`}
                   >
                     <Text
-                      type="h1"
+                      size="2xl"
                       color="text-transparent"
                       additionalStyles={`bg-gradient-to-b from-${theme}-600 to-${theme}-800 bg-clip-text`}
-                      inline
+                      as="h3"
                     >
                       {curator.name}
                     </Text>
                   </a>
-                  <Text type="base" color={`text-${theme}-700`} inline additionalStyles="py-4 max-w-3xl">
+                  <Text size="md" color={`text-${theme}-700`} as="div" additionalStyles="py-4 max-w-3xl">
                     <Markdown>{curator.desc}</Markdown>
                   </Text>
                   <SocialLinks links={curator.links} additionalStyles="space-x-3" />

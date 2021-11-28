@@ -16,7 +16,7 @@ const TechTalk = ({ techTalk }: { techTalk: Talk }): JSX.Element => {
 
   return (
     <div className="py-8">
-      <Text type="h2" additionalStyles="pb-4" color={`text-${theme}-600`}>
+      <Text size="xl" as="h4" additionalStyles="pb-4" color={`text-${theme}-600`}>
         {title}
       </Text>
       <div className="player-wrapper py-3">
@@ -30,7 +30,7 @@ const TechTalk = ({ techTalk }: { techTalk: Talk }): JSX.Element => {
           light
         />
       </div>
-      <Text additionalStyles="my-4">
+      <Text additionalStyles="my-4" as="div">
         <Markdown>{desc}</Markdown>
       </Text>
       <Authors authors={authors} />

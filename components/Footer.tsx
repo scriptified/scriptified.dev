@@ -34,7 +34,7 @@ const Footer = (): JSX.Element => {
               </span>
             </a>
           </Link>
-          <Text inline color={`text-${theme}-900`} additionalStyles="text-sm font-semibold pb-3 lg:pb-0 text-pom">
+          <Text as="span" color={`text-${theme}-900`} additionalStyles="text-sm font-semibold pb-3 lg:pb-0 text-pom">
             &#169; {new Date().getFullYear()}. All rights reserved.
           </Text>
         </div>
@@ -44,7 +44,7 @@ const Footer = (): JSX.Element => {
             <li className="p-0">
               <Link href="/">
                 <a className="hover:underline text-pom p-2 inline-flex items-center">
-                  <Text inline additionalStyles={`text-${theme}-900`}>
+                  <Text as="span" additionalStyles={`text-${theme}-900`}>
                     Subscribe
                   </Text>
                 </a>
@@ -53,7 +53,7 @@ const Footer = (): JSX.Element => {
             <li className="p-0">
               <Link href="/issues">
                 <a className="hover:underline text-pom p-2 inline-flex items-center">
-                  <Text inline additionalStyles={`text-${theme}-900`}>
+                  <Text as="span" additionalStyles={`text-${theme}-900`}>
                     View Issues
                   </Text>
                 </a>

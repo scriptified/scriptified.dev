@@ -59,7 +59,8 @@ const FeatureSection = (): JSX.Element => {
           <Text
             additionalStyles="pt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10 text-shadow"
             color="text-white"
-            type="h1"
+            size="2xl"
+            as="h2"
           >
             Sections
           </Text>
@@ -67,7 +68,7 @@ const FeatureSection = (): JSX.Element => {
           <Text
             additionalStyles="pt-4 max-w-2xl text-xl leading-7 lg:mx-auto text-shadow"
             color={`text-${theme}-100`}
-            type="base"
+            size="md"
           >
             A look at what&apos;s inside our newsletter
           </Text>
@@ -85,7 +86,12 @@ const FeatureSection = (): JSX.Element => {
                       {feature.icon}
                     </div>
                     <div className="pl-4">
-                      <Text type="h2" color="text-white" additionalStyles="text-lg leading-6 font-semibold text-shadow">
+                      <Text
+                        size="xl"
+                        as="h3"
+                        color="text-white"
+                        additionalStyles="text-lg leading-6 font-semibold text-shadow"
+                      >
                         {feature.name}
                       </Text>
                       <Text

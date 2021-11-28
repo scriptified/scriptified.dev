@@ -8,9 +8,9 @@ function Tags({ tags = [] }: { tags?: Array<string> }): JSX.Element {
     <div className="flex space-x-2 flex-wrap">
       {tags?.map((tag, index) => (
         <Text
-          type="small"
+          size="sm"
           color={`text-${theme}-600`}
-          inline
+          as="span"
           key={index}
           additionalStyles={`py-1/2 px-1 border-${theme}-200 border rounded uppercase`}
         >

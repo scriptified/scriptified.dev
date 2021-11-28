@@ -33,7 +33,7 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
 
   return (
     <div>
-      <Text type="h2" color={`text-${theme}-600`} additionalStyles="pt-4">
+      <Text as="h4" size="xl" color={`text-${theme}-600`} additionalStyles="pt-4">
         {quiz.question}
       </Text>
       {quiz.snippet && <CodeSnippet snippet={quiz.snippet} />}
@@ -124,11 +124,11 @@ const Option = ({
           )}
         </>
       )}
-      <Text type="base" color={`text-${theme}-900`} additionalStyles="pl-2">
+      <Text size="md" as="div" color={`text-${theme}-900`} additionalStyles="pl-2">
         <Markdown>{option.text}</Markdown>
       </Text>
       {isShowingDetailView && (
-        <Text type="small" color={`text-${theme}-800`} additionalStyles="mt-2 pl-2">
+        <Text size="sm" as="div" color={`text-${theme}-800`} additionalStyles="mt-2 pl-2">
           <Markdown>{option.description}</Markdown>
         </Text>
       )}

@@ -9,7 +9,7 @@ const TipOfTheWeekItem = ({ tipOfTheWeek }: { tipOfTheWeek: TipOfTheWeek }): JSX
 
   return (
     <div className="mt-0 mx-0 py-4">
-      <Text type="base" additionalStyles="py-4 relative z-10">
+      <Text size="md" as="div" additionalStyles="py-4 relative z-10">
         <Markdown>{desc}</Markdown>
       </Text>
       {snippet ? <CodeSnippet snippet={snippet} /> : null}

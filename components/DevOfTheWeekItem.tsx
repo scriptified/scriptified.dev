@@ -35,11 +35,11 @@ const DevOfTheWeekItem = ({
         </div>
       </div>
       <a href={profileLink.website} target="_blank" rel="noreferrer">
-        <Text type="h2" color={`text-${theme}-600`} inline additionalStyles="hover:underline">
+        <Text size="xl" color={`text-${theme}-600`} as="h4" additionalStyles="hover:underline">
           {name}
         </Text>
       </a>
-      <Text type="base" additionalStyles="pt-2 pb-4">
+      <Text size="md" as="div" additionalStyles="pt-2 pb-4">
         <Markdown>{bio}</Markdown>
       </Text>
       <div className="flex">

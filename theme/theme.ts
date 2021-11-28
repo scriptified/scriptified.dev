@@ -7,7 +7,10 @@ export type Theme = 'blue' | 'teal' | 'green' | 'indigo' | 'orange' | 'purple' |
 export const THEMES: Theme[] = ['blue', 'green', 'teal', 'indigo', 'orange', 'purple', 'gray'];
 
 export const TextType = {
-  xxl: `font-sniglet text-4xl font-extrabold`,
+  '3xl': `font-sniglet text-6xl font-extrabold`,
+  '2.5xl': `font-sniglet text-5xl font-extrabold`,
+  '2xl': `font-sniglet text-4xl font-extrabold`,
+  '1.5xl': `font-sniglet text-3xl font-extrabold`,
   xl: `font-sniglet text-2xl font-extrabold`,
   lg: `font-sniglet text-xl`,
   md: `font-roboto text-base`,
