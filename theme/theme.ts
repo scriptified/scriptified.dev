@@ -7,12 +7,12 @@ export type Theme = 'blue' | 'teal' | 'green' | 'indigo' | 'orange' | 'purple' |
 export const THEMES: Theme[] = ['blue', 'green', 'teal', 'indigo', 'orange', 'purple', 'gray'];
 
 export const TextType = {
-  h1: `font-sniglet text-4xl font-extrabold`,
-  h2: `font-sniglet text-2xl font-extrabold`,
-  h3: `font-sniglet text-xl`,
-  base: `font-roboto text-base`,
-  small: `font-roboto text-sm`,
-};
+  xxl: `font-sniglet text-4xl font-extrabold`,
+  xl: `font-sniglet text-2xl font-extrabold`,
+  lg: `font-sniglet text-xl`,
+  md: `font-roboto text-base`,
+  sm: `font-roboto text-sm`,
+} as const;
 
 export const ButtonType = (theme: Theme, disabled: boolean): Record<string, string> => ({
   primary: ` ${
