@@ -12,7 +12,7 @@ const ArticleItem = ({ article }: { article: Article }): JSX.Element => {
   return (
     <div className="mt-0 mx-0 py-4" key={url}>
       <a href={url} target="_blank" rel="noreferrer">
-        <Text size="xl" as="h4" color={`text-${theme}-600`} additionalStyles="hover:underline">
+        <Text size="2xl" as="h4" color={`text-${theme}-600`} additionalStyles="hover:underline">
           {title}
         </Text>
       </a>

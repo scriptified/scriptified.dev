@@ -12,7 +12,7 @@ const LatestIssues = ({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element
 
   return (
     <Fragment>
-      <Text color={`text-${theme}-900`} additionalStyles="leading-snug py-8 mx-0" size="2xl" as="h2">
+      <Text color={`text-${theme}-900`} additionalStyles="leading-snug py-8 mx-0" size="4xl" as="h2">
         Latest Issues
       </Text>
       <ul className="m-0 p-0 list-none">

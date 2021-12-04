@@ -18,7 +18,7 @@ const IssueItem = ({
     <div id={id} className="my-20">
       <div className="flex flex-row items-center">
         <Text
-          size="2xl"
+          size="4xl"
           as="h3"
           color="text-transparent"
           additionalStyles={`sm:text-4xl md:text-5xl bg-gradient-to-b from-${theme}-600 to-${theme}-900 bg-clip-text`}

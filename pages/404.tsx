@@ -18,16 +18,16 @@ export default function Custom404({ allIssuesData }: { allIssuesData: Meta[] }):
         <title>{`${siteConfig.name} - Page Not Found`}</title>
       </Head>
       <section className={`h-96 py-12 flex flex-col justify-center items-center text-lg`}>
-        <Text color={`text-${theme}-100`} as="h1" size="3xl">
+        <Text color={`text-${theme}-100`} as="h1" size="6xl">
           404
         </Text>
-        <Text color={`text-${theme}-200`} as="h2" size="2xl">
+        <Text color={`text-${theme}-200`} as="h2" size="4xl">
           Page Not Found
         </Text>
-        <Text color={`text-${theme}-100`} additionalStyles="py-4" size="xl">
+        <Text color={`text-${theme}-100`} additionalStyles="py-4" size="2xl">
           Read our latest issues while you are here.
         </Text>
-        <Text color={`text-${theme}-100`} additionalStyles="pb-4" size="xl">
+        <Text color={`text-${theme}-100`} additionalStyles="pb-4" size="2xl">
           or
         </Text>
         <Link href="/">

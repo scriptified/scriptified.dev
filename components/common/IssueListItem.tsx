@@ -26,7 +26,7 @@ const IssueListItem = ({ issueData }: { issueData: Meta }): JSX.Element => {
           <Link href="/issues/[number]" as={`/issues/${number}`}>
             <a className={`text-${theme}-600 font-sans font-semibold text-2xl no-underline hover:underline`}>
               <Text
-                size="2xl"
+                size="4xl"
                 as="h3"
                 color="text-transparent"
                 additionalStyles={`bg-gradient-to-r from-${theme}-700 to-${theme}-900 bg-clip-text font-bold`}
@@ -38,7 +38,7 @@ const IssueListItem = ({ issueData }: { issueData: Meta }): JSX.Element => {
           <Text color={`text-${theme}-600`} additionalStyles="order-2 tracking-wider py-3 uppercase">
             {convertDate(dateOfPublishing)}
           </Text>
-          <Text size="lg" color={`text-${theme}-800`} additionalStyles="font-roboto font-normal leading-relaxed pb-5">
+          <Text size="xl" color={`text-${theme}-800`} additionalStyles="font-roboto font-normal leading-relaxed pb-5">
             {desc}
           </Text>
         </div>

@@ -59,7 +59,7 @@ const FeatureSection = (): JSX.Element => {
           <Text
             additionalStyles="pt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10 text-shadow"
             color="text-white"
-            size="2xl"
+            size="4xl"
             as="h2"
           >
             Sections
@@ -87,7 +87,7 @@ const FeatureSection = (): JSX.Element => {
                     </div>
                     <div className="pl-4">
                       <Text
-                        size="xl"
+                        size="2xl"
                         as="h3"
                         color="text-white"
                         additionalStyles="text-lg leading-6 font-semibold text-shadow"

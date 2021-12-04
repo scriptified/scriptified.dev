@@ -60,7 +60,7 @@ export default function IssueComponent({ issueData }: { issueData: Issue }): JSX
         <div className="flex flex-col justify-center items-center">
           <Text
             as="h2"
-            size="2xl"
+            size="4xl"
             // eslint-disable-next-line max-len
             additionalStyles={`sm:text-4xl md:text-5.5xl text-center font-bold bg-gradient-to-r from-${theme}-700 to-${theme}-900 bg-clip-text`}
             // color={`text-${theme}-900`}

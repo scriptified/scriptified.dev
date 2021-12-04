@@ -84,7 +84,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
     >
       {!homePage && !showThankYou ? (
         <div className="mb-8">
-          <Text as="h2" size="xl" color="text-white" additionalStyles="pb-2">
+          <Text as="h2" size="2xl" color="text-white" additionalStyles="pb-2">
             {`Get ${siteConfig.name} Issues In Your Inbox`}
           </Text>
           <Text color={`text-${theme}-200`}>No spam ever, pinky promise();</Text>
@@ -145,7 +145,7 @@ const SubscribeCard = ({ homePage = false }: { homePage?: boolean }): JSX.Elemen
         </form>
       ) : (
         <div className="flex justify-center items-center flex-col text-center space-y-4">
-          <Text as="h2" size="xl" color={homePage ? `text-${theme}-800` : `text-${theme}-100`}>
+          <Text as="h2" size="2xl" color={homePage ? `text-${theme}-800` : `text-${theme}-100`}>
             {`Hey ${firstName}, thank you for subscribing to ${siteConfig.name}!`}
           </Text>
           <Text color={homePage ? `text-${theme}-600` : `text-${theme}-300`}>{getThankYouMessage()}</Text>

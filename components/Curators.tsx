@@ -61,7 +61,7 @@ function Curators(): JSX.Element {
         <Text
           additionalStyles="pt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10"
           color={`text-${theme}-900`}
-          size="2xl"
+          size="4xl"
           as="h2"
         >
           Curators
@@ -104,7 +104,7 @@ function Curators(): JSX.Element {
                     className={`text-${theme}-800 hover:underline`}
                   >
                     <Text
-                      size="2xl"
+                      size="4xl"
                       color="text-transparent"
                       additionalStyles={`bg-gradient-to-b from-${theme}-600 to-${theme}-800 bg-clip-text`}
                       as="h3"

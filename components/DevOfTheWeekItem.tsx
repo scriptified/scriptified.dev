@@ -35,7 +35,7 @@ const DevOfTheWeekItem = ({
         </div>
       </div>
       <a href={profileLink.website} target="_blank" rel="noreferrer">
-        <Text size="xl" color={`text-${theme}-600`} as="h4" additionalStyles="hover:underline">
+        <Text size="2xl" color={`text-${theme}-600`} as="h4" additionalStyles="hover:underline">
           {name}
         </Text>
       </a>

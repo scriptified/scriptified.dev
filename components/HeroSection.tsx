@@ -22,13 +22,13 @@ const HeroSection = (): JSX.Element => {
         <div className="flex justify-center h-24 w-24 md:h-32 md:w-32 mt-4 sm:mt-6 lg:mt-12">
           <ScriptifiedLogo color={`text-${theme}-100`} additionalStyles="h-24 w-24 md:h-32 md:w-32" />
         </div>
-        <Text as="h1" size="3xl" color={`text-${theme}-100`} additionalStyles="text-shadow">
+        <Text as="h1" size="6xl" color={`text-${theme}-100`} additionalStyles="text-shadow">
           {siteConfig.name}
         </Text>
       </div>
       <Text
         as="h2"
-        size="1.5xl"
+        size="3xl"
         color={`text-${theme}-100`}
         additionalStyles="mb-10 sm:mb-12 lg:mb-16 max-w-3xl text-center px-4 text-shadow"
       >

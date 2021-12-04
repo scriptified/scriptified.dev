@@ -33,7 +33,7 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
 
   return (
     <div>
-      <Text as="h4" size="xl" color={`text-${theme}-600`} additionalStyles="pt-4">
+      <Text as="h4" size="2xl" color={`text-${theme}-600`} additionalStyles="pt-4">
         {quiz.question}
       </Text>
       {quiz.snippet && <CodeSnippet snippet={quiz.snippet} />}
@@ -49,7 +49,7 @@ const QuizComponent = ({ quiz }: { quiz: Quiz }): JSX.Element => {
         />
       ))}
       <div className="flex justify-center w-full">
-        <Button type="primary" size="lg" onClick={handleSubmit}>
+        <Button type="primary" size="xl" onClick={handleSubmit}>
           Submit
         </Button>
       </div>
