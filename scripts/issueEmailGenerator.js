@@ -36,7 +36,8 @@ if (typeof options.issueNumber !== 'number') {
 (async () => {
   const currentIssue = await axios
     .get(`${process.env.CMS_API}issues/${options.issueNumber}`)
-    .then(response => response.data);
+    .then(response => response.data)
+    .catch(err => console.error(err));
 
   const PROFILE_TYPES = {
     website: 'Website',
@@ -84,6 +85,21 @@ if (typeof options.issueNumber !== 'number') {
     return `${process.env.NEXT_PUBLIC_ASSETS_URL}issue-${issueNumber}/${assetURL}`;
   }
 
+  function getAuthors(authors) {
+    if (authors?.length) {
+      console.log(authors);
+      const authorsWithWebsite = authors.map((author, index) => {
+        const isLastElement = index === authors.length - 1;
+        console.log(isLastElement);
+        return `[${author.Name}](${author.Website})` + (isLastElement ? '' : `, `);
+      });
+
+      return `*by ${authorsWithWebsite}*`;
+    } else {
+      return '';
+    }
+  }
+
   const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.dateOfPublishing);
 
   const emailTemplate = `
@@ -94,6 +110,7 @@ if (typeof options.issueNumber !== 'number') {
 ${currentIssue.description}
 
 # Tip of the day
+
 ${currentIssue.tipOfTheWeek.description}
 
 ${
@@ -104,6 +121,8 @@ ${currentIssue.tipOfTheWeek.codeSnippet.code}
 \`\`\`
 `
 }
+
+${getAuthors(currentIssue.tipOfTheWeek?.authors)}
 ___
 
 # Articles
@@ -112,10 +131,10 @@ ${currentIssue.articles
   .map(
     article =>
       `[**${article.title}**](${article.url})
-	
+
 ${article.description}
 
-*by ${article.authors.map(author => author.Name).join(', ')}*
+${getAuthors(article?.authors)}
 `
   )
   .join('\n')}
@@ -152,7 +171,7 @@ ${currentIssue.tools
     
 ${tool.description}
 
-*by ${tool.authors.map(author => author.Name).join(', ')}*
+${getAuthors(tool?.authors)}
 `
   )
   .join('\n')}
@@ -166,6 +185,8 @@ ___
 ${currentIssue.talks[0].url}
 
 ${currentIssue.talks[0].description}
+
+${getAuthors(currentIssue.talks?.[0]?.authors)}
 
 ___
 
@@ -191,9 +212,7 @@ ___
 
 # This week in GIF
 
-![${currentIssue.gif.caption}](${getAssetURL(currentIssue.id, currentIssue.gif.gifURL)})
-
-<center>${currentIssue.gif.caption}</center>
+[${currentIssue.gif.caption}](${process.env.SITE_URL}issues/${options.issueNumber}?section=gif)
 
 ---
 
