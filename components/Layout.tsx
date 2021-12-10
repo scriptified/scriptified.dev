@@ -10,6 +10,7 @@ import { useLoadingState } from './LoadingContext';
 import { ScriptifiedLogo } from './icons/icons';
 import { useRouter } from 'next/router';
 import FloatingShareButton from './common/FloatingShareButton';
+import Text from './common/Text';
 
 export const siteConfig = {
   name: 'Scriptified',
@@ -128,13 +129,13 @@ export default function Layout({
                       <ScriptifiedLogo color={`text-${theme}-900`} additionalStyles="w-24 h-24" />
                     </a>
                   </Link>
-                  <h2 className="text-6xl leading-snug my-4 mx-0">
+                  <Text as="h1" size="6xl" additionalStyles="leading-snug my-4 mx-0">
                     <Link href="/">
                       <a className={`no-underline hover:underline text-${theme}-900 font-bold font-sniglet`}>
                         {siteConfig.name}
                       </a>
                     </Link>
-                  </h2>
+                  </Text>
                 </>
               )}
             </header>

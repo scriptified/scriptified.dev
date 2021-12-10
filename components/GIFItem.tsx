@@ -58,7 +58,7 @@ const GIFItem = ({ gif }: { gif: Gif }): JSX.Element => {
   return (
     <div className="flex flex-col items-center">
       <div className="mt-4">{renderMedia({ format, source: gifURL, caption })}</div>
-      <Text type="small" color="text-gray-700" additionalStyles="mt-3 text-center">
+      <Text size="sm" as="div" color="text-gray-700" additionalStyles="mt-3 text-center">
         <Markdown>{caption}</Markdown>
       </Text>
     </div>

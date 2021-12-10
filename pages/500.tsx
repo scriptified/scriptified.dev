@@ -17,17 +17,17 @@ export default function Custom500({ allIssuesData }: { allIssuesData: Meta[] }):
       <Head>
         <title>{`${siteConfig.name} - Server-side error occurred`}</title>
       </Head>
-      <section className={`h-80 py-12 flex flex-col justify-center items-center text-lg`}>
-        <Text color={`text-${theme}-100`} additionalStyles="text-6xl" type="h1">
-          404
+      <section className={`h-96 py-12 flex flex-col justify-center items-center text-lg`}>
+        <Text color={`text-${theme}-100`} as="h1" size="6xl">
+          505
         </Text>
-        <Text color={`text-${theme}-200`} additionalStyles="text-4xl" type="h3">
-          Server-side error occurred
+        <Text color={`text-${theme}-200`} as="h2" size="4xl">
+          Oops! Something went wrong.
         </Text>
-        <Text color={`text-${theme}-100`} additionalStyles="py-4 text-2xl">
+        <Text color={`text-${theme}-100`} additionalStyles="py-4" size="2xl">
           Read our latest issues while you are here.
         </Text>
-        <Text color={`text-${theme}-100`} additionalStyles="text-2xl pb-4">
+        <Text color={`text-${theme}-100`} additionalStyles="pb-4" size="2xl">
           or
         </Text>
         <Link href="/">

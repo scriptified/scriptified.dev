@@ -2,22 +2,22 @@ import { TextType } from '../../theme/theme';
 
 // Example usage - <Text type="base" color="text-green-500"> Hello World </Text>
 const Text = ({
-  type = 'base',
+  size = 'md',
+  as = 'p',
   color = 'text-black',
   additionalStyles = '',
-  inline = false,
   children,
 }: {
-  type?: string;
+  size?: keyof typeof TextType;
+  as?: keyof JSX.IntrinsicElements;
   color?: string;
   children: React.ReactNode;
   additionalStyles?: string;
-  inline?: boolean;
 }): JSX.Element => {
-  const textType = TextType[type];
+  const textType = TextType[size];
   const styles = `${textType} ${color} ${additionalStyles}`;
-
-  return inline ? <span className={styles}>{children}</span> : <div className={styles}>{children}</div>;
+  const Tag = as;
+  return <Tag className={styles}>{children}</Tag>;
 };
 
 export default Text;

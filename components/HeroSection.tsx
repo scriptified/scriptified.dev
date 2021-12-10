@@ -22,19 +22,17 @@ const HeroSection = (): JSX.Element => {
         <div className="flex justify-center h-24 w-24 md:h-32 md:w-32 mt-4 sm:mt-6 lg:mt-12">
           <ScriptifiedLogo color={`text-${theme}-100`} additionalStyles="h-24 w-24 md:h-32 md:w-32" />
         </div>
-        <Text type="h1" color={`text-${theme}-100`}>
-          <h1 className="text-shadow text-6xl">{siteConfig.name}</h1>
+        <Text as="h1" size="6xl" color={`text-${theme}-100`} additionalStyles="text-shadow">
+          {siteConfig.name}
         </Text>
       </div>
       <Text
-        // type="h1"
+        as="h2"
+        size="3xl"
         color={`text-${theme}-100`}
-        additionalStyles="text-3xl mb-10 sm:mb-12 lg:mb-16 max-w-3xl text-center px-4"
+        additionalStyles="mb-10 sm:mb-12 lg:mb-16 max-w-3xl text-center px-4 text-shadow"
       >
-        <h2 className="text-shadow text-3xl">
-          {`${descPart1} `}
-          <span className="whitespace-nowrap">{descPart2}</span>
-        </h2>
+        {descPart1} <span className="whitespace-nowrap">{descPart2}</span>
       </Text>
       <div className="w-5/6 sm:mx-8 lg:w-2/4 mb-2 relative z-10">
         <SubscribeCard homePage />

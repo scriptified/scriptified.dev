@@ -20,7 +20,7 @@ export default function Issues({ allIssuesData }: { allIssuesData: Meta[] }): JS
       additionalStyles={`pt-12 min-h-screen bg-gradient-to-b from-${theme}-100 to-${theme}-300`}
     >
       <section className="max-w-4xl px-8 sm:px-8 md:px-16 lg:px-24 mx-auto text-lg leading-normal pt-16">
-        <Text type="h1" color={`text-${theme}-900`} additionalStyles="text-5xl pb-8">
+        <Text as="h1" size="6xl" color={`text-${theme}-900`} additionalStyles="text-5xl pb-8">
           Issues
         </Text>
         <ul className="m-0 p-0 list-none">
