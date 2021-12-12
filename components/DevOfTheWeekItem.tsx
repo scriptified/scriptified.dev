@@ -21,7 +21,7 @@ const DevOfTheWeekItem = ({
             href={profileLink.website}
             target="_blank"
             rel="noreferrer"
-            className="flex transform transition duration-700 hover:scale-105"
+            className="flex transition duration-700 hover:scale-105"
             aria-label={name}
           >
             <Image

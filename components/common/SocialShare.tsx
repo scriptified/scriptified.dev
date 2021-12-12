@@ -27,7 +27,7 @@ export const ShareLink = ({ text, label, url, icon, showText }: ShareLinkProps):
     <a
       aria-label={label}
       href={url}
-      className="transition duration-500 ease-in-out transform hover:scale-125"
+      className="transition duration-500 ease-in-out hover:scale-125"
       target="_blank"
       rel="noreferrer"
     >
@@ -129,7 +129,7 @@ const SocialShare = ({
       {copyLink ? (
         <button
           aria-label="Copy link to clipboard"
-          className="transition duration-500 ease-in-out transform hover:scale-125"
+          className="transition duration-500 ease-in-out hover:scale-125"
           onClick={copyLinkToClipBoard}
         >
           {copyBtnText === 'Copy Link' ? (
@@ -143,7 +143,7 @@ const SocialShare = ({
       {showShareBtn ? (
         <button
           aria-label="Share"
-          className="hidden lg:inline-block transition duration-500 ease-in-out transform hover:scale-125"
+          className="hidden lg:inline-block transition duration-500 ease-in-out hover:scale-125"
           onClick={shareExternal}
         >
           <ShareIcon color={`text-${theme}-500`} />
