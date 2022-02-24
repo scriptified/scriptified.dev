@@ -57,6 +57,17 @@
         "code",
         "a11y"
       ]
+    },
+    {
+      "login": "hussamkhatib",
+      "name": "mohammed hussam",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52914487?v=4",
+      "profile": "https://github.com/hussamkhatib",
+      "contributions": [
+        "code",
+        "design",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
