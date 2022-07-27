@@ -54,7 +54,7 @@ const FeatureSection = (): JSX.Element => {
   const theme = useThemeState();
   return (
     <div className="py-12">
-      <div className="max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-40 lg:px-64">
+      <div className="px-8 mx-auto max-w-screen-2xl sm:px-16 md:px-40 lg:px-64">
         <div className="lg:text-center">
           <Text
             additionalStyles="pt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10 text-shadow"
@@ -75,10 +75,10 @@ const FeatureSection = (): JSX.Element => {
         </div>
 
         <div className="pt-10">
-          <ul className="md:grid md:grid-cols-2">
+          <ul className="md:grid md:grid-cols-2 [&>*]:py-4 [&>*]:flex [&>*]:justify-center [&>*]:pr-4 [&>*]:mb-4 [&>*]:lg:pr-8">
             {featureData.map(feature => {
               return (
-                <li key={feature.name} className="py-4 pr-4 lg:pr-8 mb-4 flex justify-center">
+                <li key={feature.name}>
                   <div className="flex">
                     <div
                       className={`flex shrink-0 items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-600 to-${theme}-800 transition-all hover:animate-spring-bounce`}

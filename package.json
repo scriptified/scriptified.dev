@@ -26,7 +26,7 @@
     "react-dom": "17.0.1",
     "react-markdown": "5.0.3",
     "react-player": "2.6.1",
-    "tailwindcss": "3.0.1"
+    "tailwindcss": "3.1.6"
   },
   "devDependencies": {
     "@types/gtag.js": "^0.0.4",
