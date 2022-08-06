@@ -1,9 +1,6 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
-  purge: {
-    enabled: process.env.NODE_ENV !== 'development',
-    content: ['./components/**/*.tsx', './pages/**/*.tsx', './theme/*.ts'],
-  },
+  content: ['./components/**/*.tsx', './pages/**/*.tsx', './theme/*.ts'],
   theme: {
     extend: {
       fontFamily: {
@@ -27,17 +24,6 @@ module.exports = {
         '1/2': '0.5rem',
         1: '1rem',
         6: '1.5rem',
-      },
-      maxWidth: {
-        fc: 'fit-content',
-      },
-      minHeight: {
-        50: '50vh',
-        80: '80vh',
-      },
-      backgroundImage: {
-        hero: 'url(/hero-pattern.svg)',
-        texture: 'url(/texture.svg)',
       },
       colors: {
         current: 'currentColor',
@@ -105,15 +91,5 @@ module.exports = {
         'spring-bounce': 'spring-bounce 900ms ease forwards',
       },
     },
-  },
-  variants: {
-    margin: ['responsive', 'first', 'hover', 'focus'],
-    padding: ['responsive', 'first', 'hover', 'focus'],
-    backgroundColor: ['responsive', 'first', 'hover', 'focus', 'active'],
-    fill: ['responsive', 'hover', 'focus'],
-    display: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus'],
-    animation: ['responsive', 'motion-safe', 'motion-reduce', 'hover', 'focus'],
-    transitionProperty: ['responsive', 'motion-safe', 'motion-reduce'],
-    transformOrigin: ['hover', 'focus'],
   },
 };

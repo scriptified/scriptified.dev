@@ -13,7 +13,10 @@ import { useThemeState } from '../theme/ThemeContext';
 export default function Custom500({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element {
   const theme = useThemeState();
   return (
-    <Layout additionalStyles={`pt-4 bg-hero bg-${theme}-500`} title={`${siteConfig.name} | Server-side error occurred`}>
+    <Layout
+      additionalStyles={`pt-4 bg-[url(/hero-pattern.svg)] bg-${theme}-500`}
+      title={`${siteConfig.name} | Server-side error occurred`}
+    >
       <Head>
         <title>{`${siteConfig.name} - Server-side error occurred`}</title>
       </Head>

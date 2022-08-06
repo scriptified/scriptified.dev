@@ -143,7 +143,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
             onClick={() => setIsThemeSelectorOpen(!isThemeSelectorOpen)}
           >
             <div className="animate-morph flex items-center space-x-3">
-              <span className={`animate-spin-slow flex-shrink-0 h-6 w-6 rounded-full bg-${currentTheme}-500`} />
+              <span className={`animate-spin-slow shrink-0 h-6 w-6 rounded-full bg-${currentTheme}-500`} />
               <span className="block truncate">{THEME_ALIAS[currentTheme]}</span>
             </div>
             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -189,7 +189,7 @@ const ThemePicker = ({ textColor }: { textColor: string }): JSX.Element => {
                 >
                   <div className="animate-morph flex items-center space-x-3">
                     <span
-                      className={`animate-spin-slow flex-shrink-0 h-6 w-6 rounded-full bg-${theme}-500 border-2 border-white`}
+                      className={`animate-spin-slow shrink-0 h-6 w-6 rounded-full bg-${theme}-500 border-2 border-white`}
                     />
                     <span
                       className={`${currentTheme === theme ? 'font-semibold' : 'font-normal'} hidden sm:block truncate`}
