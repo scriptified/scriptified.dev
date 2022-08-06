@@ -75,10 +75,10 @@ const FeatureSection = (): JSX.Element => {
         </div>
 
         <div className="pt-10">
-          <ul className="md:grid md:grid-cols-2 [&>*]:py-4 [&>*]:flex [&>*]:justify-center [&>*]:pr-4 [&>*]:mb-4 [&>*]:lg:pr-8">
+          <ul className="md:grid md:grid-cols-2">
             {featureData.map(feature => {
               return (
-                <li key={feature.name}>
+                <li key={feature.name} className="py-4 pr-4 lg:pr-8 mb-4 flex justify-center">
                   <div className="flex">
                     <div
                       className={`flex shrink-0 items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-600 to-${theme}-800 transition-all hover:animate-spring-bounce`}

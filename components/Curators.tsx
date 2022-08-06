@@ -71,10 +71,10 @@ function Curators(): JSX.Element {
         </Text>
       </div>
       <div className="flex justify-evenly items-center flex-col flex-wrap">
-        <div className="grid px-0 lg:px-12 [&>*]:flex [&>*]:sm:flex-col [&>*]:md:flex-row [&>*]:flex-wrap [&>*]:pb-8">
+        <div className="grid px-0 lg:px-12">
           {curators.map((curator, index) => {
             return (
-              <div key={index}>
+              <div className="flex sm:flex-col md:flex-row flex-wrap pb-8" key={index}>
                 <div
                   className={`shrink mr-4 mb-4 p-1 bg-gradient-to-br from-${theme}-300 to-${theme}-700 rounded transition duration-300`}
                 >

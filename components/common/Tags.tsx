@@ -5,9 +5,15 @@ import { useThemeState } from '../../theme/ThemeContext';
 function Tags({ tags = [] }: { tags?: Array<string> }): JSX.Element {
   const theme = useThemeState();
   return (
-    <div className="flex space-x-2 flex-wrap  [&>*]:py-1/2 [&>*]:px-1  [&>*]:border [&>*]:rounded [&>*]:uppercase">
+    <div className="flex space-x-2 flex-wrap">
       {tags?.map((tag, index) => (
-        <Text size="sm" color={`text-${theme}-600`} as="span" key={index} additionalStyles={`border-${theme}-200`}>
+        <Text
+          size="sm"
+          color={`text-${theme}-600`}
+          as="span"
+          key={index}
+          additionalStyles={`py-1/2 px-1 border-${theme}-200 border rounded uppercase`}
+        >
           {`#${tag} `}
         </Text>
       ))}

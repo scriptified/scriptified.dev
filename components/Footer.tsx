@@ -40,8 +40,8 @@ const Footer = (): JSX.Element => {
         </div>
 
         <div className="flex items-center flex-col lg:flex-row">
-          <ul className="flex px-8 items-center justify-center m-0 flex-wrap [&>*]:p-0">
-            <li>
+          <ul className="flex px-8 items-center justify-center m-0 flex-wrap">
+            <li className="p-0">
               <Link href="/">
                 <a className="hover:underline text-pom p-2 inline-flex items-center">
                   <Text as="span" additionalStyles={`text-${theme}-900`}>
@@ -50,7 +50,7 @@ const Footer = (): JSX.Element => {
                 </a>
               </Link>
             </li>
-            <li>
+            <li className="p-0">
               <Link href="/issues">
                 <a className="hover:underline text-pom p-2 inline-flex items-center">
                   <Text as="span" additionalStyles={`text-${theme}-900`}>
