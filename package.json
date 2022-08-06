@@ -1,6 +1,6 @@
 {
   "name": "scriptified",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "license": "(MIT OR Apache-2.0)",
   "scripts": {
@@ -29,7 +29,7 @@
     "tailwindcss": "3.1.6"
   },
   "devDependencies": {
-    "@types/gtag.js": "^0.0.4",
+    "@types/gtag.js": "0.0.4",
     "@types/node": "14.6.3",
     "@types/react": "17.0.3",
     "@typescript-eslint/eslint-plugin": "3.10.1",
