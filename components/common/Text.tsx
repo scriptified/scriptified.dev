@@ -1,6 +1,6 @@
 import { TextType } from '../../theme/theme';
 
-// Example usage - <Text type="base" color="text-green-500"> Hello World </Text>
+// Example usage - <Text type="base" color="text-emerald-500"> Hello World </Text>
 const Text = ({
   size = 'md',
   as = 'p',

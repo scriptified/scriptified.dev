@@ -10,7 +10,7 @@ const withPWA = require('next-pwa');
 const runtimeCaching = require('next-pwa/cache');
 
 const nextConfig = withPWA({
-  swcMinify: true,
+  swcMinify: true, // opt-in to use the Next.js compiler for minification
   pwa: {
     dest: 'public',
     register: true, // let this plugin register service worker for you

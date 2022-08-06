@@ -76,14 +76,14 @@ function Curators(): JSX.Element {
             return (
               <div className="flex sm:flex-col md:flex-row flex-wrap pb-8" key={index}>
                 <div
-                  className={`flex-shrink-1 mr-4 mb-4 p-1 bg-gradient-to-br from-${theme}-300 to-${theme}-700 rounded transition duration-300`}
+                  className={`shrink mr-4 mb-4 p-1 bg-gradient-to-br from-${theme}-300 to-${theme}-700 rounded transition duration-300`}
                 >
                   <div className={`bg-${theme}-100 p-1 rounded`}>
                     <a
                       href={curator.links.website}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex transform transition duration-700 hover:scale-105"
+                      className="flex transition duration-700 hover:scale-105"
                       aria-label={`Open ${curator.name} website.`}
                     >
                       <Image

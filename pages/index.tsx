@@ -17,14 +17,14 @@ export default function Home({ allIssuesData }: { allIssuesData: Meta[] }): JSX.
     <Layout home>
       <section
         id="section"
-        className={`text-lg flex flex-col bg-${theme}-500 bg-hero items-center leading-normal pb-4 px-4 relative`}
+        className={`text-lg flex flex-col bg-${theme}-500 bg-[url(/hero-pattern.svg)] items-center leading-normal pb-4 px-4 relative`}
       >
         <HeroSection />
       </section>
       <section className={`mx-auto px-8 sm:px-16 md:px-40 lg:px-64 text-lg leading-normal py-16 bg-${theme}-100`}>
         <LatestIssues allIssuesData={allIssuesData} />
       </section>
-      <section className={`bg-${theme}-500 bg-texture`}>
+      <section className={`bg-${theme}-500 bg-[url(/texture.svg)]`}>
         <FeatureSection />
       </section>
       <section className={`bg-${theme}-100`}>

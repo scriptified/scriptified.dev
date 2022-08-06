@@ -54,7 +54,7 @@ const FeatureSection = (): JSX.Element => {
   const theme = useThemeState();
   return (
     <div className="py-12">
-      <div className="max-w-screen-2xl mx-auto px-8 sm:px-16 md:px-40 lg:px-64">
+      <div className="px-8 mx-auto max-w-screen-2xl sm:px-16 md:px-40 lg:px-64">
         <div className="lg:text-center">
           <Text
             additionalStyles="pt-2 text-3xl leading-8 font-extrabold tracking-wide sm:text-4xl md:text-5xl sm:leading-10 text-shadow"
@@ -81,7 +81,7 @@ const FeatureSection = (): JSX.Element => {
                 <li key={feature.name} className="py-4 pr-4 lg:pr-8 mb-4 flex justify-center">
                   <div className="flex">
                     <div
-                      className={`flex flex-shrink-0 items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-600 to-${theme}-800 transition-all hover:animate-spring-bounce`}
+                      className={`flex shrink-0 items-center justify-center h-16 w-16 rounded-md text-${theme}-100 bg-gradient-to-br from-${theme}-600 to-${theme}-800 transition-all hover:animate-spring-bounce`}
                     >
                       {feature.icon}
                     </div>

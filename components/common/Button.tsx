@@ -30,7 +30,7 @@ function Button({
     <button className={styles} onClick={onClick} {...buttonAttributes} disabled={loading}>
       {loading && (
         <svg
-          className="animate-spin -ml-1 mr-3 h-6 w-6 flex-shrink-0 text-white mt-1"
+          className="animate-spin -ml-1 mr-3 h-6 w-6 shrink-0 text-white mt-1"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"

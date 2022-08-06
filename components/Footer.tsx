@@ -23,7 +23,7 @@ const Footer = (): JSX.Element => {
       <footer
         className={`flex mt-auto justify-between px-16 lg:px-32 py-5 bg-gradient-to-b from-${theme}-100 to-${theme}-300 flex-col lg:flex-row`}
       >
-        <div className="flex items-center flex-shrink-0 lg:mr-6 flex-col lg:flex-row">
+        <div className="flex items-center shrink-0 lg:mr-6 flex-col lg:flex-row">
           <Link href="/">
             <a aria-current="page" className="hover:no-underline flex items-center pb-3 lg:pb-0">
               <ScriptifiedLogo color={`text-${theme}-900`} additionalStyles="w-6 h-6" />
@@ -40,7 +40,7 @@ const Footer = (): JSX.Element => {
         </div>
 
         <div className="flex items-center flex-col lg:flex-row">
-          <ul className="flex px-8 items-center justify-center m-0 flex-wrap ">
+          <ul className="flex px-8 items-center justify-center m-0 flex-wrap">
             <li className="p-0">
               <Link href="/">
                 <a className="hover:underline text-pom p-2 inline-flex items-center">

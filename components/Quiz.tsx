@@ -79,8 +79,8 @@ const Option = ({
   const DEFAULT_BACKGROUND = `bg-gradient-to-br from-${theme}-100 to-${theme}-200`;
   const DEFAULT_BORDER = `border-${theme}-300`;
 
-  const CORRECT_ANSWER_BACKGROUND = `bg-gradient-to-br from-green-100 to-green-300 transition-none transform-none`;
-  const CORRECT_ANSWER_BORDER = `border-green-700`;
+  const CORRECT_ANSWER_BACKGROUND = `bg-gradient-to-br from-emarald-100 to-emerald-300 transition-none transform-none`;
+  const CORRECT_ANSWER_BORDER = `border-emerald-700`;
 
   const WRONG_ANSWER_BACKGROUND = 'bg-gradient-to-br from-red-100 to-red-300 transition-none transform-none';
   const WRONG_ANSWER_BORDER = 'border-red-700';
@@ -99,7 +99,7 @@ const Option = ({
   const background = isShowingDetailView ? answeredBackground : DEFAULT_BACKGROUND;
   const border = isShowingDetailView ? answeredBorder : normalBorder;
   const additionalStyles = !(isDisabled || isShowingDetailView)
-    ? `cursor-pointer ${HOVER_BORDER} transition-all transform ease-in-out duration-500 hover:scale-105 focus:scale-105`
+    ? `cursor-pointer ${HOVER_BORDER} transition-all ease-in-out duration-500 hover:scale-105 focus:scale-105`
     : '';
 
   const handleSelect = () => {
@@ -118,7 +118,7 @@ const Option = ({
       {isShowingDetailView && (
         <>
           {isCorrectAnswer ? (
-            <CheckCircleIcon color="text-green-500 absolute top-1/2 left-1" />
+            <CheckCircleIcon color="text-emerald-500 absolute top-1/2 left-1" />
           ) : (
             <XCircleIcon color="text-red-500 absolute top-1/2 left-1" />
           )}

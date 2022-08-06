@@ -66,7 +66,7 @@ const FloatingShareButton = ({ url = '', title = '' }: FloatingShareButtonProps)
       style={{ opacity: btnOpacity }}
     >
       <button
-        className={`animate-spin-slow transition duration-500 ease-in-out transform hover:scale-110 rounded-full p-4 inline-flex items-center justify-center`}
+        className={`animate-spin-slow transition duration-500 ease-in-out hover:scale-110 rounded-full p-4 inline-flex items-center justify-center`}
         onClick={shareExternal}
       >
         <ShareIcon color={`text-${theme}-100`} />

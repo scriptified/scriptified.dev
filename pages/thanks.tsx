@@ -13,7 +13,7 @@ export default function ThankYou(): JSX.Element {
       title={`Thank You | ${siteConfig.name}`}
       additionalStyles={`pt-12 min-h-screen bg-gradient-to-b from-${theme}-100 to-${theme}-300`}
     >
-      <section className="min-h-80 max-w-4xl px-8 sm:px-8 md:px-8 lg:px-8 mx-auto text-lg leading-normal pt-16">
+      <section className="min-h-[80vh] max-w-4xl px-8 sm:px-8 md:px-8 lg:px-8 mx-auto text-lg leading-normal pt-16">
         <Text size="4xl" as="h1" color={`text-${theme}-900`} additionalStyles="text-4xl pb-8 text-center">
           Thank you for subscribing to Scriptified!
         </Text>
