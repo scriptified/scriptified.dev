@@ -17,207 +17,226 @@ const optionDefinitions = [
 const fs = require('fs');
 const axios = require('axios');
 const commandLineArgs = require('command-line-args');
+const process = require('process');
 require('dotenv').config({ path: './.env.local' });
 
 const options = commandLineArgs(optionDefinitions);
 
-if (options.help) {
+if ('help' in options) {
   console.log(`
   Usage: node scripts/issueEmailGenerator.js [--issueNumber=<issueNumber>]
   `);
-  return;
+  process.exitCode = 1;
 }
 
-if (typeof options.issueNumber !== 'number') {
+if ('issueNumber' in options && typeof options.issueNumber !== 'number') {
   console.log('Please provide a valid issue number');
-  return;
+  process.exitCode = -1;
 }
 
-(async () => {
-  const currentIssue = await axios
-    .get(`${process.env.CMS_API}issues/${options.issueNumber}`)
-    .then(response => response.data);
+if ('issueNumber' in options && typeof options.issueNumber === 'number') {
+  (async () => {
+    const currentIssue = await axios.default
+      .get(`${process.env.CMS_API}issues/${options.issueNumber}`)
+      .then(response => response.data)
+      .catch(err => console.error(err));
 
-  const PROFILE_TYPES = {
-    website: 'Website',
-    twitter: 'Twitter',
-    github: 'GitHub',
-    youtube: 'YouTube',
-    linkedin: 'LinkedIn',
-    instagram: 'Instagram',
-  };
-
-  const PROFILE_KEYS = ['webiste', 'twitter', 'github', 'youtube', 'linkedin', 'instagram'];
-
-  const convertDate = date => {
-    const options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+    const PROFILE_TYPES = {
+      website: 'Website',
+      twitter: 'Twitter',
+      github: 'GitHub',
+      youtube: 'YouTube',
+      linkedin: 'LinkedIn',
+      instagram: 'Instagram',
     };
-    return new Date(date).toLocaleDateString('en-US', options);
-  };
 
-  function getOGImage(title, issueNumber, date) {
-    const parsedDate = convertDate(date);
-    return `${process.env.NEXT_PUBLIC_OG_IMAGE_BASE}${encodeURIComponent(
-      title
-    )}.png?issue_number=${issueNumber}&date=${encodeURIComponent(parsedDate)}`;
-  }
+    const PROFILE_KEYS = ['webiste', 'twitter', 'github', 'youtube', 'linkedin', 'instagram'];
 
-  function isValidHttpUrl(str) {
-    let url;
+    const convertDate = date => {
+      const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      };
+      return new Date(date).toLocaleDateString('en-US', options);
+    };
 
-    try {
-      url = new URL(str);
-    } catch (_) {
-      return false;
+    function getOGImage(title, issueNumber, date) {
+      const parsedDate = convertDate(date);
+      return `${process.env.NEXT_PUBLIC_OG_IMAGE_BASE}${encodeURIComponent(
+        title
+      )}.png?issue_number=${issueNumber}&date=${encodeURIComponent(parsedDate)}`;
     }
 
-    return url.protocol === 'http:' || url.protocol === 'https:';
-  }
+    function isValidHttpUrl(str) {
+      let url;
 
-  function getAssetURL(issueNumber, assetURL) {
-    if (isValidHttpUrl(assetURL)) {
-      return assetURL;
+      try {
+        url = new URL(str);
+      } catch (_) {
+        return false;
+      }
+
+      return url.protocol === 'http:' || url.protocol === 'https:';
     }
-    return `${process.env.NEXT_PUBLIC_ASSETS_URL}issue-${issueNumber}/${assetURL}`;
-  }
 
-  const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.dateOfPublishing);
+    function getAssetURL(issueNumber, assetURL) {
+      if (isValidHttpUrl(assetURL)) {
+        return assetURL;
+      }
+      return `${process.env.NEXT_PUBLIC_ASSETS_URL}issue-${issueNumber}/${assetURL}`;
+    }
 
-  const emailTemplate = `
-![Headshot](${ogImgURL})
+    function getAuthors(authors) {
+      if (authors?.length) {
+        const authorsWithWebsite = authors.map(author => {
+          return `[${author.Name}](${author.Website})`;
+        });
 
-<center>[Read issue on web](https://scriptified.dev/issues/${currentIssue.id})</center>
+        return `*by ${authorsWithWebsite.join(', ')}*`;
+      } else {
+        return '';
+      }
+    }
 
-${currentIssue.description}
+    const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.dateOfPublishing);
 
-# Tip of the day
-${currentIssue.tipOfTheWeek.description}
-
-${
-  currentIssue.tipOfTheWeek.codeSnippet &&
-  ` 
-\`\`\`${currentIssue.tipOfTheWeek.codeSnippet.language}
-${currentIssue.tipOfTheWeek.codeSnippet.code}
-\`\`\`
-`
-}
-___
-
-# Articles
-
-${currentIssue.articles
-  .map(
-    article =>
-      `[**${article.title}**](${article.url})
-	
-${article.description}
-
-*by ${article.authors.map(author => author.Name).join(', ')}*
-`
-  )
-  .join('\n')}
-
-___
-
-${
-  currentIssue.devOfTheWeek
-    ? `# Dev of the Week 
-    
-<img alt="${currentIssue.devOfTheWeek.name}" src="${getAssetURL(
-        currentIssue.id,
-        currentIssue.devOfTheWeek.profileImg
-      )}" style="width:200px;"/> 
+    const emailTemplate = `
+  ![Headshot](${ogImgURL})
   
-## ${currentIssue.devOfTheWeek.name} 
-${currentIssue.devOfTheWeek.bio} 
+  <center>[Read issue on web](https://scriptified.dev/issues/${currentIssue.id})</center>
   
-${Object.keys(currentIssue.devOfTheWeek)
-  .filter(key => PROFILE_KEYS.includes(key) && currentIssue.devOfTheWeek[key] !== null)
-  .map(profile => `[${PROFILE_TYPES[profile]}](${currentIssue.devOfTheWeek[profile]})`)
-  .join(' | ')}
-
-___`
-    : ''
-}
-
-# Tools
-
-${currentIssue.tools
-  .map(
-    tool =>
-      `[**${tool.name}**](${tool.url})
-    
-${tool.description}
-
-*by ${tool.authors.map(author => author.Name).join(', ')}*
-`
-  )
-  .join('\n')}
-
-___
-
-# Tech Talks
-
-[**${currentIssue.talks[0].title}**](${currentIssue.talks[0].url})
-
-${currentIssue.talks[0].url}
-
-${currentIssue.talks[0].description}
-
-___
-
-# Quiz
-
-### ${currentIssue.quiz.question}
-
-\`\`\`${currentIssue.quiz.CodeSnippet.language}
-${currentIssue.quiz.CodeSnippet.code}
-\`\`\`
-
-${currentIssue.quiz.Option.map(
-  option => `<a href="https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.option_id}" style="text-decoration:none;">
-<div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">
-	${option.text}
-</div>
-</a>
-`
-).join('\n')}
-
-
-___
-
-# This week in GIF
-
-![${currentIssue.gif.caption}](${getAssetURL(currentIssue.id, currentIssue.gif.gifURL)})
-
-<center>${currentIssue.gif.caption}</center>
-
----
-
-Liked this issue? [Share on Twitter](https://twitter.com/intent/tweet?text=${encodeURIComponent(`Have a look at issue #${currentIssue.id} of Scriptified.
-
-Subscribe to @scriptified_dev for more.`)}&url=${encodeURIComponent(
-    `https://scriptified.dev/issues/${currentIssue.id}`
-  )}) or [read previous issues](https://scriptified.dev/issues).
-`;
-
-  const archiveDirectory = './archives';
-  const issueFile = `${archiveDirectory}/issue${currentIssue.id}.md`;
-
-  // create archives folder if iot doesn't exist
-  if (!fs.existsSync(archiveDirectory)) {
-    fs.mkdirSync(archiveDirectory);
+  ${currentIssue.description}
+  
+  # Tip of the day
+  
+  ${currentIssue.tipOfTheWeek.description}
+  
+  ${
+    currentIssue.tipOfTheWeek.codeSnippet &&
+    ` 
+  \`\`\`${currentIssue.tipOfTheWeek.codeSnippet.language}
+  ${currentIssue.tipOfTheWeek.codeSnippet.code}
+  \`\`\`
+  `
   }
+  
+  ${getAuthors(currentIssue.tipOfTheWeek?.authors)}
+  ___
+  
+  # Articles
+  
+  ${currentIssue.articles
+    .map(
+      article =>
+        `[**${article.title}**](${article.url})
+  
+  ${article.description}
+  
+  ${getAuthors(article?.authors)}
+  `
+    )
+    .join('\n')}
+  
+  ___
+  
+  ${
+    currentIssue.devOfTheWeek
+      ? `# Dev of the Week 
+      
+  <img alt="${currentIssue.devOfTheWeek.name}" src="${getAssetURL(
+          currentIssue.id,
+          currentIssue.devOfTheWeek.profileImg
+        )}" style="width:200px;"/> 
+    
+  ## ${currentIssue.devOfTheWeek.name} 
+  ${currentIssue.devOfTheWeek.bio} 
+    
+  ${Object.keys(currentIssue.devOfTheWeek)
+    .filter(key => PROFILE_KEYS.includes(key) && currentIssue.devOfTheWeek[key] !== null)
+    .map(profile => `[${PROFILE_TYPES[profile]}](${currentIssue.devOfTheWeek[profile]})`)
+    .join(' | ')}
+  
+  ___`
+      : ''
+  }
+  
+  # Tools
+  
+  ${currentIssue.tools
+    .map(
+      tool =>
+        `[**${tool.name}**](${tool.url})
+      
+  ${tool.description}
+  
+  ${getAuthors(tool?.authors)}
+  `
+    )
+    .join('\n')}
+  
+  ___
+  
+  # Tech Talks
+  
+  [**${currentIssue.talks[0].title}**](${currentIssue.talks[0].url})
+  
+  ${currentIssue.talks[0].url}
+  
+  ${currentIssue.talks[0].description}
+  
+  ${getAuthors(currentIssue.talks?.[0]?.authors)}
+  
+  ___
+  
+  # Quiz
+  
+  ### ${currentIssue.quiz.question}
+  
+  \`\`\`${currentIssue.quiz.CodeSnippet.language}
+  ${currentIssue.quiz.CodeSnippet.code}
+  \`\`\`
+  
+  ${currentIssue.quiz.Option.map(
+    option => `<a href="https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.option_id}" style="text-decoration:none;">
+  <div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">
+    ${option.text}
+  </div>
+  </a>
+  `
+  ).join('\n')}
+  
+  
+  ___
+  
+  # This week in GIF
+  
+  [${currentIssue.gif.caption}](${process.env.SITE_URL}issues/${options.issueNumber}?section=gif)
+  
+  ---
+  
+  Liked this issue? [Share on Twitter](https://twitter.com/intent/tweet?text=${encodeURIComponent(`Have a look at issue #${currentIssue.id} of Scriptified.
+  
+  Subscribe to @scriptified_dev for more.`)}&url=${encodeURIComponent(
+      `https://scriptified.dev/issues/${currentIssue.id}`
+    )}) or [read previous issues](https://scriptified.dev/issues).
+  `;
 
-  // const issueFile = `./issue${currentIssue.id}.md`;
+    const archiveDirectory = './archives';
+    const issueFile = `${archiveDirectory}/issue${currentIssue.id}.md`;
 
-  // create a issue-{id}.md file in archives
-  fs.closeSync(fs.openSync(issueFile, 'a'));
+    // create archives folder if iot doesn't exist
+    if (!fs.existsSync(archiveDirectory)) {
+      fs.mkdirSync(archiveDirectory);
+    }
 
-  // write email template to issue-{id}.md file
-  fs.writeFileSync(issueFile, emailTemplate);
-  console.log(`Created the template at - ${issueFile}`);
-})();
+    // const issueFile = `./issue${currentIssue.id}.md`;
+
+    // create a issue-{id}.md file in archives
+    fs.closeSync(fs.openSync(issueFile, 'a'));
+
+    // write email template to issue-{id}.md file
+    fs.writeFileSync(issueFile, emailTemplate);
+    console.log(`Created the template at - ${issueFile}`);
+  })();
+}
