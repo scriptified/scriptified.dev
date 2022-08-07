@@ -24,8 +24,6 @@ jobs:
 
       - name: Install modules
         run: yarn
-      - name: Run Linter
-        run: npm run lint
       - name: Check Build Status
         env:
           CMS_API: ${{ secrets.CMS_API }}
