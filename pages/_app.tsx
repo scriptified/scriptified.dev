@@ -1,4 +1,5 @@
 import '../styles/global.css';
+import { Analytics } from '@vercel/analytics/react';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from '../theme/ThemeContext';
 import { LoadingProvider } from '../components/LoadingContext';
@@ -25,6 +26,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
     <ThemeProvider>
       <LoadingProvider>
         <Component {...pageProps} />
+        <Analytics />
       </LoadingProvider>
     </ThemeProvider>
   );

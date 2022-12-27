@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@svgr/webpack": "5.4.0",
+    "@vercel/analytics": "0.1.6",
     "autoprefixer": "10.4.0",
     "axios": "0.21.2",
     "glob": "7.1.6",
