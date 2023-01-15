@@ -1,10 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-// @ts-check
-
-/**
- * @type {import('next/dist/next-server/server/config').NextConfig}
- **/
 
 const withPWA = require('next-pwa');
 const runtimeCaching = require('next-pwa/cache');
@@ -48,7 +43,7 @@ const nextConfig = withPWA({
     return config;
   },
   images: {
-    domains: ['github.com', 'seeklogo.com', 'media.giphy.com', 'images.scriptified.dev', 'www.placecage.com'],
+    domains: ['github.com', 'seeklogo.com', 'media.giphy.com', 'images.scriptified.dev', 'api.lorem.space'],
     formats: ['image/avif', 'image/webp'],
   },
 });
