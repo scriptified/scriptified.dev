@@ -1,4 +1,4 @@
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import Gif from '../interfaces/gif';
 import { useThemeState } from '../theme/ThemeContext';
 import { getMediaFormat } from '../utils';
@@ -48,6 +48,10 @@ const GIFItem = ({ gif }: { gif: Gif }): JSX.Element => {
             height={350}
             src={source}
             alt={caption}
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+            }}
           />
         );
       default:

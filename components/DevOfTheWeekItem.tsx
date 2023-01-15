@@ -1,4 +1,4 @@
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import DevOfTheWeek from '../interfaces/devOfTheWeek';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
@@ -30,6 +30,10 @@ const DevOfTheWeekItem = ({
               height={150}
               alt={name}
               src={profileImg}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
           </a>
         </div>

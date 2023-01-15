@@ -1,4 +1,4 @@
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import ArticleItem from './ArticleItem';
 import Tool from '../interfaces/tool';
 
@@ -20,6 +20,10 @@ const ToolItem = ({ tool: { title, url, logo, authors, desc, tags } }: { tool: T
           height={120}
           alt={title}
           src={logo}
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
         />
       </a>
       <ArticleItem article={article} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { useThemeState } from '../theme/ThemeContext';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
@@ -92,6 +92,10 @@ function Curators(): JSX.Element {
                         width={150}
                         height={150}
                         alt={curator.name}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                        }}
                       />
                     </a>
                   </div>
