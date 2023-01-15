@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { useThemeState } from '../theme/ThemeContext';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';

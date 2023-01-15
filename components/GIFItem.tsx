@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Gif from '../interfaces/gif';
 import { useThemeState } from '../theme/ThemeContext';
 import { getMediaFormat } from '../utils';

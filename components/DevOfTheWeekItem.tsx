@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import DevOfTheWeek from '../interfaces/devOfTheWeek';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
