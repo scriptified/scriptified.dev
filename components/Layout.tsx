@@ -123,16 +123,12 @@ export default function Layout({
                 <div />
               ) : (
                 <>
-                  <Link href="/">
-                    <a aria-label={siteConfig.name}>
-                      <ScriptifiedLogo color={`text-${theme}-900`} additionalStyles="w-24 h-24" />
-                    </a>
+                  <Link href="/" aria-label={siteConfig.name}>
+                    <ScriptifiedLogo color={`text-${theme}-900`} additionalStyles="w-24 h-24" />
                   </Link>
                   <Text as="h1" size="6xl" additionalStyles="leading-snug my-4 mx-0">
-                    <Link href="/">
-                      <a className={`no-underline hover:underline text-${theme}-900 font-bold font-sniglet`}>
-                        {siteConfig.name}
-                      </a>
+                    <Link href="/" className={`no-underline hover:underline text-${theme}-900 font-bold font-sniglet`}>
+                      {siteConfig.name}
                     </Link>
                   </Text>
                 </>

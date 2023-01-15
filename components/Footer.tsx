@@ -24,15 +24,13 @@ const Footer = (): JSX.Element => {
         className={`flex mt-auto justify-between px-16 lg:px-32 py-5 bg-gradient-to-b from-${theme}-100 to-${theme}-300 flex-col lg:flex-row`}
       >
         <div className="flex items-center shrink-0 lg:mr-6 flex-col lg:flex-row">
-          <Link href="/">
-            <a aria-current="page" className="hover:no-underline flex items-center pb-3 lg:pb-0">
-              <ScriptifiedLogo color={`text-${theme}-900`} additionalStyles="w-6 h-6" />
-              <span
-                className={`font-sniglet font-bold text-2xl tracking-tight text-${theme}-900 pl-2 lg:pr-3 lg:border-r lg:border-${theme}-900 lg:mr-3`}
-              >
-                {siteConfig.name}
-              </span>
-            </a>
+          <Link href="/" aria-current="page" className="hover:no-underline flex items-center pb-3 lg:pb-0">
+            <ScriptifiedLogo color={`text-${theme}-900`} additionalStyles="w-6 h-6" />
+            <span
+              className={`font-sniglet font-bold text-2xl tracking-tight text-${theme}-900 pl-2 lg:pr-3 lg:border-r lg:border-${theme}-900 lg:mr-3`}
+            >
+              {siteConfig.name}
+            </span>
           </Link>
           <Text as="span" color={`text-${theme}-900`} additionalStyles="text-sm font-semibold pb-3 lg:pb-0 text-pom">
             &#169; {new Date().getFullYear()}. All rights reserved.
@@ -42,21 +40,17 @@ const Footer = (): JSX.Element => {
         <div className="flex items-center flex-col lg:flex-row">
           <ul className="flex px-8 items-center justify-center m-0 flex-wrap">
             <li className="p-0">
-              <Link href="/">
-                <a className="hover:underline text-pom p-2 inline-flex items-center">
-                  <Text as="span" additionalStyles={`text-${theme}-900`}>
-                    Subscribe
-                  </Text>
-                </a>
+              <Link href="/" className="hover:underline text-pom p-2 inline-flex items-center">
+                <Text as="span" additionalStyles={`text-${theme}-900`}>
+                  Subscribe
+                </Text>
               </Link>
             </li>
             <li className="p-0">
-              <Link href="/issues">
-                <a className="hover:underline text-pom p-2 inline-flex items-center">
-                  <Text as="span" additionalStyles={`text-${theme}-900`}>
-                    View Issues
-                  </Text>
-                </a>
+              <Link href="/issues" className="hover:underline text-pom p-2 inline-flex items-center">
+                <Text as="span" additionalStyles={`text-${theme}-900`}>
+                  View Issues
+                </Text>
               </Link>
             </li>
           </ul>

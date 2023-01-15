@@ -12,6 +12,7 @@
     "deploy": "yarn build && next export",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write .",
     "email_issue": "node scripts/issueEmailGenerator.js --issueNumber"
   },
   "dependencies": {
