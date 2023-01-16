@@ -23,17 +23,19 @@ const IssueListItem = ({ issueData }: { issueData: Meta }): JSX.Element => {
         </div>
 
         <div className={`md:pl-3 md:ml-6 md:border-l md:border-${theme}-400`}>
-          <Link href="/issues/[number]" as={`/issues/${number}`}>
-            <a className={`text-${theme}-600 font-sans font-semibold text-2xl no-underline hover:underline`}>
-              <Text
-                size="4xl"
-                as="h3"
-                color="text-transparent"
-                additionalStyles={`bg-gradient-to-r from-${theme}-700 to-${theme}-900 bg-clip-text font-bold`}
-              >
-                {title}
-              </Text>
-            </a>
+          <Link
+            href="/issues/[number]"
+            as={`/issues/${number}`}
+            className={`text-${theme}-600 font-sans font-semibold text-2xl no-underline hover:underline`}
+          >
+            <Text
+              size="4xl"
+              as="h3"
+              color="text-transparent"
+              additionalStyles={`bg-gradient-to-r from-${theme}-700 to-${theme}-900 bg-clip-text font-bold`}
+            >
+              {title}
+            </Text>
           </Link>
           <Text color={`text-${theme}-600`} additionalStyles="order-2 tracking-wider py-3 uppercase">
             {convertDate(dateOfPublishing)}

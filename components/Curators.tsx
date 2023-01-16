@@ -92,6 +92,10 @@ function Curators(): JSX.Element {
                         width={150}
                         height={150}
                         alt={curator.name}
+                        style={{
+                          maxWidth: '100%',
+                          height: 'auto',
+                        }}
                       />
                     </a>
                   </div>

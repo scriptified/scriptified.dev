@@ -30,6 +30,10 @@ const DevOfTheWeekItem = ({
               height={150}
               alt={name}
               src={profileImg}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
             />
           </a>
         </div>

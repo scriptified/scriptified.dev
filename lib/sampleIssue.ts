@@ -30,7 +30,7 @@ const SAMPLE_ISSUE_API_RESPONSE: IssueAPIResponse = {
   devOfTheWeek: {
     id: 1,
     name: 'I Am Devloper',
-    profileImg: 'https://www.placecage.com/c/300/300',
+    profileImg: 'https://api.lorem.space/image/movie?w=300&h=300',
     bio: 'just your friendly neighbourhood printer fixer',
     website: null,
     twitter: 'https://twitter.com/iamdevloper',
@@ -197,7 +197,7 @@ const SAMPLE_ISSUE_API_RESPONSE: IssueAPIResponse = {
       id: 1,
       name: 'ThanosJS',
       url: 'https://thanosjs.org/',
-      logo: 'https://www.placecage.com/c/300/300',
+      logo: 'https://api.lorem.space/image/book?w=300&h=300',
       description: 'Reduce the file size of your project down to 50%, by randomly deleting half of the files.',
       issue: 1,
       published_at: '2021-04-27T18:52:28.545Z',
@@ -242,7 +242,7 @@ const SAMPLE_ISSUE_API_RESPONSE: IssueAPIResponse = {
       id: 2,
       name: 'fartscroll.js',
       url: 'http://theonion.github.io/fartscroll.js/',
-      logo: 'https://www.placecage.com/c/300/300',
+      logo: 'https://api.lorem.space/image/album?w=300&h=300',
       description:
         'Everyone farts—men, women, children, dogs, cats—and fartscroll.js can make your website fart too. What this funny JavaScript library actually does is insert fart noises as you scroll.',
       issue: 1,

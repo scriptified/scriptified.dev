@@ -34,11 +34,9 @@ export default function Custom404({ allIssuesData }: { allIssuesData: Meta[] }):
           or
         </Text>
         <Link href="/">
-          <a>
-            <Button size="md" type="secondary">
-              ← Go to home
-            </Button>
-          </a>
+          <Button size="md" type="secondary">
+            ← Go to home
+          </Button>
         </Link>
       </section>
       <section className={`mx-auto px-8 sm:px-16 md:px-40 lg:px-64 text-lg leading-normal pt-2 pb-8 bg-${theme}-100`}>

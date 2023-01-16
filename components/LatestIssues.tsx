@@ -23,11 +23,9 @@ const LatestIssues = ({ allIssuesData }: { allIssuesData: Meta[] }): JSX.Element
         ))}
       </ul>
       <Link href="/issues">
-        <a>
-          <Button size="md" type="secondary" additionalStyles="mt-4">
-            View All Issues
-          </Button>
-        </a>
+        <Button size="md" type="secondary" additionalStyles="mt-4">
+          View All Issues
+        </Button>
       </Link>
     </Fragment>
   );
