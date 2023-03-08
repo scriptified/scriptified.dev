@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * This script generates the email template
@@ -102,126 +103,125 @@ if ('issueNumber' in options && typeof options.issueNumber === 'number') {
     const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.dateOfPublishing);
 
     const emailTemplate = `
-  ![Headshot](${ogImgURL})
-  
-  <center>[Read issue on web](https://scriptified.dev/issues/${currentIssue.id})</center>
-  
-  ${currentIssue.description}
-  
-  # Tip of the day
-  
-  ${currentIssue.tipOfTheWeek.description}
-  
-  ${
-    currentIssue.tipOfTheWeek.codeSnippet &&
-    ` 
-  \`\`\`${currentIssue.tipOfTheWeek.codeSnippet.language}
-  ${currentIssue.tipOfTheWeek.codeSnippet.code}
-  \`\`\`
-  `
-  }
-  
-  ${getAuthors(currentIssue.tipOfTheWeek?.authors)}
-  ___
-  
-  # Articles
-  
-  ${currentIssue.articles
-    .map(
-      article =>
-        `[**${article.title}**](${article.url})
-  
-  ${article.description}
-  
-  ${getAuthors(article?.authors)}
-  `
-    )
-    .join('\n')}
-  
-  ___
-  
-  ${
-    currentIssue.devOfTheWeek
-      ? `# Dev of the Week 
-      
-  <img alt="${currentIssue.devOfTheWeek.name}" src="${getAssetURL(
+![Headshot](${ogImgURL})
+
+<center>[Read issue on web](https://scriptified.dev/issues/${currentIssue.id})</center>
+
+${currentIssue.description}
+
+# Tip of the day
+
+${currentIssue.tipOfTheWeek.description}
+
+${currentIssue.tipOfTheWeek.codeSnippet &&
+      ` 
+\`\`\`${currentIssue.tipOfTheWeek.codeSnippet.language}
+${currentIssue.tipOfTheWeek.codeSnippet.code}
+\`\`\`
+`
+      }
+
+${getAuthors(currentIssue.tipOfTheWeek?.authors)}
+___
+
+# Articles
+
+${currentIssue.articles
+        .map(
+          article =>
+            `[**${article.title}**](${article.url})
+
+${article.description}
+
+${getAuthors(article?.authors)}
+`
+        )
+        .join('\n')}
+
+___
+
+${currentIssue.devOfTheWeek
+        ? `# Dev of the Week 
+    
+<img alt="${currentIssue.devOfTheWeek.name}" src="${getAssetURL(
           currentIssue.id,
           currentIssue.devOfTheWeek.profileImg
         )}" style="width:200px;"/> 
-    
-  ## ${currentIssue.devOfTheWeek.name} 
-  ${currentIssue.devOfTheWeek.bio} 
-    
-  ${Object.keys(currentIssue.devOfTheWeek)
-    .filter(key => PROFILE_KEYS.includes(key) && currentIssue.devOfTheWeek[key] !== null)
-    .map(profile => `[${PROFILE_TYPES[profile]}](${currentIssue.devOfTheWeek[profile]})`)
-    .join(' | ')}
   
-  ___`
-      : ''
-  }
+## ${currentIssue.devOfTheWeek.name} 
+${currentIssue.devOfTheWeek.bio} 
   
-  # Tools
-  
-  ${currentIssue.tools
-    .map(
-      tool =>
-        `[**${tool.name}**](${tool.url})
-      
-  ${tool.description}
-  
-  ${getAuthors(tool?.authors)}
-  `
-    )
-    .join('\n')}
-  
-  ___
-  
-  # Tech Talks
-  
-  [**${currentIssue.talks[0].title}**](${currentIssue.talks[0].url})
-  
-  ${currentIssue.talks[0].url}
-  
-  ${currentIssue.talks[0].description}
-  
-  ${getAuthors(currentIssue.talks?.[0]?.authors)}
-  
-  ___
-  
-  # Quiz
-  
-  ### ${currentIssue.quiz.question}
-  
-  \`\`\`${currentIssue.quiz.CodeSnippet.language}
-  ${currentIssue.quiz.CodeSnippet.code}
-  \`\`\`
-  
-  ${currentIssue.quiz.Option.map(
-    option => `<a href="https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.option_id}" style="text-decoration:none;">
-  <div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">
-    ${option.text}
-  </div>
-  </a>
-  `
-  ).join('\n')}
-  
-  
-  ___
-  
-  # This week in GIF
-  
-  [${currentIssue.gif.caption}](${process.env.SITE_URL}issues/${options.issueNumber}?section=gif)
-  
-  ---
-  
-  Liked this issue? [Share on Twitter](https://twitter.com/intent/tweet?text=${encodeURIComponent(`Have a look at issue #${currentIssue.id} of Scriptified.
-  
-  Subscribe to @scriptified_dev for more.`)}&url=${encodeURIComponent(
-      `https://scriptified.dev/issues/${currentIssue.id}`
-    )}) or [read previous issues](https://scriptified.dev/issues).
-  `;
+${Object.keys(currentIssue.devOfTheWeek)
+          .filter(key => PROFILE_KEYS.includes(key) && currentIssue.devOfTheWeek[key] !== null)
+          .map(profile => `[${PROFILE_TYPES[profile]}](${currentIssue.devOfTheWeek[profile]})`)
+          .join(' | ')}
 
+___`
+        : ''
+      }
+
+# Tools
+
+${currentIssue.tools
+        .map(
+          tool =>
+            `[**${tool.name}**](${tool.url})
+    
+${tool.description}
+
+${getAuthors(tool?.authors)}
+`
+        )
+        .join('\n')}
+
+___
+
+# Tech Talks
+
+[**${currentIssue.talks[0].title}**](${currentIssue.talks[0].url})
+
+${currentIssue.talks[0].url}
+
+${currentIssue.talks[0].description}
+
+${getAuthors(currentIssue.talks?.[0]?.authors)}
+
+___
+
+# Quiz
+
+### ${currentIssue.quiz.question}
+
+\`\`\`${currentIssue.quiz.CodeSnippet.language}
+${currentIssue.quiz.CodeSnippet.code}
+\`\`\`
+
+${currentIssue.quiz.Option.map(
+          option => `<a href="https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.option_id}" style="text-decoration:none;">
+<div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">
+  ${option.text}
+</div>
+</a>
+`
+        ).join('\n')}
+
+
+___
+
+# This week in GIF
+
+![${currentIssue.gif.caption}](${getAssetURL(currentIssue.id, currentIssue.gif.url)}})
+
+[${currentIssue.gif.caption}](${process.env.SITE_URL}issues/${options.issueNumber}?section=gif)
+
+---
+
+Liked this issue? [Share on Twitter](https://twitter.com/intent/tweet?text=${encodeURIComponent(`Have a look at issue #${currentIssue.id} of Scriptified.
+
+Subscribe to @scriptified_dev for more.`)}&url=${encodeURIComponent(
+          `https://scriptified.dev/issues/${currentIssue.id}`
+        )}) or [read previous issues](https://scriptified.dev/issues).
+`;
     const archiveDirectory = './archives';
     const issueFile = `${archiveDirectory}/issue${currentIssue.id}.md`;
 
