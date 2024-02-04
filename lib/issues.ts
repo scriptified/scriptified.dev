@@ -231,17 +231,17 @@ const getAdditionalIssueFilters = () => (process.env.IS_PREVIEW === 'true' ? '' 
 
 export const issueAPI = {
   allIssuesReversed: (): Promise<IssueAPIResponse[]> =>
-    process.env.NODE_ENV === 'production'
+    process.env.IS_PREVIEW !== 'true'
       ? getAxiosRequest<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC${getAdditionalIssueFilters()}`)
       : getReversedSampleIssues(5),
   limitedIssuesReversed: (limit = 3): Promise<IssueAPIResponse[]> =>
-    process.env.NODE_ENV === 'production'
+    process.env.IS_PREVIEW !== 'true'
       ? getAxiosRequest<IssueAPIResponse[]>(
           `${process.env.CMS_API}issues?_sort=id:DESC&_limit=${limit}${getAdditionalIssueFilters()}`
         )
       : getReversedSampleIssues(limit),
   getIssue: (id: number): Promise<IssueAPIResponse> =>
-    process.env.NODE_ENV === 'production'
+    process.env.IS_PREVIEW !== 'true'
       ? getAxiosRequest<IssueAPIResponse>(`${process.env.CMS_API}issues/${id}`)
       : getIndividualSampleIssue(id),
 };
