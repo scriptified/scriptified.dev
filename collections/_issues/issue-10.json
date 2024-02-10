@@ -83,22 +83,22 @@
         "answerId": 2,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "Winterfell",
                 "description": "You might wanna checkout docs for [JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics) and try again."
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "The wall",
                 "description": "Bingo! Since the arya's birthplace points to john's birthplace, hence when we mutate the birthplace for john same changes are reflected in arya's birthplace. The statement on line 15 makes john's birthplace point to a new object instead of mutating it hence it has no effect on arya's birthplace."
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "King's Landing",
                 "description": "You might wanna checkout docs for [JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics) and try again."
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "`undefined`",
                 "description": "Now we both know you are messing with the options here ;)"
             }

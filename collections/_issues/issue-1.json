@@ -91,22 +91,22 @@
         "answerId": 1,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "8",
                 "description": "Bingo! By default sort method sorts the array in [ascending order with the items casted to strings](https://www.digitalocean.com/community/tutorials/js-array-sort-numbers)"
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "22",
                 "description": "Okay maybe you're onto something! Keep trying"
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "32",
                 "description": "Come on did you really think it would be that obvious :)"
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "`Reference Error`",
                 "description": "Now we both know you're just trying to mess with the options here."
             }

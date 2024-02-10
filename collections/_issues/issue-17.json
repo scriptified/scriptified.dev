@@ -90,22 +90,22 @@
         "answerId": 2,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "The `useEffect` hook should not be used with a state update function.",
                 "description": "It’s okay to use a state update function inside `useEffect`. Check out the [new React documentation](https://beta.reactjs.org/reference/react/useEffect) for `useEffect` for more info."
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "The `setCount` function should take the previous count value as an argument.",
                 "description": "Yes, you are right the correct way to update the count here will be `setCount(prevCount => prevCount + 1)`. This is because the `useEffect` hook creates a closure around the state value, which causes stale data in this case when you try to access the `count` directly."
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "The `useEffect` hook is missing a cleanup function to clear the interval.",
                 "description": "The `return` statement in the `useEffect` hook includes a function that clears the `intervalId`. Check out the [new React documentation](https://beta.reactjs.org/reference/react/useEffect) for `useEffect` for more info."
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "The `useEffect` hook is missing the `count` variable in the dependency array",
                 "description": "Adding the \"count\" state variable to the \"useEffect\" hook's dependency array will fix the stale closures issue, but it is not ideal as it would cause the interval to be cleared and re-created every second, resulting in unnecessary work for the browser and potential performance issues."
             }

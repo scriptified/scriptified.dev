@@ -83,22 +83,22 @@
         "answerId": 3,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "`number`\n`string`",
                 "description": "You might want to check out how [scope works in JavaScript](https://dmitripavlutin.com/javascript-scope/) and give it a try again."
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "`number`\n`Reference Error`",
                 "description": "Check out how the [initialization of several variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#initialization_of_several_variables) works and try again."
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "`undefined`\n`string`",
                 "description": "Fantastic! `let a = b = 'bar'`  statement declares a local variable `a`. However, it does declare a global variable `b`. No variable `b` is declared neither in the `foo()` scope or global scope. So JavaScript interprets `b = 'bar'` expression as `window.b = 'bar'`. In other words, b is a global variable created accidentally."
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "`string`\n`undefined`",
                 "description": "Stop messing with the options ;)"
             }

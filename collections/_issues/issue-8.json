@@ -79,22 +79,22 @@
         "answerId": 4,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "`Uncaught TypeError: Cannot read property 'then' of undefined`",
                 "description": "Async functions always return a promise. If the return value of an async function is not explicitly a promise, it will be implicitly wrapped in a promise. Keeping this hint in mind go ahead and try again :)"
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "Scriptified\nJavaScript",
                 "description": "Nope. Keep trying!"
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "`Promise {<fulfilled>: \"JavaScript\"}`\nScriptified",
                 "description": "You might wanna check the docs for [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) and try again."
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "JavaScript\nScriptified",
                 "description": "Bingo! With the await keyword in secondFunction, we literally pause the execution of an async function until the value has been resolved before moving to the next line.\n\nAlso since async functions always return a promise we can use .then to get the resolved value by that function just like we do with normal Promises."
             }

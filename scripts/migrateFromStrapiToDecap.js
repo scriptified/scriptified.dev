@@ -74,7 +74,7 @@ async function migrateIssues() {
                 question: issue.quiz.question,
                 answerId: issue.quiz.answerId,
                 options: issue.quiz.Option.map(option => ({
-                    id: option.option_id,
+                    option_id: option.option_id,
                     text: option.text,
                     description: option.description
                 })),

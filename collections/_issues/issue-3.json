@@ -91,22 +91,22 @@
         "answerId": 4,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "`setCount` can only take number as an argument, causing the app to crash when count is incremented because it has been passed a function on Line 19",
                 "description": "No there is nothing wrong with the syntax here, `useState` also accepts a [function as a parameter](https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/) that gets the previous values as its argument and its job is to return the latest value."
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "The `SomeHeavyComponent` expects a `children={something}` prop which is missing on Line 11",
                 "description": "No, the children prop is an in-built prop provided by React it is used to display whatever you include between the [opening and closing tags when invoking a component](https://codeburst.io/a-quick-intro-to-reacts-props-children-cb3d2fce4891)."
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "The `SomeHeavyComponent` won't be memoized because we need to pass `React.memo` a dependency array similar to the memoization hooks like `useMemo` and `useCallback`.",
                 "description": "[`React.memo` is a Higher Order Component](https://reactjs.org/docs/react-api.html#reactmemo) and not a hook like `useMemo` and `useCallback`."
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "The `SomeHeavyComponent` won't be memoized because `children` prop is new on every render of `SomeComponent`",
                 "description": "Gotcha! `React.memo` just does a shallow comparison of the current props and previous props and since `typeof children === 'object'` it would never be referentially equal to the previous props, causing the `SomeHeavyComponent` to re-render every time `SomeComponent` re-renders. Keep in mind this is even worse than not using memo because here with every render you are also doing a comparison of the previous props and the new props."
             }

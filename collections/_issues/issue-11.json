@@ -86,22 +86,22 @@
         "answerId": 1,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "0\nUnknown\n",
                 "description": "Correct! The Nullish coalescing (`??`) operator returns its right-hand side operand when its left-hand side operand is null or undefined, whereas the logical OR (`||`) operator returns right-hand side operand if the left one is falsy"
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "Unknown\n0",
                 "description": "Check out the docs for [Nullish coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) and the [Logical OR](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) operator and try again"
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "Unknown\nUnknown",
                 "description": "You are partially correct, check out the docs for [Nullish coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) and try again"
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "undefined\nUnknown",
                 "description": "You are partially correct, check out the docs for [Nullish coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) and try again"
             }

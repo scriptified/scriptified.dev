@@ -89,22 +89,22 @@
         "answerId": 4,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "`false`",
                 "description": "Although the answer is a [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) value but it is not false, hope that's a good enough hint for you ;)"
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "`{ name: \"scriptified\" }`",
                 "description": "We think you should read [falsy values in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) and then try again!"
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "12",
                 "description": "Have a look at [short circuit evaluation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation) in JavaScript and then try again!"
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "`null`",
                 "description": "Voila! This is an example of [short circuit evaluation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation) with [logical AND operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND). It evaluated from left to right and if the first expression is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) then it moves to the next one, and it keeps doing this until it either finishes in which it returns the last value or reaches a falsy value and returns that instead (null is that falsy value in our case)."
             }

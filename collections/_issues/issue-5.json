@@ -88,22 +88,22 @@
         "answerId": 2,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "`1`",
                 "description": "It would have been `1` if we were using `useRef` instead of `createRef` on line number 5, which persists the value of the ref across re-renders. Keep trying."
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "`3`",
                 "description": "Bingo! `createRef` will always create a new ref on every re-render causing it to be reinitialized with the latest renderIndex on line 7, it is supposed to be used in class based components where you initialize it in the constructor, for functional component if you want to persist values across re-renders use `useRef` instead."
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "`2`",
                 "description": "You might want to check out the docs for [`createRef`](https://reactjs.org/docs/refs-and-the-dom.html#creating-refs) and try again."
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "`setRenderIndex` can only take number as an argument, causing the app to crash when count is incremented because it has been passed a function on Line 15",
                 "description": "No there is nothing wrong with the syntax here, `useState`'s setter function also accepts a [function as a parameter](https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/) that gets the previous values as its argument and its job is to return the latest value."
             }

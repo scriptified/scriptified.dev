@@ -78,22 +78,22 @@
         "answerId": 1,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "bar",
                 "description": "Correct! In JavaScript, strings are primitive values, and since [primitive values](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) are immutable in JavaScript you cannot modify them like you can with objects."
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "baz",
                 "description": "You might wanna check out the docs for [Primitives in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) and try again."
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "bzr",
                 "description": "ah, you're either a bot or just messing with the options here ;)"
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "['b', 'a', 'z']\n",
                 "description": "uh-oh, hard luck! mind re-thinking again?"
             }

@@ -76,22 +76,22 @@
         "answerId": 3,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "`baz`\n`foo`\n`baz`",
                 "description": "That’s close but yet not good enough. You might want to check how [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) works and try again."
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "`undefined`\n`undefined`\n`undefined`",
                 "description": "That’s not correct. You might want to check how [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) works and try again."
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "`baz`\n`foo`\n`undefined`",
                 "description": "Bingo! In JavaScript, the value of **`this`** depends on how a function is called. In the first call, **`this`** refers to the object the function is called on (e.g., **`foo`**). In the second call, **`this`** refers to a different object (e.g., **`baz`**). In the third call, **`this`** is not bound to any object because the function is called as a standalone function, so it refers to the global object."
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "`baz`\n`baz`\n`undefined`",
                 "description": "You are very close you might wanna check the second output here."
             }

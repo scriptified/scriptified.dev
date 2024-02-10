@@ -90,22 +90,22 @@
         "answerId": 2,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "foo",
                 "description": "You might want to check out how [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [Generator Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) work and give it a shot again"
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "bar",
                 "description": "Generator functions in JavaScript can be paused and resumed using the `yield` keyword. The caller can pass a value to the generator using the `next()` method, which is passed to the `yield` expression and becomes the value of the `yield` expression. In the example provided, the `foo()` function is a generator that uses `yield` to pause its execution and return a value. The `it.next()` method is used to start the generator and pause it at the `yield` expression, and the `it.next('bar')` method is used to pass the value 'bar' to the `yield` expression, which becomes the value of `a`."
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "`undefined`",
                 "description": "You might want to check out how [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [Generator Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) work and give it a shot again"
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "Syntax Error",
                 "description": "If this is your first time seeing Generator Functions then this syntax might look confusing to you, but it is completely valid. You might want to check out their [docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)  and give it another shot."
             }

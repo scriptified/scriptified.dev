@@ -90,22 +90,22 @@
         "answerId": 2,
         "options": [
             {
-                "id": 1,
+                "option_id": 1,
                 "text": "`ReferenceError: helloScriptified is not defined`",
                 "description": "JavaScript puts function declared with `function` keyword in memory before executing the code, because of how context execution works in JavaScript via hoisting, so this function won't be not defined. Checkout the MDN docs for [hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) and try again."
             },
             {
-                "id": 2,
+                "option_id": 2,
                 "text": "`undefined`",
                 "description": "Bingo! since message is declared with `var` it gets hoisted, and since it gets logged before initialization its value is `undefined`"
             },
             {
-                "id": 3,
+                "option_id": 3,
                 "text": "Welcome to issue #4 of Scriptified",
                 "description": "Since the initialization of the `message` variable occurs after logging, this cannot be the output. Try again."
             },
             {
-                "id": 4,
+                "option_id": 4,
                 "text": "`ReferenceError: message is not defined`',",
                 "description": "JavaScript puts variables declared with `var` keyword in memory before executing the code, because of how context execution works in JavaScript via hoisting, so this variable won't be not defined. Checkout the MDN docs for [hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) and try again."
             }
