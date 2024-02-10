@@ -87,7 +87,7 @@ collections: # our content types, this is just an example!
           - { label: 'Description', name: 'description', widget: 'markdown' }
           - { label: 'URL', name: 'url', widget: 'string' }
           - label: 'Author'
-            name: 'author'
+            name: 'authors'
             widget: 'relation'
             collection: 'authors'
             value_field: 'name'
