@@ -118,5 +118,10 @@
             },
             "showLineNumbers": true
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-3.mp4",
+        "caption": "when you ship to production without testing first"
+    },
+    "isDraft": false
 }

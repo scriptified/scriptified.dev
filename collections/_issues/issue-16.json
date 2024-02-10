@@ -103,5 +103,10 @@
             },
             "showLineNumbers": false
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-16.mp4",
+        "caption": "When I ignore all the warnings and start running my build"
+    },
+    "isDraft": false
 }

@@ -116,5 +116,10 @@
             },
             "showLineNumbers": false
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-7.mp4",
+        "caption": "me trying to fix my code"
+    },
+    "isDraft": false
 }

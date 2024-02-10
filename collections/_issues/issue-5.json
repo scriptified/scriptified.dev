@@ -115,5 +115,10 @@
             },
             "showLineNumbers": true
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-5.mp4",
+        "caption": "when I forgot to deactivate the logs"
+    },
+    "isDraft": false
 }

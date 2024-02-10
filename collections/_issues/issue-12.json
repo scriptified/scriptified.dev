@@ -110,5 +110,10 @@
             },
             "showLineNumbers": false
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-12.mp4",
+        "caption": "When your code runs in first try without any bugs (via [the_coding_love](https://thecodinglove.com/))"
+    },
+    "isDraft": false
 }

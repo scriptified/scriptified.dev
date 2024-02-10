@@ -118,5 +118,10 @@
             },
             "showLineNumbers": false
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-1.mp4",
+        "caption": "when your code works on every machine, not only yours!"
+    },
+    "isDraft": false
 }

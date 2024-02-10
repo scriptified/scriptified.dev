@@ -117,5 +117,10 @@
             },
             "showLineNumbers": true
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-15.mp4",
+        "caption": "The art of frontend and backend via [r/ProgrammerHumour](https://www.reddit.com/r/ProgrammerHumor/comments/zir9kc/the_art_of_frontend_and_backend/?utm_source=share&utm_medium=web2x&context=3)"
+    },
+    "isDraft": false
 }

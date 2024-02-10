@@ -117,5 +117,10 @@
             },
             "showLineNumbers": false
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-4.mp4",
+        "caption": "when you make a small change in the CSS of your website"
+    },
+    "isDraft": false
 }

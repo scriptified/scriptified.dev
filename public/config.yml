@@ -19,6 +19,7 @@ collections: # our content types, this is just an example!
       - { label: 'Issue Number', name: 'id', widget: 'number', value_type: 'int' }
       - { label: 'description', name: 'description', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Is Draft?', name: 'isDraft', widget: 'boolean' }
       - label: 'Tip of the week'
         name: 'tip_of_the_week'
         widget: 'object'

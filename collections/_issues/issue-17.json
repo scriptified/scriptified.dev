@@ -117,5 +117,10 @@
             },
             "showLineNumbers": true
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-17.mp4",
+        "caption": "When they ask me to ship to production as soon as possible and without testing (via https://thecodinglove.com/)"
+    },
+    "isDraft": false
 }

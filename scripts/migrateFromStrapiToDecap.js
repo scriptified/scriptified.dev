@@ -85,7 +85,12 @@ async function migrateIssues() {
                     },
                     showLineNumbers: issue.quiz.CodeSnippet.showLineNumbers
                 } : undefined,
-            }
+            },
+            gif: {
+                gifURL: issue.gif.gifURL,
+                caption: issue.gif.caption
+            },
+            isDraft: false
         };
 
         issuesMappedForDecap.tools.forEach(tool => tool.tags.forEach(tag => uniqueTags.add(tag)));
@@ -117,4 +122,4 @@ async function migrateAuthors() {
 
 }
 
-migrateAuthors();
+migrateIssues();

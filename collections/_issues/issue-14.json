@@ -110,5 +110,10 @@
             },
             "showLineNumbers": false
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-14.mp4",
+        "caption": "When you resume working on my bugs on Monday morning (via thecodinglove.com) "
+    },
+    "isDraft": false
 }

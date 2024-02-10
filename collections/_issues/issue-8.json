@@ -106,5 +106,10 @@
             },
             "showLineNumbers": false
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-8.mp4",
+        "caption": "When you have multiple warnings and no error when compiling"
+    },
+    "isDraft": false
 }

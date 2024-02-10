@@ -117,5 +117,10 @@
             },
             "showLineNumbers": false
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-6.mp4",
+        "caption": "No need to refactor"
+    },
+    "isDraft": false
 }

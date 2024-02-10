@@ -105,5 +105,10 @@
             },
             "showLineNumbers": false
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-9.mp4",
+        "caption": "When they ask you about the progress on your ongoing bug"
+    },
+    "isDraft": false
 }

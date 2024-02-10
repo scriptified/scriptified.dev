@@ -109,5 +109,10 @@
             },
             "showLineNumbers": false
         }
-    }
+    },
+    "gif": {
+        "gifURL": "gif-13.mp4",
+        "caption": "When you hear someone saying they hate the programming language you're working on"
+    },
+    "isDraft": false
 }
