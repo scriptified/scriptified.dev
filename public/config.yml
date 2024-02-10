@@ -1,7 +1,7 @@
 backend:
   name: github # our repository provider
   repo: 'scriptified/scriptified.dev' # username/repo
-  branch: main # the main branch of our repo
+  branch: add-decap-cms # the main branch of our repo
   base_url: 'https://scriptified-technetium-co.vercel.app' # our site's base URL
   auth_endpoint: 'api/auth' # used ptogether with base_url for our custom endpoints (more on this later)
 media_folder: 'public/images' # the folder we want to upload new images to
@@ -19,7 +19,6 @@ collections: # our content types, this is just an example!
       - { label: 'Issue Number', name: 'id', widget: 'number', value_type: 'int' }
       - { label: 'description', name: 'description', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'OG Image URL', name: 'ogImage', widget: 'string' }
       - label: 'Tip of the week'
         name: 'tip_of_the_week'
         widget: 'object'
@@ -65,7 +64,7 @@ collections: # our content types, this is just an example!
           - { label: 'Description', name: 'description', widget: 'markdown' }
           - { label: 'URL', name: 'url', widget: 'string' }
           - label: 'Author'
-            name: 'author'
+            name: 'authors'
             widget: 'relation'
             collection: 'authors'
             value_field: 'name'
@@ -101,7 +100,7 @@ collections: # our content types, this is just an example!
             multiple: true
             search_fields: ['name']
       - label: 'Tools of the week'
-        name: 'tools_of_the_week'
+        name: 'tools'
         widget: 'list'
         max: 2
         fields:
@@ -110,7 +109,7 @@ collections: # our content types, this is just an example!
           - { label: 'URL', name: 'url', widget: 'string' }
           - { label: 'logo', name: 'logo', widget: 'string', required: false }
           - label: 'Author'
-            name: 'author'
+            name: 'authors'
             widget: 'relation'
             collection: 'authors'
             value_field: 'name'

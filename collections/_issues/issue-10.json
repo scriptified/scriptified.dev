@@ -1,0 +1,114 @@
+{
+    "title": "A deep dive into React.children, using string literals in TypeScript, a TailwindCSS component library, and find JavaScript methods from terminal",
+    "id": 10,
+    "description": "Learn to write scalable React code, dive into React.children iteration methods ensuring good performance, know about the evolution of graphics in JavaScript, using string literals for types, and a slick TalwindCSS UI component library.",
+    "date": "2021-08-31",
+    "tools": [
+        {
+            "name": "js-explorer",
+            "description": "Instead of digging through the docs to find an array or object method, it will ask you what you need, give you a description and example, and optionally store it for later.",
+            "url": "https://www.npmjs.com/package/js-explorer",
+            "authors": [
+                "Sarah Drasner"
+            ],
+            "tags": [
+                "JavaScript"
+            ]
+        },
+        {
+            "name": "daisyUI",
+            "description": "daisyUI easily lets you create TailwindCSS components, with some predefined customizable component classes, helping you write cleaner HTML code and saving you time with its predesigned components.",
+            "url": "https://daisyui.com/",
+            "authors": [
+                "Pouya Saadeghi"
+            ],
+            "tags": [
+                "Tailwind CSS"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "How JavaScript Works: the evolution of graphics",
+            "description": "This article takes you on a journey through the evolution of Graphics since the beginning of the web as we know it 30 years ago to the modern Browser native APIs like SVG, 2D canvas API, WebGL etc.",
+            "url": "https://blog.sessionstack.com/how-javascript-works-the-evolution-of-graphics-500e0eb764a0",
+            "tags": [
+                "JavaScript",
+                "Graphics"
+            ],
+            "authors": [
+                "Gigi Sayfan"
+            ]
+        },
+        {
+            "title": "React Children And Iteration Methods",
+            "description": "Understand the use cases of iterating over React `children` and the ways to do it, and deep dive into one of the utility methods, `React.Children.toArray`, that React gives you, which helps to iterate over the `children` in a way that ensures performance and determinism.",
+            "url": "https://www.smashingmagazine.com/2021/08/react-children-iteration-methods/",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "Arihant Verma"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "Scalable React Development for Large Projects",
+            "description": "Scaling React development across multiple teams can be incredibly difficult. Teams need to share core functionality while staying autonomous. Changes need to propagate through many projects while being tested. Nx is an open-source toolkit that allows organizations to scale development more easily than before! Nx makes setting up Cypress, Prettier, Storybook, Next.js, and Gatsby faster than ever. You can also develop full-stack by using Node frameworks like Apollo and Nest.js and share code between frontend and backend. In this talk you’ll learn how large organizations like Facebook, Microsoft, and Google are able to successfully scale across multiple teams, business units, and products.",
+            "url": "https://www.youtube.com/watch?v=Lr-u2ALSEQg",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "Jason Jean"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "TypeScript has a type manipulation method called Template Literal Types, which lets you expand individual string types to a combination of string types via unions, with a familiar syntax of template literal strings in JavaScript. Find out more about them in the TypeScript docs for [Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html).",
+        "title": "TypeScript template string literals",
+        "sourceName": "TypeScript Docs",
+        "sourceURL": "https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html",
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "type EmailLocaleIDs = \"welcome_email\" | \"email_heading\";\ntype FooterLocaleIDs = \"footer_title\" | \"footer_sendoff\";\n \ntype AllLocaleIDs = `${EmailLocaleIDs | FooterLocaleIDs}_id`;\n       \n// type AllLocaleIDs =    \"welcome_email_id\" \n//                      | \"email_heading_id\" \n//                      | \"footer_title_id\" \n//                      | \"footer_sendoff_id\""
+            },
+            "showLineNumbers": false
+        }
+    },
+    "quiz": {
+        "question": "What will be the output of the snippet?",
+        "answerId": 2,
+        "options": [
+            {
+                "id": 1,
+                "text": "Winterfell",
+                "description": "You might wanna checkout docs for [JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics) and try again."
+            },
+            {
+                "id": 2,
+                "text": "The wall",
+                "description": "Bingo! Since the arya's birthplace points to john's birthplace, hence when we mutate the birthplace for john same changes are reflected in arya's birthplace. The statement on line 15 makes john's birthplace point to a new object instead of mutating it hence it has no effect on arya's birthplace."
+            },
+            {
+                "id": 3,
+                "text": "King's Landing",
+                "description": "You might wanna checkout docs for [JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics) and try again."
+            },
+            {
+                "id": 4,
+                "text": "`undefined`",
+                "description": "Now we both know you are messing with the options here ;)"
+            }
+        ],
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "const john = {\n    pet: 'Ghost',\n    birthplace: {\n        name: 'Winterfell'\n    }\n}\n\nconst arya = {\n    pet: 'Nymera',\n    birthplace: john.birthplace\n}\n\njohn.birthplace.name = 'The wall'\n\njohn.birthplace = {\n    name: \"King's landing\"\n}\n\nconsole.log(arya.birthplace.name)"
+            },
+            "showLineNumbers": false
+        }
+    }
+}

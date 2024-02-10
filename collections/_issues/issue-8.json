@@ -1,0 +1,110 @@
+{
+    "title": "Speed up build times with Netlify and Next.js, understand how TypeScript generics work, and a tip for handling form errors",
+    "id": 8,
+    "description": "Check out how you can decrease build times with Netlify's new On-Demand builder, delight your users with the Browser Hacker’s guide to instantly loading everything, test all kinds of accessibility for your designs with a simple tool and test your understanding of JavaScript promises.",
+    "date": "2021-08-10",
+    "tools": [
+        {
+            "name": "Adee",
+            "description": "A free accessibility testing tool for inclusive design that offers a colorblind simulator, contrast checker, touch target size checker, and so much more.",
+            "url": "https://www.adeeapp.com/",
+            "authors": [
+                "Adee App"
+            ],
+            "tags": []
+        },
+        {
+            "name": "Popper",
+            "description": "Popper is a tooltip and popover positioning engine that helps you position tooltips and popovers. It will position *any* UI element that \"pops out\" from the flow of your document and floats near a target element.",
+            "url": "https://popper.js.org/",
+            "authors": [
+                "Federico Zivolo"
+            ],
+            "tags": []
+        }
+    ],
+    "articles": [
+        {
+            "title": "Breaking Down Bulky Builds With Netlify And Next.js",
+            "description": "Take a look at how you can use Netlify's new On Demand Builder with Next.js' Incremental Static Site Generation to significantly reduce your static generation build times improving both the end user and the developer experience along the way.",
+            "url": "https://www.smashingmagazine.com/2021/06/breaking-down-bulky-builds-netlify-nextjs/",
+            "tags": [
+                "Optimization",
+                "Next.js"
+            ],
+            "authors": [
+                "Átila Fassina"
+            ]
+        },
+        {
+            "title": "Understanding TypeScript Generics",
+            "description": "Generics in TypeScript can be overwhelming for beginners, and they can sometimes miss out on whey they exist and what are they used for. This article explains why they exist and provide some simple examples to illustrate what makes them useful.",
+            "url": "https://seanbarry.dev/posts/understanding-typescript-generics",
+            "tags": [
+                "TypeScript"
+            ],
+            "authors": [
+                "Seán Barry"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "The Browser Hackers Guide To Instantly Loading Everything",
+            "description": "Venture deep into the belly of the browser, with Addy Osmani, to uncover the secret incantations to instantly load anything. Learn when should you use preload prefetch and preconnect, how can you ship JavaScript bundles that don't break the bank on mobile and more tips to delight your users.",
+            "url": "https://www.youtube.com/watch?v=7vUs5yOuv-o",
+            "tags": [
+                "Optimization"
+            ],
+            "authors": [
+                "Addy Osmani"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "You can use form controls' `.validationMessage` property to get the native validation message, and display it in the UI the way you like it. This may help you with a lot of manually implemented logic, via [Tomek Sułkowski](https://twitter.com/sulco/status/1309472756438904832).",
+        "title": "Form validation shortcut",
+        "sourceName": "Sulco",
+        "sourceURL": "https://twitter.com/sulco/status/1309472756438904832?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed&ref_url=https%3A%2F%2Fwww.notion.so%2Ftechnetiumco%2FIssues-96e92b12de4a48e9a6f0950ca421b027%3Fp%3D26ecce0c78174891bffe42ae2e65e570",
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "const inputEl = document.querySelector('#quantity');\n\ninputEl.addEventListener('input', e => {\n    const value = inputEl.valueAsNumber;\n    \n    if (value > 10) {\n      alert('Value must be less than or equal to 10.')\n    } else if (value < 1) {\n      alert('Value must be greater than or equal to 1.')\n    } else if (isNaN(value)) {\n      alert('Please enter a number.')\n    }\n    // And maybe a few more cases\n})\n\n// Or a much easier and safer way to do it\n\ninputEl.addEventListener('input', e => {\n  // Use the platform\n  const { validationMessage } = validationMessage;\n  \n  if(typeof validationMessage === 'string' && validationMessage.length > 0) {\n    alert(validationMessage);\n  }\n}"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "quiz": {
+        "question": "What will be the output of the below snippet?",
+        "answerId": 4,
+        "options": [
+            {
+                "id": 1,
+                "text": "`Uncaught TypeError: Cannot read property 'then' of undefined`",
+                "description": "Async functions always return a promise. If the return value of an async function is not explicitly a promise, it will be implicitly wrapped in a promise. Keeping this hint in mind go ahead and try again :)"
+            },
+            {
+                "id": 2,
+                "text": "Scriptified\nJavaScript",
+                "description": "Nope. Keep trying!"
+            },
+            {
+                "id": 3,
+                "text": "`Promise {<fulfilled>: \"JavaScript\"}`\nScriptified",
+                "description": "You might wanna check the docs for [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) and try again."
+            },
+            {
+                "id": 4,
+                "text": "JavaScript\nScriptified",
+                "description": "Bingo! With the await keyword in secondFunction, we literally pause the execution of an async function until the value has been resolved before moving to the next line.\n\nAlso since async functions always return a promise we can use .then to get the resolved value by that function just like we do with normal Promises."
+            }
+        ],
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "const promisedData = new Promise((resolve) =>\n  setTimeout(() => {\n    resolve(\"JavaScript\");\n  }, 200)\n);\n\nasync function someAsyncFunction() {\n  console.log(await promisedData);\n  return \"Scriptified\";\n}\n\nsomeAsyncFunction().then((data) => {\n  console.log(data);\n});"
+            },
+            "showLineNumbers": false
+        }
+    }
+}

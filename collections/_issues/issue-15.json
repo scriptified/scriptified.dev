@@ -1,0 +1,121 @@
+{
+    "title": "Understanding the history and reasons behind CORS, exploring Framer Motion's FLIP technique and testing your knowledge of JavaScript generators",
+    "id": 15,
+    "description": "Learn how Framer Motion uses FLIP to animate layout changes, how to win at CORS, how to use React.memo to boost performance, and test your knowledge with a quiz on JavaScript generators.",
+    "date": "2022-12-13",
+    "tools": [
+        {
+            "name": "Hypercolor",
+            "description": "A curated collection of beautiful pre-made gradients using default colors from the Tailwind palette as well as a selection of custom color gradients. Simply copy the code snippets to use within your own apps.",
+            "url": "https://hypercolor.dev/#gradients",
+            "authors": [
+                " Jordi Hales"
+            ],
+            "tags": [
+                "CSS",
+                "Tailwind CSS"
+            ]
+        },
+        {
+            "name": "Unplugin icons",
+            "description": "A library that lets you access thousands of icons as on demand components for all major frameworks.",
+            "url": "https://github.com/antfu/unplugin-icons",
+            "authors": [
+                "Anthony Fu"
+            ],
+            "tags": [
+                "Icons"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "Inside Framer's Magic Motion",
+            "description": "A great read on how [Framer Motion](https://www.framer.com/motion/) makes layout changes look seamless. Take a deep dive into FLIP, the technique used by Framer Motion to animate changes in layout without sacrificing performance.",
+            "url": "https://www.nan.fyi/magic-motion",
+            "tags": [
+                "CSS",
+                "Front-End",
+                "Animations"
+            ],
+            "authors": [
+                "Nanda Syahrasyad"
+            ]
+        },
+        {
+            "title": "How to win at CORS",
+            "description": "CORS errors have always haunted us while developing. Read about the \"how” and \"why\" of CORS in this detailed article by Jake. not just how CORS works but also the history and reasons behind it.",
+            "url": "https://jakearchibald.com/2021/cors/",
+            "tags": [
+                "JavaScript",
+                "Front-End",
+                "Browsers",
+                "Performance"
+            ],
+            "authors": [
+                "Jake Archibald"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "You should use React.memo more!",
+            "description": "By memoizing the render of your functional components, `React.memo` can improve the performance of your app.\nReact is pretty fast by default, and in general, you don't need to do performance optimizations. There are cases in which using `React.memo` won't add much complexity or mental overhead for the developer. In this video, Casio explains those scenarios where `React.memo` could be of great help.",
+            "url": "https://www.youtube.com/watch?v=IuXpqUxJG90",
+            "tags": [
+                "React",
+                "Optimization",
+                "Performance"
+            ],
+            "authors": [
+                "Cassio Zen"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "The `:any-link` selector represents an element that acts as the source anchor of a hyperlink, independent of whether it has been visited. In other words, it matches every <a> or <area> element that has an href attribute.",
+        "title": "Selecting each anchor element with a href",
+        "sourceName": "Adam Argyle",
+        "sourceURL": "https://twitter.com/argyleink/status/1413120693105954822",
+        "codeSnippet": {
+            "language": "css",
+            "code": {
+                "code": ":-any-link {\n  color: hotpink;\n}"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "quiz": {
+        "question": "What’s the output (Generator function)?",
+        "answerId": 2,
+        "options": [
+            {
+                "id": 1,
+                "text": "foo",
+                "description": "You might want to check out how [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [Generator Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) work and give it a shot again"
+            },
+            {
+                "id": 2,
+                "text": "bar",
+                "description": "Generator functions in JavaScript can be paused and resumed using the `yield` keyword. The caller can pass a value to the generator using the `next()` method, which is passed to the `yield` expression and becomes the value of the `yield` expression. In the example provided, the `foo()` function is a generator that uses `yield` to pause its execution and return a value. The `it.next()` method is used to start the generator and pause it at the `yield` expression, and the `it.next('bar')` method is used to pass the value 'bar' to the `yield` expression, which becomes the value of `a`."
+            },
+            {
+                "id": 3,
+                "text": "`undefined`",
+                "description": "You might want to check out how [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [Generator Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) work and give it a shot again"
+            },
+            {
+                "id": 4,
+                "text": "Syntax Error",
+                "description": "If this is your first time seeing Generator Functions then this syntax might look confusing to you, but it is completely valid. You might want to check out their [docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)  and give it another shot."
+            }
+        ],
+        "codeSnippet": {
+            "language": "javascript",
+            "code": {
+                "code": "function getData() {\n  return Promise.resolve('foo');\n}\n\nfunction *foo() {\n  const a = yield getData();\n  console.log(a);\n}\n\nconst it = foo();\nit.next();\nit.next('bar');"
+            },
+            "showLineNumbers": true
+        }
+    }
+}

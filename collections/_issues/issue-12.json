@@ -1,0 +1,114 @@
+{
+    "title": "Files based routing with React router, improve type safety with readonly and hone your flexbox skills",
+    "id": 12,
+    "description": "Learn how you can bundle non-JavaScript assets in your projects with JavaScript, take a look at a tiny React library that lets you achieve cool reveal on-hover effects, hone your TailwindCSS flexbox skills with a cute game and check out how Netflix applies experimental thinking to design",
+    "date": "2021-09-22",
+    "tools": [
+        {
+            "name": "react-xray",
+            "description": "A React component to reveal images on user interaction, written with TypeScript + React.\n\n- Super customizable (a zoom version!)\n- Keyboard accessible + touchscreen friendly\n- Tiny (3kb gzipped)",
+            "url": "https://react-xray.vercel.app/",
+            "authors": [
+                "Nik"
+            ],
+            "tags": [
+                "React"
+            ]
+        },
+        {
+            "name": "Knights of the Flexbox Table",
+            "description": "A programming game to help hone your flexbox skills with Tailwind CSS",
+            "url": "https://knightsoftheflexboxtable.com/",
+            "authors": [
+                "Beyond Code"
+            ],
+            "tags": [
+                "CSS",
+                "Tailwind CSS"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "Bundling non-JavaScript resources",
+            "description": "Bundling JavaScript modules is an essential part of modern web development, but more often than not you also have to deal with all sorts of other resources like WebAssesmbly, StyleSheets, fonts, etc. Explore with Ingvar how you can bundle these with resources with JavaScript.",
+            "url": "https://web.dev/bundling-non-js-resources/",
+            "tags": [
+                "JavaScript"
+            ],
+            "authors": [
+                "Ingvar Stepanyan"
+            ]
+        },
+        {
+            "title": "File-based routing with React Router",
+            "description": "Learn how you can enable Next.js like file-based routing using React Router with Vite for client side applications with just 30 lines of code",
+            "url": "https://omarelhawary.me/blog/file-based-routing-with-react-router",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "Omar Elhawary"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "Design Like a Scientist",
+            "description": "Product Designer at Netflix, Navin Iyengar reveals how Netflix applies experimental thinking to design using A/B testing and tells us how to design like a scientist at Awwwards Conference San Francisco.",
+            "url": "https://youtu.be/XRd6Ddn4ZSY",
+            "tags": [
+                "Design"
+            ],
+            "authors": [
+                "Navin Iyengar"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "For the TypeScript functions that take an array as an argument you can use the `readonly` keyword to prevent accidentally modifying the provided array.",
+        "title": "readonly with TypeScript functions",
+        "sourceName": "Alex Reardon on Twitter",
+        "sourceURL": "https://twitter.com/alexandereardon/status/1431104456431575045",
+        "codeSnippet": {
+            "language": "tsx",
+            "code": {
+                "code": "function doSomethingWithArray(value: readonly number[]): void {\n  // This will show a type error\n  value.reverse();\n  // Something awesome...\n}"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "quiz": {
+        "question": "What will be the output of `typeof a` and `typeof b` in the following snippet:",
+        "answerId": 3,
+        "options": [
+            {
+                "id": 1,
+                "text": "`number`\n`string`",
+                "description": "You might want to check out how [scope works in JavaScript](https://dmitripavlutin.com/javascript-scope/) and give it a try again."
+            },
+            {
+                "id": 2,
+                "text": "`number`\n`Reference Error`",
+                "description": "Check out how the [initialization of several variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#initialization_of_several_variables) works and try again."
+            },
+            {
+                "id": 3,
+                "text": "`undefined`\n`string`",
+                "description": "Fantastic! `let a = b = 'bar'`  statement declares a local variable `a`. However, it does declare a global variable `b`. No variable `b` is declared neither in the `foo()` scope or global scope. So JavaScript interprets `b = 'bar'` expression as `window.b = 'bar'`. In other words, b is a global variable created accidentally."
+            },
+            {
+                "id": 4,
+                "text": "`string`\n`undefined`",
+                "description": "Stop messing with the options ;)"
+            }
+        ],
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "function foo() {\n  let a = b = 'bar';\n  a = 4;\n  return a;\n}\n\nfoo();\ntypeof a; // => ???\ntypeof b; // => ???"
+            },
+            "showLineNumbers": false
+        }
+    }
+}

@@ -1,0 +1,122 @@
+{
+    "title": "Understanding event loops in JavaScript, future of CSS-in-JS, refs in React and a lightweight Tooltip API",
+    "id": 3,
+    "description": "Find out how event loops in JavaScript work, how React.useRef works and how it is different yet similar to React.useState, are Styled Components actually worth it and grease your React skills with an interesting quiz.",
+    "date": "2021-03-21",
+    "tools": [
+        {
+            "name": "react-laag",
+            "description": "It is a simple and lightweight library, that provides hooks for tooltip and popovers. It also gives you a really comprehensive API which gives you full control over the look and feel.",
+            "url": "https://www.react-laag.com/",
+            "authors": [
+                "Erik Verweij",
+                "Helena Zhang"
+            ],
+            "tags": [
+                "UI"
+            ]
+        },
+        {
+            "name": "Phosphor Icons",
+            "description": "A free and open-source icon family for interfaces, diagrams and presentations. Easy to pick up and plug in. Truly consistent in style and scale. Flexible to multiple sizes and weights.",
+            "url": "https://phosphoricons.com/",
+            "authors": [
+                "Toby Fried"
+            ],
+            "tags": [
+                "UI",
+                "Icons"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "Why I moved from styled-components to Tailwind CSS and what's the future of CSS-in-JS?",
+            "description": "Explore with Ido why he had to migrate from using styled-components to Tailwind CSS for [daily.dev](https://daily.dev) despite him considering the former as having a better DX, and what does the future hold for such CSS-in-JS libraries. Fun fact - Scriptified is also built with Tailwind CSS.",
+            "url": "https://daily.dev/blog/why-i-moved-from-styled-components-to-tailwind-css-and-whats-the-future-of-css-in-js",
+            "tags": [
+                "React",
+                "Styled Components",
+                "Tailwind CSS"
+            ],
+            "authors": [
+                "Ido Shamun"
+            ]
+        },
+        {
+            "title": "The Complete Guide to useRef() and Refs in React",
+            "description": "In this guide, Dmitri explains how `React.useRef` works, how it is different from `React.useState` and the use cases where `useRef` can come in handy with examples.",
+            "url": "https://dmitripavlutin.com/react-useref-guide/",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "Dmitri Pavlutin"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "What the heck is the event loop anyway?",
+            "description": "With some handy visualizations, and fun hacks, let’s get an intuitive understanding of what happens when JavaScript runs in this fantastic talk by Philip Roberts.",
+            "url": "https://youtu.be/8aGhZQkoFbQ",
+            "tags": [
+                "JavaScript"
+            ],
+            "authors": [
+                "Philip Roberts"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "You can use placeholder commas in the beginning to skip elements while [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) an array. For instance you want to create a new array skipping the first two elements of another array, you can do it like this - ",
+        "title": "Skip values while destructuring",
+        "sourceName": "@SimonHoiberg on Twitter",
+        "sourceURL": "https://twitter.com/SimonHoiberg/status/1367459156211425280",
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "const superheroes = ['Hawkeye', 'Black widow', 'Thor', 'Wanda', 'Hulk', 'Iron man'];\nconst [, , ...awesomeHeroes] = superheroes;\nconsole.log(awesomeHeroes);\n// > ['Thor', 'Wanda', 'Hulk', 'Iron man'];"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "dev_of_the_week": {
+        "name": "Neha Sharma",
+        "bio": "Neha has 10+ years of experience in Front-end domain & currently working as Software development Manager at Tesco. She is an active speaker & advocate of web accessibility and have given several [talks](https://a11ytips.dev/talks/) at meetups & conferences on accessibility. She also founded [JSLovers](https://twitter.com/jslovers_del) dev community & writes about accessibility at [a11ytips.dev](https://a11ytips.dev/).",
+        "profileImg": "neha-sharma.jpeg"
+    },
+    "quiz": {
+        "question": "What is wrong with the below code snippet?",
+        "answerId": 4,
+        "options": [
+            {
+                "id": 1,
+                "text": "`setCount` can only take number as an argument, causing the app to crash when count is incremented because it has been passed a function on Line 19",
+                "description": "No there is nothing wrong with the syntax here, `useState` also accepts a [function as a parameter](https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/) that gets the previous values as its argument and its job is to return the latest value."
+            },
+            {
+                "id": 2,
+                "text": "The `SomeHeavyComponent` expects a `children={something}` prop which is missing on Line 11",
+                "description": "No, the children prop is an in-built prop provided by React it is used to display whatever you include between the [opening and closing tags when invoking a component](https://codeburst.io/a-quick-intro-to-reacts-props-children-cb3d2fce4891)."
+            },
+            {
+                "id": 3,
+                "text": "The `SomeHeavyComponent` won't be memoized because we need to pass `React.memo` a dependency array similar to the memoization hooks like `useMemo` and `useCallback`.",
+                "description": "[`React.memo` is a Higher Order Component](https://reactjs.org/docs/react-api.html#reactmemo) and not a hook like `useMemo` and `useCallback`."
+            },
+            {
+                "id": 4,
+                "text": "The `SomeHeavyComponent` won't be memoized because `children` prop is new on every render of `SomeComponent`",
+                "description": "Gotcha! `React.memo` just does a shallow comparison of the current props and previous props and since `typeof children === 'object'` it would never be referentially equal to the previous props, causing the `SomeHeavyComponent` to re-render every time `SomeComponent` re-renders. Keep in mind this is even worse than not using memo because here with every render you are also doing a comparison of the previous props and the new props."
+            }
+        ],
+        "codeSnippet": {
+            "language": "jsx",
+            "code": {
+                "code": "// Assume this is some heavy component with some heavy tree\n// Hence this component is memoized to avoid unnecessary re-renders\nconst SomeHeavyComponent = React.memo(\n  ({ children }) => <div>{children}</div>\n);\n\nconst SomeComponent = () => {\n  const [count, setCount] = React.useState(0);\n  return (\n    <div>\n      <SomeHeavyComponent>\n        <span>Header</span>\n      </SomeHeavyComponent>\n\n      Count: {count}\n\n      <button \n        type=\"button\" \n        onClick={() => setCount(currentCount => currentCount + 1)}\n      >\n        Increment count\n      </button>\n    </div>\n  );\n};"
+            },
+            "showLineNumbers": true
+        }
+    }
+}
