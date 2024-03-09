@@ -35,6 +35,7 @@ async function migrateIssues() {
                 name: tool.name,
                 description: tool.description,
                 url: tool.url,
+                logo: tool.logo,
                 authors: tool.authors?.map(author => author.Name),
                 tags: tool.tags?.map(tag => tag.name)
             })),
