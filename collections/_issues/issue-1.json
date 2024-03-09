@@ -6,6 +6,7 @@
     "tools": [
         {
             "name": "react-hot-toast",
+            "logo": "react-hot-toast.jpg",
             "description": "A sleek library provides a lightweight, customizable and accessible API for adding beautiful toasts to your app.",
             "url": "https://react-hot-toast.com/",
             "authors": [
@@ -18,6 +19,7 @@
         },
         {
             "name": "Import Cost",
+            "logo": "import-cost.jpg",
             "description": "If you care about the bundle size of your libraries, then this VSCode extension can make your life a hell lot easier. This extension will display inline in the editor the size of the imported package. The extension utilizes webpack with babili-webpack-plugin in order to detect the imported size.",
             "url": "https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost",
             "authors": [

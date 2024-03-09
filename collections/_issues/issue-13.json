@@ -6,6 +6,7 @@
     "tools": [
         {
             "name": "beautiful-react-hooks",
+            "logo": "beautiful-react-hooks.png",
             "description": "A collection of beautiful and useful React hooks to speed-up your components and hooks development.",
             "url": "https://github.com/antonioru/beautiful-react-hooks",
             "authors": [
@@ -17,6 +18,7 @@
         },
         {
             "name": "Stitches",
+            "logo": "stitches.svg",
             "description": "A CSS-in-JS library with near-zero runtime, SSR, multi-variant support, critical path CSS, an intuitive API, and lots more.",
             "url": "https://stitches.dev/",
             "authors": [

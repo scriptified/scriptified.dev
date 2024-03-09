@@ -6,6 +6,7 @@
     "tools": [
         {
             "name": "Jitter",
+            "logo": "jitter.svg",
             "description": "Create rich animations for your design from your browser, with a UI as simple as creating a presentation in PowerPoint or Keynote.",
             "url": "https://jitter.video",
             "authors": [
@@ -18,6 +19,7 @@
         },
         {
             "name": "SVG Repo",
+            "logo": "svg-repo.svg",
             "description": "A huge repository of free SVG icons (over 300.000 icons), with a good search and filters.",
             "url": "https://svgrepo.com",
             "authors": [

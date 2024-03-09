@@ -8,6 +8,7 @@
             "name": "Tagify",
             "description": "Transforms an input field or a textarea into a Tags component, in an easy, customizable way, with great performance and small code footprint, exploded with features.",
             "url": "https://yaireo.github.io/tagify/",
+            "logo": "tagify.svg",
             "authors": [
                 "Yair Even Or"
             ],

@@ -15,6 +15,7 @@
         },
         {
             "name": "SVGBox",
+            "logo": "svgbox.svg",
             "description": "SVGBox allows you to add icons to your project by using simple tags. The idea behind the service is that including icons should be as simple as copying and pasting. It's free and icons are delivered over Cloudflare CDN",
             "url": "https://svgbox.net/",
             "authors": [],

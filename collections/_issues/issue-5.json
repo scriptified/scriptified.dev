@@ -6,6 +6,7 @@
     "tools": [
         {
             "name": "Omatsuri",
+            "logo": "omatsuri.svg",
             "description": "A collection of browser tools like SVG to JSX generator, Keyboard events codes, Gradient generator etc. that can ease your life as a web developer.",
             "url": "https://omatsuri.app/",
             "authors": [
@@ -17,6 +18,7 @@
         },
         {
             "name": "Spectacle",
+            "logo": "spectacle.png",
             "description": "A React library that lets you build interactive presentation decks with JSX syntax, and allows you to live preview your code.",
             "url": "https://formidable.com/open-source/spectacle/",
             "authors": [

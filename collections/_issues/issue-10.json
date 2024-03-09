@@ -8,6 +8,7 @@
             "name": "js-explorer",
             "description": "Instead of digging through the docs to find an array or object method, it will ask you what you need, give you a description and example, and optionally store it for later.",
             "url": "https://www.npmjs.com/package/js-explorer",
+            "logo": "js-explorer.png",
             "authors": [
                 "Sarah Drasner"
             ],
@@ -19,6 +20,7 @@
             "name": "daisyUI",
             "description": "daisyUI easily lets you create TailwindCSS components, with some predefined customizable component classes, helping you write cleaner HTML code and saving you time with its predesigned components.",
             "url": "https://daisyui.com/",
+            "logo": "daisyUI.svg",
             "authors": [
                 "Pouya Saadeghi"
             ],

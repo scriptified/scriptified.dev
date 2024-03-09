@@ -11,12 +11,14 @@
             "authors": [
                 "Adee App"
             ],
+            "logo": "adee.svg",
             "tags": []
         },
         {
             "name": "Popper",
             "description": "Popper is a tooltip and popover positioning engine that helps you position tooltips and popovers. It will position *any* UI element that \"pops out\" from the flow of your document and floats near a target element.",
             "url": "https://popper.js.org/",
+            "logo": "popper.svg",
             "authors": [
                 "Federico Zivolo"
             ],

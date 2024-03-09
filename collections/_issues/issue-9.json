@@ -6,6 +6,7 @@
     "tools": [
         {
             "name": "Geometric Artwork",
+            "logo": "geometric-artwork.svg",
             "description": "Generate abstract geometric art using a delightful free tool. Includes 11 different styles and a ton of customization.",
             "url": "https://tabbied.com/select-artwork",
             "authors": [
@@ -18,6 +19,7 @@
         },
         {
             "name": "Boring Avatars",
+            "logo": "boring-avatars.png",
             "description": "Boring avatars is a tiny JavaScript React library that generates custom, SVG-based, round avatars from any username and color palette.",
             "url": "https://boringavatars.com/",
             "authors": [

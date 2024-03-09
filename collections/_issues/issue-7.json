@@ -17,6 +17,7 @@
         },
         {
             "name": "gooey-react",
+            "logo": "gooey-react.png",
             "description": "This tiny component makes it easy to create sharp and crispy gooey effects in React with some customizations. It also works with Safari.",
             "url": "https://gooey-react.netlify.app/",
             "authors": [

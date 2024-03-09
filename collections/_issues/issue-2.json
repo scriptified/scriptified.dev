@@ -6,6 +6,7 @@
     "tools": [
         {
             "name": "Meta Tags",
+            "logo": "meta-tags.svg",
             "description": "A one-click meta-tags generator with previews for Google, Facebook, Twitter, LinkedIn, Pinterest and Slack.",
             "url": "https://metatags.io/",
             "authors": [
@@ -17,6 +18,7 @@
         },
         {
             "name": "Remotion",
+            "logo": "remotion.png",
             "description": "Use the magic of CSS, SVGs and WebGL to create professionally designed videos with React 17 and TypeScript. It also allows you to preview your the video in the browser with fast refresh and Timelines for frames.",
             "url": "https://remotion.dev",
             "authors": [

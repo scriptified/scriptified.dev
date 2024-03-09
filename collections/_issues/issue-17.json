@@ -75,6 +75,7 @@
       "authors": [
         "melonJS"
       ],
+      "logo": "melonjs.svg",
       "tags": [
         "JavaScript",
         "Graphics"

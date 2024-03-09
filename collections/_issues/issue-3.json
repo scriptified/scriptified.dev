@@ -6,6 +6,7 @@
     "tools": [
         {
             "name": "react-laag",
+            "logo": "react-laag.png",
             "description": "It is a simple and lightweight library, that provides hooks for tooltip and popovers. It also gives you a really comprehensive API which gives you full control over the look and feel.",
             "url": "https://www.react-laag.com/",
             "authors": [
@@ -18,6 +19,7 @@
         },
         {
             "name": "Phosphor Icons",
+            "logo": "phosphor-icons.png",
             "description": "A free and open-source icon family for interfaces, diagrams and presentations. Easy to pick up and plug in. Truly consistent in style and scale. Flexible to multiple sizes and weights.",
             "url": "https://phosphoricons.com/",
             "authors": [
