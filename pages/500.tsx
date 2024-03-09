@@ -50,7 +50,7 @@ export default function Custom500({ allIssuesData }: { allIssuesData: Meta[] }):
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await issueAPI.limitedIssuesReversed();
+  const data = await issueAPI.allIssuesReversed(3);
   return {
     props: {
       allIssuesData: getAllIssuesMeta(data),
