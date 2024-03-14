@@ -1,0 +1,122 @@
+{
+    "title": "HTTP header for responsible developers, TypeScript generic default values and JavaScript's infamous forgotten keyword",
+    "id": 11,
+    "description": "Take a look at how notion improved SEO and performance by migrating their marketing site to Next.js, how you can utilize generic default with TypeScript, compress and resize videos right in the browser and test your understanding of nullish coalescing operator.",
+    "date": "2021-09-13",
+    "tools": [
+        {
+            "name": "AVPress",
+            "description": "Compress & resize videos in the browser with WebAssembly and FFMPEG.WASM. Works in Firefox & Chrome (SharedArrayBuffer).",
+            "url": "https://avpress.zaps.dev/",
+            "authors": [
+                "Addy Osmani"
+            ],
+            "tags": [
+                "Optimization",
+                "Web"
+            ]
+        },
+        {
+            "name": "Type Scale",
+            "description": "A fantastic resource for getting the typographic scale right with the ability to export to CSS!",
+            "url": "https://type-scale.com/",
+            "authors": [
+                "Jeremy Church"
+            ],
+            "tags": [
+                "CSS",
+                "Typography"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "Migrating Notion's marketing site to Next.js",
+            "description": "Check out how notion migrated their marketing pages to Next.js, what motivated them to do it and how it helped them improve their SEO, performance, and overall lighthouse score.",
+            "url": "https://www.notion.so/blog/migrating-notion-marketing-to-next-js",
+            "tags": [
+                "Optimization",
+                "Next.js"
+            ],
+            "authors": [
+                "Cory Etzkorn"
+            ]
+        },
+        {
+            "title": "JavaScript's Forgotten Keyword (with)",
+            "description": "Check out this interesting appendage from JavaScript's history, that's worth knowing about in case you see it. Also, understand why should avoid using this keyword in your code.",
+            "url": "https://dev.to/mistval/javascript-s-forgotten-keyword-with-48id",
+            "tags": [
+                "JavaScript"
+            ],
+            "authors": [
+                "Randall"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "HTTP headers for the responsible developer by Stefan Judis | JSConf EU 2019",
+            "description": "Building for the web is not easy, developers have to consider a lot of things such as accessibility, performance, design, etc. In this talk, Stefan explores how some HTTP headers can have a direct impact on the user experience.",
+            "url": "https://www.youtube.com/watch?v=Mjqf2kkFLy8",
+            "tags": [
+                "JavaScript",
+                "Web"
+            ],
+            "authors": [
+                "Stefan Judis"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "You can set default values for a type generic in TypeScript, allowing you to create variables with the default value without having to pass the generic type.",
+        "title": "Geenric Default values",
+        "sourceName": "TypeScript generic Docs",
+        "sourceURL": "-",
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "type Dictionary<T=string> = {\n    [key: string]: T;\n}\n\n// No need to pass the generic here, because string is the\n// default value\nconst person: Dictionary = { name: \"Scriptified\" };\n\nconst car: Dictionary<number> = { price: 12000 };"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "quiz": {
+        "question": "What is the output of the following snippet?",
+        "answerId": 1,
+        "options": [
+            {
+                "option_id": 1,
+                "text": "0\nUnknown\n",
+                "description": "Correct! The Nullish coalescing (`??`) operator returns its right-hand side operand when its left-hand side operand is null or undefined, whereas the logical OR (`||`) operator returns right-hand side operand if the left one is falsy"
+            },
+            {
+                "option_id": 2,
+                "text": "Unknown\n0",
+                "description": "Check out the docs for [Nullish coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) and the [Logical OR](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) operator and try again"
+            },
+            {
+                "option_id": 3,
+                "text": "Unknown\nUnknown",
+                "description": "You are partially correct, check out the docs for [Nullish coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) and try again"
+            },
+            {
+                "option_id": 4,
+                "text": "undefined\nUnknown",
+                "description": "You are partially correct, check out the docs for [Nullish coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) and try again"
+            }
+        ],
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "const strongestAvenger = {\n  name: \"Hulk\",\n  characterstics: {\n    eyes: \"green\",\n    weight: \"520 Kg\"\n  },\n  strength: \"Super-human strength\",\n  weakness: \"Being angry\",\n  timesDefeated: 0\n}\n\nconsole.log(strongestAvenger.timesDefeated ?? \"Unknown\")\nconsole.log(strongestAvenger.timesDefeated || \"Unknown\")"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "gif": {
+        "gifURL": "gif-11.mp4",
+        "caption": "When I arrive at work on Monday morning and discover we have to handle a production incident"
+    },
+    "isDraft": false
+}

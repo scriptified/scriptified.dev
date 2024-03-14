@@ -11,6 +11,7 @@ function CodeSnippetComponent(props: CodeSnippetProps): JSX.Element {
   const {
     snippet: { code, language, showLineNumbers },
   } = props;
+
   return (
     <Highlight {...defaultProps} code={code} language={language} theme={nightOwl}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (

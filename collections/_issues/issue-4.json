@@ -1,0 +1,128 @@
+{
+    "title": "Learn how z-index works, add rich animations to your design and simplify your global state with React Query",
+    "id": 4,
+    "description": "Understand how z-index works with stacking contexts, when you should choose Svelte over React, how React Query can help you manage asynchronous data and optimize your global state and check if you understand hoisting with this week's quiz.",
+    "date": "2021-03-28",
+    "tools": [
+        {
+            "name": "Jitter",
+            "logo": "jitter.svg",
+            "description": "Create rich animations for your design from your browser, with a UI as simple as creating a presentation in PowerPoint or Keynote.",
+            "url": "https://jitter.video",
+            "authors": [
+                "Sébastien Robaszkiewicz"
+            ],
+            "tags": [
+                "UI",
+                "Design"
+            ]
+        },
+        {
+            "name": "SVG Repo",
+            "logo": "svg-repo.svg",
+            "description": "A huge repository of free SVG icons (over 300.000 icons), with a good search and filters.",
+            "url": "https://svgrepo.com",
+            "authors": [
+                "SVG Repo"
+            ],
+            "tags": [
+                "UI",
+                "Icons"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "What the heck, z-index??",
+            "description": "Have you ever been in a situation where you applied a ridiculously high z-index to an element but it still doesn't appear where you want it to be, well you're not alone. In this article Josh explores stacking contexts and explains with examples how it affects the z-index of your elements.",
+            "url": "https://www.joshwcomeau.com/css/stacking-contexts/",
+            "tags": [
+                "CSS"
+            ],
+            "authors": [
+                "Josh W. Comeau"
+            ]
+        },
+        {
+            "title": "Comparing Svelte and React",
+            "description": "Explore with Jack how he migrated his [pomodone](https://pomod.one/) app from React to Svelte, and explains the similarities and differences between both libraries with real-world examples from his app.",
+            "url": "https://www.jackfranklin.co.uk/blog/comparing-svelte-and-react-javascript/",
+            "tags": [
+                "React",
+                "Svelte"
+            ],
+            "authors": [
+                "Jack Franklin"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "React Query: It’s Time to Break up with your \"Global State”!",
+            "description": "An increasing amount of data in our React applications is coming from remote and asynchronous sources and, even worse, continues to masquerade as “global state”. In this talk, you’ll get the lowdown on why most of your “global state” isn’t really state at all and how React Query can help you fetch, cache and manage your asynchronous data with a fraction of the effort and code that you’re used to.",
+            "url": "https://www.youtube.com/watch?v=seU46c6Jz7E",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "Tanner Linsley"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "If you want to test some DOM element from the browser console and you need `document.querySelectorAll` for it, you can use the handy `$$` shorthand specifically available only on DevTools.",
+        "title": "document.querySelectorAll shorthand in DevTools",
+        "sourceName": "@stackblitz on Twitter",
+        "sourceURL": "https://twitter.com/stackblitz/status/1364941813832962053",
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "// In Dev tools\n$$('a')\n//... is equivalent to:\nArray.from(document.querySelectorAll('a'))"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "dev_of_the_week": {
+        "name": "Santosh Yadav",
+        "bio": "Santosh is a GDE for Angular, [GitHub Star](https://stars.github.com/profiles/santoshyadavdev/), and an Auth0 Ambassador, he loves contributing to Angular and NgRx. He works as a software consultant and writes for [indepth.dev](https://indepth.dev). He is also the author of the Ngx-Builders package and part of NestJsAddOns core Team. He is also running Tech Talks with Santosh talk show, where he invites the industry experts to discuss different technologies.",
+        "profileImg": "santosh-yadav.jpeg"
+    },
+    "quiz": {
+        "question": "What will be the output of the below snippet?",
+        "answerId": 2,
+        "options": [
+            {
+                "option_id": 1,
+                "text": "`ReferenceError: helloScriptified is not defined`",
+                "description": "JavaScript puts function declared with `function` keyword in memory before executing the code, because of how context execution works in JavaScript via hoisting, so this function won't be not defined. Checkout the MDN docs for [hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) and try again."
+            },
+            {
+                "option_id": 2,
+                "text": "`undefined`",
+                "description": "Bingo! since message is declared with `var` it gets hoisted, and since it gets logged before initialization its value is `undefined`"
+            },
+            {
+                "option_id": 3,
+                "text": "Welcome to issue #4 of Scriptified",
+                "description": "Since the initialization of the `message` variable occurs after logging, this cannot be the output. Try again."
+            },
+            {
+                "option_id": 4,
+                "text": "`ReferenceError: message is not defined`',",
+                "description": "JavaScript puts variables declared with `var` keyword in memory before executing the code, because of how context execution works in JavaScript via hoisting, so this variable won't be not defined. Checkout the MDN docs for [hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) and try again."
+            }
+        ],
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "helloScriptified();\n\nfunction helloScriptified() {\n  console.log(message);\n  var message = 'Welcome to issue #4 of Scriptified';\n}`,"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "gif": {
+        "gifURL": "gif-4.mp4",
+        "caption": "when you make a small change in the CSS of your website"
+    },
+    "isDraft": false
+}

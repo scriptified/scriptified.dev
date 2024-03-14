@@ -1,0 +1,128 @@
+{
+  "gif": {
+    "gifURL": "gif-17.mp4",
+    "caption": "When they ask me to ship to production as soon as possible and without testing (via https://thecodinglove.com/)"
+  },
+  "tip_of_the_week": {
+    "description": "When you have an array of key-value pairs that you want to convert into an object, you can use `Object.fromEntries` to directly convert them instead of doing it via something like `reduce`. ",
+    "title": "object.fromEntries",
+    "sourceName": "MDN",
+    "sourceURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries",
+    "codeSnippet": {
+      "language": "js",
+      "code": {
+        "code": "const entries = [  ['a', 1],\n  ['b', 2],\n  ['c', 3]\n];\n\n// ❌ Instead of doing it like this:\nconst obj = entries.reduce((acc, [key, value]) => {\n  acc[key] = value;\n  return acc;\n}, {});\n// obj = {a: 1, b: 2, c: 3}\n\n// ✅ Use Object.fromEntries instead:\nconst obj = Object.fromEntries(entries);\n// obj = {a: 1, b: 2, c: 3}"
+      },
+      "showLineNumbers": false
+    }
+  },
+  "talks": [
+    {
+      "title": "React.js: The Documentary",
+      "description": "React.js: The Documentary brings you the full story behind the early days of React, focusing on the dedicated group of developers who helped bring it to the world stage. This story is told by an all-star cast of developers like Tom Occhino, Christopher Chedeau, Pete Hunt, Sebastian Markbåge, Dan Abramov, and many more.",
+      "url": "https://youtu.be/8pDqJVdNa44",
+      "tags": [
+        "React",
+        "JavaScript"
+      ],
+      "authors": [
+        "Honeypot"
+      ]
+    }
+  ],
+  "date": "2023-03-08",
+  "quiz": {
+    "question": "What’s wrong with the following code snippet?",
+    "answerId": 2,
+    "options": [
+      {
+        "option_id": 1,
+        "text": "The `useEffect` hook should not be used with a state update function.",
+        "description": "It’s okay to use a state update function inside `useEffect`. Check out the [new React documentation](https://beta.reactjs.org/reference/react/useEffect) for `useEffect` for more info."
+      },
+      {
+        "option_id": 2,
+        "text": "The `setCount` function should take the previous count value as an argument.",
+        "description": "Yes, you are right the correct way to update the count here will be `setCount(prevCount => prevCount + 1)`. This is because the `useEffect` hook creates a closure around the state value, which causes stale data in this case when you try to access the `count` directly."
+      },
+      {
+        "option_id": 3,
+        "text": "The `useEffect` hook is missing a cleanup function to clear the interval.",
+        "description": "The `return` statement in the `useEffect` hook includes a function that clears the `intervalId`. Check out the [new React documentation](https://beta.reactjs.org/reference/react/useEffect) for `useEffect` for more info."
+      },
+      {
+        "option_id": 4,
+        "text": "The `useEffect` hook is missing the `count` variable in the dependency array",
+        "description": "Adding the \"count\" state variable to the \"useEffect\" hook's dependency array will fix the stale closures issue, but it is not ideal as it would cause the interval to be cleared and re-created every second, resulting in unnecessary work for the browser and potential performance issues."
+      }
+    ],
+    "codeSnippet": {
+      "language": "javascript",
+      "code": {
+        "code": "function MyComponent() {\n  const [count, setCount] = useState(0);\n\n  useEffect(() => {\n    const intervalId = setInterval(() => {\n      setCount(count + 1);\n    }, 1000);\n    return () => clearInterval(intervalId);\n  }, []);\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n    </div>\n  );\n}"
+      },
+      "showLineNumbers": true
+    }
+  },
+  "isDraft": false,
+  "title": "Correct usage of the useRef hook, understanding HTTP Cookies, a JavaScript game engine and more",
+  "id": 17,
+  "tools": [
+    {
+      "name": "melonJS",
+      "description": "melonJS is a fast and lightweight JavaScript game engine, that just relies on the capabilities of an HTML5-supported browser and has multiple features including WebGL 1 & 2 renderer for desktop and mobile devices with fallback to Canvas rendering, Web Audio support with spatial audio, Mouse and Touch device support etc.",
+      "url": "https://github.com/melonjs/melonJS",
+      "authors": [
+        "melonJS"
+      ],
+      "logo": "melonjs.svg",
+      "tags": [
+        "JavaScript",
+        "Graphics"
+      ]
+    },
+    {
+      "name": "Color Review",
+      "description": "A color contrast checker with a visualisation that shows exactly where the WCAG thresholds sit",
+      "url": "https://color.review/",
+      "authors": [
+        "Anton Robsarve"
+      ],
+      "logo": "color-review.png",
+      "tags": [
+        "CSS",
+        "Best Practices",
+        "Design",
+        "Web"
+      ]
+    }
+  ],
+  "description": "Watch the behind-the-scenes story of React's development, learn how to correctly use the useRef hook, and gain an understanding of how HTTP cookies work. ",
+  "articles": [
+    {
+      "title": "React useRef Hook for Dummies: How to Use useRef Correctly with Examples",
+      "description": "The article breaks down how to use the React `useRef` hook correctly and explores a few of its different use cases.",
+      "url": "https://blog.notesnook.com/react-useref-hook-with-examples/",
+      "tags": [
+        "React"
+      ],
+      "authors": [
+        "Ammar Ahmed"
+      ]
+    },
+    {
+      "title": "A practical, Complete Tutorial on HTTP cookies",
+      "description": "Learn how HTTP cookies work: simple, practical examples with JavaScript and Python.",
+      "url": "https://www.valentinog.com/blog/cookies/",
+      "tags": [
+        "JavaScript",
+        "Front-End",
+        "Web",
+        "Browsers"
+      ],
+      "authors": [
+        "Valentino Gagliardi"
+      ]
+    }
+  ]
+}

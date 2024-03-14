@@ -1,9 +1,8 @@
-import axios from 'axios';
+import fs from 'fs';
+import path from 'path';
 import { IssueAPIResponse } from '../interfaces/api';
 import { Issue } from '../interfaces/issue';
 import { convertDate } from '../utils';
-import cloneDeep from 'lodash/cloneDeep';
-import SAMPLE_ISSUE from './sampleIssue';
 
 const DEFAULT_TOOL_ASSET = `${process.env.NEXT_PUBLIC_ASSETS_URL}common/default-tool.png`;
 
@@ -26,23 +25,6 @@ export function getAllIssueIds(issues: IssueAPIResponse[]): Array<{ params: { id
       id: String(issue.id),
     },
   }));
-}
-
-function getIndividualSampleIssue(id: number): Promise<IssueAPIResponse> {
-  const response = cloneDeep(SAMPLE_ISSUE) as IssueAPIResponse;
-  response.id = id;
-
-  return new Promise(resolve => resolve(response));
-}
-
-function getReversedSampleIssues(limit: number): Promise<IssueAPIResponse[]> {
-  const issueIDs = Array.from({ length: limit }, (_, i) => limit - i);
-  const response = issueIDs.map(id => {
-    const currentItem: IssueAPIResponse = cloneDeep(SAMPLE_ISSUE);
-    currentItem.id = id;
-    return currentItem;
-  });
-  return new Promise(resolve => resolve(response));
 }
 
 export function oxfordComma(arr: string[]): string {
@@ -87,111 +69,102 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
     number: issue.id,
     title: issue.title,
     desc: issue.description,
-    dateOfPublishing: issue.dateOfPublishing,
-    imgURL: getOGImage(issue.title, issue.id, issue.dateOfPublishing),
+    dateOfPublishing: issue.date,
+    imgURL: getOGImage(issue.title, issue.id, issue.date),
   };
 
-  const tipOfTheWeek =
-    issue.tipOfTheWeek !== null
-      ? {
-          snippet: issue.tipOfTheWeek.codeSnippet ?? null,
-          desc: issue.tipOfTheWeek.description,
-          authors: issue.tipOfTheWeek.sourceName
-            ? [
-                {
-                  id: 1,
-                  name: issue.tipOfTheWeek.sourceName,
-                  website: issue.tipOfTheWeek.sourceURL ?? '#',
-                },
-              ]
-            : [],
-        }
-      : null;
+  const tipOfTheWeek = issue.tip_of_the_week
+    ? {
+        snippet: issue.tip_of_the_week.codeSnippet
+          ? {
+              code: issue.tip_of_the_week.codeSnippet.code.code,
+              language: issue.tip_of_the_week.codeSnippet.language,
+              showLineNumbers: issue.tip_of_the_week.codeSnippet.showLineNumbers,
+            }
+          : null,
+        desc: issue.tip_of_the_week.description,
+        authors: issue.tip_of_the_week.sourceName
+          ? [
+              {
+                id: 1,
+                name: issue.tip_of_the_week.sourceName,
+                website: issue.tip_of_the_week.sourceURL ?? '#',
+              },
+            ]
+          : [],
+      }
+    : null;
 
-  const articles =
-    issue?.articles !== null
-      ? issue?.articles?.map(article => ({
-          title: article.title,
-          desc: article.description,
-          url: article.url,
-          tags: article.tags?.map(tag => tag.name),
-          authors: article.authors?.map(author => ({
-            id: author.id,
-            name: author.Name,
-            website: author.Website,
-          })),
-        }))
-      : null;
+  const articles = issue?.articles
+    ? issue?.articles?.map(article => ({
+        title: article.title,
+        desc: article.description,
+        url: article.url,
+        tags: article.tags,
+        authors: article.authors,
+      }))
+    : null;
 
-  const talks =
-    issue.talks !== null
-      ? issue.talks.map(talk => ({
-          title: talk.title,
-          talkURL: talk.url,
-          desc: talk.description,
-          authors: talk.authors?.map(author => ({
-            id: author.id,
-            name: author.Name,
-            website: author.Website ?? '#',
-          })),
-          tags: talk.tags?.map(tag => tag.name),
-        }))
-      : null;
+  const talks = issue.talks
+    ? issue.talks.map(talk => ({
+        title: talk.title,
+        talkURL: talk.url,
+        desc: talk.description,
+        tags: talk.tags,
+        authors: talk.authors,
+      }))
+    : null;
 
-  const tools =
-    issue.tools !== null
-      ? issue.tools.map(tool => ({
-          title: tool.name,
-          url: tool.url,
-          logo: getAssetURL(issue.id, tool.logo, DEFAULT_TOOL_ASSET),
-          desc: tool.description,
-          tags: tool.tags?.map(tag => tag.name),
-          authors: tool.authors?.map(author => ({
-            id: author.id,
-            name: author.Name,
-            website: author.Website ?? '#',
-          })),
-        }))
-      : null;
+  const tools = issue.tools
+    ? issue.tools.map(tool => ({
+        title: tool.name,
+        url: tool.url,
+        logo: getAssetURL(issue.id, tool.logo, DEFAULT_TOOL_ASSET),
+        desc: tool.description,
+        tags: tool.tags,
+        authors: tool.authors,
+      }))
+    : null;
 
-  const devOfTheWeek =
-    issue.devOfTheWeek !== null
-      ? {
-          name: issue.devOfTheWeek.name,
-          profileImg: getAssetURL(issue.id, issue.devOfTheWeek.profileImg),
-          bio: issue.devOfTheWeek.bio,
-          profileLink: {
-            youtube: issue.devOfTheWeek.youtube,
-            github: issue.devOfTheWeek.github,
-            linkedin: issue.devOfTheWeek.linkedin,
-            website: issue.devOfTheWeek.website,
-            twitter: issue.devOfTheWeek.twitter,
-            instagram: issue.devOfTheWeek.instagram,
-          },
-        }
-      : null;
+  const devOfTheWeek = issue.dev_of_the_week
+    ? {
+        name: issue.dev_of_the_week.name,
+        profileImg: getAssetURL(issue.id, issue.dev_of_the_week.profileImg),
+        bio: issue.dev_of_the_week.bio,
+        profileLink: {
+          youtube: issue.dev_of_the_week.youtube ?? null,
+          github: issue.dev_of_the_week.github ?? null,
+          linkedin: issue.dev_of_the_week.linkedin ?? null,
+          website: issue.dev_of_the_week.website ?? null,
+          twitter: issue.dev_of_the_week.twitter ?? null,
+          instagram: issue.dev_of_the_week.instagram ?? null,
+        },
+      }
+    : null;
 
-  const gif =
-    issue.gif !== null
-      ? {
-          gifURL: getAssetURL(issue.id, issue.gif.gifURL),
-          caption: issue.gif.caption,
-        }
-      : null;
+  const gif = issue.gif
+    ? {
+        gifURL: getAssetURL(issue.id, issue.gif.gifURL),
+        caption: issue.gif.caption,
+      }
+    : null;
 
-  const quiz =
-    issue.quiz !== null
-      ? {
-          question: issue.quiz.question,
-          answerId: issue.quiz.answerId,
-          options: issue.quiz.Option.map(option => ({
-            description: option.description,
-            id: option.option_id,
-            text: option.text,
-          })),
-          snippet: issue.quiz.CodeSnippet,
-        }
-      : null;
+  const quiz = issue.quiz
+    ? {
+        question: issue.quiz.question,
+        answerId: issue.quiz.answerId,
+        options: issue.quiz.options.map(option => ({
+          description: option.description,
+          id: option.option_id,
+          text: option.text,
+        })),
+        snippet: {
+          code: issue.quiz.codeSnippet.code.code,
+          language: issue.quiz.codeSnippet.language,
+          showLineNumbers: issue.quiz.codeSnippet.showLineNumbers,
+        },
+      }
+    : null;
 
   const issueData = {
     meta,
@@ -220,28 +193,50 @@ export function getAllIssuesMeta(issues: IssueAPIResponse[]): IssuesMeta[] {
     title: issue.title,
     desc: issue.description,
     number: issue.id,
-    dateOfPublishing: issue.dateOfPublishing,
-    imgURL: issue.imgURL,
+    dateOfPublishing: issue.date,
+    imgURL: getOGImage(issue.title, issue.id, issue.date),
   }));
 }
 
-const getAxiosRequest = <T>(url: string): Promise<T> => axios.get<T>(url).then(({ data }) => data);
-
-const getAdditionalIssueFilters = () => (process.env.IS_PREVIEW === 'true' ? '' : '&isDraft_eq=false');
-
 export const issueAPI = {
-  allIssuesReversed: (): Promise<IssueAPIResponse[]> =>
-    process.env.NODE_ENV === 'production'
-      ? getAxiosRequest<IssueAPIResponse[]>(`${process.env.CMS_API}issues?_sort=id:DESC${getAdditionalIssueFilters()}`)
-      : getReversedSampleIssues(5),
-  limitedIssuesReversed: (limit = 3): Promise<IssueAPIResponse[]> =>
-    process.env.NODE_ENV === 'production'
-      ? getAxiosRequest<IssueAPIResponse[]>(
-          `${process.env.CMS_API}issues?_sort=id:DESC&_limit=${limit}${getAdditionalIssueFilters()}`
-        )
-      : getReversedSampleIssues(limit),
-  getIssue: (id: number): Promise<IssueAPIResponse> =>
-    process.env.NODE_ENV === 'production'
-      ? getAxiosRequest<IssueAPIResponse>(`${process.env.CMS_API}issues/${id}`)
-      : getIndividualSampleIssue(id),
+  allIssuesReversed: (limit?: number): Promise<IssueAPIResponse[]> => {
+    const issuesDirectory = path.join(process.cwd(), '/collections/_issues');
+    return new Promise((resolve, reject) => {
+      fs.readdir(issuesDirectory, (err, files) => {
+        if (err) {
+          reject(err);
+        }
+        const issues = files
+          .filter(file => file.includes('issue-'))
+          .map(file => {
+            const issue = JSON.parse(fs.readFileSync(path.join(issuesDirectory, file), 'utf8'));
+            return issue;
+          })
+          .sort((a, b) => b.id - a.id)
+          .filter(issue => process.env.IS_PREVIEW === 'true' || !issue.isDraft)
+          .slice(0, limit);
+        resolve(issues);
+      });
+    });
+  },
+  getIssue: async (id: number): Promise<IssueAPIResponse> => {
+    const issueFileName = `issue-${id}.json`;
+    return new Promise((resolve, reject) => {
+      const filePath = path.join(process.cwd(), `/collections/_issues/${issueFileName}`);
+      fs.readFile(filePath, 'utf8', (err, data) => {
+        if (data) {
+          const parsedData = JSON.parse(data);
+          if (parsedData.isDraft && process.env.IS_PREVIEW !== 'true') {
+            reject(new Error('Issue is a draft'));
+          } else {
+            resolve(JSON.parse(data));
+          }
+        }
+        if (err) {
+          console.error(err);
+          reject(err);
+        }
+      });
+    });
+  },
 };
