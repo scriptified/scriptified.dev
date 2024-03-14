@@ -11,7 +11,7 @@
     "codeSnippet": {
       "language": "js",
       "code": {
-        "code": "const entries = [  ['a', 1],\n  ['b', 2],\n  ['c', 3]\n];\n\n// ❌ Instead of doing it like this\nconst obj = entries.reduce((acc, [key, value]) => {\n  acc[key] = value;\n  return acc;\n}, {});\n// obj = {a: 1, b: 2, c: 3}\n\n// ✅ Use Object.fromEntries instead\nconst obj = Object.fromEntries(entries);\n// obj = {a: 1, b: 2, c: 3}"
+        "code": "const entries = [  ['a', 1],\n  ['b', 2],\n  ['c', 3]\n];\n\n// ❌ Instead of doing it like this:\nconst obj = entries.reduce((acc, [key, value]) => {\n  acc[key] = value;\n  return acc;\n}, {});\n// obj = {a: 1, b: 2, c: 3}\n\n// ✅ Use Object.fromEntries instead:\nconst obj = Object.fromEntries(entries);\n// obj = {a: 1, b: 2, c: 3}"
       },
       "showLineNumbers": false
     }
