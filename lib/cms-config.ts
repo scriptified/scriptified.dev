@@ -1,4 +1,4 @@
-export const config = provider => ({
+export const config = (provider: string) => ({
   client: {
     id: client[provider].id,
     secret: client[provider].secret,
