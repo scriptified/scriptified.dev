@@ -1,0 +1,120 @@
+{
+    "title": "Making global states using stores, functional programming with JavaScript, and a handy CSS nowrap trick ",
+    "id": 13,
+    "description": "Learn how to create global states without React Context similar to zustand, a handy CSS trick to avoid weird word breaks, collection of useful react hooks for speedy development, making your custom hooks readable, and functional programming in JavaScript",
+    "date": "2021-10-04",
+    "tools": [
+        {
+            "name": "beautiful-react-hooks",
+            "logo": "beautiful-react-hooks.png",
+            "description": "A collection of beautiful and useful React hooks to speed-up your components and hooks development.",
+            "url": "https://github.com/antonioru/beautiful-react-hooks",
+            "authors": [
+                "Antonio Rù"
+            ],
+            "tags": [
+                "React"
+            ]
+        },
+        {
+            "name": "Stitches",
+            "logo": "stitches.svg",
+            "description": "A CSS-in-JS library with near-zero runtime, SSR, multi-variant support, critical path CSS, an intuitive API, and lots more.",
+            "url": "https://stitches.dev/",
+            "authors": [
+                "Modulz"
+            ],
+            "tags": [
+                "CSS"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "Stores: Making State Global Without React's Context API",
+            "description": "In this article, Max explores some drawbacks of context-based state in typical application architecture, then explore an alternative construct, Stores, which should ultimately help us write cleaner code and increase our in-app performance. ",
+            "url": "https://formidable.com/blog/2021/stores-no-context-api/",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "Max Yinger"
+            ]
+        },
+        {
+            "title": "React Readability Analysis Of Implementing Custom Hooks",
+            "description": "The advent of hooks in React 16.8, totally changed the way we implement logic in our React components and helped us provide a new mental model for encapsulating logic in our components. In this article, the Chak described how different kinds of abstraction with custom hooks affect the readability of our React code",
+            "url": "https://www.chakshunyu.com/blog/react-readability-analysis-of-implementing-custom-hooks/",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "Chak Shun Yu"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "Learning Functional Programming with JavaScript",
+            "description": "Learn how you can use the functional programming paradigm with JavaScript, how it compares to other programming paradigms and what makes it special.",
+            "url": "https://www.youtube.com/watch?v=e-5obm1G_FY",
+            "tags": [
+                "JavaScript"
+            ],
+            "authors": [
+                "Anjana Vakil"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "Wrap important text a `<span>` with `white-space: nowrap;` to avoid awkward line breaks in responsive design.\nWe use this in [scriptified.dev](https://scriptified.dev/) tagline 😉",
+        "title": "No Wrap",
+        "sourceName": "Wes Bos",
+        "sourceURL": "https://twitter.com/wesbos/status/1306668630709600262?s=20",
+        "codeSnippet": {
+            "language": "css",
+            "code": {
+                "code": "<!-- In HTML -->\n<span class='no_wrap'>Iron Man</span>\n\n/* In CSS */\n.no_wrap {\n  white-space: nowrap;\n}"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "quiz": {
+        "question": "What should be the output of the following snippet?",
+        "answerId": 1,
+        "options": [
+            {
+                "option_id": 1,
+                "text": "R2D2 R2D2",
+                "description": "Correct! You're so awesome everyday or there's something special about today, huh?"
+            },
+            {
+                "option_id": 2,
+                "text": "C3PO R2D2",
+                "description": "umm you might wanna get a refresher on [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)..."
+            },
+            {
+                "option_id": 3,
+                "text": "C3PO R2D2",
+                "description": "umm you might wanna get a refresher on [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)..."
+            },
+            {
+                "option_id": 4,
+                "text": "`Reference Error`",
+                "description": "you're too far :( here's a [hint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)"
+            }
+        ],
+        "codeSnippet": {
+            "language": "javascript",
+            "code": {
+                "code": "let currentDroidName = 'C3PO';\n\nconst newDroid = {\n  name: 'R2D2',\n  price: '1000 credits',\n};\n\n({ name: currentDroidName } = newDroid);\n\nconsole.log(currentDroidName, newDroid.name);"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "gif": {
+        "gifURL": "gif-13.mp4",
+        "caption": "When you hear someone saying they hate the programming language you're working on"
+    },
+    "isDraft": false
+}

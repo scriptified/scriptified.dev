@@ -35,7 +35,7 @@ const createSitemap = (posts: SitemapData) => `<?xml version="1.0" encoding="UTF
 class Sitemap extends React.Component {
   static async getInitialProps({ res }: { res: NextApiResponse }): Promise<void> {
     const posts = await issueAPI.allIssuesReversed();
-    const sitemapData = posts.map(post => ({ id: post.id, date: post.dateOfPublishing }));
+    const sitemapData = posts.map(post => ({ id: post.id, date: post.date }));
 
     res.setHeader('Content-Type', 'text/xml');
     res.write(createSitemap(sitemapData));

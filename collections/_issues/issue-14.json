@@ -1,0 +1,120 @@
+{
+    "title": "A VSCode like editor for React Applications, a neat trick for better if conditions and how Airbnb adopted TypeScript at scale",
+    "id": 14,
+    "description": "Learn how Kent C. Dodds rearchitected his website with super-fast build and load times, how the VSCode team improved the bracket colorization performance 10,000x times and, a library to add VSCode like editor to your React applications.",
+    "date": "2021-10-18",
+    "tools": [
+        {
+            "name": "Tagify",
+            "description": "Transforms an input field or a textarea into a Tags component, in an easy, customizable way, with great performance and small code footprint, exploded with features.",
+            "url": "https://yaireo.github.io/tagify/",
+            "logo": "tagify.svg",
+            "authors": [
+                "Yair Even Or"
+            ],
+            "tags": [
+                "React"
+            ]
+        },
+        {
+            "name": "Monaco React",
+            "description": "Easily add a VSCode like editor to your React existing React applications with no additional setup.",
+            "url": "https://github.com/suren-atoyan/monaco-react",
+            "authors": [
+                "Suren Atoyan"
+            ],
+            "tags": [
+                "React"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "How I built a modern website in 2021",
+            "description": "Explore with Kent, how he rewrote the architecture and did a complete redesign of his website. He gives a brief of all the technologies he used in the stack, why he used them and how it eventually helped him in achieving super-fast build times and load times.",
+            "url": "https://kentcdodds.com/blog/how-i-built-a-modern-website-in-2021",
+            "tags": [
+                "React",
+                "Optimization"
+            ],
+            "authors": [
+                "Kent C Dodds"
+            ]
+        },
+        {
+            "title": "Bracket pair colorization 10,000x faster",
+            "description": "If you use VSCode chances are you are already using a bracket pair colorizing extension, that helps you identify matching pairs of brackets. These extensions usually work fine for small files but can be very slow for really large files. Check out how the VSCode team optimized this problem and made it 10000x faster.",
+            "url": "https://code.visualstudio.com/blogs/2021/09/29/bracket-pair-colorization?ck_subscriber_id=513072169",
+            "tags": [
+                "Optimization"
+            ],
+            "authors": [
+                "Henning Dieterichs"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "Adopting Typescript at Scale",
+            "description": "Check out how AirBnB, went through the phase of TypeScript migration and adoption throughout their organization.",
+            "url": "https://www.youtube.com/watch?v=P-J9Eg7hJwE",
+            "tags": [
+                "TypeScript"
+            ],
+            "authors": [
+                "Brie Bunge"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "When comparing a variable multiple times in an if condition, try using `Array.includes()`for better readability and flexibility.",
+        "title": "Better if conditions",
+        "sourceName": "IMAC2 on Twitter",
+        "sourceURL": "https://twitter.com/IMAC2/status/1327227452461096960?s=20",
+        "codeSnippet": {
+            "language": "javascript",
+            "code": {
+                "code": "// Instead of doing something like this\nif (\n  name === 'Tony' ||\n  name === 'Natasha' ||\n  name === 'Thor' ||\n  name === 'Loki'\n) {\n  ...\n}\n\n// ...you can do it like this\n\nconst strongestAvengers = ['Tony', 'Natasha', 'Thor', 'Loki']\n\nif (strongestAvengers.includes(name)) {\n  ...\n}"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "quiz": {
+        "question": "What's the output?",
+        "answerId": 4,
+        "options": [
+            {
+                "option_id": 1,
+                "text": "`[['First', 'Second'], ['Fourth']]`",
+                "description": "Sorry to say, but no! you might wanna take a refresher on [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) and try again"
+            },
+            {
+                "option_id": 2,
+                "text": "`[['First', 'Second'], ['Third', 'Fourth']]`",
+                "description": "Two might be your lucky number but it's not the correct option :( you might wanna take a refresher on [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) and try again"
+            },
+            {
+                "option_id": 3,
+                "text": "`[['First', 'Second']]`",
+                "description": "We would be lying if we say you're almost there. you might wanna take a refresher on [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) and try again."
+            },
+            {
+                "option_id": 4,
+                "text": "`'Third'`",
+                "description": "Hurrah! The `Promise.all` method runs the passed promises in parallel. If one promise fails, the `Promise.all` method rejects with the value of the rejected promise. In this case, `promise3` was rejected with the value `\"Third\"`. We’re catching the rejected value in the chained catch method on the `runPromises` invocation to catch any errors within the `runPromises` function. Only `\"Third\"` gets logged since `promise3` is rejected with this value."
+            }
+        ],
+        "codeSnippet": {
+            "language": "javascript",
+            "code": {
+                "code": "const promise1 = Promise.resolve('First')\nconst promise2 = Promise.resolve('Second')\nconst promise3 = Promise.reject('Third')\nconst promise4 = Promise.resolve('Fourth')\n\nconst runPromises = async () => {\n\tconst res1 = await Promise.all([promise1, promise2])\n\tconst res2  = await Promise.all([promise3, promise4])\n\treturn [res1, res2]\n}\n\nrunPromises()\n\t.then(res => console.log(res))\n\t.catch(err => console.log(err))"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "gif": {
+        "gifURL": "gif-14.mp4",
+        "caption": "When you resume working on my bugs on Monday morning (via thecodinglove.com) "
+    },
+    "isDraft": false
+}

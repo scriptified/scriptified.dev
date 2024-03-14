@@ -1,0 +1,113 @@
+{
+    "title": "Enhance your React skills with useReducer, state machine-based side effect management, and know what mutates in JavaScript land",
+    "id": 16,
+    "description": "Discover the benefits of using the useReducer hook as a more powerful alternative to useState, find a new tool for easily adding icons to your projects, and learn how to manage side effects declaratively with statecharts",
+    "date": "2022-12-27",
+    "tools": [
+        {
+            "name": "Does it mutate?",
+            "description": "A concise list of JavaScript methods with a warning flag to indicate mutation, including code examples and descriptions.",
+            "url": "https://doesitmutate.xyz/",
+            "authors": [],
+            "tags": [
+                "JavaScript"
+            ]
+        },
+        {
+            "name": "SVGBox",
+            "logo": "svgbox.svg",
+            "description": "SVGBox allows you to add icons to your project by using simple tags. The idea behind the service is that including icons should be as simple as copying and pasting. It's free and icons are delivered over Cloudflare CDN",
+            "url": "https://svgbox.net/",
+            "authors": [],
+            "tags": [
+                "Icons"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "A visual guide to useEffect",
+            "description": "Learn how and when to use useEffect in React to manage side effects, with visual examples to better understand their importance and proper usage in your applications.",
+            "url": "https://alexsidorenko.com/blog/useeffect/",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "Alex Sidorenko"
+            ]
+        },
+        {
+            "title": "useEncapsulation",
+            "description": "In this article Kyle argues why all the hooks in your application should be created as custom ones for providing better context and making your components more declarative with examples.",
+            "url": "https://kyleshevlin.com/use-encapsulation",
+            "tags": [],
+            "authors": [
+                "Kyle Shevlin"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "Goodbye, useEffect",
+            "description": "Side effects can be a major source of frustration in web app development, from fetching data to dealing with imperative APIs. While the useEffect hook can help, it's not always a complete solution. However, there is a way to simplify and declaratively orchestrate effects using state machines and statecharts, which are based on computer science principles. In this talk, explore how these tools can be used to effectively manage side effects in our React apps, even as they become more complex.",
+            "url": "https://www.youtube.com/watch?v=HPoC-k7Rxwo",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "David Khourshid"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "David shows us how `useReducer` is a better `useState`, and it's easier to adopt than we may think. We can group related values together and spread them in the reducer. When we centralize related data into a reducer, we can ensure data integrity no matter where the updates happen. This is harder to do with `useState` since you have to defensively program everywhere the `setState` calls are made; it's less reliable and easy to miss. Also, refactoring code to use explicit events becomes easier.\n",
+        "title": "Using `useReducer` instead of `useState` for related values",
+        "sourceName": "David Khourshid",
+        "sourceURL": "https://twitter.com/DavidKPiano/status/1604870393084665856?s=20&t=U4XWt_OhhsTa_prvEyHpKA",
+        "codeSnippet": {
+            "language": "javascript",
+            "code": {
+                "code": "function Todo (props) {\n    // Separate useState hooks\n    const [message, setMessage] = useState(\"\");\n    const [tags, setTags] = useState([]);\n    const [status, setStatus] = useState(\"active\");\n\n    //Single useReducer hook\n    const [todo, updateTodo] = useReducer(\n        (data, partialData) => ({\n            ...data,\n            ...partialData\n        }),\n        { message: \"\", tags: [], status: \"active\" }\n    );\n}\n\n// in render\n<input\n    type=\"text\"\n    value={message}\n    // Updating with useState\n    onChange={(e) => {\n        setMessage(e.target.value); // Can only update one value at a time\n    }}\n    // Updating with useReducer\n    onChange={(e) => {\n        updateTodo ({\n            message: e.target.value, // Can update multiple properties\n        });\n    }}\n/>"
+            },
+            "showLineNumbers": true
+        }
+    },
+    "quiz": {
+        "question": "What is the output of the following snippet?",
+        "answerId": 3,
+        "options": [
+            {
+                "option_id": 1,
+                "text": "`baz`\n`foo`\n`baz`",
+                "description": "That’s close but yet not good enough. You might want to check how [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) works and try again."
+            },
+            {
+                "option_id": 2,
+                "text": "`undefined`\n`undefined`\n`undefined`",
+                "description": "That’s not correct. You might want to check how [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) works and try again."
+            },
+            {
+                "option_id": 3,
+                "text": "`baz`\n`foo`\n`undefined`",
+                "description": "Bingo! In JavaScript, the value of **`this`** depends on how a function is called. In the first call, **`this`** refers to the object the function is called on (e.g., **`foo`**). In the second call, **`this`** refers to a different object (e.g., **`baz`**). In the third call, **`this`** is not bound to any object because the function is called as a standalone function, so it refers to the global object."
+            },
+            {
+                "option_id": 4,
+                "text": "`baz`\n`baz`\n`undefined`",
+                "description": "You are very close you might wanna check the second output here."
+            }
+        ],
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "const foo = {\n  bar: 'baz',\n  qux() {\n      console.log(this.bar)\n  }\n};\n\nconst baz = {\n  bar: 'foo'\n};\n\nconst qux = foo.qux;\n\nfoo.qux();\nbaz.qux = foo.qux;\nbaz.qux();\nqux();"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "gif": {
+        "gifURL": "gif-16.mp4",
+        "caption": "When I ignore all the warnings and start running my build"
+    },
+    "isDraft": false
+}

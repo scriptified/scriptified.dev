@@ -1,0 +1,129 @@
+{
+    "title": "Toasts, Styled Components and Writing Legible Code Comments",
+    "id": 1,
+    "description": "Learn the mental model you need for styled-components, how JavaScript sets can help you, display beautiful toasts, improve code comments, and do you really understand the sort method.",
+    "date": "2021-03-06",
+    "tools": [
+        {
+            "name": "react-hot-toast",
+            "logo": "react-hot-toast.jpg",
+            "description": "A sleek library provides a lightweight, customizable and accessible API for adding beautiful toasts to your app.",
+            "url": "https://react-hot-toast.com/",
+            "authors": [
+                "Timo Lins"
+            ],
+            "tags": [
+                "React",
+                "CSS"
+            ]
+        },
+        {
+            "name": "Import Cost",
+            "logo": "import-cost.jpg",
+            "description": "If you care about the bundle size of your libraries, then this VSCode extension can make your life a hell lot easier. This extension will display inline in the editor the size of the imported package. The extension utilizes webpack with babili-webpack-plugin in order to detect the imported size.",
+            "url": "https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost",
+            "authors": [
+                "Wix.com"
+            ],
+            "tags": [
+                "Optimization",
+                "Webpack",
+                "JavaScript"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "The styled-components happy path",
+            "description": "Most developers don't fully embrace the power of styled-components, and start working on a project without updating their mental models around styling. This aritcle would explain how you could get most out of it.",
+            "url": "https://www.joshwcomeau.com/css/styled-components/",
+            "tags": [
+                "React",
+                "Styled Components"
+            ],
+            "authors": [
+                "Josh W. Comeau"
+            ]
+        },
+        {
+            "title": "What is React: A Visual Introduction For Beginners",
+            "description": "This article is an introduction to React for beginners, and provides a bird's eye view with an interactive hands-on experience of writing an actual React component. It should probably be the first post that you should go through before getting familiar with its APIs.",
+            "url": "https://learnreact.design/posts/what-is-react",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "Linton Ye"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "The Art of Code Comments - Sarah Drasner | JSConf Hawaii 2020",
+            "description": "Code can describe how, but it cannot explain why. This talk digs into some of the many beneficial types of comments that might all serve a different purpose, followed by patterns you might want to avoid.",
+            "url": "https://www.youtube.com/watch?v=yhF7OmuIILc",
+            "tags": [
+                "Best Practices"
+            ],
+            "authors": [
+                "Sarah Drasner"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "Getting unique values from an array required the [`filter`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) method with the combination of something like [`includes`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) to find whether the value already exists or not. But with the new [native Set object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) this is super clean and easy:",
+        "title": "Unique values from array",
+        "sourceName": "Google",
+        "sourceURL": "https://google.com",
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "let dirtyArray = [1, 1, 3, 4, 5, 3, 4, 2];\nlet uniqueArray = Array.from(new Set(dirtyArray));\n        \nconsole.log(uniqueArray)\n// >> [1, 3, 4, 5, 2]"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "dev_of_the_week": {
+        "name": "Vilva Athiban P B",
+        "bio": "Vilva is a JavaScript developer, International tech Speaker, Open Source Contributor, Seasonal Blogger and YouTuber. He recently started a YouTube video series called PathToExpert, where he posts a daily video which covers advanced content, easy tips and tricks, related to Frontend Development that can help developers to become experts in a year.",
+        "profileImg": "vilva-athiban-p-b.jpg"
+    },
+    "quiz": {
+        "question": "What is the output of the below snippet?",
+        "answerId": 1,
+        "options": [
+            {
+                "option_id": 1,
+                "text": "8",
+                "description": "Bingo! By default sort method sorts the array in [ascending order with the items casted to strings](https://www.digitalocean.com/community/tutorials/js-array-sort-numbers)"
+            },
+            {
+                "option_id": 2,
+                "text": "22",
+                "description": "Okay maybe you're onto something! Keep trying"
+            },
+            {
+                "option_id": 3,
+                "text": "32",
+                "description": "Come on did you really think it would be that obvious :)"
+            },
+            {
+                "option_id": 4,
+                "text": "`Reference Error`",
+                "description": "Now we both know you're just trying to mess with the options here."
+            }
+        ],
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "const numbers = [22,8,19,32,98];\nnumbers.sort();\n        \nconsole.log(numbers[3])`,"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "gif": {
+        "gifURL": "gif-1.mp4",
+        "caption": "when your code works on every machine, not only yours!"
+    },
+    "isDraft": false
+}
