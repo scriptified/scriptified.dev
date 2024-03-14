@@ -1,0 +1,126 @@
+{
+    "title": "Get better at reading React errors, general browser tools, design presentation with JSX and learn about refs",
+    "id": 5,
+    "description": "Debug React errors with confidence with right approach to fix them, log multiple variable at once using objects, deep dive into CSS with Ahmad, know the internals of React Virtual DOM, Hooks, etc and design an interactive code presentation with React & JSX.",
+    "date": "2021-04-06",
+    "tools": [
+        {
+            "name": "Omatsuri",
+            "logo": "omatsuri.svg",
+            "description": "A collection of browser tools like SVG to JSX generator, Keyboard events codes, Gradient generator etc. that can ease your life as a web developer.",
+            "url": "https://omatsuri.app/",
+            "authors": [
+                "Vitaly Rtishchev"
+            ],
+            "tags": [
+                "Productivity"
+            ]
+        },
+        {
+            "name": "Spectacle",
+            "logo": "spectacle.png",
+            "description": "A React library that lets you build interactive presentation decks with JSX syntax, and allows you to live preview your code.",
+            "url": "https://formidable.com/open-source/spectacle/",
+            "authors": [
+                "Formidable"
+            ],
+            "tags": [
+                "React",
+                "UI"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "How to Read React Errors",
+            "description": "When working with React you must have got errors like `Cannot read property map of undefined` . In this article Dave discusses how to fix the above error specifically and how you should approach while fixing errors in general.",
+            "url": "https://daveceddia.com/fix-react-errors/",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "Dave Ceddia"
+            ]
+        },
+        {
+            "title": "JavaScript Closures",
+            "description": "Much of what we can do with JavaScript is the result of the way closures work and they are very critical part of React. Understand how they work with examples in this article with Dan.",
+            "url": "https://whatthefuck.is/closure",
+            "tags": [
+                "JavaScript"
+            ],
+            "authors": [
+                "Dan Abramov"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "Deconstructing React",
+            "description": "Explore how the Virtual DOM, Hooks and suspense for data fetching work in React as Tejas deconstructs React and recreates them in this talk.",
+            "url": "https://youtu.be/f2mMOiCSj5c",
+            "tags": [
+                "React"
+            ],
+            "authors": [
+                "Tejas Kumar"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "Wrap your variables in `{}` when you `console.log`, and it would display the names of your variables automatically, via the ES6's \"Object literal value property shorthand.",
+        "title": "Log multiple var in console",
+        "sourceName": "@anniebombanie_ on Twitter",
+        "sourceURL": "https://twitter.com/anniebombanie_/status/1374756148923006977/photo/1",
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "const x = 5;\nconst y = 'scriptified';\nconsole.log('x:', x, 'y:', y)\n// -> x: 5 y: scriptified\n// A shorter way to write the above log \n// would be \nconsole.log({ x, y });\n// > { x: 5, y: 'scriptified' }"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "dev_of_the_week": {
+        "name": "Ahmad Shadeed",
+        "bio": "Ahmad is an Independent Product Designer and Front End Developer from Palestine. He writes extensively on CSS, Accessibility, and RTL (right to left) text styling. He also published an e-book '[Debugging CSS](https://debuggingcss.com/)' which will help you improve your debugging CSS skills. His [articles on CSS](https://www.ishadeed.com/articles/) are a must read if you want to understand CSS & sharpen your CSS skills.",
+        "profileImg": "ahmad-shadeed.jpg"
+    },
+    "quiz": {
+        "question": "What will be the value of ref.current on line 13 when the Cause re-render button is pressed thrice?",
+        "answerId": 2,
+        "options": [
+            {
+                "option_id": 1,
+                "text": "`1`",
+                "description": "It would have been `1` if we were using `useRef` instead of `createRef` on line number 5, which persists the value of the ref across re-renders. Keep trying."
+            },
+            {
+                "option_id": 2,
+                "text": "`3`",
+                "description": "Bingo! `createRef` will always create a new ref on every re-render causing it to be reinitialized with the latest renderIndex on line 7, it is supposed to be used in class based components where you initialize it in the constructor, for functional component if you want to persist values across re-renders use `useRef` instead."
+            },
+            {
+                "option_id": 3,
+                "text": "`2`",
+                "description": "You might want to check out the docs for [`createRef`](https://reactjs.org/docs/refs-and-the-dom.html#creating-refs) and try again."
+            },
+            {
+                "option_id": 4,
+                "text": "`setRenderIndex` can only take number as an argument, causing the app to crash when count is incremented because it has been passed a function on Line 15",
+                "description": "No there is nothing wrong with the syntax here, `useState`'s setter function also accepts a [function as a parameter](https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/) that gets the previous values as its argument and its job is to return the latest value."
+            }
+        ],
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "import React, { createRef, useState } from \"react\";\n\nfunction App() {\n  const [renderIndex, setRenderIndex] = useState(1);\n  const ref = createRef();\n  if (!ref.current) {\n    ref.current = renderIndex;\n  }\n  return (\n    <div className=\"App\">\n      Current render index: {renderIndex}\n      <br />\n      Output from ref: {ref.current}\n      <br />\n      <button onClick={() => setRenderIndex((prev) => prev + 1)}>\n        Cause re-render\n      </button>\n    </div>\n  );\n}"
+            },
+            "showLineNumbers": true
+        }
+    },
+    "gif": {
+        "gifURL": "gif-5.mp4",
+        "caption": "when I forgot to deactivate the logs"
+    },
+    "isDraft": false
+}

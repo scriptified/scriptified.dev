@@ -1,0 +1,165 @@
+backend:
+  name: github # our repository provider
+  repo: 'scriptified/scriptified.dev' # username/repo
+  branch: add-decap-cms # the main branch of our repo
+  base_url: 'https://scriptified-technetium-co.vercel.app' # our site's base URL
+  auth_endpoint: 'api/auth' # used ptogether with base_url for our custom endpoints (more on this later)
+media_folder: 'public/images' # the folder we want to upload new images to
+public_folder: '/images' # the folder our images should be fetched from
+site_url: 'https://scriptified-technetium-co.vercel.app' # the base URL of our site
+collections: # our content types, this is just an example!
+  - name: 'issues'
+    label: 'Issues'
+    format: json
+    folder: 'collections/_issues'
+    create: true
+    slug: 'issue-{{id}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Issue Number', name: 'id', widget: 'number', value_type: 'int' }
+      - { label: 'description', name: 'description', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Is Draft?', name: 'isDraft', widget: 'boolean' }
+      - label: 'Tip of the week'
+        name: 'tip_of_the_week'
+        widget: 'object'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'markdown' }
+          - { label: 'Source', name: 'sourceName', widget: 'string' }
+          - { label: 'Source URL', name: 'sourceURL', widget: 'string' }
+          - label: 'Code Snippet'
+            name: 'codeSnippet'
+            widget: 'object'
+            required: false
+            fields:
+              - { label: 'Language', name: 'language', widget: 'string', required: false }
+              - { label: 'Code', name: 'code', widget: 'code', allow_language_selection: true, required: false }
+              - { label: 'Show line numbers', name: 'showLineNumbers', widget: 'boolean', required: false }
+      - label: 'Dev of the week'
+        name: 'dev_of_the_week'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Name', name: 'name', widget: 'string', required: false }
+          - { label: 'Bio', name: 'bio', widget: 'markdown', required: false }
+          - { label: 'Profile Image', name: 'profileImg', widget: 'string', required: false }
+          - { label: 'Twitter URL', name: 'twitter', widget: 'string', required: false }
+          - { label: 'GitHub URL', name: 'github', widget: 'string', required: false }
+          - { label: 'LinkedIn URL', name: 'linkedin', widget: 'string', required: false }
+          - { label: 'Website URL', name: 'website', widget: 'string', required: false }
+          - { label: 'YouTube URL', name: 'youtube', widget: 'string', required: false }
+          - { label: 'Instagram URL', name: 'instagram', widget: 'string', required: false }
+      - label: gif
+        name: gif
+        widget: 'object'
+        fields:
+          - { label: 'GIF URL', name: 'gifURL', widget: 'string' }
+          - { label: 'GIF Caption', name: 'caption', widget: 'string' }
+      - label: Articles
+        name: articles
+        widget: 'list'
+        max: 2
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'markdown' }
+          - { label: 'URL', name: 'url', widget: 'string' }
+          - label: 'Author'
+            name: 'authors'
+            widget: 'relation'
+            collection: 'authors'
+            value_field: 'name'
+            multiple: true
+            search_fields: ['name']
+          - label: 'Tags'
+            name: 'tags'
+            widget: 'relation'
+            collection: 'tags'
+            value_field: 'name'
+            multiple: true
+            search_fields: ['name']
+      - label: Talks
+        name: talks
+        widget: 'list'
+        max: 1
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'markdown' }
+          - { label: 'URL', name: 'url', widget: 'string' }
+          - label: 'Author'
+            name: 'authors'
+            widget: 'relation'
+            collection: 'authors'
+            value_field: 'name'
+            multiple: true
+            search_fields: ['name']
+          - label: 'Tags'
+            name: 'tags'
+            widget: 'relation'
+            collection: 'tags'
+            value_field: 'name'
+            multiple: true
+            search_fields: ['name']
+      - label: 'Tools of the week'
+        name: 'tools'
+        widget: 'list'
+        max: 2
+        fields:
+          - { label: 'Name', name: 'name', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'markdown' }
+          - { label: 'URL', name: 'url', widget: 'string' }
+          - { label: 'logo', name: 'logo', widget: 'string', required: false }
+          - label: 'Author'
+            name: 'authors'
+            widget: 'relation'
+            collection: 'authors'
+            value_field: 'name'
+            multiple: true
+            search_fields: ['name']
+          - label: 'Tags'
+            name: 'tags'
+            widget: 'relation'
+            collection: 'tags'
+            value_field: 'name'
+            multiple: true
+            search_fields: ['name']
+      - label: 'Quiz'
+        name: 'quiz'
+        widget: 'object'
+        fields:
+          - { label: 'Question', name: 'question', widget: 'markdown' }
+          - { label: 'Answer Id', name: 'answerId', widget: 'number', value_type: 'int' }
+          - label: 'Code Snippet'
+            name: 'codeSnippet'
+            widget: 'object'
+            required: false
+            fields:
+              - { label: 'Language', name: 'language', widget: 'string', required: false }
+              - { label: 'Code', name: 'code', widget: 'code', allow_language_selection: true, required: false }
+              - { label: 'Show line numbers', name: 'showLineNumbers', widget: 'boolean', required: false }
+          - label: 'Options'
+            name: 'options'
+            widget: 'list'
+            max: 4
+            min: 4
+            fields:
+              - { label: 'Option', name: 'text', widget: 'markdown' }
+              - { label: 'Description', name: 'description', widget: 'markdown' }
+              - { label: 'Option Id', name: 'option_id', widget: 'number', value_type: 'int' }
+  - name: 'tags'
+    label: 'Tags'
+    identifier_field: 'name'
+    format: json
+    folder: 'collections/_tags'
+    create: true
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+  - name: 'authors'
+    label: 'Authors'
+    identifier_field: 'name'
+    format: json
+    folder: 'collections/_authors'
+    create: true
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Website URL', name: 'website', widget: 'string', required: false }

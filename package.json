@@ -32,12 +32,14 @@
     "react-markdown": "5.0.3",
     "react-player": "2.6.1",
     "sharp": "0.30.7",
+    "simple-oauth2": "5.0.0",
     "tailwindcss": "3.1.6"
   },
   "devDependencies": {
     "@types/gtag.js": "0.0.4",
     "@types/node": "14.6.3",
     "@types/react": "17.0.3",
+    "@types/simple-oauth2": "^5.0.7",
     "@typescript-eslint/eslint-plugin": "3.10.1",
     "@typescript-eslint/parser": "3.10.1",
     "babel-plugin-inline-react-svg": "1.1.1",

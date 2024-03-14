@@ -1,0 +1,128 @@
+{
+    "title": "The Gotchas with default exports, future of web animations and a neat trick with arrow functions",
+    "id": 6,
+    "description": "Learn how different variations of default export can result in different results, how you can improve your React app's performance by modifying the way it mounts, improve your image's resolution and a neat trick to add logs to your one liner arrow functions.",
+    "date": "2021-07-13",
+    "tools": [
+        {
+            "name": "Ojoy",
+            "logo": "ojoy.svg",
+            "description": "Have low-resolution images? Enlarge them & improve their quality with Ojoy. All client side. Powered by ML using UpscalerJS & TensorFlow.js. Upscaling can be helpful for improving the resolution of stickers, avatars, logos - anything you don't have access to the original high-resolution source of.",
+            "url": "https://ojoy.netlify.app/",
+            "authors": [
+                "Addy Osmani"
+            ],
+            "tags": [
+                "Design",
+                "Productivity"
+            ]
+        },
+        {
+            "name": "z-context",
+            "logo": "z-context.png",
+            "description": "Have you ever been in a situation where you applied a ridiculously high z-index to an element but it still doesn't appear where you want it to be, well you're not alone. This extension helps you debug these issues by informing you about why an element has a stacking context, what its parent stacking context is and the z-index value if any.",
+            "url": "https://chrome.google.com/webstore/detail/z-context/jigamimbjojkdgnlldajknogfgncplbh",
+            "authors": [
+                "Kerry Liu"
+            ],
+            "tags": [
+                "CSS",
+                "Productivity"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "`export default thing` is different to `export { thing as default }`",
+            "description": "In this article Jake tries to explain how different named and default exports/imports can import/export by value or by reference depending on how they are being used.",
+            "url": "https://jakearchibald.com/2021/export-default-thing-vs-thing-as-default/",
+            "tags": [
+                "JavaScript"
+            ],
+            "authors": [
+                "Jake Archibald"
+            ]
+        },
+        {
+            "title": "Improving slow mounts in React apps",
+            "description": "You must have seen many articles about how you can make your React app faster by optimizing unnecessary re-renders but have you ever wondered about how you can optimize the initial render, i.e. the component mount.",
+            "url": "https://itnext.io/improving-slow-mounts-in-react-apps-cff5117696dc",
+            "tags": [
+                "React",
+                "Optimization"
+            ],
+            "authors": [
+                "Aggelos Arvanitakis"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "The Future of Web Animation",
+            "description": "In this talk, Sarah start with some bleeding edge techniques such as native-like page transitions with client side rendering, but then she will push it further. The intersection of health and animation with biofeedback sensors, the future of 3d in the browser complete with interviews with people who are writing these specs - this talk will show that in terms of animation on the web, we're just getting started.",
+            "url": "https://youtu.be/hjgni3dXcVE",
+            "tags": [
+                "Animations"
+            ],
+            "authors": [
+                "Sarah Drasner"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "Want to use console.log without breaking apart your one line arrow function? Use the || operator.",
+        "title": "Logs in single line arrow functions",
+        "sourceName": "Google",
+        "sourceURL": "https://google.com",
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "export default connect (\n  ({planeteers}) => console.log(planeteers) || ({capPlanet: planeteers.captain})\n)"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "dev_of_the_week": {
+        "name": "Aman Mittal",
+        "bio": "Aman is a React Native & Expo enthusiast who has [authored](https://amanhimself.dev/blog) over 150 articles for more than 20+ publications and organizations across the internet, on mobile and web app development . He is also a Developer Advocate of [Draftbit](https://draftbit.com/). Consider subscribing to his [newsletter](https://amanhimself.substack.com/) which is delivered to 1.2K+ developers, where he posts truly helpful content. He has also been an active [open source contributor](https://github.com/amandeepmittal) of organizations like freeCodeCamp, Node.js, and Gatsbyjs.",
+        "profileImg": "aman_mittal.jpg"
+    },
+    "quiz": {
+        "question": "What will be the output of the below snippet?",
+        "answerId": 3,
+        "options": [
+            {
+                "option_id": 1,
+                "text": "two\ntwo",
+                "description": "You are partially correct, checkout the documentation for [Promise.race](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race) and [Promise.any](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any) and try again."
+            },
+            {
+                "option_id": 2,
+                "text": "Error: Promise was Rejected\ntwo",
+                "description": "Nope. Keep trying!"
+            },
+            {
+                "option_id": 3,
+                "text": "two\none",
+                "description": "Voila! [Promise.any](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any) is a new method introduced with [ES2021](https://h3manth.com/ES2021) takes an iterable of Promise objects and, as soon as one of the promises in the iterable fulfills, returns a single promise that resolves with the value from that promise and returns an aggregate error if it fails. Whereas [Promise.race](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race) returns a Promise that fulfills or rejects as soon as one of the promises fulfills or rejects."
+            },
+            {
+                "option_id": 4,
+                "text": "two\ntrue",
+                "description": "Nice guess but you might want to checkout on the documentation of [Promise.any](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any) and try again ;)"
+            }
+        ],
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "const promise1 = new Promise((resolve, reject) => {\n  setTimeout(resolve, 500, 'one');\n});\n\nconst promise2 = new Promise((resolve, reject) => {\n  setTimeout(reject, 100, 'two');\n});\n\nPromise.race([promise1, promise2]).then(value => {\n  console.log(value);\n}).catch(err => { \n  console.log(err)\n});\n\nPromise.any([promise1, promise2]).then(value => {\n  console.log(value);\n}).catch(err => { \n  console.log(err)\n});"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "gif": {
+        "gifURL": "gif-6.mp4",
+        "caption": "No need to refactor"
+    },
+    "isDraft": false
+}

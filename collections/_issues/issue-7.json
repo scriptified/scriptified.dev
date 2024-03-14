@@ -1,0 +1,126 @@
+{
+    "title": "Ultimate guide to Browser-side storage, what makes JavaScript engines so fast and a trick with git commit messages",
+    "id": 7,
+    "description": "Learn how JavaScript engines optimize your code, all you need to know about Browser side storage, how you can create nice gooey effects with React and a neat trick to create paragraphs in your git commit messages",
+    "date": "2021-07-19",
+    "tools": [
+        {
+            "name": "Frontend Practice",
+            "description": "Build real skills by recreating real websites. Helpful resources to give you a headstart. Challenges to improve & test your frontend skills.",
+            "url": "https://www.frontendpractice.com/",
+            "authors": [
+                "Kyle Shook"
+            ],
+            "tags": [
+                "Front-End"
+            ]
+        },
+        {
+            "name": "gooey-react",
+            "logo": "gooey-react.png",
+            "description": "This tiny component makes it easy to create sharp and crispy gooey effects in React with some customizations. It also works with Safari.",
+            "url": "https://gooey-react.netlify.app/",
+            "authors": [
+                "Luuk de Vlieger"
+            ],
+            "tags": [
+                "React",
+                "Animations"
+            ]
+        }
+    ],
+    "articles": [
+        {
+            "title": "Human-Readable JavaScript: A Tale of Two Experts",
+            "description": "Code is for machines to read and humans to understand. Explore with Laurie why newer and the shortest syntax for writing a piece of code in JavaScript isn't always better and how you need to consider your developer audience in a real way.",
+            "url": "https://alistapart.com/article/human-readable-javascript/",
+            "tags": [
+                "JavaScript"
+            ],
+            "authors": [
+                "Laurie Barth"
+            ]
+        },
+        {
+            "title": "The Ultimate Guide to Browser-Side Storage",
+            "description": "A neat guide that covers all the options from variables through, `localstorage` and cookies up to some experimental browser APIs that may or may not become a web standard",
+            "url": "https://blog.openreplay.com/the-ultimate-guide-to-browser-side-storage",
+            "tags": [
+                "Web",
+                "Browsers"
+            ],
+            "authors": [
+                "Craig Buckler"
+            ]
+        }
+    ],
+    "talks": [
+        {
+            "title": "JavaScript engines - how do they even?",
+            "description": "We all have probably written JavaScript code with the help of some heavy frameworks and by now are used to getting results almost instantaneously, but have you ever wondered what happens behind the curtains and how is all that code getting executed so fast? In this talk Franziska discusses the role of JavaScript engines, how they make JavaScript execution fast and how you can write some compiler friendly JavaScript.",
+            "url": "https://www.youtube.com/watch?v=p-iiEDtpy6I",
+            "tags": [
+                "JavaScript"
+            ],
+            "authors": [
+                "Franziska Hinkelmann"
+            ]
+        }
+    ],
+    "tip_of_the_week": {
+        "description": "Passing multiple `m` options to `git commit` command creates paragraphs in the message.",
+        "title": "Multi-paragraph Git Commit",
+        "sourceName": "Stefano Magni",
+        "sourceURL": "https://twitter.com/NoriSte/status/1369340851953033222?s=20",
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "# git commit -m \"Title\" -m \"Paragraph 1\" -m \"Paragraph 2\"\n\nTitle\n\nParagraph 1\n\nParagraph 2\n"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "dev_of_the_week": {
+        "name": "Vinit Shahdeo",
+        "bio": "Vinit is a [GitHub Star](https://stars.github.com/profiles/vinitshahdeo/) who works as a Software Engineer at Postman. He loves to mentor people & has helped numerous beginners kickstart their open source journey. He has worked with all kinds of modern JavaScript technologies and likes to experiment with new challenges. He [writes](https://vinitshahdeo.dev/) about open-source, JavaScript, his journey into tech and things in between.",
+        "profileImg": "vinit_shahdeo.jpg"
+    },
+    "quiz": {
+        "question": "What will be the output of the below snippet?",
+        "answerId": 1,
+        "options": [
+            {
+                "option_id": 1,
+                "text": "`0` `1` `2` `3` and `\"☕\"` `\"💻\"` `\"🍷\"` `\"🍫\"`",
+                "description": "With a for-in loop, we can iterate over enumerable properties. In an array, the enumerable properties are the \"keys\" of array elements, which are actually their indexes. You could see an array as:\n\n`{0: \"☕\", 1: \"💻\", 2: \"🍷\", 3: \"🍫\"} `\n\nWhere the keys are the enumerable properties. `0` `1` `2` `3` get logged. \n\nWith a for-of loop, we can iterate over iterables. An array is an iterable. When we iterate over the array, the variable \"item\" is equal to the element it's currently iterating over, `\"☕\"` `\"💻\"` `\"🍷\"` `\"🍫\"` get logged. Credit - [Lydia Hallie's JavaScript questions](https://github.com/lydiahallie/javascript-questions#79-what-is-the-output)"
+            },
+            {
+                "option_id": 2,
+                "text": "`\"☕\"` `\"💻\"` `\"🍷\"` `\"🍫\"` and `\"☕\"` `\"💻\"` `\"🍷\"` `\"🍫\"`",
+                "description": "two syntax giving same result, weird eh?"
+            },
+            {
+                "option_id": 3,
+                "text": "`\"☕\"` `\"💻\"` `\"🍷\"` `\"🍫\"` and `0` `1` `2` `3`",
+                "description": "You're on almost right track but care to thing again?"
+            },
+            {
+                "option_id": 4,
+                "text": "`0` `1` `2` `3` and `{0: \"☕\", 1: \"💻\", 2: \"🍷\", 3: \"🍫\"}`",
+                "description": "here's a hint: you got half of it right. sorry, can't say more."
+            }
+        ],
+        "codeSnippet": {
+            "language": "js",
+            "code": {
+                "code": "const myLifeSummedUp = ['☕', '💻', '🍷', '🍫'];\n\nfor (let item in myLifeSummedUp) {\n  console.log(item);\n}\n\nfor (let item of myLifeSummedUp) {\n  console.log(item);\n}"
+            },
+            "showLineNumbers": false
+        }
+    },
+    "gif": {
+        "gifURL": "gif-7.mp4",
+        "caption": "me trying to fix my code"
+    },
+    "isDraft": false
+}
