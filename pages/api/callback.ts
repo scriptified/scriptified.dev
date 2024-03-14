@@ -2,7 +2,7 @@ import { AuthorizationCode } from 'simple-oauth2';
 import { config } from '../../lib/cms-config';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const callback = async (req: NextApiRequest, res: NextApiResponse) => {
+const callback = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   const { host } = req.headers;
   const url = new URL(`https://${host}/${req.url}`);
   const urlParams = url.searchParams;

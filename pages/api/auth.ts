@@ -3,9 +3,9 @@ import { randomBytes } from 'crypto';
 import { config, scopes } from '../../lib/cms-config';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export const randomString = () => randomBytes(4).toString('hex');
+export const randomString = (): string => randomBytes(4).toString('hex');
 
-const auth = async (req: NextApiRequest, res: NextApiResponse) => {
+const auth = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   const { host } = req.headers;
   const url = new URL(`https://${host}/${req.url}`);
   const urlParams = url.searchParams;
