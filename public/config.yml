@@ -1,12 +1,12 @@
 backend:
   name: github # our repository provider
   repo: 'scriptified/scriptified.dev' # username/repo
-  branch: add-decap-cms # the main branch of our repo
-  base_url: 'https://scriptified-technetium-co.vercel.app' # our site's base URL
+  branch: main # the main branch of our repo
+  base_url: 'https://scriptified.dev' # our site's base URL
   auth_endpoint: 'api/auth' # used ptogether with base_url for our custom endpoints (more on this later)
 media_folder: 'public/images' # the folder we want to upload new images to
 public_folder: '/images' # the folder our images should be fetched from
-site_url: 'https://scriptified-technetium-co.vercel.app' # the base URL of our site
+site_url: 'https://scriptified.dev' # the base URL of our site
 collections: # our content types, this is just an example!
   - name: 'issues'
     label: 'Issues'
