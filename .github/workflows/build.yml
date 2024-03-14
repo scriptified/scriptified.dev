@@ -7,21 +7,20 @@ on:
   pull_request:
     branches: ['**']
 
+env:
+  NODE_VERSION: 20.x
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.x]
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -30,4 +29,4 @@ jobs:
           CMS_API: ${{ secrets.CMS_API }}
           SITE_URL: ${{ secrets.SITE_URL }}
           NEXT_PUBLIC_FACEBOOK_APP_ID: ${{ secrets.NEXT_PUBLIC_FACEBOOK_APP_ID }}
-        run: yarn run build --if-present
+        run: yarn run build
