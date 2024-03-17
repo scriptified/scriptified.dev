@@ -21,7 +21,7 @@
       "description": "This talk examines how React implements a Virtual DOM to quickly render changes to the user interface. By the end of this talk the audience will know the basics of UI rendering with JavaScript through a Virtual DOM, understand React’s Reconciliation (the process of determining which Virtual DOM nodes should be turned into real DOM nodes) and have more confidence about the frontend technology decisions they make in their roles.",
       "url": "https://youtu.be/i793Qm6kv3U?list=PLxBk3iAu1lBQS_8KNDmuJj1Zcy6zAl5-I",
       "authors": [
-        "Anthony Fu"
+        "Anthony Garritano"
       ],
       "tags": [
         "React",
@@ -72,7 +72,7 @@
       "url": "https://defensivecss.dev/",
       "logo": "defensive-css.svg",
       "authors": [
-        "Ammar Ahmed"
+        "Ahmad Shadeed"
       ],
       "tags": [
         "CSS",
@@ -85,7 +85,7 @@
       "description": "Learn about the DOM Event system through exploration in a graphical user interface.",
       "url": "https://domevents.dev/",
       "authors": [
-        "Adam Argyle"
+        "Alex Reardon"
       ],
       "tags": [
         "Browsers",
@@ -105,7 +105,7 @@
         "React"
       ],
       "authors": [
-        "Jeremy Church"
+        "Chris Coyier"
       ]
     },
     {
@@ -113,7 +113,7 @@
       "description": "This article takes you through a journey of rendering in React, with the drawbacks and benefits of each pattern and how we got to React Server Components and how they aim to solve the problems faced by the previous patterns.",
       "url": "https://www.builder.io/blog/why-react-server-components?ck_subscriber_id=513072169",
       "authors": [
-        "Adam Argyle"
+        "Vishwas Gopinath"
       ],
       "tags": [
         "React"
