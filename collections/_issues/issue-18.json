@@ -48,7 +48,7 @@
       {
         "text": "Starting new func\n\nEnd\n\nPromise resolved\n\nNew func resolved",
         "description": "Voila! Since newFunc is an async function it gets suspended as soon as it encounters the await keyword and hence “End” gets printed before we see the logs of the resolved promises.",
-        "option_id": 6
+        "option_id": 2
       },
       {
         "text": "End\n\nStarting new func\n\nPromise resolved",
