@@ -64,7 +64,7 @@
     "answerId": 2
   },
   "isDraft": true,
-  "title": "Mock Title",
+  "title": "Writing future-proof CSS, force fast refresh in React Native, and understanding React's UI rendering process",
   "id": 18,
   "tools": [
     {
@@ -93,7 +93,7 @@
       ]
     }
   ],
-  "description": "Mock description",
+  "description": "Learn about streaming HTML, remounting react native components by forced fast refresh, dive into react server components, explore DOM events visually & test if you really understand JavaScript promises. ",
   "articles": [
     {
       "title": "Streaming HTML",
