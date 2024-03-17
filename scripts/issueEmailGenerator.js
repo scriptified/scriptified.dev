@@ -16,7 +16,7 @@ const optionDefinitions = [
 ];
 
 const fs = require('fs');
-const axios = require('axios');
+const path = require('path');
 const commandLineArgs = require('command-line-args');
 const process = require('process');
 require('dotenv').config({ path: './.env.local' });
@@ -37,10 +37,13 @@ if ('issueNumber' in options && typeof options.issueNumber !== 'number') {
 
 if ('issueNumber' in options && typeof options.issueNumber === 'number') {
   (async () => {
-    const currentIssue = await axios.default
-      .get(`${process.env.CMS_API}issues/${options.issueNumber}`)
-      .then(response => response.data)
-      .catch(err => console.error(err));
+
+    const id = options.issueNumber;
+    const issueFileName = `issue-${id}.json`;
+    const filePath = path.join(process.cwd(), `/collections/_issues/${issueFileName}`);
+
+
+    const currentIssue = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
     const PROFILE_TYPES = {
       website: 'Website',
@@ -90,17 +93,13 @@ if ('issueNumber' in options && typeof options.issueNumber === 'number') {
 
     function getAuthors(authors) {
       if (authors?.length) {
-        const authorsWithWebsite = authors.map(author => {
-          return `[${author.Name}](${author.Website})`;
-        });
-
-        return `*by ${authorsWithWebsite.join(', ')}*`;
+        return `*by ${authors.join(', ')}*`;
       } else {
         return '';
       }
     }
 
-    const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.dateOfPublishing);
+    const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.date);
 
     const emailTemplate = `
 ![Headshot](${ogImgURL})
@@ -111,17 +110,17 @@ ${currentIssue.description}
 
 # Tip of the day
 
-${currentIssue.tipOfTheWeek.description}
+${currentIssue.tip_of_the_week.description}
 
-${currentIssue.tipOfTheWeek.codeSnippet &&
+${currentIssue.tip_of_the_week.codeSnippet &&
       ` 
-\`\`\`${currentIssue.tipOfTheWeek.codeSnippet.language}
-${currentIssue.tipOfTheWeek.codeSnippet.code}
+\`\`\`${currentIssue.tip_of_the_week.codeSnippet.language}
+${currentIssue.tip_of_the_week.codeSnippet.code.code}
 \`\`\`
 `
       }
 
-${getAuthors(currentIssue.tipOfTheWeek?.authors)}
+${getAuthors(currentIssue.tip_of_the_week?.authors)}
 ___
 
 # Articles
@@ -192,11 +191,11 @@ ___
 
 ### ${currentIssue.quiz.question}
 
-\`\`\`${currentIssue.quiz.CodeSnippet.language}
-${currentIssue.quiz.CodeSnippet.code}
+\`\`\`${currentIssue.quiz.codeSnippet.language}
+${currentIssue.quiz.codeSnippet.code.code}
 \`\`\`
 
-${currentIssue.quiz.Option.map(
+${currentIssue.quiz.options.map(
           option => `<a href="https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.option_id}" style="text-decoration:none;">
 <div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">
   ${option.text}
@@ -210,7 +209,7 @@ ___
 
 # This week in GIF
 
-![${currentIssue.gif.caption}](${getAssetURL(currentIssue.id, currentIssue.gif.url)}})
+![${currentIssue.gif.caption}](${getAssetURL(currentIssue.id, currentIssue.gif.gifURL)}})
 
 [${currentIssue.gif.caption}](${process.env.SITE_URL}issues/${options.issueNumber}?section=gif)
 
