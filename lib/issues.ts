@@ -79,7 +79,7 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
           ? {
               code: issue.tip_of_the_week.codeSnippet.code.code,
               language: issue.tip_of_the_week.codeSnippet.language,
-              showLineNumbers: issue.tip_of_the_week.codeSnippet.showLineNumbers,
+              showLineNumbers: issue.tip_of_the_week.codeSnippet.showLineNumbers ?? false,
             }
           : null,
         desc: issue.tip_of_the_week.description,
@@ -161,7 +161,7 @@ export function mapToIssue(issue: IssueAPIResponse): Issue {
         snippet: {
           code: issue.quiz.codeSnippet.code.code,
           language: issue.quiz.codeSnippet.language,
-          showLineNumbers: issue.quiz.codeSnippet.showLineNumbers,
+          showLineNumbers: issue.quiz.codeSnippet.showLineNumbers ?? false,
         },
       }
     : null;
