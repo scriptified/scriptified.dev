@@ -1,0 +1,123 @@
+{
+  "gif": {
+    "caption": "I’ll just fix this little thing",
+    "gifURL": "gif-18.mp4"
+  },
+  "tip_of_the_week": {
+    "title": "Force fast refresh in react-native",
+    "description": "Sometimes you might want to force the state to be reset, and a component to be remounted. For example, this can be handy if you're tweaking an animation that only happens on mount. To do this, you can add // @refresh reset anywhere in the file you're editing. This directive is local to the file, and instructs Fast Refresh to remount components defined in that file on every edit.",
+    "codeSnippet": {
+      "code": {
+        "code": "// @refresh reset --> ADD THIS COMMENT\nfunction RemountComponentOnSave {\n\t// ...\n}"
+      },
+      "language": "jsx"
+    },
+    "sourceName": "Jamon Holmgren",
+    "sourceURL": "https://x.com/jamonholmgren/status/1768760005501866019?s=20"
+  },
+  "talks": [
+    {
+      "title": "Understanding React's UI Rendering Process",
+      "description": "This talk examines how React implements a Virtual DOM to quickly render changes to the user interface. By the end of this talk the audience will know the basics of UI rendering with JavaScript through a Virtual DOM, understand React’s Reconciliation (the process of determining which Virtual DOM nodes should be turned into real DOM nodes) and have more confidence about the frontend technology decisions they make in their roles.",
+      "url": "https://youtu.be/i793Qm6kv3U?list=PLxBk3iAu1lBQS_8KNDmuJj1Zcy6zAl5-I",
+      "authors": [
+        "Anthony Fu"
+      ],
+      "tags": [
+        "React",
+        "Front-End",
+        "UI"
+      ]
+    }
+  ],
+  "date": "2024-03-18T02:30:00.000Z",
+  "quiz": {
+    "question": "What will be the output of the following code snippet? (Promises)",
+    "codeSnippet": {
+      "code": {
+        "code": "const prom = Promise.resolve('Promise resolved');\n\nasync function newFunc() {\n  console.log('Starting new func');\n  const res = await prom;\n  console.log(res);\n}\n\nnewFunc().then(() => console.log('New func resolved'));\nconsole.log('End');"
+      },
+      "language": "js"
+    },
+    "options": [
+      {
+        "option_id": 1,
+        "text": "End\n\nStarting new func\n\nPromise resolved\n\nNew func resolved",
+        "description": "You are close! Go through the code thoroughly and give it a try again. If you’re still stuck then [this article on how Promises and Async/Await work](https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke) might help."
+      },
+      {
+        "text": "Starting new func\n\nEnd\n\nPromise resolved\n\nNew func resolved",
+        "description": "Voila! Since newFunc is an async function it gets suspended as soon as it encounters the await keyword and hence “End” gets printed before we see the logs of the resolved promises.",
+        "option_id": 6
+      },
+      {
+        "text": "End\n\nStarting new func\n\nPromise resolved",
+        "description": "Aren’t you missing a log in this option, try giving it a shot again. If you’re still stuck then [this article on how Promises and Async/Await work](https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke) might help.",
+        "option_id": 3
+      },
+      {
+        "text": "Promise resolved\n\nStarting new func\n\nNew func resolved\n\nEnd",
+        "description": "Why don’t you actually try to go through the code instead of just hitting random options ;)",
+        "option_id": 4
+      }
+    ],
+    "answerId": 2
+  },
+  "isDraft": true,
+  "title": "Mock Title",
+  "id": 18,
+  "tools": [
+    {
+      "name": "Defensive CSS",
+      "url": "https://defensivecss.dev/",
+      "logo": "defensive-css.svg",
+      "authors": [
+        "Ammar Ahmed"
+      ],
+      "tags": [
+        "CSS",
+        "Front-End"
+      ],
+      "description": "A set of CSS practices that designers and developers can use to write CSS that is future-proof, resulting in fewer bugs in user interfaces."
+    },
+    {
+      "name": "DOM Events",
+      "description": "Learn about the DOM Event system through exploration in a graphical user interface.",
+      "url": "https://domevents.dev/",
+      "authors": [
+        "Adam Argyle"
+      ],
+      "tags": [
+        "Browsers",
+        "Front-End"
+      ]
+    }
+  ],
+  "description": "Mock description",
+  "articles": [
+    {
+      "title": "Streaming HTML",
+      "description": "Chris explains what streaming HTML is, why should you care about it and in what type of scenarios it is actually useful.",
+      "url": "https://frontendmasters.com/blog/streaming-html",
+      "tags": [
+        "Front-End",
+        "Browsers",
+        "React"
+      ],
+      "authors": [
+        "Jeremy Church"
+      ]
+    },
+    {
+      "title": "Why React Server Components Are Breaking Builds to Win Tomorrow",
+      "description": "This article takes you through a journey of rendering in React, with the drawbacks and benefits of each pattern and how we got to React Server Components and how they aim to solve the problems faced by the previous patterns.",
+      "url": "https://www.builder.io/blog/why-react-server-components?ck_subscriber_id=513072169",
+      "authors": [
+        "Adam Argyle"
+      ],
+      "tags": [
+        "React"
+      ]
+    }
+  ]
+}
