@@ -8,7 +8,7 @@
     "description": "Sometimes you might want to force the state to be reset, and a component to be remounted. For example, this can be handy if you're tweaking an animation that only happens on mount. To do this, you can add // @refresh reset anywhere in the file you're editing. This directive is local to the file, and instructs Fast Refresh to remount components defined in that file on every edit.",
     "codeSnippet": {
       "code": {
-        "code": "// @refresh reset --> ADD THIS COMMENT\nfunction RemountComponentOnSave {\n\t// ...\n}"
+        "code": "// @refresh reset --> ADD THIS COMMENT\nfunction RemountComponentOnEdit {\n\t// ...\n}"
       },
       "language": "jsx"
     },
