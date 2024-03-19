@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "date": "2024-03-18T02:30:00.000Z",
+  "date": "2024-03-19T04:29:11.561Z",
   "quiz": {
     "question": "What will be the output of the following code snippet? (Promises)",
     "codeSnippet": {
@@ -63,7 +63,7 @@
     ],
     "answerId": 2
   },
-  "isDraft": true,
+  "isDraft": false,
   "title": "Writing future-proof CSS, force fast refresh in React Native, and understanding React's UI rendering process",
   "id": 18,
   "tools": [
