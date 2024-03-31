@@ -21,15 +21,11 @@
       "title": "Next.js App Router Caching: Explained!",
       "url": "https://www.youtube.com/watch?v=VBlSe8tvg4U",
       "description": "Learn how you can utilize the different APIs provided by Next.js App Router to fetch cache data, perform mutations, and revalidate cached data with server actions and how you can opt out from the default caching behavior when needed.",
-      "authors": [
-        "Vercel"
-      ],
-      "tags": [
-        "Next.js"
-      ]
+      "authors": "Vercel",
+      "tags": "Next.js"
     }
   ],
-  "date": "2024-03-31T16:22",
+  "date": "2024-04-01T08:00",
   "quiz": {
     "question": "What's the value of output?",
     "codeSnippet": {
@@ -82,9 +78,7 @@
       "name": "What The Filter?",
       "description": "A tool for visualizing JavaScript Array and Object transformations, by generating diagrams containing intermediate values, errors and warnings for each transformation step, that’ll help you find out what the code does (or doesn’t).",
       "url": "https://renato-bohler.github.io/what-the-filter/",
-      "authors": [
-        "Renato Böhler"
-      ],
+      "authors": "Renato Böhler",
       "tags": [
         "JavaScript",
         "Productivity"
@@ -110,12 +104,8 @@
       "title": "Myths about Web Accessibility",
       "description": "Although web accessibility should be a must in all web applications yet it remains a mystery among many developers. With this article, Alvaro tries to debunk some of the common misconceptions around web accessibility.",
       "url": "https://alvaromontoro.com/blog/67989/myths-about-web-accessibility",
-      "authors": [
-        "Alvaro Montoro"
-      ],
-      "tags": [
-        "Accessibility"
-      ]
+      "authors": "Alvaro Montoro",
+      "tags": "Accessibility"
     }
   ]
 }
