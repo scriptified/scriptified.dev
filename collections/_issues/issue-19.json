@@ -1,7 +1,7 @@
 {
   "gif": {
     "gifURL": "gif-19.mp4",
-    "caption": "When I’m looking for a catchy name for my new variable (via [thecodinglove.com](https://thecodinglove.com/when-im-looking-for-a-catchy-name-for-my-new-variable))"
+    "caption": "When I'm looking for a catchy name for my new variable (via [thecodinglove.com](https://thecodinglove.com/when-im-looking-for-a-catchy-name-for-my-new-variable))"
   },
   "tip_of_the_week": {
     "description": "`Array.from()` takes a secondary map argument which can get handy when creating new arrays of specific length.",
@@ -21,8 +21,8 @@
       "title": "Next.js App Router Caching: Explained!",
       "url": "https://www.youtube.com/watch?v=VBlSe8tvg4U",
       "description": "Learn how you can utilize the different APIs provided by Next.js App Router to fetch cache data, perform mutations, and revalidate cached data with server actions and how you can opt out from the default caching behavior when needed.",
-      "authors": "Vercel",
-      "tags": "Next.js"
+      "authors": ["Vercel"],
+      "tags": ["Next.js"]
     }
   ],
   "date": "2024-04-01T08:00",
@@ -67,24 +67,15 @@
       "name": "dotbot",
       "description": "A tool that helps you organize your dotfiles by helping you keep them under version control system like git. It can provide “one click” idempotent installations for dotfiles that are specified using JSON or YAML files.",
       "url": "https://github.com/anishathalye/dotbot",
-      "authors": [
-        " Anish Athalye"
-      ],
-      "tags": [
-        "Productivity"
-      ]
+      "authors": ["Anish Athalye"],
+      "tags": ["Productivity"]
     },
     {
       "name": "What The Filter?",
       "description": "A tool for visualizing JavaScript Array and Object transformations, by generating diagrams containing intermediate values, errors and warnings for each transformation step, that’ll help you find out what the code does (or doesn’t).",
       "url": "https://renato-bohler.github.io/what-the-filter/",
-      "authors": [
-        "Renato Böhler"
-      ],
-      "tags": [
-        "JavaScript",
-        "Productivity"
-      ],
+      "authors": ["Renato Böhler"],
+      "tags": ["JavaScript", "Productivity"],
       "logo": "what-the-filter.png"
     }
   ],
@@ -94,25 +85,15 @@
       "title": "3 TypeScript Tricks I wish I knew when I learned TypeScript",
       "description": "Learn some handy tricks with TypeScript that can help you write more maintainable code and save you some time.",
       "url": "https://cstrnt.dev/blog/three-typescript-tricks",
-      "authors": [
-        "Tim Raderschad"
-      ],
-      "tags": [
-        "TypeScript",
-        "Productivity"
-      ]
+      "authors": ["Tim Raderschad"],
+      "tags": ["TypeScript", "Productivity"]
     },
     {
       "title": "Myths about Web Accessibility",
       "description": "Although web accessibility should be a must in all web applications yet it remains a mystery among many developers. With this article, Alvaro tries to debunk some of the common misconceptions around web accessibility.",
       "url": "https://alvaromontoro.com/blog/67989/myths-about-web-accessibility",
-      "authors": [
-        "Alvaro Montoro"
-      ],
-      "tags": [
-        "Accessibility",
-        "Web"
-      ]
+      "authors": ["Alvaro Montoro"],
+      "tags": ["Accessibility", "Web"]
     }
   ]
 }
