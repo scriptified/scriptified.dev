@@ -196,12 +196,7 @@ ${currentIssue.quiz.codeSnippet.code.code}
 \`\`\`
 
 ${currentIssue.quiz.options.map(
-          option => `<a href="https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.option_id}" style="text-decoration:none;">
-<div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">
-  ${option.text}
-</div>
-</a>
-`
+          option => `[<div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">${option.text.split('\n').join('<br>')}</div>](https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.option_id})`
         ).join('\n')}
 
 
@@ -209,7 +204,7 @@ ___
 
 # This week in GIF
 
-![${currentIssue.gif.caption}](${getAssetURL(currentIssue.id, currentIssue.gif.gifURL)}})
+![${currentIssue.gif.caption}](${getAssetURL(currentIssue.id, currentIssue.gif.gifURL)})
 
 [${currentIssue.gif.caption}](${process.env.SITE_URL}issues/${options.issueNumber}?section=gif)
 
