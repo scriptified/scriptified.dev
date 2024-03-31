@@ -21,8 +21,12 @@
       "title": "Next.js App Router Caching: Explained!",
       "url": "https://www.youtube.com/watch?v=VBlSe8tvg4U",
       "description": "Learn how you can utilize the different APIs provided by Next.js App Router to fetch cache data, perform mutations, and revalidate cached data with server actions and how you can opt out from the default caching behavior when needed.",
-      "authors": "Vercel",
-      "tags": "Next.js"
+      "authors": [
+        "Vercel"
+      ],
+      "tags": [
+        "Next.js"
+      ]
     }
   ],
   "date": "2024-03-31T16:22",
