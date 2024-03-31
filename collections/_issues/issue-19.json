@@ -63,7 +63,7 @@
       }
     ]
   },
-  "isDraft": true,
+  "isDraft": false,
   "title": "Caching in the Next.js App Router, myths about accessibility, and a tool to manage your dotfiles",
   "id": 19,
   "tools": [
