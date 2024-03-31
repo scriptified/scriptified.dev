@@ -1,0 +1,102 @@
+{
+  "gif": {
+    "gifURL": "gif-19.mp4",
+    "caption": "When I’m looking for a catchy name for my new variable (via [thecodinglove.com](https://thecodinglove.com/when-im-looking-for-a-catchy-name-for-my-new-variable))"
+  },
+  "tip_of_the_week": {
+    "description": "\\`Array.from()\\` takes a secondary map argument which can get handy when creating new arrays of specific length.",
+    "title": "Array.from Secondary argument trick",
+    "sourceURL": "https://wesbos.com/tip/array-from-map-function",
+    "sourceName": "Web Bos Tips",
+    "codeSnippet": {
+      "language": "js",
+      "code": {
+        "code": "Array.from({length: 3}, (_, i) => ({ id: i + 1 }))\n\n> [{ id: 1 }, { id: 2 }, { id: 3 }]",
+        "lang": "javascript"
+      }
+    }
+  },
+  "talks": [
+    {
+      "title": "Next.js App Router Caching: Explained!",
+      "url": "https://www.youtube.com/watch?v=VBlSe8tvg4U",
+      "description": "Learn how you can utilize the different APIs provided by Next.js App Router to fetch cache data, perform mutations, and revalidate cached data with server actions and how you can opt out from the default caching behavior when needed.",
+      "authors": "Vercel",
+      "tags": "Next.js"
+    }
+  ],
+  "date": "2024-03-31T16:22",
+  "quiz": {
+    "question": "What's the value of output?",
+    "codeSnippet": {
+      "code": {
+        "code": "const output = `${[] && 'Im'}possible! You should${'' && `n't`} see a therapist after so much JavaScript lol`;",
+        "lang": "javascript"
+      },
+      "language": "js"
+    },
+    "answerId": 2,
+    "options": [
+      {
+        "text": "possible! You should see a therapist after so much JavaScript lol",
+        "description": "Are you sure this option being correct is possible? Think again! If it’s impossible to think right now, you should read about \\[truthy values in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/Truthy).",
+        "option_id": 1
+      },
+      {
+        "text": "Impossible! You should see a therapist after so much JavaScript lol",
+        "description": "Yes! \\`\\[]\\` is a truthy value. With the \\`&&\\` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value \\`\\[]\\` is a truthy value, so \"Im' gets returned.\n\n\\`\"\"\\` is a falsy value. If the left-hand value is falsy, nothing gets returned. \\`n't\\` doesn't get returned. (via \\[Lydia Hallie's JavaScript Questions](https://github.com/lydiahallie/javascript-questions?tab=readme-ov-file#100-whats-the-value-of-output))",
+        "option_id": 2
+      },
+      {
+        "text": "possible! You shouldn't see a therapist after so much JavaScript lol",
+        "description": "The chance of this option being correct is 0%, impossible! We would suggest to get a primer on  \\[truthy values in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/Truthy).",
+        "option_id": 3
+      },
+      {
+        "text": "Impossible! You shouldn't see a therapist after so much JavaScript lol",
+        "description": "If you chose this answer, you should definitely read about \\[truthy values in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/Truthy). Seeing a therapist or not is up to you.",
+        "option_id": 4
+      }
+    ]
+  },
+  "isDraft": true,
+  "title": "Caching in the Next.js App Router, myths about accessibility, and a tool to manage your dotfiles",
+  "id": 19,
+  "tools": [
+    {
+      "name": "dotbot",
+      "description": "A tool that helps you organize your dotfiles by helping you keep them under version control system like git. It can provide “one click” idempotent installations for dotfiles that are specified using JSON or YAML files.",
+      "url": "https://github.com/anishathalye/dotbot",
+      "authors": [
+        " Anish Athalye"
+      ],
+      "tags": "Productivity"
+    },
+    {
+      "name": "What The Filter?",
+      "description": "A tool for visualizing JavaScript Array and Object transformations, by generating diagrams containing intermediate values, errors and warnings for each transformation step, that’ll help you find out what the code does (or doesn’t).",
+      "url": "https://renato-bohler.github.io/what-the-filter/",
+      "authors": "Renato Böhler",
+      "tags": "JavaScript"
+    }
+  ],
+  "description": "Visualize how different array and object transformations work in JavaScript, understand how caching, fetching and revalidations work with the Next.js App Router, check if you understand truthy values in JavaScript and a neat trick to create fixed length arrays with custom items via Array.from",
+  "articles": [
+    {
+      "title": "3 TypeScript Tricks I wish I knew when I learned TypeScript",
+      "description": "Learn some handy tricks with TypeScript that can help you write more maintainable code and save you some time.",
+      "url": "https://cstrnt.dev/blog/three-typescript-tricks",
+      "authors": [
+        "Tim Raderschad"
+      ],
+      "tags": "TypeScript"
+    },
+    {
+      "title": "Myths about Web Accessibility",
+      "description": "Although web accessibility should be a must in all web applications yet it remains a mystery among many developers. With this article, Alvaro tries to debunk some of the common misconceptions around web accessibility.",
+      "url": "https://alvaromontoro.com/blog/67989/myths-about-web-accessibility",
+      "authors": "Alvaro Montoro",
+      "tags": "Accessibility"
+    }
+  ]
+}
