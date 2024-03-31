@@ -78,7 +78,9 @@
       "name": "What The Filter?",
       "description": "A tool for visualizing JavaScript Array and Object transformations, by generating diagrams containing intermediate values, errors and warnings for each transformation step, that’ll help you find out what the code does (or doesn’t).",
       "url": "https://renato-bohler.github.io/what-the-filter/",
-      "authors": "Renato Böhler",
+      "authors": [
+        "Renato Böhler"
+      ],
       "tags": [
         "JavaScript",
         "Productivity"
@@ -104,8 +106,12 @@
       "title": "Myths about Web Accessibility",
       "description": "Although web accessibility should be a must in all web applications yet it remains a mystery among many developers. With this article, Alvaro tries to debunk some of the common misconceptions around web accessibility.",
       "url": "https://alvaromontoro.com/blog/67989/myths-about-web-accessibility",
-      "authors": "Alvaro Montoro",
-      "tags": "Accessibility"
+      "authors": [
+        "Alvaro Montoro"
+      ],
+      "tags": [
+        "Accessibility"
+      ]
     }
   ]
 }
