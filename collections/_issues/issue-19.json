@@ -67,9 +67,7 @@
       "name": "dotbot",
       "description": "A tool that helps you organize your dotfiles by helping you keep them under version control system like git. It can provide “one click” idempotent installations for dotfiles that are specified using JSON or YAML files.",
       "url": "https://github.com/anishathalye/dotbot",
-      "authors": [
-        " Anish Athalye"
-      ],
+      "authors": " Anish Athalye",
       "tags": "Productivity"
     },
     {
@@ -89,7 +87,9 @@
       "authors": [
         "Tim Raderschad"
       ],
-      "tags": "TypeScript"
+      "tags": [
+        "TypeScript"
+      ]
     },
     {
       "title": "Myths about Web Accessibility",
