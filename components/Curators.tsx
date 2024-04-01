@@ -74,7 +74,7 @@ function Curators(): JSX.Element {
       <div className="flex justify-evenly items-center flex-col flex-wrap">
         <div className="grid px-0 lg:px-12">
           {curators.map((curator, index) => {
-            const urlWithTrackingParams = getUrlWithUtmTrackingParams(curator.links.website);
+            const curatorUrlWithTrackingParams = getUrlWithUtmTrackingParams({ url: curator.links.website });
 
             return (
               <div className="flex sm:flex-col md:flex-row flex-wrap pb-8" key={index}>
@@ -83,7 +83,7 @@ function Curators(): JSX.Element {
                 >
                   <div className={`bg-${theme}-100 p-1 rounded`}>
                     <a
-                      href={urlWithTrackingParams}
+                      href={curatorUrlWithTrackingParams}
                       target="_blank"
                       rel="noreferrer"
                       className="flex transition duration-700 hover:scale-105"
@@ -105,7 +105,7 @@ function Curators(): JSX.Element {
                 </div>
                 <div className="flex flex-col">
                   <a
-                    href={urlWithTrackingParams}
+                    href={curatorUrlWithTrackingParams}
                     target="_blank"
                     rel="noreferrer"
                     className={`text-${theme}-800 hover:underline`}

@@ -10,7 +10,7 @@
 `wait` milliseconds.
 */
 
-export function debounce<Params extends unknown[]>(
+function debounce<Params extends unknown[]>(
   func: (...args: Params) => unknown,
   timeout: number
 ): (...args: Params) => void {
@@ -25,7 +25,7 @@ export function debounce<Params extends unknown[]>(
 
 /* =================================================================== */
 
-export const convertDate = (date: string): string => {
+const convertDate = (date: string): string => {
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
@@ -41,7 +41,7 @@ export const convertDate = (date: string): string => {
  * @param mediaUrl URL of media
  * @returns {string} media format
  */
-export const getMediaFormat = (mediaUrl: string): string => {
+const getMediaFormat = (mediaUrl: string): string => {
   const extension = mediaUrl.split('.');
   const mediaFormat = extension.pop();
 
@@ -57,15 +57,22 @@ export const getMediaFormat = (mediaUrl: string): string => {
 
 /* =================================================================== */
 
+type UtmMedium = 'newsletter' | 'website';
+
+interface UtmParams {
+  utm_source: string;
+  utm_medium: UtmMedium;
+}
+
 /**
  * Get URL with UTM tracking params
  * @param url URL to be appended with UTM tracking params
  * @returns {string} URL with UTM tracking params
  */
-export const getUrlWithUtmTrackingParams = (url: string): string => {
-  const utmParams: Record<string, string> = {
+const getUrlWithUtmTrackingParams = ({ url, medium = 'website' }: { url: string; medium?: UtmMedium }): string => {
+  const utmParams: UtmParams = {
     utm_source: 'scriptified.dev',
-    utm_medium: 'newsletter',
+    utm_medium: medium,
   };
 
   try {
@@ -82,3 +89,5 @@ export const getUrlWithUtmTrackingParams = (url: string): string => {
     return url;
   }
 };
+
+module.exports = { debounce, convertDate, getMediaFormat, getUrlWithUtmTrackingParams };

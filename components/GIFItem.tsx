@@ -22,7 +22,7 @@ const GIFItem = ({ gif }: { gif: Gif }): JSX.Element => {
   const renderMedia = ({ format, source, caption }: RenderMediaProps): JSX.Element => {
     switch (format) {
       case 'mp4':
-        const sourceWithTrackingParams = getUrlWithUtmTrackingParams(source);
+        const sourceWithTrackingParams = getUrlWithUtmTrackingParams({ url: source });
 
         return (
           <video

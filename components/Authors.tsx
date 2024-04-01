@@ -20,10 +20,10 @@ function Authors({ authors }: { authors: Array<string> | Array<Author> }): JSX.E
               );
             }
 
-            const urlWithTrackingParams = getUrlWithUtmTrackingParams(author.website);
+            const authorUrlWithTrackingParams = getUrlWithUtmTrackingParams({ url: author.website });
 
             return (
-              <a href={urlWithTrackingParams} target="_blank" rel="noreferrer" key={author.id}>
+              <a href={authorUrlWithTrackingParams} target="_blank" rel="noreferrer" key={author.id}>
                 <Text as="span" additionalStyles="uppercase hover:underline" size="sm" color="text-gray-600">
                   {isLastElement ? author.name : `${author.name}, `}
                 </Text>

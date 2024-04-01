@@ -24,12 +24,12 @@ interface ShareLinkProps {
 }
 
 export const ShareLink = ({ text, label, url, icon, showText }: ShareLinkProps): JSX.Element => {
-  const urlWithTrackingParams = getUrlWithUtmTrackingParams(url);
+  const shareUrlWithTrackingParams = getUrlWithUtmTrackingParams({ url });
 
   return (
     <a
       aria-label={label}
-      href={urlWithTrackingParams}
+      href={shareUrlWithTrackingParams}
       className="transition duration-500 ease-in-out hover:scale-125"
       target="_blank"
       rel="noreferrer"
