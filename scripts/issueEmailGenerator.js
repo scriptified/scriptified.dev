@@ -99,12 +99,35 @@ if ('issueNumber' in options && typeof options.issueNumber === 'number') {
       }
     }
 
+    const getUrlWithUtmTrackingParams = ({ url, medium = 'newsletter' }) => {
+      const utmParams = {
+        utm_source: 'scriptified.dev',
+        utm_medium: medium,
+      };
+
+      try {
+        const urlWithParams = new URL(url);
+
+        Object.keys(utmParams).forEach(key => {
+          urlWithParams.searchParams.set(key, utmParams[key]);
+        });
+
+        return urlWithParams.toString();
+      } catch (err) {
+        console.error(err);
+        // return url as is if URL is invalid
+        return url;
+      }
+    };
+
     const ogImgURL = getOGImage(currentIssue.title, currentIssue.id, currentIssue.date);
+
+    const issueWebUrl = getUrlWithUtmTrackingParams({ url: `https://scriptified.dev/issues/${currentIssue.id}` });
 
     const emailTemplate = `
 ![Headshot](${ogImgURL})
 
-<center>[Read issue on web](https://scriptified.dev/issues/${currentIssue.id})</center>
+<center>[Read issue on web](${issueWebUrl})</center>
 
 ${currentIssue.description}
 
@@ -112,13 +135,14 @@ ${currentIssue.description}
 
 ${currentIssue.tip_of_the_week.description}
 
-${currentIssue.tip_of_the_week.codeSnippet &&
-      ` 
+${
+  currentIssue.tip_of_the_week.codeSnippet &&
+  ` 
 \`\`\`${currentIssue.tip_of_the_week.codeSnippet.language}
 ${currentIssue.tip_of_the_week.codeSnippet.code.code}
 \`\`\`
 `
-      }
+}
 
 ${getAuthors(currentIssue.tip_of_the_week?.authors)}
 ___
@@ -126,60 +150,61 @@ ___
 # Articles
 
 ${currentIssue.articles
-        .map(
-          article =>
-            `[**${article.title}**](${article.url})
+  .map(
+    article =>
+      `[**${article.title}**](${getUrlWithUtmTrackingParams({ url: article.url })})
 
 ${article.description}
 
 ${getAuthors(article?.authors)}
 `
-        )
-        .join('\n')}
+  )
+  .join('\n')}
 
 ___
 
-${currentIssue.devOfTheWeek
-        ? `# Dev of the Week 
+${
+  currentIssue.devOfTheWeek
+    ? `# Dev of the Week 
     
 <img alt="${currentIssue.devOfTheWeek.name}" src="${getAssetURL(
-          currentIssue.id,
-          currentIssue.devOfTheWeek.profileImg
-        )}" style="width:200px;"/> 
+        currentIssue.id,
+        currentIssue.devOfTheWeek.profileImg
+      )}" style="width:200px;"/> 
   
 ## ${currentIssue.devOfTheWeek.name} 
 ${currentIssue.devOfTheWeek.bio} 
   
 ${Object.keys(currentIssue.devOfTheWeek)
-          .filter(key => PROFILE_KEYS.includes(key) && currentIssue.devOfTheWeek[key] !== null)
-          .map(profile => `[${PROFILE_TYPES[profile]}](${currentIssue.devOfTheWeek[profile]})`)
-          .join(' | ')}
+  .filter(key => PROFILE_KEYS.includes(key) && currentIssue.devOfTheWeek[key] !== null)
+  .map(profile => `[${PROFILE_TYPES[profile]}](${currentIssue.devOfTheWeek[profile]})`)
+  .join(' | ')}
 
 ___`
-        : ''
-      }
+    : ''
+}
 
 # Tools
 
 ${currentIssue.tools
-        .map(
-          tool =>
-            `[**${tool.name}**](${tool.url})
+  .map(
+    tool =>
+      `[**${tool.name}**](${getUrlWithUtmTrackingParams({ url: tool.url })})
     
 ${tool.description}
 
 ${getAuthors(tool?.authors)}
 `
-        )
-        .join('\n')}
+  )
+  .join('\n')}
 
 ___
 
 # Tech Talks
 
-[**${currentIssue.talks[0].title}**](${currentIssue.talks[0].url})
+[**${currentIssue.talks[0].title}**](${getUrlWithUtmTrackingParams({ url: currentIssue.talks[0].url })})
 
-${currentIssue.talks[0].url}
+${getUrlWithUtmTrackingParams({ url: currentIssue.talks[0].url })})
 
 ${currentIssue.talks[0].description}
 
@@ -195,9 +220,16 @@ ___
 ${currentIssue.quiz.codeSnippet.code.code}
 \`\`\`
 
-${currentIssue.quiz.options.map(
-          option => `[<div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">${option.text.split('\n').join('<br>')}</div>](https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${option.option_id})`
-        ).join('\n')}
+${currentIssue.quiz.options
+  .map(
+    option =>
+      `[<div style="margin: 12px 0px; border: 1px solid gray; padding: 16px; background: #F2F3F5;">${option.text
+        .split('\n')
+        .join('<br>')}</div>](https://scriptified.dev/issues/${currentIssue.id}?section=quiz&option=${
+        option.option_id
+      })`
+  )
+  .join('\n')}
 
 
 ___
@@ -213,8 +245,8 @@ ___
 Liked this issue? [Share on Twitter](https://twitter.com/intent/tweet?text=${encodeURIComponent(`Have a look at issue #${currentIssue.id} of Scriptified.
 
 Subscribe to @scriptified_dev for more.`)}&url=${encodeURIComponent(
-          `https://scriptified.dev/issues/${currentIssue.id}`
-        )}) or [read previous issues](https://scriptified.dev/issues).
+      `${issueWebUrl}`
+    )}) or [read previous issues](https://scriptified.dev/issues).
 `;
     const archiveDirectory = './archives';
     const issueFile = `${archiveDirectory}/issue${currentIssue.id}.md`;
