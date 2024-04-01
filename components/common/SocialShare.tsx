@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { CopyIcon, CheckSqaureIcon, TwitterIcon, ShareIcon, WhatsAppIcon, FacebookIcon } from '../icons/icons';
 import { useThemeState } from '../../theme/ThemeContext';
+import { getUrlWithUtmTrackingParams } from '../../utils';
 
 interface SocialShareProps {
   url?: string;
@@ -23,10 +24,12 @@ interface ShareLinkProps {
 }
 
 export const ShareLink = ({ text, label, url, icon, showText }: ShareLinkProps): JSX.Element => {
+  const urlWithTrackingParams = getUrlWithUtmTrackingParams(url);
+
   return (
     <a
       aria-label={label}
-      href={url}
+      href={urlWithTrackingParams}
       className="transition duration-500 ease-in-out hover:scale-125"
       target="_blank"
       rel="noreferrer"

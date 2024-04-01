@@ -1,14 +1,17 @@
 import Image from 'next/image';
 import ArticleItem from './ArticleItem';
 import Tool from '../interfaces/tool';
+import { getUrlWithUtmTrackingParams } from '../utils';
 
 const ToolItem = ({ tool: { title, url, logo, authors, desc, tags } }: { tool: Tool }): JSX.Element => {
   const article = { title, url, desc, authors, tags };
 
+  const urlWithTrackingParams = getUrlWithUtmTrackingParams(url);
+
   return (
     <div className="flex flex-wrap sm:flex-nowrap flex-row items-center">
       <a
-        href={url}
+        href={urlWithTrackingParams}
         className="w-full mr-8 max-w-[fit-content] my-4 p-1 transition duration-700 hover:scale-105 img-shadow-sm hover:img-shadow-none"
         target="_blank"
         rel="noreferrer"
