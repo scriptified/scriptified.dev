@@ -54,3 +54,31 @@ export const getMediaFormat = (mediaUrl: string): string => {
       return mediaFormat;
   }
 };
+
+/* =================================================================== */
+
+/**
+ * Get URL with UTM tracking params
+ * @param url URL to be appended with UTM tracking params
+ * @returns {string} URL with UTM tracking params
+ */
+export const getUrlWithUtmTrackingParams = (url: string): string => {
+  const utmParams: Record<string, string> = {
+    utm_source: 'scriptified.dev',
+    utm_medium: 'newsletter',
+  };
+
+  try {
+    const urlWithParams = new URL(url);
+
+    Object.keys(utmParams).forEach(key => {
+      urlWithParams.searchParams.set(key, utmParams[key]);
+    });
+
+    return urlWithParams.toString();
+  } catch (err) {
+    console.error(err);
+    // return url as is if URL is invalid
+    return url;
+  }
+};
