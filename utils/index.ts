@@ -10,7 +10,7 @@
 `wait` milliseconds.
 */
 
-function debounce<Params extends unknown[]>(
+export function debounce<Params extends unknown[]>(
   func: (...args: Params) => unknown,
   timeout: number
 ): (...args: Params) => void {
@@ -25,7 +25,7 @@ function debounce<Params extends unknown[]>(
 
 /* =================================================================== */
 
-const convertDate = (date: string): string => {
+export const convertDate = (date: string): string => {
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
@@ -41,7 +41,7 @@ const convertDate = (date: string): string => {
  * @param mediaUrl URL of media
  * @returns {string} media format
  */
-const getMediaFormat = (mediaUrl: string): string => {
+export const getMediaFormat = (mediaUrl: string): string => {
   const extension = mediaUrl.split('.');
   const mediaFormat = extension.pop();
 
@@ -69,7 +69,13 @@ interface UtmParams {
  * @param url URL to be appended with UTM tracking params
  * @returns {string} URL with UTM tracking params
  */
-const getUrlWithUtmTrackingParams = ({ url, medium = 'website' }: { url: string; medium?: UtmMedium }): string => {
+export const getUrlWithUtmTrackingParams = ({
+  url,
+  medium = 'website',
+}: {
+  url: string;
+  medium?: UtmMedium;
+}): string => {
   const utmParams: UtmParams = {
     utm_source: 'scriptified.dev',
     utm_medium: medium,
@@ -89,5 +95,3 @@ const getUrlWithUtmTrackingParams = ({ url, medium = 'website' }: { url: string;
     return url;
   }
 };
-
-module.exports = { debounce, convertDate, getMediaFormat, getUrlWithUtmTrackingParams };
