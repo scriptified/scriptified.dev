@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Gif from '../interfaces/gif';
 import { useThemeState } from '../theme/ThemeContext';
-import { getMediaFormat } from '../utils';
+import { getMediaFormat, getUrlWithUtmTrackingParams } from '../utils';
 import Text from './common/Text';
 import Markdown from './Markdown';
 
@@ -22,6 +22,8 @@ const GIFItem = ({ gif }: { gif: Gif }): JSX.Element => {
   const renderMedia = ({ format, source, caption }: RenderMediaProps): JSX.Element => {
     switch (format) {
       case 'mp4':
+        const sourceWithTrackingParams = getUrlWithUtmTrackingParams({ url: source });
+
         return (
           <video
             autoPlay
@@ -34,9 +36,10 @@ const GIFItem = ({ gif }: { gif: Gif }): JSX.Element => {
             title={caption}
             preload="metadata"
           >
-            <source src={source} type="video/mp4" />
+            <source src={sourceWithTrackingParams} type="video/mp4" />
             <p>
-              Your browser doesn&apos;t support HTML5 video. Here is a <a href={source}>link to the video</a> instead.
+              Your browser doesn&apos;t support HTML5 video. Here is a{' '}
+              <a href={sourceWithTrackingParams}>link to the video</a> instead.
             </p>
           </video>
         );

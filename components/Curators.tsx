@@ -4,6 +4,7 @@ import { useThemeState } from '../theme/ThemeContext';
 import SocialLinks from './common/SocialLinks';
 import Text from './common/Text';
 import Markdown from './Markdown';
+import { getUrlWithUtmTrackingParams } from '../utils';
 
 function shuffle(array: unknown[]): unknown[] {
   const shuffledArray = JSON.parse(JSON.stringify(array));
@@ -73,6 +74,8 @@ function Curators(): JSX.Element {
       <div className="flex justify-evenly items-center flex-col flex-wrap">
         <div className="grid px-0 lg:px-12">
           {curators.map((curator, index) => {
+            const curatorUrlWithTrackingParams = getUrlWithUtmTrackingParams({ url: curator.links.website });
+
             return (
               <div className="flex sm:flex-col md:flex-row flex-wrap pb-8" key={index}>
                 <div
@@ -80,7 +83,7 @@ function Curators(): JSX.Element {
                 >
                   <div className={`bg-${theme}-100 p-1 rounded`}>
                     <a
-                      href={curator.links.website}
+                      href={curatorUrlWithTrackingParams}
                       target="_blank"
                       rel="noreferrer"
                       className="flex transition duration-700 hover:scale-105"
@@ -102,7 +105,7 @@ function Curators(): JSX.Element {
                 </div>
                 <div className="flex flex-col">
                   <a
-                    href={curator.links.website}
+                    href={curatorUrlWithTrackingParams}
                     target="_blank"
                     rel="noreferrer"
                     className={`text-${theme}-800 hover:underline`}

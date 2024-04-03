@@ -1,4 +1,5 @@
 import Author from '../interfaces/author';
+import { getUrlWithUtmTrackingParams } from '../utils';
 import Text from './common/Text';
 
 function Authors({ authors }: { authors: Array<string> | Array<Author> }): JSX.Element {
@@ -19,8 +20,10 @@ function Authors({ authors }: { authors: Array<string> | Array<Author> }): JSX.E
               );
             }
 
+            const authorUrlWithTrackingParams = getUrlWithUtmTrackingParams({ url: author.website });
+
             return (
-              <a href={author.website} target="_blank" rel="noreferrer" key={author.id}>
+              <a href={authorUrlWithTrackingParams} target="_blank" rel="noreferrer" key={author.id}>
                 <Text as="span" additionalStyles="uppercase hover:underline" size="sm" color="text-gray-600">
                   {isLastElement ? author.name : `${author.name}, `}
                 </Text>
