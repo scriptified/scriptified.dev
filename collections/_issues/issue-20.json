@@ -1,0 +1,111 @@
+{
+  "gif": {
+    "gifURL": "gif-20.mp4",
+    "caption": "When a colleague forwards me a bunch of tickets while I’m in the middle of coding"
+  },
+  "tip_of_the_week": {
+    "title": "Format Number with Ordinals",
+    "description": "We can use the `Intl.PluralRules` API to format numbers with their st, nd, rd and th ordinals.",
+    "sourceName": "WesBos",
+    "sourceURL": "https://twitter.com/wesbos/status/1720188668533473423/photo/1",
+    "codeSnippet": {
+      "language": "ts",
+      "code": {
+        "code": "const pr = new Intl.PluralRules('en-US', {\n  type: 'ordinal'\n});\n\nconst numberformatter = new Intl.NumberFormat('en-US');\n\nconst suffixes = new Map([\n  ['one', 'st'],\n  ['two', 'nd'],\n  ['few', 'rd'],\n  ['other', 'th']\n]);\n\nfunction formatNumber(n: number) {\n  const rule = pr.select(n); // 'one', 'two', 'few', 'other'\n  const suffix = suffixes.get(rule);\n  return `${numberformatter.format(n)}${suffix}`;\n}\n\nformatNumber(1); // 1st\nformatNumber(2); // 2nd\nformatNumber(123453); // 123,453rd\nformatNumber(5555); // 5,555th\n",
+        "lang": "typescript"
+      },
+      "showLineNumbers": false
+    }
+  },
+  "talks": [
+    {
+      "title": "Understanding the V8 JavaScript Engine",
+      "description": "Learn with visualizations how JavaScript code written for humans gets compiled and optimized to code that machines understand ",
+      "url": "https://www.youtube.com/watch?v=xckH5s3UuX4",
+      "authors": [
+        "Adam Argyle"
+      ],
+      "tags": [
+        "JavaScript",
+        "Browsers"
+      ]
+    }
+  ],
+  "date": "2024-04-16T10:00:00.000Z",
+  "quiz": {
+    "question": "What is wrong with the following snippet?",
+    "codeSnippet": {
+      "language": "js",
+      "code": {
+        "code": "function* getSquares(limit) {\n   for (i = 1; i <= limit; i++) {\n      yield i * i;\n   }\n}\n\nfor (const number in getSquares(3)) {\n    console.log(number);\n}",
+        "lang": "javascript"
+      },
+      "showLineNumbers": false
+    },
+    "options": [
+      {
+        "text": "Generator functions cannot be iterated",
+        "description": "That is not correct the `Generator` object returned by generator functions conforms to the iterator protocol, which makes them iterable. Check out the [documentation of generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*#description) for more info.",
+        "option_id": 1
+      },
+      {
+        "text": "\\`function*\\` is not a valid syntax in JavaScript",
+        "description": "\\`function*\\` syntax is used for creating generator functions in JavaScript. Check out the [documentation of generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*#description) for more info.",
+        "option_id": 2
+      },
+      {
+        "text": "\\`for…of\\` loop should be used instead of \\`for…in\\` loop",
+        "description": "Bingo! \\`for…of\\` loop executes a loop that operates on a sequence of values sourced from an [iterable object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), whereas \\`for...in\\` statement iterates over all [enumerable string properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) of an object",
+        "option_id": 3
+      },
+      {
+        "text": "\\`yield\\` is not a valid keyword in JavaScript, use \\`return\\` instead",
+        "description": "`yield` operator is used to pause and resume a generator functions. Check out the [documentation of generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*#description) for more info.",
+        "option_id": 4
+      }
+    ],
+    "answerId": 6
+  },
+  "isDraft": true,
+  "title": "Mock Title",
+  "id": 20,
+  "tools": [
+    {
+      "url": "https://github.com/charmbracelet/freeze",
+      "name": "Freeze",
+      "description": "Freeze let’s you generate high quality PNGs, SVGs and WEBPs of code and terminal output directly from your terminal.",
+      "authors": [
+        "Chak Shun Yu"
+      ],
+      "tags": [
+        "Productivity"
+      ]
+    }
+  ],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "articles": [
+    {
+      "title": "Implicit Assertions",
+      "description": "Have a better understanding about the explicit and implicit assertions now, and perhaps even have a test or two in mind to improve.",
+      "url": "https://www.epicweb.dev/implicit-assertions",
+      "authors": [
+        "Adam Argyle"
+      ],
+      "tags": [
+        "JavaScript"
+      ]
+    },
+    {
+      "title": "Smart CSS Solutions For Common UI Challenges",
+      "description": "Writing CSS has probably never been more fun and exciting than it is today. In this post we look at common problems, use cases and how to solve them with modern CSS.",
+      "url": "https://www.smashingmagazine.com/2021/10/modern-css-solutions-for-common-problems/",
+      "authors": [
+        "Kent C Dodds"
+      ],
+      "tags": [
+        "CSS",
+        "UI"
+      ]
+    }
+  ]
+}
