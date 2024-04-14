@@ -23,7 +23,7 @@
       "description": "Learn with visualizations how JavaScript code written for humans gets compiled and optimized to code that machines understand ",
       "url": "https://www.youtube.com/watch?v=xckH5s3UuX4",
       "authors": [
-        "Adam Argyle"
+        "Lydia Hallie"
       ],
       "tags": [
         "JavaScript",
@@ -64,7 +64,7 @@
         "option_id": 4
       }
     ],
-    "answerId": 7
+    "answerId": 3
   },
   "isDraft": true,
   "title": "Mock Title",
@@ -75,20 +75,22 @@
       "name": "Freeze",
       "description": "Freeze let’s you generate high quality PNGs, SVGs and WEBPs of code and terminal output directly from your terminal.",
       "authors": [
-        "Chak Shun Yu"
+        "Charm"
       ],
       "tags": [
         "Productivity"
-      ]
+      ],
+      "logo": "freeze.png"
     },
     {
       "name": "Common",
       "url": "https://www.common.wtf/",
       "authors": [
-        "Beyond Code"
+        "Benjamin Hoppe"
       ],
       "tags": [
-        "Front-End"
+        "Front-End",
+        "HTML"
       ],
       "description": "Easily click to copy unicodes that are commonly used when designing interfaces."
     }
@@ -100,9 +102,10 @@
       "description": "Have a better understanding about the explicit and implicit assertions now, and perhaps even have a test or two in mind to improve.",
       "url": "https://www.epicweb.dev/implicit-assertions",
       "authors": [
-        "Adam Argyle"
+        "Artem Zakharchenko"
       ],
       "tags": [
+        "Testing",
         "JavaScript"
       ]
     },
@@ -111,7 +114,7 @@
       "description": "Writing CSS has probably never been more fun and exciting than it is today. In this post we look at common problems, use cases and how to solve them with modern CSS.",
       "url": "https://www.smashingmagazine.com/2021/10/modern-css-solutions-for-common-problems/",
       "authors": [
-        "Kent C Dodds"
+        "Cosima Mielke"
       ],
       "tags": [
         "CSS",
