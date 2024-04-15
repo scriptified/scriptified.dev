@@ -49,17 +49,17 @@
         "option_id": 1
       },
       {
-        "text": "\\`function*\\` is not a valid syntax in JavaScript",
-        "description": "\\`function*\\` syntax is used for creating generator functions in JavaScript. Check out the [documentation of generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*#description) for more info.",
+        "text": "`function*` is not a valid syntax in JavaScript",
+        "description": "`function*` syntax is used for creating generator functions in JavaScript. Check out the [documentation of generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*#description) for more info.",
         "option_id": 2
       },
       {
-        "text": "\\`for…of\\` loop should be used instead of \\`for…in\\` loop",
-        "description": "Bingo! \\`for…of\\` loop executes a loop that operates on a sequence of values sourced from an [iterable object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), whereas \\`for...in\\` statement iterates over all [enumerable string properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) of an object",
+        "text": "`for…of` loop should be used instead of `for…in` loop",
+        "description": "Bingo! `for…of` loop executes a loop that operates on a sequence of values sourced from an [iterable object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol), whereas `for...in` statement iterates over all [enumerable string properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) of an object",
         "option_id": 3
       },
       {
-        "text": "\\`yield\\` is not a valid keyword in JavaScript, use \\`return\\` instead",
+        "text": "`yield` is not a valid keyword in JavaScript, use `return` instead",
         "description": "`yield` operator is used to pause and resume a generator functions. Check out the [documentation of generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*#description) for more info.",
         "option_id": 4
       }
@@ -67,7 +67,7 @@
     "answerId": 3
   },
   "isDraft": true,
-  "title": "Mock Title",
+  "title": "Understand how the v8 engine works, generate images of code from the terminal, and format numbers with ordinals",
   "id": 20,
   "tools": [
     {
@@ -95,7 +95,7 @@
       "description": "Easily click to copy unicodes that are commonly used when designing interfaces."
     }
   ],
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "description": " Learn how to write better tests with implicit assertions, solve common UI problems easily with modern CSS, create high-quality images of code snippets and terminal output straight from your terminal, and test your understanding of generators in JavaScript.",
   "articles": [
     {
       "title": "Implicit Assertions",
