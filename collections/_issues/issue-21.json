@@ -1,7 +1,7 @@
 {
   "gif": {
     "caption": "When I run my code to see how it behaves (via https://thecodinglove.com)",
-    "gifURL": "gif-20.mp4"
+    "gifURL": "gif-21.mp4"
   },
   "tip_of_the_week": {
     "codeSnippet": {
@@ -77,7 +77,8 @@
         "Design",
         "Front-End",
         "Graphics"
-      ]
+      ],
+      "logo": "svgl.svg"
     },
     {
       "name": "Lightning CSS",
@@ -89,7 +90,8 @@
       "tags": [
         "CSS",
         "Front-End"
-      ]
+      ],
+      "logo": "lightning-css.svg"
     }
   ],
   "description": "Learn about flushSync in React, easily grab SVGs for all major companies, changes in React 19, and a lightning fast CSS parser.",
