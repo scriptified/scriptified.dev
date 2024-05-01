@@ -1,6 +1,6 @@
 {
   "gif": {
-    "caption": "When I run my code to see how it behaves",
+    "caption": "When I run my code to see how it behaves (via https://thecodinglove.com)",
     "gifURL": "gif-20.mp4"
   },
   "tip_of_the_week": {
@@ -52,7 +52,7 @@
       },
       {
         "text": "`game.next().value` and `game.next(\"Yes\").value`",
-        "description": "A [generator function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) \"pauses\" its execution when it sees the `yield` keyword. First, we have to let the function yield the string \"Do you love JavaScript?\", which can be done by calling `game.next().value`.\n\nEvery line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! This means that the variable answer is not defined yet!\n\nWhen we call `game.next(\"Yes\").value`, the previous yield is replaced with the value of the parameters passed to the `next()` function, \"Yes\" in this case. The value of the variable answer is now equal to \"Yes\". The condition of the if-statement returns `false`, and JavaScript loves you back ❤️ gets logged.",
+        "description": "A [generator function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) \"pauses\" its execution when it sees the `yield` keyword. First, we have to let the function yield the string \"Do you love JavaScript?\", which can be done by calling `game.next().value`.\n\nEvery line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! This means that the variable answer is not defined yet!\n\nWhen we call `game.next(\"Yes\").value`, the previous yield is replaced with the value of the parameters passed to the `next()` function, \"Yes\" in this case. The value of the variable answer is now equal to \"Yes\". The condition of the if-statement returns `false`, and JavaScript loves you back ❤️ gets logged. (Via [JavaScript Questions by Lydia](https://github.com/lydiahallie/javascript-questions))",
         "option_id": 3
       },
       {
