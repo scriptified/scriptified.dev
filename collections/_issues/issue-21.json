@@ -24,7 +24,7 @@
         "Scott Chacon"
       ],
       "tags": [
-        "Graphics"
+        "Git"
       ]
     }
   ],
@@ -113,7 +113,8 @@
         "Austin Gil"
       ],
       "tags": [
-        "Optimization"
+        "Optimization",
+        "Backend"
       ]
     }
   ]
