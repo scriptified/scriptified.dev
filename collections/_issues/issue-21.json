@@ -62,7 +62,7 @@
       }
     ]
   },
-  "isDraft": true,
+  "isDraft": false,
   "title": "Exploring React 19 Beta, Understanding Edge Computing, Mastering Git, and more",
   "id": 21,
   "tools": [
