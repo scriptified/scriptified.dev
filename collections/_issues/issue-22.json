@@ -63,7 +63,7 @@
     "answerId": 2
   },
   "isDraft": true,
-  "title": "Mock title",
+  "title": "Mastering useDeferredValue, React 19, Understanding RSC and more",
   "id": 22,
   "tools": [
     {
@@ -92,7 +92,7 @@
       ]
     }
   ],
-  "description": "sample",
+  "description": "This edition covers advice on optimizing React state updates, an overview of HTML attributes vs. DOM properties, and introductions to helpful design and recording apps.",
   "articles": [
     {
       "title": "HTML attributes vs DOM properties",
