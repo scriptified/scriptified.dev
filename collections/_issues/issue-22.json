@@ -1,0 +1,121 @@
+{
+  "gif": {
+    "gifURL": "gif-22.mp4",
+    "caption": "When I explain to the salesperson why the deadline they promised is unachievable"
+  },
+  "tip_of_the_week": {
+    "title": "Use function updaters to avoid unnecessary dependencies in your handler functions",
+    "description": "In your state setters, prefer function updaters to avoid unnecessary dependencies in your handler functions!",
+    "sourceURL": "https://x.com/kyleshevlin/status/1791207514538917943",
+    "sourceName": "Kyle Shevlin",
+    "codeSnippet": {
+      "language": "js",
+      "code": {
+        "code": "// naw naw naw, this is recreated every time it's called\nconst handleClick = React.useCallback(() => {\n  setIsOpen(!isOpen)\n}, [isOpen])\n\n// yas yas yas, never needs to be recreated\nconst handleClick = React.useCallback(() => {\n  setIsOpen(currentIsOpen => !currentIsOpen)\n}, [])"
+      }
+    }
+  },
+  "talks": [
+    {
+      "title": "React for 2 computers",
+      "authors": [
+        "Dan Abramov"
+      ],
+      "tags": [
+        "React"
+      ],
+      "url": "https://www.youtube.com/live/T8TZQ6k4SLE?si=w3lgbL16nIoFpon2&t=18825",
+      "description": "In this talk Dan takes helps you rethink how rendering a webpage is a single program that is split between two computers, the client and the server, and how React server components help you build versatile apps around this mental modela"
+    }
+  ],
+  "date": "2024-05-27T09:00:00.000Z",
+  "quiz": {
+    "question": "What is wrong? (React)",
+    "codeSnippet": {
+      "language": "js",
+      "code": {
+        "code": "function App() {\n  const [query, setQuery] = React.useState(\"\");\n  const deferredQuery = React.useDeferredValue(query);\n  return (\n    <>\n      <input type=\"text\" value={query} onChange={(e) => setQuery(e.target.value)} />\n      <ExpensiveComponent query={deferredQuery} />\n    </>\n  );\n}\n\nfunction ExpensiveComponent({ query }) {\n  // A component that has some heavy computation\n  // and takes a long time to render\n}\n\n"
+      },
+      "showLineNumbers": true
+    },
+    "options": [
+      {
+        "text": "useDeferredValue is not a valid React hook, useMemo should be used here instead",
+        "description": "It is a [valid hook](https://react.dev/reference/react/useDeferredValue) introduced with React 18 that lets you defer updating a part of the UI.",
+        "option_id": 1
+      },
+      {
+        "text": "Expensive component needs to be memoized",
+        "description": "Bingo!  The default behaviour in React is for all child components to be re-rendered, regardless of whether their props have changed or not. So whenever the query changes the ExpensiveComponent would re-render regardless of whatever deferredQuery is. Check out this [awesome blog by Josh](https://www.joshwcomeau.com/react/use-deferred-value) that dives deep into this hook and the gotchas related to it.",
+        "option_id": 0
+      },
+      {
+        "text": "useDeferredValue hook returns an array with the deferred value and a value setter similar to useState",
+        "description": "The syntax is correct, the hook returns just the deferred value. Check out [the docs for useDeferredValue](https://react.dev/reference/react/useDeferredValue) for more info.",
+        "option_id": 1
+      },
+      {
+        "text": "useDeferredValue hook should be used inside ExpensiveComponent instead of App",
+        "description": "That would not solve the problem because you would still be re-rendering the component whenever the query changes.",
+        "option_id": 7
+      }
+    ],
+    "answerId": 2
+  },
+  "isDraft": true,
+  "title": "Mock title",
+  "id": 22,
+  "tools": [
+    {
+      "url": "https://chromewebstore.google.com/detail/svg-grabber-get-all-the-s/ndakggdliegnegeclmfgodmgemdokdmg?pli=1",
+      "name": "svg-grabber",
+      "description": "This tool is a handy extension for developers and designers alike, allowing for quick and easy extraction of SVG files from a webpage.",
+      "logo": "svg-grabber.png",
+      "authors": [
+        "NGTI"
+      ],
+      "tags": [
+        "Design",
+        "Front-End"
+      ]
+    },
+    {
+      "description": "A Lightweight and powerful open source alternative to Loom, that let’s you record and share in seconds.",
+      "name": "Cap",
+      "url": "https://cap.so/",
+      "logo": "cap.png",
+      "authors": [
+        "Cap Software"
+      ],
+      "tags": [
+        "Productivity"
+      ]
+    }
+  ],
+  "description": "sample",
+  "articles": [
+    {
+      "title": "HTML attributes vs DOM properties",
+      "description": "Learn the fundamental differences between HTML attributes and DOM properties, including how they are serialized, their value types, and case sensitivity. It also covers how frameworks like Preact, Vue.js, and React handle the distinction between attributes and properties.",
+      "url": "https://jakearchibald.com/2024/attributes-vs-properties/",
+      "authors": [
+        "Jake Archibald"
+      ],
+      "tags": [
+        "HTML",
+        "Browsers"
+      ]
+    },
+    {
+      "title": "React 19 lets you write impossible components",
+      "url": "https://www.mux.com/blog/react-19-server-components-and-actions",
+      "description": "What can you do with Server Components and Actions in React 19? Let’s talk about how React 19’s features are a big deal, even for a simple marketing site.",
+      "authors": [
+        "Darius Cepulis"
+      ],
+      "tags": [
+        "React"
+      ]
+    }
+  ]
+}
